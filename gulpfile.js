@@ -5,6 +5,8 @@ const AsepriteCli       = require('aseprite-cli');
 const chalk             = require('chalk');
 const gulp              = require('gulp');
 
+const WorldBuilder      = require('./tools/world-builder.js');
+
 // -----------------------------------------------------------------------------
 // Gulp Plugins
 // -----------------------------------------------------------------------------
@@ -44,11 +46,20 @@ async function exportFont() {
     }
 }
 
+async function generateWorld() {
+    const mapFile = 'src/assets/world.tmx';
+    const detailFile = 'src/assets/world.yaml';
+    const worldFile = 'src/js/World-gen.js';
+
+    await WorldBuilder.build(mapFile, detailFile, worldFile);
+}
+
 // -----------------------------------------------------------------------------
 // Build
 // -----------------------------------------------------------------------------
 const build = gulp.series(
-    exportFont
+    exportFont,
+    generateWorld
 );
 
 // -----------------------------------------------------------------------------
