@@ -1,7 +1,7 @@
 {
   "name": "goddess",
   "version": "1.0.0",
-  "description": "",
+  "description": "WIP!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,16 +9,17 @@
   "keywords": [],
   "author": "Elliot Nelson",
   "license": "MIT",
-  "dependencies": {
-    "fast-xml-parser": "^3.19.0",
-    "tar": "^6.1.1",
-    "tmx-parser": "^1.5.0",
-    "xml2js": "^0.4.23"
-  },
+  "dependencies": {},
   "devDependencies": {
     "aseprite-cli": "^1.1.2",
     "chalk": "^4.1.1",
     "gulp": "^4.0.2",
-    "js-yaml": "^4.1.0"
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-template": "^5.0.0",
+    "js-yaml": "^4.1.0",
+    "rollup": "^2.55.1",
+    "xml2js": "^0.4.23"
   }
 }
