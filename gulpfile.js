@@ -33,11 +33,11 @@ async function exportFont() {
     const png = 'src/assets/font-gen.png';
 
     try {
-        console.log(await AsepriteCli.exec([
+        await AsepriteCli.exec([
             '--tag', 'font',
             src,
             '--sheet', png
-        ]));
+        ]);
     } catch (e) {
         // Allow developers without Aseprite to build the project (if desired, they'll need
         // to update the generated image files manually).
