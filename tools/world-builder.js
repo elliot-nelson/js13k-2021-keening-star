@@ -1,19 +1,18 @@
-// world-builder
-//
-// Build the "world", a big data blob containing all the information we need about the
-// world the player plays in, and assemble it as a source file. The map data comes from
-// Tiled, and data like stats and messages and descriptions comes from a YAML file.
-
 const fs = require('fs');
 const util = require('util');
 const yaml = require('js-yaml');
 const tmx = require('./tmx-parser');
 
+/**
+ * Build the "world", a big data blob containing all the information we need about the
+ * world the player plays in, and assemble it as a source file. The map data comes from
+ * Tiled, and data like stats and messages and descriptions comes from a YAML file.
+ */
 const WorldBuilder = {
-    //
-    // Combine a Tiled (tmx) file with a YAML data file to produce a single
-    // source (javascript) file included in the game.
-    //
+    /*
+     * Combine a Tiled (tmx) file with a YAML data file to produce a single
+     * source (javascript) file included in the game.
+     */
     async build(mapFile, detailFile, outputFile) {
         let data = await this._extractWorldFromTmx(mapFile);
 
@@ -23,12 +22,12 @@ const WorldBuilder = {
         this._writeOutputFile(data, outputFile);
     },
 
-    //
-    // We rely heavily on convention here -- the Tiled "world" is made up of multiple floors,
-    // each represented by a Layer Group containing several layers like "TILES", "ROOMS", and
-    // "OBJECTS". The data from all the layers in a group is combined to represent the data
-    // for a particular floor.
-    //
+    /*
+     * We rely heavily on convention here -- the Tiled "world" is made up of multiple floors,
+     * each represented by a Layer Group containing several layers like "TILES", "ROOMS", and
+     * "OBJECTS". The data from all the layers in a group is combined to represent the data
+     * for a particular floor.
+     */
     async _extractWorldFromTmx(inputFile) {
         const tiled = await tmx.parseTmxFile(inputFile);
 
@@ -68,11 +67,11 @@ const WorldBuilder = {
         return world;
     },
 
-    //
-    // Return the min/max bounds of the entire world in Tiled. The actual Tiled world is
-    // probably quite a bit bigger than it needs to be, for ease of expanding in any
-    // direction in the editor.
-    //
+    /*
+     * Return the min/max bounds of the entire world in Tiled. The actual Tiled world is
+     * probably quite a bit bigger than it needs to be, for ease of expanding in any
+     * direction in the editor.
+     */
     _getBounds(floors) {
         let bounds = [[Infinity, Infinity], [-Infinity, -Infinity]];
         for (let floor of floors) {
@@ -94,10 +93,10 @@ const WorldBuilder = {
         return bounds;
     },
 
-    //
-    // Convert the positions of rooms and objects, which in are in "pixel" space in Tiled,
-    // into coordinate space, so they match up with the tiles they are drawn on.
-    //
+    /*
+     * Convert the positions of rooms and objects, which in are in "pixel" space in Tiled,
+     * into coordinate space, so they match up with the tiles they are drawn on.
+     */
     _positionRoomsAndObjects(world, tileWidth, tileHeight) {
         for (let floor of world.floors) {
             for (let object of floor.objects) {
@@ -117,10 +116,10 @@ const WorldBuilder = {
         }
     },
 
-    //
-    // Given new bounds, shrink the entire world as small as possible to save space, making sure
-    // to adjust the coordinates of rooms and objects at the same time.
-    //
+    /*
+     * Given new bounds, shrink the entire world as small as possible to save space, making sure
+     * to adjust the coordinates of rooms and objects at the same time.
+     */
     _shrinkWorld(world) {
         let startX = world.bounds[0][0],
             endX = world.bounds[1][0],
@@ -142,11 +141,11 @@ const WorldBuilder = {
         world.bounds = [[0, 0], [endX - startX, endY - startY]];
     },
 
-    //
-    // Grab-bag of small modifications to the world data to line it up with the expectations
-    // of the game engine. Mostly we are converting from "Tiled" values to in-game "ASCII" values,
-    // while making a few other miscellaneous adjustments.
-    //
+    /*
+     * Grab-bag of small modifications to the world data to line it up with the expectations
+     * of the game engine. Mostly we are converting from "Tiled" values to in-game "ASCII" values,
+     * while making a few other miscellaneous adjustments.
+     */
     _normalizeWorld(world) {
         let spawn;
         let floorNumber = 0;
@@ -177,9 +176,9 @@ const WorldBuilder = {
         world.spawn = spawn;
     },
 
-    //
-    // Update the generated World source file with the new world data.
-    //
+    /*
+     * Update the generated World source file with the new world data.
+     */
     _writeOutputFile(data, outputFile) {
         let js = fs.readFileSync(outputFile, 'utf8');
         let lines = js.split('\n');

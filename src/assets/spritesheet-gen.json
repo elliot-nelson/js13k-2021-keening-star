@@ -1,0 +1,38 @@
+{ "frames": [
+   {
+    "filename": "font-bizcat-knife 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 128, "h": 256 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 256 },
+    "sourceSize": { "w": 128, "h": 256 },
+    "duration": 100
+   },
+   {
+    "filename": "font-bizcat-knife 1.aseprite",
+    "frame": { "x": 128, "y": 0, "w": 128, "h": 256 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 256 },
+    "sourceSize": { "w": 128, "h": 256 },
+    "duration": 100
+   },
+   {
+    "filename": "font-bizcat-knife 2.aseprite",
+    "frame": { "x": 256, "y": 0, "w": 128, "h": 256 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 256 },
+    "sourceSize": { "w": 128, "h": 256 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.18",
+  "image": "spritesheet-gen.png",
+  "format": "RGBA8888",
+  "size": { "w": 384, "h": 256 },
+  "scale": "1"
+ }
+}
