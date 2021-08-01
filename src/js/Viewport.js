@@ -1,11 +1,9 @@
-'use strict';
+// Viewport
 
 import { GAME_WIDTH, GAME_HEIGHT } from './Constants';
 
 /**
- * Viewport
- *
- * Represents the game display (for us, a canvas).
+ * Viewport is a global object representing the playable pixel area of our game.
  */
 export const Viewport = {
     init() {
@@ -37,11 +35,7 @@ export const Viewport = {
             dpiWidth = width * dpi,
             dpiHeight = height * dpi;
 
-        if (
-            force ||
-            Viewport.canvas.width !== dpiWidth ||
-            Viewport.canvas.height !== dpiHeight
-        ) {
+        if (force || Viewport.canvas.width !== dpiWidth || Viewport.canvas.height !== dpiHeight) {
             Viewport.canvas.width = dpiWidth;
             Viewport.canvas.height = dpiHeight;
 
@@ -62,9 +56,5 @@ export const Viewport = {
 
         // We do this every frame, not just on resize, due to browser sometimes "forgetting".
         Viewport.canvas.style.cursor = 'none';
-    },
-
-    fillViewportRect() {
-        Viewport.ctx.fillRect(0, 0, Viewport.width, Viewport.height);
     }
 };
