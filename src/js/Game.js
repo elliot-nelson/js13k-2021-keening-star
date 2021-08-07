@@ -1,26 +1,28 @@
 // Game
+//
+// A global object representing the state of the current game in progress. Game owns
+// the high-level game loop and orchestrates everything that happens each frame.
 
 import { FPS, GAME_WIDTH, GAME_HEIGHT } from './Constants';
 import { Viewport } from './Viewport';
+import { Screen } from './Screen';
+import { Sprite } from './Sprite';
 import { World } from './World-gen';
 
-/**
- * Game is a global object representing the state of the game in progress. This object
- * owns the high-level game loop and orchestrates everything that happens in each frame
- * of the game.
- */
 export const Game = {
     init() {
         // Initialize game components
-        console.log('Game started');
+        Sprite.loadSpriteSheet(() => {
+            Viewport.init();
+            Screen.init();
+            Sprite.init();
 
-        Viewport.init();
+            // Initial state values
+            this.frame = 0;
 
-        // Initial state values
-        this.frame = 0;
-
-        // Kick off game loop
-        window.requestAnimationFrame(() => this.onFrame());
+            // Kick off game loop
+            window.requestAnimationFrame(() => this.onFrame());
+        });
     },
 
     onFrame() {
@@ -60,5 +62,8 @@ export const Game = {
         // Center our ASCII "screen" in the viewport
         Viewport.ctx.translate((Viewport.width - GAME_WIDTH) / 2 | 0, (Viewport.height - GAME_HEIGHT) / 2 | 0);
 
+        Screen.write(3, 3, 'hello world');
+
+        Screen.draw(Viewport.ctx);
     }
 };

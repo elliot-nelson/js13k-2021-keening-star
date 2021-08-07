@@ -1,4 +1,8 @@
 // Constants
+//
+// Where possible, global values are all kept here in spot for easy tweaking.
+// Don't worry about constant length -- our terser configuration in the build step
+// is going to mangle all of our constants into tiny variable names.
 
 // The "screen area", in ASCII characters.
 export const SCREEN_WIDTH = 80;
