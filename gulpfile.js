@@ -119,7 +119,9 @@ async function compileBuild() {
         await bundle.write({
             file: 'temp/app.js',
             format: 'iife',
-            name: 'app'
+            name: 'app',
+            sourcemap: true,
+            sourcemapFile: 'temp/app.js.map'
         });
     } catch (error) {
         // We are calling rollup's API directly instead of using the CLI, and the output is
@@ -159,7 +161,7 @@ function buildHtml() {
     return gulp.src('src/index.html')
         .pipe(template({ css: cssContent, js: jsContent }))
         .pipe(htmlmin({ collapseWhitespace: true }))
-        //.pipe(gulp.src('dist/temp/app.js.map')) // no map??
+        .pipe(gulp.src('temp/app.js.map'))
         .pipe(gulp.dest('dist'));
 }
 

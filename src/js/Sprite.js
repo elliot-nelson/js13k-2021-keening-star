@@ -16,7 +16,7 @@ import { Viewport } from './Viewport';
 export const Sprite = {
     // This is an exception to the rule, loading the spritesheet is a special action that
     // happens BEFORE everything is initialized.
-    loadSpritesheet(cb) {
+    loadSpriteSheet(cb) {
         let image = new Image();
         image.onload = cb;
         image.src = SpriteSheet.uri;
