@@ -25,6 +25,15 @@
     "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 256 },
     "sourceSize": { "w": 128, "h": 256 },
     "duration": 100
+   },
+   {
+    "filename": "font-bizcat-knife 3.aseprite",
+    "frame": { "x": 384, "y": 0, "w": 128, "h": 256 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 256 },
+    "sourceSize": { "w": 128, "h": 256 },
+    "duration": 100
    }
  ],
  "meta": {
@@ -32,7 +41,7 @@
   "version": "1.2.18",
   "image": "spritesheet-gen.png",
   "format": "RGBA8888",
-  "size": { "w": 384, "h": 256 },
+  "size": { "w": 512, "h": 256 },
   "scale": "1"
  }
 }

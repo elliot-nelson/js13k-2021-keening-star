@@ -74,6 +74,8 @@ export const Game = {
         Screen.write(0, 23, '#');
         Screen.write(79, 23, '#');
 
+        Screen.write(10, 15, '║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬');
+
         Screen.draw(Viewport.ctx);
 
         //Sprite.drawSprite(Viewport.ctx, Sprite.font, 0, 0);

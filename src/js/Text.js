@@ -17,8 +17,8 @@ import { FONT_WIDTH, FONT_HEIGHT, FONT_ROWS, FONT_COLS } from './Constants';
 // do this, don't forget to explicitly tell the browser what charset your JS file is, or it
 // won't execute -- see `index.html` for an example.
 const SUPPORTED_UNICODE_CHARS = [
-    '─│┌┐└┘├┤┬┴┼╳╳╳╳╳',
-    '═║╔╗╚╝╠╣╦╩╬╳╳╳╳╳',
+    '│─┼┘└┌┐┬┴├┤╳╳╳╳╳',
+    '║═╬╝╚╔╗╦╩╠╣╳╳╳╳╳',
     '↑↓←→╳╳╳╳╳╳╳╳╳╳╳╳'
 ].join('');
 
