@@ -43,7 +43,7 @@ export const Screen = {
             ctx,
             Text.splitParagraph(text, Viewport.width),
             0, 0,
-            Text.glow
+            Text.white
         );
     }
 };

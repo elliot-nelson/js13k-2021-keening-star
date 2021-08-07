@@ -4,9 +4,10 @@
 // the high-level game loop and orchestrates everything that happens each frame.
 
 import { FPS, GAME_WIDTH, GAME_HEIGHT } from './Constants';
-import { Viewport } from './Viewport';
 import { Screen } from './Screen';
 import { Sprite } from './Sprite';
+import { Text } from './Text';
+import { Viewport } from './Viewport';
 import { World } from './World-gen';
 
 export const Game = {
@@ -16,6 +17,7 @@ export const Game = {
             Viewport.init();
             Screen.init();
             Sprite.init();
+            Text.init();
 
             // Initial state values
             this.frame = 0;
@@ -64,6 +66,16 @@ export const Game = {
 
         Screen.write(3, 3, 'hello world');
 
+        Screen.write(0, 0, '/--------------------------------------\\');
+        Screen.write(2, 10, 'You are standing in a cramped drawing room.');
+
+        Screen.write(0, 0, '#');
+        Screen.write(79, 0, '#');
+        Screen.write(0, 23, '#');
+        Screen.write(79, 23, '#');
+
         Screen.draw(Viewport.ctx);
+
+        //Sprite.drawSprite(Viewport.ctx, Sprite.font, 0, 0);
     }
 };

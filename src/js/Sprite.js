@@ -25,7 +25,8 @@ export const Sprite = {
 
     init() {
         // Base pixel font and icons (see `Text.init` for additional variations)
-        Sprite.font = initBasicSprite(SpriteSheet.font[0]);
+        let knife = SpriteSheet['font-bizcat-knife'];
+        Sprite.font = initBasicSprite(knife[knife.length - 1], { x: 0, y: 0 });
     },
 
     /**

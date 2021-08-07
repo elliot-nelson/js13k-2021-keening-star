@@ -54,7 +54,7 @@ export const Text = {
 
         for (let idx = 0; idx < text.length; idx++) {
             let c = UNICODE_CHAR_MAP[text[idx]] || text.charCodeAt(idx);
-            let k = (c - 0) * (FONT_WIDTH + border);
+            let k = (c - 0) * FONT_WIDTH;
             let drawable = (c !== 32);
 
             // We clear the canvas in every frame, and it's a HUGE speed advantage not to draw an
@@ -99,7 +99,7 @@ export const Text = {
                 }
                 if (wip.text.length > 0) list.push(wip);
                 cu = 0;
-                cv += (CHAR_HEIGHT);
+                cv += FONT_HEIGHT;
                 wip = next();
                 if (saved.length > 0) {
                     wip.text = saved;
@@ -118,7 +118,7 @@ export const Text = {
         return list.map(line => ({
             ...line,
             w: Text.measureWidth(line.text, 1),
-            h: CHAR_HEIGHT
+            h: FONT_HEIGHT
         }));
     }
 };
