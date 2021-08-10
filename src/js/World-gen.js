@@ -17,11 +17,19 @@ export const World =
           [ 0, 136, 46, 46, 46, 46, 46, 46, 46, 0 ],
           [ 0, 136, 117, 46, 46, 46, 46, 46, 46, 0 ],
           [ 4, 1, 1, 1, 1, 1, 1, 1, 1, 32 ] ],
-       rooms: [],
-       objects: [],
+       rooms:
+        [ { id: 1,
+            name: 'RSTUDY',
+            x: 1,
+            y: 0,
+            width: 9,
+            height: 8,
+            objectType: 'object',
+            props: {} } ],
+       objects: [ { id: 3, name: 'FPLANT', x: 2, y: 1, objectType: 'object', props: {} } ],
        id: 0 } ],
   bounds: [ [ 0, 0 ], [ 10, 10 ] ],
   spawn: [ 7, 7, 0 ],
-  strings: { foo: 'bar' } }
+  strings: { foo: 'bar', RSTUDY: 'A nice old room.\nWhat a nice place it is.\nFuck it.\n' } }
 /* </generated> */
 ;

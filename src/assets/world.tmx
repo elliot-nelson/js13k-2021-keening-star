@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="256" height="256" tilewidth="8" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="256" height="256" tilewidth="8" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="5">
  <tileset firstgid="1" source="world.tsx"/>
  <group id="2" name="1F" offsetx="-3" offsety="-32">
   <layer id="1" name="TILES" width="256" height="256" offsetx="4" offsety="-11.5">
@@ -262,5 +262,13 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
+  <objectgroup id="3" name="ROOMS">
+   <object id="1" name="RSTUDY" x="968" y="1933.5" width="72.5" height="127.5"/>
+  </objectgroup>
+  <objectgroup id="4" name="OBJECTS">
+   <object id="3" name="FPLANT" x="976.5" y="1947.5">
+    <point/>
+   </object>
+  </objectgroup>
  </group>
 </map>

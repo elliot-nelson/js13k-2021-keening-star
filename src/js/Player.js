@@ -7,6 +7,7 @@ import { Screen } from './Screen';
 export class Player {
     constructor(pos) {
         this.pos = { ...pos };
+        this.turn = false;
     }
 
     draw() {
@@ -14,15 +15,25 @@ export class Player {
     }
 
     update() {
+        this.turn = false;
+
+        let move;
+
         if (Input.held[Input.Action.LEFT] && Input.framesHeld[Input.Action.LEFT] % TURN_FRAMES === 1) {
-            this.pos.x--;
+            move = { ...this.pos, x: this.pos.x - 1 };
         } else if (Input.held[Input.Action.RIGHT] && Input.framesHeld[Input.Action.RIGHT] % TURN_FRAMES === 1) {
-            this.pos.x++;
+            move = { ...this.pos, x: this.pos.x + 1 };
         } else if (Input.held[Input.Action.UP] && Input.framesHeld[Input.Action.UP] % TURN_FRAMES === 1) {
-            this.pos.y--;
+            move = { ...this.pos, y: this.pos.y - 1 };
         } else if (Input.held[Input.Action.DOWN] && Input.framesHeld[Input.Action.DOWN] % TURN_FRAMES === 1) {
-            this.pos.y++;
+            move = { ...this.pos, y: this.pos.y + 1 };
         }
+
+
+        if (this.move) {
+            this.turn = true;
+        }
+
         /*
         if (Input.held[Input.Action.LEFT])
         if (Input.held[Input.Action.LEFT]) {

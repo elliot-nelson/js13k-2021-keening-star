@@ -2,6 +2,8 @@
 //
 // Miscellaneous utility functions that don't fit anywhere else.
 
+import { World } from './World-gen';
+
 export function rgba(r, g, b, a) {
     return `rgba(${r},${g},${b},${a})`;
 }
@@ -41,4 +43,20 @@ export function createCanvas(width, height) {
     canvas.height = height;
     let ctx = canvas.getContext('2d');
     return { canvas, ctx };
+}
+
+export function roomAt(pos) {
+    return World.floors[pos.z].rooms.filter(room =>
+        pos.x >= room.x && pos.y >= room.y && pos.x < room.x + room.width && pos.y < room.y + room.height
+    );
+}
+
+export function objectAt(pos) {
+    return World.floors[pos.z].objects.find(object => object.x === pos.x && object.y === pos.y);
+}
+
+export function tileAt(pos) {
+    let tiles = World.floors[pos.z].tiles;
+    if (pos.x < 0 || pos.y < 0 || pos.x >= tiles[0].length || pos.y >= tiles.length) return ' ';
+    return tiles[y][x];
 }

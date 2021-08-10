@@ -107,7 +107,7 @@ const WorldBuilder = {
                 // Rooms are "drawn" as rectangles on top of the walls in Tiled and aren't guaranteed
                 // to be exactly right, so we want anything "inside the grid" to count.
                 let x2 = Math.floor((room.x + room.width) / tileWidth);
-                let y2 = Math.floor((room.y + room.height) / tileWidth);
+                let y2 = Math.floor((room.y + room.height) / tileHeight);
                 room.x = Math.floor(room.x / tileWidth);
                 room.y = Math.floor(room.y / tileHeight);
                 room.width = x2 - room.x;

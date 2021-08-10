@@ -12,7 +12,7 @@ import { Sprite } from './Sprite';
 import { Text } from './Text';
 import { Viewport } from './Viewport';
 import { World } from './World-gen';
-import { xyz2pos, uni } from './Util';
+import { xyz2pos, uni, roomAt } from './Util';
 
 export const Game = {
     init() {
@@ -67,7 +67,6 @@ export const Game = {
     },
 
     draw() {
-        console.log(1);
         // Reset canvas transform and scale
         Viewport.ctx.setTransform(Viewport.scale, 0, 0, Viewport.scale, 0, 0);
 
@@ -107,7 +106,6 @@ export const Game = {
         Screen.write(0, 21, 'Here is something.');
         Screen.write(0, 22, 'Here is some kind of something.');
 
-
         let tiles = World.floors[0].tiles;
         for (let y = 0; y < tiles.length; y++) {
             for (let x = 0; x < tiles[y].length; x++) {
@@ -117,6 +115,10 @@ export const Game = {
 
         this.player.draw();
 
+        let room = roomAt(this.player.pos);
+        if (room) {
+            Screen.writeOnMap(0, 20, World.strings[room.name]);
+        }
 
         Screen.draw(Viewport.ctx);
 
