@@ -19,7 +19,9 @@ const concat            = require('gulp-concat');
 const cleancss          = require('gulp-clean-css');
 const htmlmin           = require('gulp-htmlmin');
 const size              = require('gulp-size');
+const sourcemaps        = require('gulp-sourcemaps');
 const template          = require('gulp-template');
+const terser            = require('gulp-terser');
 const zip               = require('gulp-zip');
 
 // -----------------------------------------------------------------------------
@@ -121,11 +123,11 @@ async function compileBuild() {
         });
 
         await bundle.write({
-            file: 'temp/app.js',
+            file: 'temp/bundled/app.js',
             format: 'iife',
             name: 'app',
             sourcemap: true,
-            sourcemapFile: 'temp/app.js.map'
+            sourcemapFile: 'temp/bundled/app.js.map'
         });
     } catch (error) {
         // We are calling rollup's API directly instead of using the CLI, and the output is
@@ -136,8 +138,33 @@ async function compileBuild() {
     }
 }
 
-async function minifyBuild() {
+function minifyBuild() {
+    let cache = {};
+
     // TODO
+    return gulp.src('temp/bundled/app.js')
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(terser({
+        toplevel: true,
+        nameCache: cache,
+        mangle: {
+            properties: {
+                reserved: ['asdfojo'
+                ]
+            }
+        }
+    }))
+    /*.pipe(terser({
+        nameCache: cache,
+        mangle: {
+            properties: {
+                builtins: true,
+                regex: /^(behavior|direction|frame|reset|update|anchor|DEAD|canvas|entities|history|pressed|page|paused|resize|reload|pages|pattern|pause|unpause|sheet|state|init|play|text)$/
+            }
+        }
+    }))*/
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('temp/minified'));
 }
 
 const buildJs = gulp.series(
@@ -160,12 +187,14 @@ function buildCss() {
 // -----------------------------------------------------------------------------
 function buildHtml() {
     const cssContent = fs.readFileSync('temp/app.css');
-    const jsContent = fs.readFileSync('temp/app.js');
+    const jsContent = fs.readFileSync('temp/minified/app.js');
 
+    console.log(jsContent);
+    console.log('buildHtml read');
     return gulp.src('src/index.html')
         .pipe(template({ css: cssContent, js: jsContent }))
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.src('temp/app.js.map'))
+        .pipe(gulp.src('temp/minified/app.js.map'))
         .pipe(gulp.dest('dist'));
 }
 
