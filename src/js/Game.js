@@ -3,12 +3,16 @@
 // A global object representing the state of the current game in progress. Game owns
 // the high-level game loop and orchestrates everything that happens each frame.
 
+import { Camera } from './Camera';
 import { FPS, GAME_WIDTH, GAME_HEIGHT } from './Constants';
+import { Input } from './Input';
+import { Player } from './Player';
 import { Screen } from './Screen';
 import { Sprite } from './Sprite';
 import { Text } from './Text';
 import { Viewport } from './Viewport';
 import { World } from './World-gen';
+import { xyz2pos, uni } from './Util';
 
 export const Game = {
     init() {
@@ -18,9 +22,16 @@ export const Game = {
             Screen.init();
             Sprite.init();
             Text.init();
+            Input.init();
 
             // Initial state values
             this.frame = 0;
+            this.entities = [];
+
+            this.player = new Player(xyz2pos(...World.spawn));
+            this.entities.push(this.player);
+
+            Camera.init();
 
             // Kick off game loop
             window.requestAnimationFrame(() => this.onFrame());
@@ -49,7 +60,10 @@ export const Game = {
     },
 
     update() {
-
+        Input.update();
+        //if (this.frame % 120 === 0) this.player.pos.y--;
+        this.player.update();
+        Camera.update();
     },
 
     draw() {
@@ -74,7 +88,35 @@ export const Game = {
         Screen.write(0, 23, '#');
         Screen.write(79, 23, '#');
 
-        Screen.write(10, 15, '║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬');
+        Screen.write(10, 15, uni('║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬'));
+
+        Screen.raw(40, 10, 'xy\x07]A\x07]BRED');
+
+        for (let i = 0; i < 20; i++) {
+            Screen.write(64, i, '#');
+        }
+
+        Screen.write(66, 1, 'Health 100/100');
+        Screen.write(66, 2, 'Sanity 100/100');
+        Screen.write(66, 4, 'Insight   11');
+        Screen.write(66, 5, 'Wisdom    11');
+        Screen.write(66, 6, 'Fortitude 11');
+
+        Screen.write(0, 19, '#'.repeat(60));
+        Screen.write(0, 20, 'Here is something.');
+        Screen.write(0, 21, 'Here is something.');
+        Screen.write(0, 22, 'Here is some kind of something.');
+
+
+        let tiles = World.floors[0].tiles;
+        for (let y = 0; y < tiles.length; y++) {
+            for (let x = 0; x < tiles[y].length; x++) {
+                Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]));
+            }
+        }
+
+        this.player.draw();
+
 
         Screen.draw(Viewport.ctx);
 

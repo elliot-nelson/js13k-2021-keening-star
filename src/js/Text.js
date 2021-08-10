@@ -4,34 +4,10 @@
 // Viewport. This includes generating recolored versions of the characters, measuring/
 // wrapping long lines, etc.
 
+import { FONT_WIDTH, FONT_HEIGHT } from './Constants';
 import { Sprite } from './Sprite';
 import { rgba, createCanvas } from './Util';
-import { FONT_WIDTH, FONT_HEIGHT, FONT_ROWS, FONT_COLS } from './Constants';
 
-// In our character sheet, chars 0x00-0x7F are standard ASCII, below that we put whatever
-// characters are convenient for us. Here we can choose to map unicode characters to positions
-// 0x80+ in the charsheet, making it easy for us to render things like special characters,
-// box drawing characters, etc.
-//
-// Note: I like pasting actual characters instead of codes ("├" instead of "\u251C"). If you
-// do this, don't forget to explicitly tell the browser what charset your JS file is, or it
-// won't execute -- see `index.html` for an example.
-const SUPPORTED_UNICODE_CHARS = [
-    '│─┼┘└┌┐┬┴├┤╳╳╳╳╳',
-    '║═╬╝╚╔╗╦╩╠╣╳╳╳╳╳',
-    '↑↓←→╳╳╳╳╳╳╳╳╳╳╳╳'
-].join('');
-
-const UNICODE_CHAR_MAP = SUPPORTED_UNICODE_CHARS.split('').reduce((map, char, idx) => {
-    map[char] = 0x80 + idx;
-    return map;
-}, {});
-
-/**
- * Text
- *
- * Utilities for drawing text using in-game pixel font.
- */
 export const Text = {
     init() {
         // The "white" font sheet, right from the sprite.
@@ -53,7 +29,7 @@ export const Text = {
         }
 
         for (let idx = 0; idx < text.length; idx++) {
-            let c = UNICODE_CHAR_MAP[text[idx]] || text.charCodeAt(idx);
+            let c = text.charCodeAt(idx);
             let k = (c - 0) * FONT_WIDTH;
             let drawable = (c !== 32);
 

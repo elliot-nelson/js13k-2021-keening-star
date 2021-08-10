@@ -5,6 +5,7 @@ const AsepriteCli       = require('aseprite-cli');
 const chalk             = require('chalk');
 const fs                = require('fs');
 const gulp              = require('gulp');
+const log               = require('fancy-log');
 const rollup            = require('rollup');
 
 const ImageDataParser   = require('./tools/image-data-parser.js');
@@ -13,10 +14,13 @@ const WorldBuilder      = require('./tools/world-builder.js');
 // -----------------------------------------------------------------------------
 // Gulp Plugins
 // -----------------------------------------------------------------------------
+const advzip            = require('gulp-advzip');
 const concat            = require('gulp-concat');
 const cleancss          = require('gulp-clean-css');
 const htmlmin           = require('gulp-htmlmin');
+const size              = require('gulp-size');
 const template          = require('gulp-template');
+const zip               = require('gulp-zip');
 
 // -----------------------------------------------------------------------------
 // Flags
@@ -166,6 +170,28 @@ function buildHtml() {
 }
 
 // -----------------------------------------------------------------------------
+// ZIP Build
+// -----------------------------------------------------------------------------
+function buildZip() {
+    let sizeResult;
+
+    return gulp.src(['dist/index.html'])
+        .pipe(size())
+        .pipe(zip('js13k-2020-wizard-with-a-shotgun.zip'))
+        .pipe(advzip({ optimizationLevel: 4 /*, iterations: 200 */ }))
+        .pipe(sizeResult = size({ title: 'zip' }))
+        .pipe(gulp.dest('dist/final'))
+        .on('end', () => {
+            let remaining = (13 * 1024) - sizeResult.size;
+            if (remaining < 0) {
+                log.warn(chalk.red(`${-remaining} bytes over`));
+            } else {
+                log.info(chalk.green(`${remaining} bytes remaining`));
+            }
+        });
+}
+
+// -----------------------------------------------------------------------------
 // Build
 // -----------------------------------------------------------------------------
 const build = gulp.series(
@@ -211,6 +237,7 @@ module.exports = {
     buildCss,
     buildJs,
     buildHtml,
+    buildZip,
 
     // Primary entry points
     build,

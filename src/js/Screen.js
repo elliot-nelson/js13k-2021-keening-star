@@ -5,7 +5,8 @@
  * the viewport (canvas) in the browser.
  */
 
-import { SCREEN_WIDTH, SCREEN_HEIGHT } from './Constants';
+import { Camera } from './Camera';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, FONT_WIDTH, FONT_HEIGHT } from './Constants';
 import { Viewport } from './Viewport';
 import { Text } from './Text';
 
@@ -34,6 +35,19 @@ export const Screen = {
                 this.screen[y + j][x + i] = text[j][i];
             }
         }
+    },
+
+    writeOnMap(x, y, text) {
+        let offset = {
+            x: 30 - Camera.pos.x,
+            y : 8 - Camera.pos.y
+        };
+
+        this.write(x + offset.x, y + offset.y, text);
+    },
+
+    raw(x, y, text) {
+        Text.drawText(Viewport.ctx, Text.splitParagraph(text, Viewport.width), x * FONT_WIDTH, y * FONT_HEIGHT);
     },
 
     draw(ctx) {

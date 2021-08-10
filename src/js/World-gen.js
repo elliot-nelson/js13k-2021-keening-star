@@ -21,7 +21,7 @@ export const World =
        objects: [],
        id: 0 } ],
   bounds: [ [ 0, 0 ], [ 10, 10 ] ],
-  spawn: [ 0, 7, 7 ],
+  spawn: [ 7, 7, 0 ],
   strings: { foo: 'bar' } }
 /* </generated> */
 ;

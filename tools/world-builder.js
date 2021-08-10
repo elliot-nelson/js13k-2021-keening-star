@@ -164,7 +164,7 @@ const WorldBuilder = {
                     // Value 64 ('@') is the spawn location
                     if (floor.tiles[y][x] === 64) {
                         if (spawn) throw new Error('Multiple spawn locations detected in world.');
-                        spawn = [floor.id, x, y];
+                        spawn = [x, y, floor.id];
                         floor.tiles[y][x] = 46; // '.'
                     }
                 }
