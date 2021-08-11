@@ -77,6 +77,8 @@ export const Game = {
         // Center our ASCII "screen" in the viewport
         Viewport.ctx.translate((Viewport.width - GAME_WIDTH) / 2 | 0, (Viewport.height - GAME_HEIGHT) / 2 | 0);
 
+        Screen.clear();
+
         Screen.write(3, 3, 'hello world');
 
         Screen.write(0, 0, '/--------------------------------------\\');
@@ -100,12 +102,15 @@ export const Game = {
         Screen.write(66, 4, 'Insight   11');
         Screen.write(66, 5, 'Wisdom    11');
         Screen.write(66, 6, 'Fortitude 11');
-
+        Screen.write(66, 6, 'Fortitude 11');
+/*
         Screen.write(0, 19, '#'.repeat(60));
         Screen.write(0, 20, 'Here is something.');
         Screen.write(0, 21, 'Here is something.');
-        Screen.write(0, 22, 'Here is some kind of something.');
-
+        Screen.write(3, 22, 'Here is some kind of something.');
+        Screen.write(4, 21, '#'.repeat(60));
+        Screen.write(5, 18, '#'.repeat(60));
+*/
         let tiles = World.floors[0].tiles;
         for (let y = 0; y < tiles.length; y++) {
             for (let x = 0; x < tiles[y].length; x++) {
@@ -117,9 +122,16 @@ export const Game = {
 
         let room = roomAt(this.player.pos);
         if (room) {
-            Screen.writeOnMap(0, 20, World.strings[room.name]);
+            Screen.write(0, 20, World.strings[room.name].split('\n'));
         }
 
+        Screen.write(0, 20, 'hello');
+
+        Screen.write(0, 20, '20');
+        Screen.write(0, 21, '21');
+        Screen.write(0, 22, '22');
+        Screen.write(0, 23, '23');
+        Screen.write(77, 23, '#');
         Screen.draw(Viewport.ctx);
 
         //Sprite.drawSprite(Viewport.ctx, Sprite.font, 0, 0);

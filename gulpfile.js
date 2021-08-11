@@ -91,8 +91,9 @@ async function generateWorld() {
     const mapFile = 'src/assets/world.tmx';
     const detailFile = 'src/assets/world.yaml';
     const worldFile = 'src/js/World-gen.js';
+    const jsonFile = 'src/js/World-gen.json';
 
-    await WorldBuilder.build(mapFile, detailFile, worldFile);
+    await WorldBuilder.build(mapFile, detailFile, worldFile, jsonFile);
 }
 
 const buildAssets = gulp.series(
@@ -139,9 +140,25 @@ async function compileBuild() {
 }
 
 function minifyBuild() {
-    let cache = {};
+    // Before we begin mangling, we can pre-populate the name cache with a
+    // customized list of names that can't be mangled (because names like RSTUDY
+    // will be both keys and name strings throughout the code, we need them
+    // to match).
+    const world = JSON.parse(fs.readFileSync('src/js/World-gen.json'));
+    const names = world.floors.reduce((list, floor) =>
+        list.concat(floor.rooms.map(room => room.name)).concat(floor.objects.map(object => object.name)),
+        []
+    );
 
-    // TODO
+    const cache = {
+        props: {
+            props: Object.fromEntries(names.map(name => [`$${name}`, name]))
+        }
+    };
+
+    // We use an extremely aggressive mangle -- all top-level names and all properties
+    // of all objects -- basically every property we can find unless it's in the
+    // list of exclusions above.
     return gulp.src('temp/bundled/app.js')
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(terser({
@@ -149,7 +166,15 @@ function minifyBuild() {
         nameCache: cache,
         mangle: {
             properties: {
-                reserved: ['asdfojo'
+                reserved: [
+                    // Additional properties to exclude from mangling
+                    'ArrowUp',
+                    'ArrowLeft',
+                    'ArrowDown',
+                    'ArrowRight',
+                    'KeyC',
+                    'KeyH',
+                    'Escape'
                 ]
             }
         }
@@ -189,8 +214,14 @@ function buildHtml() {
     const cssContent = fs.readFileSync('temp/app.css');
     const jsContent = fs.readFileSync('temp/minified/app.js');
 
-    console.log(jsContent);
-    console.log('buildHtml read');
+    // Rather than having separate `app.css` and `app.js` files, we embed them both
+    // inside the HTML file (and any sprites we want have already been embedded
+    // inside `app.js`).
+    //
+    // Reducing the total number of files in the ZIP is a key strategy, since the
+    // ZIP file format has an overhead of +/-100 bytes for EVERY FILE. Embedding
+    // the CSS, JS, and PNG inside the HTML can save you almost 250 bytes, even
+    // with the conversion from binary to base64!
     return gulp.src('src/index.html')
         .pipe(template({ css: cssContent, js: jsContent }))
         .pipe(htmlmin({ collapseWhitespace: true }))

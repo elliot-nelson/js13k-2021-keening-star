@@ -13,13 +13,13 @@ const WorldBuilder = {
      * Combine a Tiled (tmx) file with a YAML data file to produce a single
      * source (javascript) file included in the game.
      */
-    async build(mapFile, detailFile, outputFile) {
+    async build(mapFile, detailFile, outputFile, outputJSON) {
         let data = await this._extractWorldFromTmx(mapFile);
 
         let yamlData = yaml.load(fs.readFileSync(detailFile));
         Object.assign(data, yamlData);
 
-        this._writeOutputFile(data, outputFile);
+        this._writeOutputFile(data, outputFile, outputJSON);
     },
 
     /*
@@ -110,8 +110,8 @@ const WorldBuilder = {
                 let y2 = Math.floor((room.y + room.height) / tileHeight);
                 room.x = Math.floor(room.x / tileWidth);
                 room.y = Math.floor(room.y / tileHeight);
-                room.width = x2 - room.x;
-                room.height = y2 - room.y;
+                room.width = x2 - room.x + 1;
+                room.height = y2 - room.y + 1;
             }
         }
     },
@@ -169,6 +169,12 @@ const WorldBuilder = {
                     }
                 }
             }
+
+            // Turn our lists of rooms and objects into maps based on name. Since the generated
+            // object will have the names of rooms and objects as keys, our terser setup will automatically
+            // mangle them during the gulp build, significantly reducing the bytes used.
+            //floor.rooms = Object.fromEntries(floor.rooms.map(room => [room.name, room]));
+            //floor.objects = Object.fromEntries(floor.objects.map(object => [object.name, object]));
         }
 
         if (!spawn) throw new Error('No spawn location detected in world.');
@@ -179,7 +185,7 @@ const WorldBuilder = {
     /*
      * Update the generated World source file with the new world data.
      */
-    _writeOutputFile(data, outputFile) {
+    _writeOutputFile(data, outputFile, outputJSON) {
         let js = fs.readFileSync(outputFile, 'utf8');
         let lines = js.split('\n');
         let prefix = lines.findIndex(value => value.match(/<generated>/));
@@ -189,6 +195,7 @@ const WorldBuilder = {
         generated = lines.slice(0, prefix + 1).join('\n') + '\n' + generated + '\n' + lines.slice(suffix).join('\n');
 
         fs.writeFileSync(outputFile, generated, 'utf8');
+        fs.writeFileSync(outputJSON, JSON.stringify(data, undefined, 4), 'utf8');
     }
 };
 

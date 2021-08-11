@@ -40,10 +40,9 @@ export const Input = {
         };
 
         window.addEventListener('keydown', event => {
-            this.fork = (this.fork || 0) + 1;
             console.log(event);
-            console.log(this.fork);
             let action = this.keyMapping[event.code];
+            console.log(action);
             if (action) {
                 this.keyboard[action] = true;
             }

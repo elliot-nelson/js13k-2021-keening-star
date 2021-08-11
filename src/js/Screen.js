@@ -51,13 +51,10 @@ export const Screen = {
     },
 
     draw(ctx) {
-        let text = this.screen.map(row => row.join('')).join('\n');
-
-        Text.drawText(
-            ctx,
-            Text.splitParagraph(text, Viewport.width),
-            0, 0,
-            Text.white
-        );
+        for (let y = 0; y < SCREEN_HEIGHT; y++) {
+            for (let x = 0; x < SCREEN_WIDTH; x++) {
+                Text.drawText(ctx, this.screen[y][x], x * FONT_WIDTH, y * FONT_HEIGHT, Text.white);
+            }
+        }
     }
 };

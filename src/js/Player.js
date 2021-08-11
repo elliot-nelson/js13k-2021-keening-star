@@ -3,6 +3,7 @@
 import { TURN_FRAMES } from './Constants';
 import { Input } from './Input';
 import { Screen } from './Screen';
+import { canMoveInto } from './Util';
 
 export class Player {
     constructor(pos) {
@@ -19,6 +20,7 @@ export class Player {
 
         let move;
 
+        console.log(Input.held[Input.Action.LEFT], Input.framesHeld[Input.Action.LEFT]);
         if (Input.held[Input.Action.LEFT] && Input.framesHeld[Input.Action.LEFT] % TURN_FRAMES === 1) {
             move = { ...this.pos, x: this.pos.x - 1 };
         } else if (Input.held[Input.Action.RIGHT] && Input.framesHeld[Input.Action.RIGHT] % TURN_FRAMES === 1) {
@@ -29,9 +31,12 @@ export class Player {
             move = { ...this.pos, y: this.pos.y + 1 };
         }
 
-
-        if (this.move) {
-            this.turn = true;
+        if (move) {
+            console.log(move, canMoveInto(move));
+            if (canMoveInto(move)) {
+                this.pos = move;
+                this.turn = true;
+            }
         }
 
         /*
