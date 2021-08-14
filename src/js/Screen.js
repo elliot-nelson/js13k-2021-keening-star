@@ -26,16 +26,16 @@ export const Screen = {
     // Useful character codes
     SPACE:   0x20,
 
-    // Terminal color names to hex color mappings
-    COLORS: {
-        [WHITE]:        rgba(214, 214, 214, 1),
-        [WHITE|BRIGHT]: rgba(255, 255, 255, 1),
-        [RED]:          rgba(255, 30, 30, 1)
-    },
-
     init() {
         this.screen = [];
         this.clear();
+
+        // Terminal color names to hex color mappings
+        Screen.COLORS = {
+            [Screen.WHITE]:                 rgba(214, 214, 214, 1),
+            [Screen.WHITE | Screen.BRIGHT]: rgba(255, 255, 255, 1),
+            [Screen.RED]:                   rgba(255, 30, 30, 1)
+        };
     },
 
     clear() {
@@ -57,13 +57,13 @@ export const Screen = {
         }
     },
 
-    writeOnMap(x, y, text) {
+    writeOnMap(x, y, text, color) {
         let offset = {
             x: 30 - Camera.pos.x,
             y : 8 - Camera.pos.y
         };
 
-        this.write(x + offset.x, y + offset.y, text);
+        this.write(x + offset.x, y + offset.y, text, color);
     },
 
     raw(x, y, text) {

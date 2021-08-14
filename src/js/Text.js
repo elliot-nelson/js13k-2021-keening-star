@@ -10,6 +10,11 @@ import { rgba, createCanvas } from './Util';
 
 export const Text = {
     init() {
+        // We'll dynamically recolor the font sheet whenever a new rgba color is requested,
+        // then cache it for future use.
+        this.colorways = {};
+        this.colorways[''] = Font.img;
+
         // The "white" font sheet, right from the sprite.
         Text.white = Font.img;
 
@@ -20,7 +25,15 @@ export const Text = {
         Text.terminal_shadow = recolor(Text.white, rgba(51, 255, 0, 0.4));
     },
 
-    drawText(ctx, text, u, v, font = Text.white, scale = 1) {
+    drawText(ctx, text, u, v, color = '') {
+        //console.log(text, color);
+        if (typeof text === 'number') text = String.fromCharCode(text);
+        let scale = 1;
+        let font = this.colorways[color];
+        if (!font) {
+            this.colorways[color] = font = recolor(Font.img, color);
+        }
+
         if (Array.isArray(text)) {
             for (let block of text) {
                 Text.drawText(ctx, block.text, u + block.u * scale, v + block.v * scale, font, scale);

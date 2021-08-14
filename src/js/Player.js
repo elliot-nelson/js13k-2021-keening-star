@@ -12,7 +12,7 @@ export class Player {
     }
 
     draw() {
-        Screen.writeOnMap(this.pos.x, this.pos.y, '@');
+        Screen.writeOnMap(this.pos.x, this.pos.y, '@', Screen.WHITE | Screen.BRIGHT);
     }
 
     update() {

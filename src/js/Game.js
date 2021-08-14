@@ -78,17 +78,17 @@ export const Game = {
 
         Screen.clear();
 
-        Screen.write(3, 3, 'hello world');
+        //Screen.write(3, 3, 'hello world');
 
-        Screen.write(0, 0, '/--------------------------------------\\');
-        Screen.write(2, 10, 'You are standing in a cramped drawing room.');
+        //Screen.write(0, 0, '/--------------------------------------\\');
+        //Screen.write(2, 10, 'You are standing in a cramped drawing room.');
 
         Screen.write(0, 0, '#');
         Screen.write(79, 0, '#');
         Screen.write(0, 23, '#');
         Screen.write(79, 23, '#');
 
-        Screen.write(10, 15, uni('║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬'));
+        //Screen.write(10, 15, uni('║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬'));
 
         Screen.raw(40, 10, 'xy\x07]A\x07]BRED');
 
@@ -110,13 +110,7 @@ export const Game = {
         Screen.write(4, 21, '#'.repeat(60));
         Screen.write(5, 18, '#'.repeat(60));
 */
-        let tiles = World.floors[0].tiles;
-        for (let y = 0; y < tiles.length; y++) {
-            for (let x = 0; x < tiles[y].length; x++) {
-                Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]));
-            }
-        }
-
+        World.draw();
         this.player.draw();
 
         let room = World.roomAt(this.player.pos);

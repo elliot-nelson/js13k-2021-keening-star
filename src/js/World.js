@@ -6,6 +6,8 @@ import { WorldData } from './WorldData-gen';
 export const World = {
     init() {
         this.floors = WorldData.floors;
+        this.spawn = WorldData.spawn;
+        this.strings = WorldData.strings;
         this.resetLookups();
     },
 
@@ -13,7 +15,8 @@ export const World = {
         let tiles = this.floors[0].tiles;
         for (let y = 0; y < tiles.length; y++) {
             for (let x = 0; x < tiles[y].length; x++) {
-                Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]));
+                let object = this.objectAt({ x, y, z: 0 });
+                Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]), object ? Screen.RED : Screen.WHITE);
             }
         }
     },
