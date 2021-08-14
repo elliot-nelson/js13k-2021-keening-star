@@ -5,13 +5,14 @@
 
 import { Camera } from './Camera';
 import { FPS, GAME_WIDTH, GAME_HEIGHT } from './Constants';
+import { Font } from './Font-gen';
 import { Input } from './Input';
 import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
 import { Viewport } from './Viewport';
-import { World } from './World-gen';
-import { xyz2pos, uni, roomAt } from './Util';
+import { World } from './World';
+import { xyz2pos, uni } from './Util';
 
 export const Game = {
     async init() {
@@ -21,6 +22,7 @@ export const Game = {
         Screen.init();
         Text.init();
         Input.init();
+        World.init();
 
         // Initial state values
         this.frame = 0;
@@ -117,7 +119,7 @@ export const Game = {
 
         this.player.draw();
 
-        let room = roomAt(this.player.pos);
+        let room = World.roomAt(this.player.pos);
         if (room) {
             Screen.write(0, 20, World.strings[room.name].split('\n'));
         }

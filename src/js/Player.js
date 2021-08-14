@@ -3,7 +3,7 @@
 import { TURN_FRAMES } from './Constants';
 import { Input } from './Input';
 import { Screen } from './Screen';
-import { canMoveInto } from './Util';
+import { World } from './World';
 
 export class Player {
     constructor(pos) {
@@ -32,8 +32,8 @@ export class Player {
         }
 
         if (move) {
-            console.log(move, canMoveInto(move));
-            if (canMoveInto(move)) {
+            console.log(move, World.canMoveInto(move));
+            if (World.canMoveInto(move)) {
                 this.pos = move;
                 this.turn = true;
             }

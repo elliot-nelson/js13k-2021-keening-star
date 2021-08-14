@@ -333,6 +333,7 @@
     "strings": {
         "foo": "bar",
         "RSTUDY": "A nice old room.\nWhat a nice place it is.\nFuck it.\n",
-        "RFROG": "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\n"
+        "RFROG": "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\n",
+        "FPLANT": "A nice looking plant.\n"
     }
 }

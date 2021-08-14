@@ -64,8 +64,8 @@ async function exportFont() {
 async function generateWorld() {
     const mapFile = 'src/assets/world.tmx';
     const detailFile = 'src/assets/world.yaml';
-    const worldFile = 'src/js/World-gen.js';
-    const jsonFile = 'src/js/World-gen.json';
+    const worldFile = 'src/js/WorldData-gen.js';
+    const jsonFile = 'src/assets/WorldData-gen.json';
 
     await WorldBuilder.build(mapFile, detailFile, worldFile, jsonFile);
 }
@@ -116,7 +116,7 @@ function minifyBuild() {
     // customized list of names that can't be mangled (because names like RSTUDY
     // will be both keys and name strings throughout the code, we need them
     // to match).
-    const world = JSON.parse(fs.readFileSync('src/js/World-gen.json'));
+    const world = JSON.parse(fs.readFileSync('src/assets/WorldData-gen.json'));
     const names = world.floors.reduce((list, floor) =>
         list.concat(floor.rooms.map(room => room.name)).concat(floor.objects.map(object => object.name)),
         []
