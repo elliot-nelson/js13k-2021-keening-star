@@ -5,14 +5,13 @@
 // wrapping long lines, etc.
 
 import { FONT_WIDTH, FONT_HEIGHT } from './Constants';
-import { Sprite } from './Sprite';
+import { Font } from './Font-gen';
 import { rgba, createCanvas } from './Util';
 
 export const Text = {
     init() {
         // The "white" font sheet, right from the sprite.
-        //Text.white = Sprite.font.img;
-        Text.white = Sprite.font;
+        Text.white = Font.img;
 
         // Recolored versions of the original font sheet, to use when constructing our glow.
         //

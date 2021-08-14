@@ -8,34 +8,31 @@ import { FPS, GAME_WIDTH, GAME_HEIGHT } from './Constants';
 import { Input } from './Input';
 import { Player } from './Player';
 import { Screen } from './Screen';
-import { Sprite } from './Sprite';
 import { Text } from './Text';
 import { Viewport } from './Viewport';
 import { World } from './World-gen';
 import { xyz2pos, uni, roomAt } from './Util';
 
 export const Game = {
-    init() {
+    async init() {
         // Initialize game components
-        Sprite.loadSpriteSheet(() => {
-            Viewport.init();
-            Screen.init();
-            Sprite.init();
-            Text.init();
-            Input.init();
+        await Font.init();
+        Viewport.init();
+        Screen.init();
+        Text.init();
+        Input.init();
 
-            // Initial state values
-            this.frame = 0;
-            this.entities = [];
+        // Initial state values
+        this.frame = 0;
+        this.entities = [];
 
-            this.player = new Player(xyz2pos(...World.spawn));
-            this.entities.push(this.player);
+        this.player = new Player(xyz2pos(...World.spawn));
+        this.entities.push(this.player);
 
-            Camera.init();
+        Camera.init();
 
-            // Kick off game loop
-            window.requestAnimationFrame(() => this.onFrame());
-        });
+        // Kick off game loop
+        window.requestAnimationFrame(() => this.onFrame());
     },
 
     onFrame() {
