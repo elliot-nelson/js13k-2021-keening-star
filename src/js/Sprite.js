@@ -10,8 +10,8 @@
 
 import { Game } from './Game';
 import { rgba, createCanvas } from './Util';
-import { SpriteSheet } from './SpriteSheet-gen';
 import { Viewport } from './Viewport';
+import { Font } from './Font-gen';
 
 export const Sprite = {
     // This is an exception to the rule, loading the spritesheet is a special action that
@@ -19,14 +19,17 @@ export const Sprite = {
     loadSpriteSheet(cb) {
         let image = new Image();
         image.onload = cb;
-        image.src = SpriteSheet.uri;
+        image.src = Font.uri;
         Sprite.sheet = image;
+        console.log(Sprite.sheet);
     },
 
     init() {
         // Base pixel font and icons (see `Text.init` for additional variations)
-        let knife = SpriteSheet['font-bizcat-knife'];
-        Sprite.font = initBasicSprite(knife[knife.length - 1], { x: 0, y: 0 });
+        Sprite.font = Sprite.sheet;
+        console.log(Sprite.font);
+        //let knife = SpriteSheet['font-bizcat-knife'];
+        //Sprite.font = initBasicSprite(knife[knife.length - 1], { x: 0, y: 0 });
     },
 
     /**

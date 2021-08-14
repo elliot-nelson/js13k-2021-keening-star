@@ -8,8 +8,8 @@ const gulp              = require('gulp');
 const log               = require('fancy-log');
 const rollup            = require('rollup');
 
-const ImageDataParser   = require('./tools/image-data-parser.js');
-const WorldBuilder      = require('./tools/world-builder.js');
+const FontExporter      = require('./tools/font-exporter');
+const WorldBuilder      = require('./tools/world-builder');
 
 // -----------------------------------------------------------------------------
 // Gulp Plugins
@@ -32,23 +32,6 @@ let watching = false;
 // -----------------------------------------------------------------------------
 // Assets Build
 // -----------------------------------------------------------------------------
-async function exportSpriteSheet() {
-    // Exporting the sprite sheet is the first step - using Aseprite, we take as input
-    // all of our source aseprite files, and spit out a single spritesheet PNG and a JSON
-    // file containing the x/y/w/h coordinates of the sprites in the spritesheet.
-
-    let src = 'src/assets/*.aseprite';
-    let png = 'src/assets/spritesheet-gen.png';
-    let data = 'src/assets/spritesheet-gen.json';
-
-    try {
-        await AsepriteCli.exec(`--batch ${src} --sheet-type rows --sheet ${png} --data ${data} --format json-array`);
-    } catch (e) {
-        log.error(e);
-        log.warn(chalk.red(`Failed to update ${png}, but continuing anyway...`));
-    }
-}
-
 async function exportFont() {
     // Normally, I would export all frames of all Aseprite files into a big spritesheet,
     // with no concern where the frames end up -- we'd use the JSON output to determine
@@ -60,6 +43,7 @@ async function exportFont() {
 
     const src = 'src/assets/font-bizcat-knife.aseprite';
     const png = 'src/assets/font-gen.png';
+    const output = 'src/js/Font-gen.js';
 
     try {
         await AsepriteCli.exec([
@@ -73,18 +57,8 @@ async function exportFont() {
         log.error(e);
         log.warn(chalk.red(`Failed to update ${png}, but continuing anyway...`));
     }
-}
 
-async function generateSpriteSheetData() {
-    // After exporting the sprite sheet, we use the JSON data to update a source file used by
-    // our asset loader in the game. This way we can freely update images without ever
-    // hand-edting any coordinate data or worrying about the composition of the spritesheet.
-
-    let data = 'src/assets/spritesheet-gen.json';
-    let image = 'src/assets/spritesheet-gen.png';
-    let output = 'src/js/SpriteSheet-gen.js';
-
-    await ImageDataParser.parse(data, image, true, output);
+    await FontExporter.export(png, output);
 }
 
 async function generateWorld() {
@@ -98,8 +72,6 @@ async function generateWorld() {
 
 const buildAssets = gulp.series(
     exportFont,
-    exportSpriteSheet,
-    generateSpriteSheetData,
     generateWorld
 );
 

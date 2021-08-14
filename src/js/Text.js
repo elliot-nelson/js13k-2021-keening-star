@@ -11,7 +11,8 @@ import { rgba, createCanvas } from './Util';
 export const Text = {
     init() {
         // The "white" font sheet, right from the sprite.
-        Text.white = Sprite.font.img;
+        //Text.white = Sprite.font.img;
+        Text.white = Sprite.font;
 
         // Recolored versions of the original font sheet, to use when constructing our glow.
         //
