@@ -8,7 +8,7 @@ export const World = {
         this.floors = WorldData.floors;
         this.spawn = WorldData.spawn;
         this.strings = WorldData.strings;
-        this.resetLookups();
+        this.reset();
     },
 
     draw() {
@@ -21,7 +21,7 @@ export const World = {
         }
     },
 
-    resetLookups() {
+    reset() {
         for (let floor of this.floors) {
             floor.objectsByName = floor.objects.reduce((hash, entry) => (hash[entry.name] = entry, hash), {});
             floor.roomsByName = floor.rooms.reduce((hash, entry) => (hash[entry.name] = entry, hash), {});

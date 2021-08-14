@@ -9,6 +9,9 @@ export class Player {
     constructor(pos) {
         this.pos = { ...pos };
         this.turn = false;
+
+        this.room = World.roomAt(this.pos);
+        this.lookingAt = this.room;
     }
 
     draw() {
@@ -35,7 +38,15 @@ export class Player {
             console.log(move, World.canMoveInto(move));
             if (World.canMoveInto(move)) {
                 this.pos = move;
+                this.room = World.roomAt(this.pos);
+                this.lookingAt = this.room;
                 this.turn = true;
+            } else {
+                let object = World.objectAt(move);
+                if (object) {
+                    console.log(object);
+                    this.lookingAt = object;
+                }
             }
         }
 

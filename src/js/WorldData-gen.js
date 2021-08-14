@@ -44,7 +44,7 @@ export const WorldData =
    { foo: 'bar',
      RSTUDY: 'A nice old room.\nWhat a nice place it is.\nFuck it.\n',
      RFROG:
-      'You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\n',
+      "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\nOh god this is going to be such a long description, isn't it?\n",
      FPLANT: 'A nice looking plant.\n' } }
 /* </generated> */
 ;

@@ -1,4 +1,5 @@
 # YAML stuff
+################################################################################
 strings:
   foo: 'bar'
   RSTUDY: |
@@ -7,5 +8,6 @@ strings:
     Fuck it.
   RFROG: |
     You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.
+    Oh god this is going to be such a long description, isn't it?
   FPLANT: |
     A nice looking plant.

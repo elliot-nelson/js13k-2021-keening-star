@@ -46,24 +46,34 @@ export const Screen = {
         }
     },
 
-    write(x, y, text, color) {
-        if (!Array.isArray(text)) text = [text];
-        if (color === undefined) color = Screen.WHITE;
+    write(x, y, text, color = Screen.WHITE, x2 = SCREEN_WIDTH) {
+        if (typeof text !== 'string') throw new Error('string');
+        //if (color === undefined) color = Screen.WHITE;
 
-        for (let j = 0; j < text.length; j++) {
-            for (let i = 0; i < text[j].length; i++) {
-                this.screen[(y + j) * SCREEN_WIDTH + x + i] = text[j].charCodeAt(i) | (color << 8);
+        let ox = x, oy = y;
+
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] === '\n') {
+                x = ox;
+                y++;
+            } else {
+                this.screen[y * SCREEN_WIDTH + x] = text.charCodeAt(i) | (color << 8);
+                x++;
+                if (x >= x2) {
+                    x = ox;
+                    y++;
+                }
             }
         }
     },
 
-    writeOnMap(x, y, text, color) {
+    writeOnMap(x, y, text, color, x2) {
         let offset = {
             x: 30 - Camera.pos.x,
             y : 8 - Camera.pos.y
         };
 
-        this.write(x + offset.x, y + offset.y, text, color);
+        this.write(x + offset.x, y + offset.y, text, color, x2);
     },
 
     raw(x, y, text) {

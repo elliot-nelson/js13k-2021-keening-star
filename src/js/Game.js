@@ -113,18 +113,10 @@ export const Game = {
         World.draw();
         this.player.draw();
 
-        let room = World.roomAt(this.player.pos);
-        if (room) {
-            Screen.write(0, 20, World.strings[room.name].split('\n'));
+        if (this.player.lookingAt) {
+            Screen.write(0, 20, World.strings[this.player.lookingAt.name]);
         }
 
-        Screen.write(0, 20, 'hello');
-
-        Screen.write(0, 20, '20');
-        Screen.write(0, 21, '21');
-        Screen.write(0, 22, '22');
-        Screen.write(0, 23, '23');
-        Screen.write(77, 23, '#');
         Screen.draw(Viewport.ctx);
 
         //Sprite.drawSprite(Viewport.ctx, Sprite.font, 0, 0);
