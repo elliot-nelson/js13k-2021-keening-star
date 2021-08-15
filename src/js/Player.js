@@ -12,6 +12,8 @@ export class Player {
 
         this.room = World.roomAt(this.pos);
         this.lookingAt = this.room;
+        this.lastAction = undefined;
+        this.inventory = [];
     }
 
     draw() {
@@ -35,28 +37,48 @@ export class Player {
         }
 
         if (move) {
-            console.log(move, World.canMoveInto(move));
-            if (World.canMoveInto(move)) {
-                this.pos = move;
-                this.room = World.roomAt(this.pos);
-                this.lookingAt = this.room;
-                this.turn = true;
+            this.turn = true;
+            this.lastAction = undefined;
+            this.interactWith(move);
+        }
+    }
+
+    interactWith(pos) {
+        let tile = World.tileAt(pos);
+        let object = World.objectAt(pos);
+
+        if (object) {
+            if (object.open) {
+                this.moveInto(pos, false);
+            } else if (object.finished) {
+                this.lookingAt = object;
             } else {
-                let object = World.objectAt(move);
-                if (object) {
-                    console.log(object);
-                    this.lookingAt = object;
+                switch (object.name) {
+                    case 'DDRAW':
+                        this.lastAction = 'You push the door open.';
+                        object.open = object.finished = true;
+                        object.char = `'`;
+                        break;
+                    default:
+                        this.lookingAt = object;
+                        break;
                 }
             }
+        } else if (tile === World.FLOOR) {
+            this.moveInto(pos, true);
+        } else {
+            console.log('No.');
         }
+    }
 
-        /*
-        if (Input.held[Input.Action.LEFT])
-        if (Input.held[Input.Action.LEFT]) {
-            this.pos.x--;
-            console.log(['held left', Input.framesHeld[Input.Action.LEFT]]);
-        } else if (Input.pressed[Input.Action.UP]) {
-            this.pos.y--;
-        }*/
+    moveInto(pos, updateRoom) {
+        this.pos = pos;
+        if (updateRoom) {
+            // This is a cheap, easy way to make doors part of "both rooms" - when you step
+            // between rooms, the current room description doesn't update until you walk
+            // past the doorway.
+            this.room = World.roomAt(this.pos);
+            this.lookingAt = this.room;
+        }
     }
 }

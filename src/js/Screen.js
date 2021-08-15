@@ -13,7 +13,7 @@ import { rgba } from './Util';
 
 export const Screen = {
     // Terminal color codes
-    BLACK:   0x00,
+    DIM:     0x00,
     RED:     0x01,
     GREEN:   0x02,
     YELLOW:  0x03,
@@ -32,6 +32,7 @@ export const Screen = {
 
         // Terminal color names to hex color mappings
         Screen.COLORS = {
+            [Screen.DIM]:                   rgba(144, 144, 144, 1),
             [Screen.WHITE]:                 rgba(214, 214, 214, 1),
             [Screen.WHITE | Screen.BRIGHT]: rgba(255, 255, 255, 1),
             [Screen.RED]:                   rgba(255, 30, 30, 1)

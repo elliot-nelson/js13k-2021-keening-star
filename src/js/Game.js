@@ -113,7 +113,9 @@ export const Game = {
         World.draw();
         this.player.draw();
 
-        if (this.player.lookingAt) {
+        if (this.player.lastAction) {
+            Screen.write(0, 20, this.player.lastAction);
+        } else if (this.player.lookingAt) {
             Screen.write(0, 20, World.strings[this.player.lookingAt.name]);
         }
 

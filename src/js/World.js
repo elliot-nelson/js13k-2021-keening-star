@@ -4,10 +4,9 @@ import { Screen } from './Screen';
 import { WorldData } from './WorldData-gen';
 
 export const World = {
+    FLOOR: 46, // '.'
+
     init() {
-        this.floors = WorldData.floors;
-        this.spawn = WorldData.spawn;
-        this.strings = WorldData.strings;
         this.reset();
     },
 
@@ -16,13 +15,35 @@ export const World = {
         for (let y = 0; y < tiles.length; y++) {
             for (let x = 0; x < tiles[y].length; x++) {
                 let object = this.objectAt({ x, y, z: 0 });
-                Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]), object ? Screen.RED : Screen.WHITE);
+                if (object) {
+                    Screen.writeOnMap(x, y, object.char, this.colorFor(object));
+                } else {
+                    Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]), Screen.WHITE);
+                }
             }
         }
     },
 
     reset() {
+        // We want to be careful and CLONE (not reference) the world data, because
+        // this will be our "working copy" -- rooms and objects and even tiles might
+        // get updated and moved during game logic.
+        this.floors = WorldData.floors.map(floor => {
+            return {
+                tiles: floor.tiles.map(row => [...row]),
+                objects: floor.objects.map(object => ({ ...object })),
+                rooms: floor.rooms.map(room => ({ ...room }))
+            };
+        });
+        this.spawn = WorldData.spawn;
+        this.strings = WorldData.strings;
+
         for (let floor of this.floors) {
+            // "Lift" all objects off the floor, and get their default character
+            for (let object of floor.objects) {
+                object.char = String.fromCharCode(floor.tiles[object.y][object.x]);
+                floor.tiles[object.y][object.x] = World.FLOOR;
+            }
             floor.objectsByName = floor.objects.reduce((hash, entry) => (hash[entry.name] = entry, hash), {});
             floor.roomsByName = floor.rooms.reduce((hash, entry) => (hash[entry.name] = entry, hash), {});
         }
@@ -48,5 +69,10 @@ export const World = {
         let tile = this.tileAt(pos);
         if (tile === 46 /* . */) return true;
         return false;
+    },
+
+    colorFor(object) {
+        if (object.finished) return Screen.DIM;
+        return Screen.RED;
     }
 };
