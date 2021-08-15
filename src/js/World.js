@@ -73,6 +73,7 @@ export const World = {
 
     colorFor(object) {
         if (object.finished) return Screen.DIM;
-        return Screen.RED;
+        if (object.interacted) return Screen.YELLOW;
+        return Screen.BLUE;
     }
 };

@@ -55,6 +55,6 @@ export const Viewport = {
         }
 
         // We do this every frame, not just on resize, due to browser sometimes "forgetting".
-        Viewport.canvas.style.cursor = 'none';
+        Viewport.canvas.style.cursor = 'not-allowed';
     }
 };

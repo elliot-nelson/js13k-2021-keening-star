@@ -48,6 +48,8 @@ export class Player {
         let object = World.objectAt(pos);
 
         if (object) {
+            object.interacted = true;
+
             if (object.open) {
                 this.moveInto(pos, false);
             } else if (object.finished) {
