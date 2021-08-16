@@ -38,18 +38,22 @@ const WorldBuilder = {
                 name: layer.name,
                 tiles: [],
                 rooms: [],
-                objects: []
+                objects: [],
+                triggers: []
             };
 
             for (let sublayer of layer.layers) {
                 if (sublayer.name === 'TILES') {
                     floor.tiles = sublayer.tiles;
-                }
-                if (sublayer.name === 'ROOMS') {
+                } else if (sublayer.name === 'ROOMS') {
                     floor.rooms = sublayer.objects;
-                }
-                if (sublayer.name === 'OBJECTS') {
+                } else if (sublayer.name === 'OBJECTS') {
                     floor.objects = sublayer.objects;
+                } else if (sublayer.name.startsWith('T')) {
+                    floor.triggers.push({
+                        name: sublayer.name,
+                        objects: sublayer.objects
+                    });
                 }
             }
 
@@ -103,6 +107,12 @@ const WorldBuilder = {
                 object.x = Math.floor(object.x / tileWidth);
                 object.y = Math.floor(object.y / tileHeight);
             }
+            for (let trigger of floor.triggers) {
+                for (let object of trigger.objects) {
+                    object.x = Math.floor(object.x / tileWidth);
+                    object.y = Math.floor(object.y / tileHeight);
+                }
+            }
             for (let room of floor.rooms) {
                 // Rooms are "drawn" as rectangles on top of the walls in Tiled and aren't guaranteed
                 // to be exactly right, so we want anything "inside the grid" to count.
@@ -131,6 +141,12 @@ const WorldBuilder = {
             for (let object of floor.objects) {
                 object.x -= startX;
                 object.y -= startY;
+            }
+            for (let trigger of floor.triggers) {
+                for (let object of trigger.objects) {
+                    object.x -= startX;
+                    object.y -= startY;
+                }
             }
             for (let room of floor.rooms) {
                 room.x -= startX;
@@ -175,6 +191,27 @@ const WorldBuilder = {
             // mangle them during the gulp build, significantly reducing the bytes used.
             //floor.rooms = Object.fromEntries(floor.rooms.map(room => [room.name, room]));
             //floor.objects = Object.fromEntries(floor.objects.map(object => [object.name, object]));
+        }
+
+        // Delete unused data from our entries (sheds a few bytes).
+        for (let floor of world.floors) {
+            for (let object of floor.objects) {
+                delete object.id;
+                delete object.objectType;
+                delete object.props;
+            }
+            for (let trigger of floor.triggers) {
+                for (let object of trigger.objects) {
+                    delete object.id;
+                    delete object.objectType;
+                    delete object.props;
+                }
+            }
+            for (let room of floor.rooms) {
+                delete room.id;
+                delete room.objectType;
+                delete room.props;
+            }
         }
 
         if (!spawn) throw new Error('No spawn location detected in world.');

@@ -330,66 +330,62 @@
             ],
             "rooms": [
                 {
-                    "id": 1,
                     "name": "RFOYER",
                     "x": 7,
                     "y": 1,
                     "width": 10,
-                    "height": 9,
-                    "objectType": "object",
-                    "props": {}
+                    "height": 9
                 },
                 {
-                    "id": 5,
                     "name": "RDRAW",
                     "x": 17,
                     "y": 2,
                     "width": 6,
-                    "height": 7,
-                    "objectType": "object",
-                    "props": {}
+                    "height": 7
                 }
             ],
             "objects": [
                 {
-                    "id": 3,
                     "name": "FPLANT",
                     "x": 8,
-                    "y": 2,
-                    "objectType": "object",
-                    "props": {}
+                    "y": 2
                 },
                 {
-                    "id": 6,
                     "name": "DDRAW",
                     "x": 16,
-                    "y": 6,
-                    "objectType": "object",
-                    "props": {}
+                    "y": 6
                 },
                 {
-                    "id": 7,
                     "name": "DKITCHEN",
                     "x": 2,
-                    "y": 2,
-                    "objectType": "object",
-                    "props": {}
+                    "y": 2
                 },
                 {
-                    "id": 8,
                     "name": "FFIREFOYER",
                     "x": 14,
-                    "y": 1,
-                    "objectType": "object",
-                    "props": {}
+                    "y": 1
                 },
                 {
-                    "id": 9,
                     "name": "FFIREDRAW",
                     "x": 23,
-                    "y": 6,
-                    "objectType": "object",
-                    "props": {}
+                    "y": 6
+                }
+            ],
+            "triggers": [
+                {
+                    "name": "TRAT1",
+                    "objects": [
+                        {
+                            "name": "RAT",
+                            "x": 11,
+                            "y": 3
+                        },
+                        {
+                            "name": "RAT",
+                            "x": 15,
+                            "y": 2
+                        }
+                    ]
                 }
             ],
             "id": 0
