@@ -16,9 +16,10 @@ export const World = {
             for (let x = 0; x < tiles[y].length; x++) {
                 let object = this.objectAt({ x, y, z: 0 });
                 if (object) {
-                    Screen.writeOnMap(x, y, object.char, this.colorFor(object));
+                    Screen.writeOnMap(x, y, object.char, this.colorForObject(object));
                 } else {
-                    Screen.writeOnMap(x, y, String.fromCharCode(tiles[y][x]), Screen.WHITE);
+                    let c = String.fromCharCode(tiles[y][x]);
+                    Screen.writeOnMap(x, y, c, this.colorForTile(c));
                 }
             }
         }
@@ -73,12 +74,13 @@ export const World = {
         return false;
     },
 
-    colorFor(object) {
+    colorForObject(object) {
         if (object.finished) return Screen.DIM;
         if (object.interacted) return Screen.YELLOW;
         return Screen.BLUE;
     },
 
-
-
+    colorForTile(tile) {
+        return tile === '.' ? Screen.DIM : Screen.WHITE;
+    }
 };
