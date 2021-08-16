@@ -32,13 +32,12 @@ export const Screen = {
 
         // Terminal color names to hex color mappings
         Screen.COLORS = {
-
             [Screen.DIM]:                   rgba(144, 144, 144, 1),
             [Screen.WHITE]:                 rgba(214, 214, 214, 1),
             [Screen.WHITE | Screen.BRIGHT]: rgba(255, 255, 255, 1),
-            [Screen.RED]:                   rgba(255, 30, 30, 1),
-            [Screen.YELLOW]: rgba(238,212,83,1),
-            [Screen.BLUE]: rgba(70, 151, 226, 1)
+            [Screen.RED]:                   rgba(214, 69,  46,  1),
+            [Screen.YELLOW]:                rgba(238, 212, 83,  1),
+            [Screen.BLUE]:                  rgba(70,  151, 226, 1)
         };
     },
 

@@ -32,7 +32,8 @@ export const World = {
             return {
                 tiles: floor.tiles.map(row => [...row]),
                 objects: floor.objects.map(object => ({ ...object })),
-                rooms: floor.rooms.map(room => ({ ...room }))
+                rooms: floor.rooms.map(room => ({ ...room })),
+                triggers: floor.triggers.map(trigger => ({ ...trigger }))
             };
         });
         this.bounds = WorldData.bounds;
@@ -76,5 +77,8 @@ export const World = {
         if (object.finished) return Screen.DIM;
         if (object.interacted) return Screen.YELLOW;
         return Screen.BLUE;
-    }
+    },
+
+
+
 };

@@ -10,6 +10,7 @@ import { Input } from './Input';
 import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
+import { Triggers } from './Triggers';
 import { Viewport } from './Viewport';
 import { World } from './World';
 import { xyz2pos, uni } from './Util';
@@ -56,6 +57,8 @@ export const Game = {
         }
 
         window.requestAnimationFrame(() => this.onFrame());
+
+        Triggers.arm('TRAT1');
     },
 
     update() {
@@ -63,6 +66,13 @@ export const Game = {
         //if (this.frame % 120 === 0) this.player.pos.y--;
         this.player.update();
         Camera.update();
+
+        for (let entity of this.entities) {
+            if (!(entity instanceof Player))
+                entity.update();
+        }
+
+        Triggers.update();
     },
 
     draw() {
@@ -115,12 +125,17 @@ export const Game = {
         Screen.write(5, 18, '#'.repeat(60));
 */
         World.draw();
-        this.player.draw();
+
+        for (let entity of this.entities) {
+            entity.draw();
+        }
+
+        //this.player.draw();
 
         if (this.player.lastAction) {
-            Screen.write(1, 20, this.player.lastAction);
+            Screen.write(2, 20, this.player.lastAction);
         } else if (this.player.lookingAt) {
-            Screen.write(1, 20, World.strings[this.player.lookingAt.name] || 'WHAt');
+            Screen.write(2, 20, World.strings[this.player.lookingAt.name] || 'WHAt');
         }
 
         Screen.draw(Viewport.ctx);
