@@ -35,6 +35,7 @@ export const World = {
                 rooms: floor.rooms.map(room => ({ ...room }))
             };
         });
+        this.bounds = WorldData.bounds;
         this.spawn = WorldData.spawn;
         this.strings = WorldData.strings;
 

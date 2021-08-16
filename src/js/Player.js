@@ -4,6 +4,7 @@ import { TURN_FRAMES } from './Constants';
 import { Input } from './Input';
 import { Screen } from './Screen';
 import { World } from './World';
+import { flood } from './Util';
 
 export class Player {
     constructor(pos) {
@@ -14,6 +15,8 @@ export class Player {
         this.lookingAt = this.room;
         this.lastAction = undefined;
         this.inventory = [];
+
+        this.df = flood(this.pos);
     }
 
     draw() {
@@ -38,7 +41,6 @@ export class Player {
 
         if (move) {
             this.turn = true;
-            this.lastAction = undefined;
             this.interactWith(move);
         }
     }
@@ -75,12 +77,14 @@ export class Player {
 
     moveInto(pos, updateRoom) {
         this.pos = pos;
+        this.df = flood(this.pos);
         if (updateRoom) {
             // This is a cheap, easy way to make doors part of "both rooms" - when you step
             // between rooms, the current room description doesn't update until you walk
             // past the doorway.
             this.room = World.roomAt(this.pos);
             this.lookingAt = this.room;
+            this.lastAction = undefined;
         }
     }
 }

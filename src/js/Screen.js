@@ -80,6 +80,15 @@ export const Screen = {
         this.write(x + offset.x, y + offset.y, text, color, x2);
     },
 
+    writeBox(x, y, w, h, color) {
+        this.write(x, y, `\x95${'\x91'.repeat(w - 2)}\x96`, color);
+        this.write(x, y + h - 1, `\x94${'\x91'.repeat(w - 2)}\x93`, color);
+        for (let i = y + 1; i < y + h - 1; i++) {
+            this.write(x, i, '\x90', color);
+            this.write(x + w - 1, i, '\x90', color);
+        }
+    },
+
     raw(x, y, text) {
         Text.drawText(Viewport.ctx, Text.splitParagraph(text, Viewport.width), x * FONT_WIDTH, y * FONT_HEIGHT);
     },

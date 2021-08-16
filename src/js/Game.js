@@ -93,8 +93,12 @@ export const Game = {
         Screen.raw(40, 10, 'xy\x07]A\x07]BRED');
 
         for (let i = 0; i < 20; i++) {
-            Screen.write(64, i, '#');
+            Screen.write(64, i, '\x90', Screen.DIM);
         }
+
+        Screen.writeBox(0, 19, 80, 5, Screen.DIM);
+        Screen.write(64, 19, '\x98', Screen.DIM);
+        //Screen.write(0, 19, '\x91'.repeat(80));
 
         Screen.write(66, 1, 'Health 100/100');
         Screen.write(66, 2, 'Sanity 100/100');
@@ -114,9 +118,9 @@ export const Game = {
         this.player.draw();
 
         if (this.player.lastAction) {
-            Screen.write(0, 20, this.player.lastAction);
+            Screen.write(1, 20, this.player.lastAction);
         } else if (this.player.lookingAt) {
-            Screen.write(0, 20, World.strings[this.player.lookingAt.name]);
+            Screen.write(1, 20, World.strings[this.player.lookingAt.name] || 'WHAt');
         }
 
         Screen.draw(Viewport.ctx);

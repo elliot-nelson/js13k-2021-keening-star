@@ -1,7 +1,19 @@
 # YAML stuff
-################################################################################
+###################################################################################
+#   <---                                                                       --->
 strings:
   foo: 'bar'
+  RFOYER: |
+    You are in the foyer of the farmhouse. The peeling paint and threadbare rugs
+    make it seem older than the outside of the house.
+    A large dollhouse sits on a pedestal in the far corner of the room.
+  RDRAW: |
+    You are in a dimly lit drawing room filled with faded furniture.
+    The room smells of musty upholstery.
+  FFIREDRAW: |
+    An impressive granite fireplace. Above the mantle hangs a brightly colored
+    portrait of a newborn, out of place in such a drab room.
+    The embers are cold.
   RSTUDY: |
     A nice old room.
     What a nice place it is.

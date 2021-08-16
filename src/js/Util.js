@@ -37,6 +37,32 @@ export function uni(chars) {
     return chars.split('').map(c => String.fromCharCode(UNICODE_CHAR_MAP[c]) || c).join('');
 }
 
+export function flood(pos, maxDistance = Infinity) {
+    let result = World.floors.map(floor => array2d(World.bounds[1][0], World.bounds[1][1], () => Infinity));
+    let stack = [{ ...pos, cost: 0 }];
+
+    while (stack.length > 0) {
+        let { x, y, z, cost } = stack.shift();
+        if (result[z][y][x] <= cost) continue;
+        result[z][y][x] = cost++;
+        if (result[z][y][x] >= maxDistance) continue;
+        if (World.floors[z].tiles[y][x + 1] === '.' && result[z][y][x + 1] > cost)
+            stack.push({ x: x + 1, y, z, cost });
+        if (World.floors[z].tiles[y][x - 1] === '.' && result[z][y][x - 1] > cost)
+            stack.push({ x: x - 1, y, z, cost });
+        if (World.floors[z].tiles[y + 1][x] === '.' && result[z][y + 1][x] > cost)
+            stack.push({ x, y: y + 1, z, cost });
+        if (World.floors[z].tiles[y - 1][x] === '.' && result[z][y - 1][x] > cost)
+            stack.push({ x, y: y - 1, z, cost });
+    }
+
+    return result;
+}
+
+export function array2d(width, height, fn) {
+    return Array.from({ length: height }, () => Array.from({ length: width }, fn));
+}
+
 export function createCanvas(width, height) {
     let canvas = document.createElement('canvas');
     canvas.width = width;
