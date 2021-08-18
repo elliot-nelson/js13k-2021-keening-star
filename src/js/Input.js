@@ -1,5 +1,7 @@
 // Input
 
+import { Audio } from './Audio';
+
 export const Input = {
     Action: {
         UP: 11,
@@ -46,6 +48,8 @@ export const Input = {
             if (action) {
                 this.keyboard[action] = true;
             }
+
+            Audio.init();
         });
 
         window.addEventListener('keyup', event => {

@@ -8,6 +8,7 @@ const gulp              = require('gulp');
 const log               = require('fancy-log');
 const p8tojs            = require('p8-to-js');
 const rollup            = require('rollup');
+const rollupNodeResolve = require('@rollup/plugin-node-resolve');
 
 const FontExporter      = require('./tools/font-exporter');
 const WorldBuilder      = require('./tools/world-builder');
@@ -78,7 +79,7 @@ async function generateAudio() {
     await p8tojs.convertFile(p8File, jsFile, {
         export: 'AudioData',
         sections: ['sfx', 'music'],
-        encoding: 'base64'
+        encoding: 'hex'
     });
 }
 
@@ -95,6 +96,8 @@ async function compileBuild() {
     try {
         const bundle = await rollup.rollup({
             input: 'src/js/index.js',
+            plugins: [rollupNodeResolve.nodeResolve()],
+
             // Hack... yes, my game has circular dependencies everywhere :). These
             // really aren't a problem as long as structures don't initialize themselves
             // on load (this is why most structures are inert until you execute `init()`
