@@ -1,13 +1,14 @@
+// world-builder
+//
+// Build the "world", a big data blob containing all the information we need about the
+// world the player plays in, and assemble it as a source file. The map data comes from
+// Tiled, and data like stats and messages and descriptions comes from a YAML file.
+
 const fs = require('fs');
 const util = require('util');
 const yaml = require('js-yaml');
 const tmx = require('./tmx-parser');
 
-/**
- * Build the "world", a big data blob containing all the information we need about the
- * world the player plays in, and assemble it as a source file. The map data comes from
- * Tiled, and data like stats and messages and descriptions comes from a YAML file.
- */
 const WorldBuilder = {
     /*
      * Combine a Tiled (tmx) file with a YAML data file to produce a single

@@ -6,6 +6,7 @@ const chalk             = require('chalk');
 const fs                = require('fs');
 const gulp              = require('gulp');
 const log               = require('fancy-log');
+const p8tojs            = require('p8-to-js');
 const rollup            = require('rollup');
 
 const FontExporter      = require('./tools/font-exporter');
@@ -70,9 +71,21 @@ async function generateWorld() {
     await WorldBuilder.build(mapFile, detailFile, worldFile, jsonFile);
 }
 
+async function generateAudio() {
+    const p8File = 'src/assets/audio.p8';
+    const jsFile = 'src/js/AudioData-gen.js';
+
+    await p8tojs.convertFile(p8File, jsFile, {
+        export: 'AudioData',
+        sections: ['sfx', 'music'],
+        encoding: 'base64'
+    });
+}
+
 const buildAssets = gulp.series(
     exportFont,
-    generateWorld
+    generateWorld,
+    generateAudio
 );
 
 // -----------------------------------------------------------------------------
