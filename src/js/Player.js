@@ -1,15 +1,16 @@
 // Player
 
 import { TURN_FRAMES } from './Constants';
+import { Game } from './Game';
 import { Input } from './Input';
 import { Screen } from './Screen';
 import { World } from './World';
+import { WorldParticle } from './WorldParticle';
 import { flood } from './Util';
 
 export class Player {
     constructor(pos) {
         this.pos = { ...pos };
-        this.turn = false;
 
         this.room = World.roomAt(this.pos);
         this.lookingAt = this.room;
@@ -17,6 +18,8 @@ export class Player {
         this.inventory = [];
 
         this.df = flood(this.pos);
+
+        this.speed = 12;
     }
 
     draw() {
@@ -24,8 +27,6 @@ export class Player {
     }
 
     update() {
-        this.turn = false;
-
         let move;
 
         console.log(Input.held[Input.Action.LEFT], Input.framesHeld[Input.Action.LEFT]);
@@ -40,16 +41,21 @@ export class Player {
         }
 
         if (move) {
-            this.turn = true;
             this.interactWith(move);
         }
+        return !!move;
     }
 
     interactWith(pos) {
         let tile = World.tileAt(pos);
         let object = World.objectAt(pos);
+        let entity = Game.entityAt(pos);
 
-        if (object) {
+        if (entity) {
+            console.log('ATTACK THE ENTITY!');
+            Game.entities.push(new WorldParticle(pos, [['/', Screen.YELLOW], ['*', Screen.YELLOW]]));
+            Game.entities.push(new WorldParticle(Game.player.pos, [['@', Screen.YELLOW]]));
+        } else if (object) {
             object.interacted = true;
 
             if (object.open) {

@@ -11,6 +11,7 @@ import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
 import { Triggers } from './Triggers';
+import { TurnSystem } from './TurnSystem';
 import { Viewport } from './Viewport';
 import { World } from './World';
 import { xyz2pos, uni } from './Util';
@@ -63,16 +64,17 @@ export const Game = {
 
     update() {
         Input.update();
-        //if (this.frame % 120 === 0) this.player.pos.y--;
-        this.player.update();
+
+        TurnSystem.takeEntityTurns();
+
         Camera.update();
 
-        for (let entity of this.entities) {
-            if (!(entity instanceof Player))
-                entity.update();
-        }
-
         Triggers.update();
+
+        // Discard any entites marked for culling at the end of the update step. They will not
+        // be drawn this frame (so, setting "cull" should happen AFTER the last frame of a given
+        // enemy or particle has been drawn).
+        Game.entities = Game.entities.filter(entity => !entity.cull);
     },
 
     draw() {
@@ -126,9 +128,18 @@ export const Game = {
 */
         World.draw();
 
+        // A simplistic 3-layer z-order system. We can always be more advanced
+        // and actually sort by z later!
         for (let entity of this.entities) {
-            entity.draw();
+            if (entity.z < 0) entity.draw();
         }
+        for (let entity of this.entities) {
+            if (!entity.z) entity.draw();
+        }
+        for (let entity of this.entities) {
+            if (entity.z > 0) entity.draw();
+        }
+
 
         //this.player.draw();
 
@@ -141,5 +152,12 @@ export const Game = {
         Screen.draw(Viewport.ctx);
 
         //Sprite.drawSprite(Viewport.ctx, Sprite.font, 0, 0);
-    }
+    },
+
+    entityAt(pos) {
+        return this.entities.find(entity => {
+            let found = (entity.pos.x === pos.x) && (entity.pos.y === pos.y) && (entity.pos.z === pos.z);
+            return found;
+        });
+    },
 };

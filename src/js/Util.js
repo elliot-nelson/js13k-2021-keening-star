@@ -46,13 +46,13 @@ export function flood(pos, maxDistance = Infinity) {
         if (result[z][y][x] <= cost) continue;
         result[z][y][x] = cost++;
         if (result[z][y][x] >= maxDistance) continue;
-        if (World.floors[z].tiles[y][x + 1] === '.' && result[z][y][x + 1] > cost)
+        if (World.floors[z].tiles[y][x + 1] === World.FLOOR && result[z][y][x + 1] > cost)
             stack.push({ x: x + 1, y, z, cost });
-        if (World.floors[z].tiles[y][x - 1] === '.' && result[z][y][x - 1] > cost)
+        if (World.floors[z].tiles[y][x - 1] === World.FLOOR && result[z][y][x - 1] > cost)
             stack.push({ x: x - 1, y, z, cost });
-        if (World.floors[z].tiles[y + 1][x] === '.' && result[z][y + 1][x] > cost)
+        if (World.floors[z].tiles[y + 1][x] === World.FLOOR && result[z][y + 1][x] > cost)
             stack.push({ x, y: y + 1, z, cost });
-        if (World.floors[z].tiles[y - 1][x] === '.' && result[z][y - 1][x] > cost)
+        if (World.floors[z].tiles[y - 1][x] === World.FLOOR && result[z][y - 1][x] > cost)
             stack.push({ x, y: y - 1, z, cost });
     }
 

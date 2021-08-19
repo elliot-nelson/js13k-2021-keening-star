@@ -198,7 +198,7 @@ export const WorldData =
           { name: 'FFIREDRAW', x: 23, y: 6 } ],
        triggers:
         [ { name: 'TRAT1',
-            objects: [ { name: 'RAT', x: 11, y: 3 }, { name: 'RAT', x: 15, y: 2 } ] } ],
+            objects: [ { name: 'RAT', x: 11, y: 3 }, { name: 'RATD', x: 15, y: 2 } ] } ],
        id: 0 } ],
   bounds: [ [ 0, 0 ], [ 25, 12 ] ],
   spawn: [ 11, 8, 0 ],
