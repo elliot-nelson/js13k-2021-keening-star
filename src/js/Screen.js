@@ -41,9 +41,9 @@ export const Screen = {
         };
     },
 
-    clear() {
-        for (let y = 0; y < SCREEN_HEIGHT; y++) {
-            for (let x = 0; x < SCREEN_WIDTH; x++) {
+    clear(startX = 0, startY = 0, width = SCREEN_WIDTH, height = SCREEN_HEIGHT) {
+        for (let y = startY; y < startY + height; y++) {
+            for (let x = startX; x < startX + width; x++) {
                 this.screen[y * SCREEN_WIDTH + x] = Screen.SPACE | (Screen.WHITE << 8);
             }
         }

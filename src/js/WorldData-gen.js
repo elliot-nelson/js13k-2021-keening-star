@@ -205,14 +205,14 @@ export const WorldData =
   strings:
    { foo: 'bar',
      RFOYER:
-      'You are in the foyer of the farmhouse. The peeling paint and threadbare rugs\nmake it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.\n',
+      'You are in the foyer of the farmhouse. The peeling paint and threadbare rugs\nmake it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.',
      RDRAW:
-      'You are in a dimly lit drawing room filled with faded furniture.\nThe room smells of musty upholstery.\n',
+      'You are in a dimly lit drawing room filled with faded furniture.\nThe room smells of musty upholstery.',
      FFIREDRAW:
-      'An impressive granite fireplace. Above the mantle hangs a brightly colored\nportrait of a newborn, out of place in such a drab room.\nThe embers are cold.\n',
-     RSTUDY: 'A nice old room.\nWhat a nice place it is.\nFuck it.\n',
+      'An impressive granite fireplace. Above the mantle hangs a brightly colored\nportrait of a newborn, out of place in such a drab room.\nThe embers are cold.',
+     RSTUDY: 'A nice old room.\nWhat a nice place it is.\nFuck it.',
      RFROG:
-      "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\nOh god this is going to be such a long description, isn't it?\n",
-     FPLANT: 'A nice looking plant.\n' } }
+      "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\nOh god this is going to be such a long description, isn't it?",
+     FPLANT: 'A nice looking plant.' } }
 /* </generated> */
 ;

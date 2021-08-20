@@ -9,6 +9,7 @@ export const Input = {
         LEFT: 13,
         RIGHT: 14,
         CAST:  15,
+        LOG:   27,
         HELP:  28,
         BACK:  29
     },
@@ -37,6 +38,7 @@ export const Input = {
             ArrowDown: Input.Action.DOWN,
             ArrowRight: Input.Action.RIGHT,
             KeyC: Input.Action.CAST,
+            KeyL: Input.Action.LOG,
             KeyH: Input.Action.HELP,
             Escape: Input.Action.BACK
         };
@@ -63,6 +65,7 @@ export const Input = {
     update() {
         for (let action of Object.values(Input.Action)) {
             let held = this.keyboard[action];
+
             this.pressed[action] = !this.held[action] && held;
             this.released[action] = this.held[action] && !held;
 

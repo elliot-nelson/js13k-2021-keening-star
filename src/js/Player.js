@@ -3,6 +3,7 @@
 import { TURN_FRAMES } from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
+import { Log } from './Log';
 import { Screen } from './Screen';
 import { World } from './World';
 import { WorldParticle } from './WorldParticle';
@@ -14,12 +15,13 @@ export class Player {
 
         this.room = World.roomAt(this.pos);
         this.lookingAt = this.room;
-        this.lastAction = undefined;
         this.inventory = [];
 
         this.df = flood(this.pos);
 
         this.speed = 12;
+
+        Log.add(World.strings[this.room.name]);
     }
 
     draw() {
@@ -62,15 +64,19 @@ export class Player {
                 this.moveInto(pos, false);
             } else if (object.finished) {
                 this.lookingAt = object;
+                Log.add(World.strings[object.name]);
+                console.log('what' + World.strings[object.name]);
             } else {
                 switch (object.name) {
                     case 'DDRAW':
-                        this.lastAction = 'You push the door open.';
+                        Log.add('You push the door open.');
                         object.open = object.finished = true;
                         object.char = `'`;
                         break;
                     default:
                         this.lookingAt = object;
+                        Log.add(World.strings[object.name]);
+                        console.log('what' + World.strings[object.name]);
                         break;
                 }
             }
@@ -88,7 +94,11 @@ export class Player {
             // This is a cheap, easy way to make doors part of "both rooms" - when you step
             // between rooms, the current room description doesn't update until you walk
             // past the doorway.
-            this.room = World.roomAt(this.pos);
+            let room = World.roomAt(this.pos);
+            if (this.room !== room) {
+                Log.add(World.strings[room.name]);
+            }
+            this.room = room;
             this.lookingAt = this.room;
             this.lastAction = undefined;
         }

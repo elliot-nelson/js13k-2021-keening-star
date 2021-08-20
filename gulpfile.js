@@ -161,6 +161,7 @@ function minifyBuild() {
                     'ArrowDown',
                     'ArrowRight',
                     'KeyC',
+                    'KeyL',
                     'KeyH',
                     'Escape'
                 ]

@@ -7,6 +7,8 @@ import { Camera } from './Camera';
 import { FPS, GAME_WIDTH, GAME_HEIGHT } from './Constants';
 import { Font } from './Font-gen';
 import { Input } from './Input';
+import { Log } from './Log';
+import { LogScreen } from './LogScreen';
 import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
@@ -25,6 +27,7 @@ export const Game = {
         Text.init();
         Input.init();
         World.init();
+        Log.init();
 
         // Initial state values
         this.frame = 0;
@@ -32,6 +35,8 @@ export const Game = {
 
         this.player = new Player(xyz2pos(...World.spawn));
         this.entities.push(this.player);
+
+        this.screens = [];
 
         Camera.init();
 
@@ -65,7 +70,16 @@ export const Game = {
     update() {
         Input.update();
 
-        TurnSystem.takeEntityTurns();
+        console.log([Input.pressed[Input.Action.LOG],Input.Action.LOG,Input.held[Input.Action.LOG]]);
+        if (this.screens.length > 0) {
+            this.screens[this.screens.length - 1].update();
+            this.screens = this.screens.filter(screen => !screen.cull);
+        } else if (Input.pressed[Input.Action.LOG]) {
+            console.log('MAKING A NEW SCREEN');
+            this.screens.push(new LogScreen());
+        } else {
+            TurnSystem.takeEntityTurns();
+        }
 
         Camera.update();
 
@@ -140,14 +154,22 @@ export const Game = {
             if (entity.z > 0) entity.draw();
         }
 
-
         //this.player.draw();
 
+        /*
         if (this.player.lastAction) {
             Screen.write(2, 20, this.player.lastAction);
         } else if (this.player.lookingAt) {
             Screen.write(2, 20, World.strings[this.player.lookingAt.name] || 'WHAt');
         }
+        */
+
+        Log.draw(3);
+
+        for (let screen of this.screens) {
+            screen.draw();
+        }
+
 
         Screen.draw(Viewport.ctx);
 
