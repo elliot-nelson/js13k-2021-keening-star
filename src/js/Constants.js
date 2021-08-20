@@ -41,3 +41,6 @@ export const TURN_FRAMES = 12;
 // case and the open (reviewing history) case.
 export const LOG_CLOSED_LINES = 3;
 export const LOG_OPEN_LINES = 12;
+
+// Horizontal column for the divider between map and status area.
+export const STATUS_COL = 64;

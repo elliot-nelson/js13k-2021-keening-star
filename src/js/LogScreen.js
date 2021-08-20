@@ -12,7 +12,7 @@ export class LogScreen {
     }
 
     update() {
-        if (Input.pressed[Input.Action.BACK]) {
+        if (Input.pressed[Input.Action.BACK] || Input.pressed[Input.Action.LOG]) {
             this.closing = true;
         }
 
@@ -37,7 +37,7 @@ export class LogScreen {
     }
 
     draw() {
-        Screen.clear(0, SCREEN_HEIGHT - this.lines + 1, SCREEN_WIDTH, this.lines + 2);
+        Screen.clear(0, SCREEN_HEIGHT - this.lines - 1, SCREEN_WIDTH, this.lines + 2);
         Log.draw(this.lines, this.offset);
     }
 }

@@ -69,7 +69,7 @@ export class Player {
             } else {
                 switch (object.name) {
                     case 'DDRAW':
-                        Log.add('You push the door open.');
+                        Log.add(`${Screen.FORMAT_YELLOW}You push the door open.`);
                         object.open = object.finished = true;
                         object.char = `'`;
                         break;

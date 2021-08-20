@@ -23,6 +23,9 @@ export const Screen = {
     WHITE:   0x07,
     BRIGHT:  0x08,
 
+    // Format codes (for strings with inline styles)
+    FORMAT_YELLOW: '\xff\x03',
+
     // Useful character codes
     SPACE:   0x20,
 
@@ -59,6 +62,9 @@ export const Screen = {
             if (text[i] === '\n') {
                 x = ox;
                 y++;
+            } else if (text[i] === '\xff') {
+                console.log('FOUND COLOR CODE');
+                color = text[++i].charCodeAt(0);
             } else {
                 this.screen[y * SCREEN_WIDTH + x] = text.charCodeAt(i) | (color << 8);
                 x++;

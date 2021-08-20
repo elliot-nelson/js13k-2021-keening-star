@@ -1,5 +1,6 @@
 // Log
 
+import { STATUS_COL } from './Constants';
 import { Screen } from './Screen';
 
 const LOG_WIDTH = 78;
@@ -31,6 +32,7 @@ export const Log = {
         }
 
         Screen.writeBox(0, boxStart, 80, boxHeight, Screen.DIM);
+        Screen.write(STATUS_COL, boxStart, '\x98', Screen.DIM);
 
         for (let i = 0; i < display.length; i++) {
             Screen.write(2, boxStart + i + 1, display[i]);
