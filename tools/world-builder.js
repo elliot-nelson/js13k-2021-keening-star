@@ -9,6 +9,16 @@ const util = require('util');
 const yaml = require('js-yaml');
 const tmx = require('./tmx-parser');
 
+function recursiveTrim(object) {
+    for (let key of Object.keys(object)) {
+        if (typeof object[key] === 'string') {
+            object[key] = object[key].trim();
+        } else {
+            recursiveTrim(object[key]);
+        }
+    }
+}
+
 const WorldBuilder = {
     /*
      * Combine a Tiled (tmx) file with a YAML data file to produce a single
@@ -18,6 +28,7 @@ const WorldBuilder = {
         let data = await this._extractWorldFromTmx(mapFile);
 
         let yamlData = yaml.load(fs.readFileSync(detailFile));
+        recursiveTrim(yamlData);
         Object.assign(data, yamlData);
 
         this._writeOutputFile(data, outputFile, outputJSON);
