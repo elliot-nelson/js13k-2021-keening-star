@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 const AsepriteCli       = require('aseprite-cli');
 const chalk             = require('chalk');
+const { execSync }      = require('child_process');
 const fs                = require('fs');
 const gulp              = require('gulp');
 const log               = require('fancy-log');
@@ -63,6 +64,10 @@ async function exportFont() {
     await FontExporter.export(png, output);
 }
 
+async function crushFont() {
+    execSync('pngout src/assets/font-gen.png', { stdio: 'inherit' });
+}
+
 async function generateWorld() {
     const mapFile = 'src/assets/world.tmx';
     const detailFile = 'src/assets/world.yaml';
@@ -85,6 +90,7 @@ async function generateAudio() {
 
 const buildAssets = gulp.series(
     exportFont,
+    crushFont,
     generateWorld,
     generateAudio
 );
