@@ -40,7 +40,13 @@ export const TURN_FRAMES = 12;
 // The number of lines of recent history to show to the player, in the normal (closed)
 // case and the open (reviewing history) case.
 export const LOG_CLOSED_LINES = 3;
-export const LOG_OPEN_LINES = 12;
+export const LOG_OPEN_LINES = 15;
 
 // Horizontal column for the divider between map and status area.
 export const STATUS_COL = 64;
+
+// Crit
+export const COMBAT_WHIFF = 1;
+export const COMBAT_HIT = 2;
+export const COMBAT_CRIT = 3;
+export const COMBAT_CRIT_MULTIPLIER = 1.5;

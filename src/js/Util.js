@@ -70,3 +70,11 @@ export function createCanvas(width, height) {
     let ctx = canvas.getContext('2d');
     return { canvas, ctx };
 }
+
+export function formatStat(value) {
+    return ('' + value).padStart(2);
+}
+
+export function formatQuantity(value) {
+    return ('' + value).padStart(3, '0');
+}

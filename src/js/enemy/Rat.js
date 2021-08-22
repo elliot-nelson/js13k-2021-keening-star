@@ -2,14 +2,19 @@
 
 import { Camera } from '../Camera';
 import { Game } from '../Game';
+import { Log } from '../Log';
 import { Screen } from '../Screen';
 import { World } from '../World';
 
 export class Rat {
     constructor(pos) {
+        this.actorName = 'swamp rat';
+
         this.pos = { ...pos };
         this.hp = 5;
         this.speed = 12;
+
+        Log.add(`${Screen.FORMAT_RED}A foul-smelling swamp rat emerges from the shadows.`);
     }
 
     update() {

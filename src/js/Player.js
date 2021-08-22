@@ -1,5 +1,6 @@
 // Player
 
+import { CombatSystem } from './CombatSystem';
 import { TURN_FRAMES } from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
@@ -19,7 +20,15 @@ export class Player {
 
         this.df = flood(this.pos);
 
+        this.vigor = 8;
+        this.insight = 12;
+        this.will = 10;
         this.speed = 12;
+        this.hp = this.hpMax = 100;
+        this.sp = this.spMax = 100;
+        this.updateStats();
+
+        this.weapon = { ar: 0.5 };
 
         Log.add(World.strings[this.room.name]);
     }
@@ -54,9 +63,7 @@ export class Player {
         let entity = Game.entityAt(pos);
 
         if (entity) {
-            console.log('ATTACK THE ENTITY!');
-            Game.entities.push(new WorldParticle(pos, [['/', Screen.YELLOW], ['*', Screen.YELLOW]]));
-            Game.entities.push(new WorldParticle(Game.player.pos, [['@', Screen.YELLOW]]));
+            this.attack(entity);
         } else if (object) {
             object.interacted = true;
 
@@ -101,6 +108,37 @@ export class Player {
             this.room = room;
             this.lookingAt = this.room;
             this.lastAction = undefined;
+        }
+    }
+
+    attack(entity) {
+        let roll = CombatSystem.rollAttack(this.vigor, this.weapon.ar);
+        if (roll.result === CombatSystem.WHIFF) {
+            Log.add('%YYou slash at the swamp rat, but miss.');
+        } else if (roll.result === CombatSystem.HIT) {
+            Log.add(`%YYou slash the ${CombatSystem.formatActeeName(entity)}, dealing ${roll.value} damage.`);
+        } else if (roll.result === CombatSystem.CRIT) {
+            Log.add(`%YFocus! You slash the ${CombatSystem.formatActeeName(entity)}, dealing ${roll.value} damage.`);
+        }
+        Game.entities.push(new WorldParticle(entity.pos, [['/', Screen.YELLOW], ['*', Screen.YELLOW]]));
+        Game.entities.push(new WorldParticle(Game.player.pos, [['@', Screen.YELLOW]]));
+    }
+
+    updateStats() {
+        this.lvl = this.vigor + this.insight + this.will;
+
+        let hpMax = this.vigor * 10 + this.lvl - 10;
+
+        if (hpMax > this.hpMax) {
+            this.hpMax = hpMax;
+            this.hp += (hpMax - this.hpMax);
+        }
+
+        let spMax = this.will * 10 + this.lvl - 30;
+
+        if (spMax > this.spMax) {
+            this.spMax = spMax;
+            this.sp += (spMax - this.spMax);
         }
     }
 }

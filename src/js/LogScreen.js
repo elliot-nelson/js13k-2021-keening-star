@@ -17,13 +17,13 @@ export class LogScreen {
         }
 
         if (this.closing) {
-            this.lines--;
+            this.lines -= 2;
             if (this.lines <= LOG_CLOSED_LINES) {
                 this.cull = true;
                 return;
             }
         } else {
-            if (this.lines < LOG_OPEN_LINES) this.lines++;
+            if (this.lines < LOG_OPEN_LINES) this.lines += 2;
 
             if (Input.pressed[Input.Action.UP]) {
                 this.offset++;

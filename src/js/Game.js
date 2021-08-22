@@ -16,7 +16,7 @@ import { Triggers } from './Triggers';
 import { TurnSystem } from './TurnSystem';
 import { Viewport } from './Viewport';
 import { World } from './World';
-import { xyz2pos, uni } from './Util';
+import { xyz2pos, formatStat, formatQuantity } from './Util';
 
 export const Game = {
     async init() {
@@ -126,12 +126,14 @@ export const Game = {
         Screen.write(64, 19, '\x98', Screen.DIM);
         //Screen.write(0, 19, '\x91'.repeat(80));
 
-        Screen.write(66, 1, 'Health 100/100');
-        Screen.write(66, 2, 'Sanity 100/100');
-        Screen.write(66, 4, 'Insight   11');
-        Screen.write(66, 5, 'Wisdom    11');
-        Screen.write(66, 6, 'Fortitude 11');
-        Screen.write(66, 6, 'Fortitude 11');
+        Screen.write(66, 1, `Health ${formatQuantity(Game.player.hp)}/${formatQuantity(Game.player.hpMax)}`);
+        Screen.write(66, 2, `Sanity ${formatQuantity(Game.player.sp)}/${formatQuantity(Game.player.spMax)}`);
+
+        Screen.write(66, 4, `Vigor   ${formatStat(Game.player.vigor)}`);
+        Screen.write(66, 5, `Insight ${formatStat(Game.player.insight)}`);
+        Screen.write(66, 6, `Will    ${formatStat(Game.player.will)}`);
+        Screen.write(66, 7, `Speed   ${formatStat(Game.player.speed)}`);
+
 /*
         Screen.write(0, 19, '#'.repeat(60));
         Screen.write(0, 20, 'Here is something.');
