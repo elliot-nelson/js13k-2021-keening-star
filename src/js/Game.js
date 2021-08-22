@@ -64,7 +64,7 @@ export const Game = {
 
         window.requestAnimationFrame(() => this.onFrame());
 
-        Triggers.arm('TRAT1');
+        //Triggers.arm('TRAT1');
     },
 
     update() {

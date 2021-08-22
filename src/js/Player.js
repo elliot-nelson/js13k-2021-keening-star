@@ -74,17 +74,16 @@ export class Player {
                 Log.add(World.strings[object.name]);
                 console.log('what' + World.strings[object.name]);
             } else {
-                switch (object.name) {
-                    case 'DDRAW':
-                        Log.add(`${Screen.FORMAT_YELLOW}You push the door open.`);
-                        object.open = object.finished = true;
-                        object.char = `'`;
-                        break;
-                    default:
-                        this.lookingAt = object;
-                        Log.add(World.strings[object.name]);
-                        console.log('what' + World.strings[object.name]);
-                        break;
+                if (object.name[0] === 'D') {
+                    Log.add('%YYou push the door open.');
+                    object.open = object.finished = true;
+                    object.char = `'`;
+                } else {
+                    this.lookingAt = object;
+                    console.log(object.name);
+                    console.log(World.strings[object.name]);
+                    Log.add(World.strings[object.name]);
+                    console.log('what' + World.strings[object.name]);
                 }
             }
         } else if (tile === World.FLOOR) {

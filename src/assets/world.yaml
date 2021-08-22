@@ -2,17 +2,24 @@
 #################################################################################
 #   <---                                                                     --->
 strings:
-  foo: 'bar'
   RFOYER: |
     You are in the foyer of the farmhouse. The peeling paint and threadbare rugs
     make it seem older than the outside of the house.
     A large dollhouse sits on a pedestal in the far corner of the room.
+  FFIRE1: |
+    A massive stone fireplace. Above it hangs a portrait of a woman with long,
+    straight black hair. She has one hand on her visibly pregnant belly.
+    The embers are cold.
   RDRAW: |
     You are in a dimly lit drawing room filled with faded furniture.
     The room smells of musty upholstery.
-  FFIREDRAW: |
+  FFIRE2: |
     An impressive granite fireplace. Above the mantle hangs a brightly colored
-    portrait of a newborn, out of place in such a drab room.
+    painting of a newborn, out of place in such a drab room.
+    The embers are cold.
+  FFIRE3: |
+    Above a brick-and-onyx fireplace hangs a dreadful painting of a small child
+    being devoured whole by a tall, dimly-lit creature. It is hard to look at.
     The embers are cold.
   RSTUDY: |
     A nice old room.

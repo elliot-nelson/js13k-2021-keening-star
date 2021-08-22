@@ -59,28 +59,30 @@ export const Screen = {
             if (text[i] === '\n') {
                 x = ox;
                 y++;
-            } else if (text[i] === '\xff') {
-                console.log('FOUND COLOR CODE');
-                color = text[++i].charCodeAt(0);
-            } else if (text[i] === '%') {
+                continue;
+            }
+
+            if (text[i] === '%') {
                 switch (text[++i]) {
                     case 'R':
                         color = Screen.RED;
-                        break;
+                        continue;
                     case 'Y':
                         color = Screen.YELLOW;
-                        break;
+                        continue;
                     case 'D':
                         color = Screen.DIM;
-                        break;
+                        continue;
+                    default:
+                        i--;
                 }
-            } else {
-                this.screen[y * SCREEN_WIDTH + x] = text.charCodeAt(i) | (color << 8);
-                x++;
-                if (x >= x2) {
-                    x = ox;
-                    y++;
-                }
+            }
+
+            this.screen[y * SCREEN_WIDTH + x] = text.charCodeAt(i) | (color << 8);
+            x++;
+            if (x >= x2) {
+                x = ox;
+                y++;
             }
         }
     },

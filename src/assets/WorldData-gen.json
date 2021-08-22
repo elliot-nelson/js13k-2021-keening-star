@@ -14,6 +14,7 @@
                     32,
                     32,
                     32,
+                    32,
                     129,
                     129,
                     32,
@@ -31,6 +32,7 @@
                     32
                 ],
                 [
+                    32,
                     46,
                     46,
                     46,
@@ -58,6 +60,7 @@
                     32
                 ],
                 [
+                    32,
                     133,
                     129,
                     45,
@@ -85,7 +88,8 @@
                     32
                 ],
                 [
-                    128,
+                    133,
+                    131,
                     46,
                     46,
                     46,
@@ -113,6 +117,7 @@
                 ],
                 [
                     128,
+                    37,
                     46,
                     46,
                     35,
@@ -139,7 +144,8 @@
                     32
                 ],
                 [
-                    128,
+                    132,
+                    134,
                     46,
                     46,
                     35,
@@ -166,6 +172,7 @@
                     134
                 ],
                 [
+                    32,
                     128,
                     46,
                     46,
@@ -193,6 +200,7 @@
                     128
                 ],
                 [
+                    32,
                     128,
                     46,
                     46,
@@ -220,6 +228,7 @@
                     131
                 ],
                 [
+                    32,
                     132,
                     129,
                     129,
@@ -254,6 +263,7 @@
                     32,
                     32,
                     32,
+                    32,
                     132,
                     129,
                     129,
@@ -298,9 +308,11 @@
                     32,
                     32,
                     32,
+                    32,
                     32
                 ],
                 [
+                    32,
                     32,
                     32,
                     32,
@@ -331,14 +343,14 @@
             "rooms": [
                 {
                     "name": "RFOYER",
-                    "x": 7,
+                    "x": 8,
                     "y": 1,
                     "width": 10,
                     "height": 9
                 },
                 {
                     "name": "RDRAW",
-                    "x": 17,
+                    "x": 18,
                     "y": 2,
                     "width": 6,
                     "height": 7
@@ -347,28 +359,38 @@
             "objects": [
                 {
                     "name": "FPLANT",
-                    "x": 8,
+                    "x": 9,
                     "y": 2
                 },
                 {
                     "name": "DDRAW",
-                    "x": 16,
+                    "x": 17,
                     "y": 6
                 },
                 {
                     "name": "DKITCHEN",
-                    "x": 2,
+                    "x": 3,
                     "y": 2
                 },
                 {
-                    "name": "FFIREFOYER",
-                    "x": 14,
+                    "name": "FFIRE1",
+                    "x": 15,
                     "y": 1
                 },
                 {
-                    "name": "FFIREDRAW",
-                    "x": 23,
+                    "name": "FFIRE3",
+                    "x": 24,
                     "y": 6
+                },
+                {
+                    "name": "DDINING",
+                    "x": 8,
+                    "y": 7
+                },
+                {
+                    "name": "FFIRE2",
+                    "x": 1,
+                    "y": 4
                 }
             ],
             "triggers": [
@@ -377,12 +399,12 @@
                     "objects": [
                         {
                             "name": "RAT",
-                            "x": 11,
+                            "x": 12,
                             "y": 3
                         },
                         {
                             "name": "RATD",
-                            "x": 15,
+                            "x": 16,
                             "y": 2
                         }
                     ]
@@ -397,20 +419,21 @@
             0
         ],
         [
-            25,
+            26,
             12
         ]
     ],
     "spawn": [
-        11,
+        12,
         8,
         0
     ],
     "strings": {
-        "foo": "bar",
         "RFOYER": "You are in the foyer of the farmhouse. The peeling paint and threadbare rugs\nmake it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.",
+        "FFIRE1": "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
         "RDRAW": "You are in a dimly lit drawing room filled with faded furniture.\nThe room smells of musty upholstery.",
-        "FFIREDRAW": "An impressive granite fireplace. Above the mantle hangs a brightly colored\nportrait of a newborn, out of place in such a drab room.\nThe embers are cold.",
+        "FFIRE2": "An impressive granite fireplace. Above the mantle hangs a brightly colored\npainting of a newborn, out of place in such a drab room.\nThe embers are cold.",
+        "FFIRE3": "Above a brick-and-onyx fireplace hangs a dreadful painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "RSTUDY": "A nice old room.\nWhat a nice place it is.\nFuck it.",
         "RFROG": "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\nOh god this is going to be such a long description, isn't it?",
         "FPLANT": "A nice looking plant."
