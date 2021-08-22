@@ -66,6 +66,7 @@ async function exportFont() {
 
 async function crushFont() {
     execSync('pngout src/assets/font-gen.png', { stdio: 'inherit' });
+    execSync('ect src/assets/font-gen.png', { stdio: 'inherit' });
 }
 
 async function generateWorld() {
