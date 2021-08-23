@@ -1,5 +1,6 @@
 // Player
 
+import { Audio } from './Audio';
 import { CombatSystem } from './CombatSystem';
 import { TURN_FRAMES } from './Constants';
 import { Game } from './Game';
@@ -78,6 +79,11 @@ export class Player {
                     Log.add('%YYou push the door open.');
                     object.open = object.finished = true;
                     object.char = `'`;
+                    console.log(Audio);
+                    console.log(Audio.initialized);
+                    console.log(Audio.blip);
+                    Audio.init();
+                    Audio.blip.start();
                 } else {
                     this.lookingAt = object;
                     console.log(object.name);

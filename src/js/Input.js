@@ -52,6 +52,7 @@ export const Input = {
             }
 
             Audio.init();
+            Audio.cart.playSfx(12, false);
         });
 
         window.addEventListener('keyup', event => {

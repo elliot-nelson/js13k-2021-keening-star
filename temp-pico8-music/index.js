@@ -1,3 +1,18 @@
+/**
+ * Feature flag for custom instruments.
+ * Custom instruments allow sound effects to be used as instruments.
+ * This enables more songs, but it costs about 100 bytes.
+ * @const {boolean}
+ */
+const CUSTOM_INSTRUMENTS_ENABLED = true;
+
+/**
+ * Feature flag for sound effect caching.
+ * This is a performance enhancement, but it costs about 30 bytes.
+ * @const {boolean}
+ */
+const SOUND_CACHING_ENABLED = true;
+
 const FX_NO_EFFECT = 0;
 const FX_SLIDE = 1;
 const FX_VIBRATO = 2;
@@ -10,13 +25,12 @@ const SAMPLE_RATE = 44100;
 const BASE_SPEED = 120;
 
 /**
- * Creates a new PICO-8 AudioCart using the "sfx" and "music" data from
- * a cartridge file.
+ * Creates a new PICO-8 cartridge.
  * @param {string} sfx
  * @param {string} music
- * @param {object} options
+ * @constructor
  */
-export function AudioCart({ sfx, music }, options = {}) {
+export function Pico8AudioCart({ sfx, music }, options = {}) {
   // Note: some browsers don't allow creation of an AudioContext unless you're inside
   // a user-triggered event, like a mouse click or keypress. One way to control this
   // is to initialize the AudioCart from a user-triggered event.
@@ -32,8 +46,8 @@ export function AudioCart({ sfx, music }, options = {}) {
   //
   // For now, the sfx and music data is processed "as hex" inline while we build up
   // the audio samples.
-  let sfxData = sfx.split('\n');
-  let musicData = music.split('\n');
+  const sfxData = (sfx || '').split('\n');
+  const musicData = (music || '').split('\n');
 
   /**
    * Previous brown noise.
@@ -169,25 +183,26 @@ export function AudioCart({ sfx, music }, options = {}) {
   /**
    * Cache of pre-built sounds.
    * Key is `${sfxIndex}-${pitchOffset}
-   * Value is a Float32Array.
-   * @const {!Object}
+   * Value is a AudioBuffer.
+   * @const {!Object.<string,!AudioBuffer>}
    */
   const soundCache = {};
 
   /**
    * Builds the sound from scratch.
-   * @param {!Array.<string>} sfxData
    * @param {number} sfxIndex
    * @param {number} pitchOffset
-   * @return {!Float32Array}
+   * @return {!AudioBuffer}
    */
-  const buildSound = (sfxData, sfxIndex, pitchOffset) => {
+  const buildSound = (sfxIndex, pitchOffset) => {
     const sfxRow = sfxData[sfxIndex];
-    const noteLength = parseHex(sfxRow, 2, 2) / BASE_SPEED;
+    const speed = parseHex(sfxRow, 2, 2);
+    const noteLength = speed / BASE_SPEED;
     const loopStart = parseHex(sfxRow, 4, 2);
     const loopEnd = parseHex(sfxRow, 6, 2) || 32;
     const length = loopEnd * SAMPLE_RATE;
-    const data = new Float32Array(length);
+    const audioBuffer = audioCtx.createBuffer(1, length, SAMPLE_RATE);
+    const data = audioBuffer.getChannelData(0);
 
     /**
      * Returns the next note index.
@@ -253,7 +268,11 @@ export function AudioCart({ sfx, music }, options = {}) {
       }
 
       const samples = round(noteLength * SAMPLE_RATE);
-      const customInstrument = currWaveform > 7 && getSound(sfxData, currWaveform - 8, pitchOffset + currNote - 24);
+      const customInstrument =
+          CUSTOM_INSTRUMENTS_ENABLED &&
+          currWaveform > 7 &&
+          getSound(currWaveform - 8, pitchOffset + currNote - 24);
+
       let k = 0;
       for (let j = offset; j < offset + samples; j++) {
         // Note factor is the percentage of completion of the note
@@ -294,17 +313,16 @@ export function AudioCart({ sfx, music }, options = {}) {
           //   6 arpeggio fast  //  Iterate over groups of 4 notes at speed of 4
           //   7 arpeggio slow  //  Iterate over groups of 4 notes at speed of 8
           //   If the SFX speed is <= 8, arpeggio speeds are halved to 2, 4
-          // const m = (speed <= 8 ? 32 : 16) / (effect === FX_ARP_FAST ? 4 : 8);
-          // const n = (int)(m * 7.5 * offset / offsetPerSecond);
-          // const arp_note = (note_id & ~3) | (n & 3);
-          // freq = key_to_freq(sfx.notes[arp_note].key);
-          freq = currFreq;
+          const m = (speed <= 8 ? 32 : 16) / (currEffect === FX_ARP_FAST ? 4 : 8);
+          const n = (m * noteFactor) | 0;
+          const arpNote = (i & ~3) | (n & 3);
+          freq = getFreq(getSfx(arpNote, 0, 2) + pitchOffset);
         }
 
         phi += freq / SAMPLE_RATE;
         if (currWaveform < 8) {
           data[j] += volume * envelope * oscillators[currWaveform](phi % 1, phi);
-        } else {
+        } else if (CUSTOM_INSTRUMENTS_ENABLED) {
           data[j] += volume * envelope * customInstrument[k];
           k = (k + 1) % customInstrument.length;
         }
@@ -318,53 +336,94 @@ export function AudioCart({ sfx, music }, options = {}) {
       prevEffect = currEffect;
       i = getNextIndex(i);
     }
-    return data;
+    return audioBuffer;
   };
 
   /**
    * Returns a sound buffer.
    * Uses a cached buffer if available.
    * Otherwise builds the sound from scratch.
-   * @param {!Array.<string>} sfxData
    * @param {number} sfxIndex
    * @param {number} pitchOffset
-   * @return {!Float32Array}
+   * @return {!AudioBuffer}
    */
-  const getSound = (sfxData, sfxIndex, pitchOffset) => {
-    const key = sfxIndex + '-' + pitchOffset;
-    let sound = soundCache[key];
-    if (!sound) {
-      sound = buildSound(sfxData, sfxIndex, pitchOffset);
-      soundCache[key] = sound;
+  const getSound = (sfxIndex, pitchOffset) => {
+    if (SOUND_CACHING_ENABLED) {
+      const key = sfxIndex + '-' + pitchOffset;
+      let sound = soundCache[key];
+      if (!sound) {
+        sound = buildSound(sfxIndex, pitchOffset);
+        soundCache[key] = sound;
+      }
+      return sound;
+    } else {
+      return buildSound(sfxIndex, pitchOffset);
     }
-    return sound;
   };
 
   /**
-   * @param {!Array.<string>} sfxData
    * @param {!Float32Array} data
    * @param {number} offset
    * @param {number} endOffset
    * @param {number} sfxIndex
    * @param {number=} pitchOffset
    */
-  const buildMusic = (sfxData, data, offset, endOffset, sfxIndex, pitchOffset = 0) => {
-    const sfxBuffer = getSound(sfxData, sfxIndex, pitchOffset);
+  const buildMusic = (data, offset, endOffset, sfxIndex, pitchOffset = 0) => {
+    const sfxBuffer = getSound(sfxIndex, pitchOffset);
+    const sfxBufferData = sfxBuffer.getChannelData(0);
     let i = 0;
     while (offset < endOffset) {
-      data[offset] += sfxBuffer[i];
-      i = (i + 1) % sfxBuffer.length;
+      data[offset] += sfxBufferData[i];
+      i = (i + 1) % sfxBufferData.length;
       offset++;
     }
   };
 
   /**
-   * Builds a song and returns an audio buffer that can be used to play it.
-   * You should connect up your own audio destination before starting.
-   * @param {number=} startPattern
+   * Build and return an audio buffer for playing a sound.
+   * @param {!AudioBuffer} audioBuffer The audio buffer.
+   * @param {boolean=} loop Optional flag to loop the audio.
+   * @param {number=} loopStart Optional loop start time.
    * @return {!AudioBufferSourceNode}
    */
-  const createMusic = (startPattern = 0) => {
+  const buildAudioBuffer = (audioBuffer, loop = false, loopStart = 0) => {
+    const source = audioCtx.createBufferSource();
+    source.buffer = audioBuffer;
+    source.loop = loop;
+    source.loopStart = loopStart;
+    console.log(source.loop, source.loopStart);
+    return source;
+  };
+
+  /**
+   * Build and return a sound effect audio buffer source node.
+   * @param {!AudioBuffer} audioBuffer The audio buffer.
+   * @param {boolean=} loop Optional flag to loop the audio.
+   * @param {number=} loopStart Optional loop start time.
+   * @return {!AudioBufferSourceNode}
+   */
+  this.sfx = (pattern, loop, loopStart) => buildAudioBuffer(getSound(pattern, 0), loop, loopStart);
+
+  /**
+   * Play and return a sound effect audio buffer source node.
+   * @param {!AudioBuffer} audioBuffer The audio buffer.
+   * @param {boolean=} loop Optional flag to loop the audio.
+   * @param {number=} loopStart Optional loop start time.
+   * @return {!AudioBufferSourceNode}
+   */
+  this.playSfx = (pattern, loop, loopStart) => {
+    const source = this.sfx(pattern, loop, loopStart);
+    source.connect(audioCtx.destination);
+    source.start();
+    return source;
+  };
+
+  /**
+   * Build and return a music audio buffer source node.
+   * @param {number} startPattern
+   * @return {!AudioBufferSourceNode}
+   */
+  this.music = (startPattern) => {
     // Preprocess loop
     // Need to do 4 things on this loop:
     // 1) Find the "time" channels
@@ -431,31 +490,25 @@ export function AudioCart({ sfx, music }, options = {}) {
       for (let channel = 0; channel < 4; channel++) {
         const sfxIndex = parseHex(musicRow, 3 + channel * 2, 2);
         if (sfxIndex < sfxData.length) {
-          buildMusic(sfxData, data, offset, offset + samples, sfxIndex);
+          buildMusic(data, offset, offset + samples, sfxIndex);
         }
       }
       offset += samples;
     }
 
-    const source = audioCtx.createBufferSource();
-    source.buffer = audioBuffer;
-    source.loop = true;
-    source.loopStart = loopStart;
-    return source;
+    return buildAudioBuffer(audioBuffer, true, loopStart);
   };
 
   /**
-   * Builds a song and immediately plays it.
-   * @param {number=} startPattern
+   * Play and return a music audio buffer source node.
+   * @param {!AudioBuffer} audioBuffer The audio buffer.
+   * @param {number} startPattern
    * @return {!AudioBufferSourceNode}
    */
-  const playMusic = (startPattern = 0) => {
-    const source = createMusic(startPattern);
+   this.playMusic = (startPattern ) => {
+    const source = this.music(pattern, loop, loopStart);
     source.connect(audioCtx.destination);
     source.start();
     return source;
   };
-
-  this.music = createMusic;
-  this.playMusic = playMusic;
 };
