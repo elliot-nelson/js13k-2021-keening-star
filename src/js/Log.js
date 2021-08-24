@@ -10,7 +10,8 @@ export const Log = {
         this.entries = [];
     },
 
-    add(message) {
+    add(message, formatCode = '') {
+        message = formatCode + '\xa5 ' + message;
         this.entries.push(message.split('\n'));
         /*let array = [];
 

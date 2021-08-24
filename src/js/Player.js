@@ -75,7 +75,7 @@ export class Player {
                 console.log('what' + World.strings[object.name]);
             } else {
                 if (object.name[0] === 'D') {
-                    Log.add('%YYou push the door open.');
+                    Log.add('You push the door open.', '%y');
                     object.open = object.finished = true;
                     object.char = `'`;
                 } else {

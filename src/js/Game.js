@@ -9,6 +9,7 @@ import { Font } from './Font-gen';
 import { Input } from './Input';
 import { Log } from './Log';
 import { LogScreen } from './LogScreen';
+import { HelpScreen } from './HelpScreen';
 import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
@@ -77,6 +78,9 @@ export const Game = {
         } else if (Input.pressed[Input.Action.LOG]) {
             console.log('MAKING A NEW SCREEN');
             this.screens.push(new LogScreen());
+        } else if (Input.pressed[Input.Action.HELP]) {
+            console.log('help screen');
+            this.screens.push(new HelpScreen());
         } else {
             TurnSystem.takeEntityTurns();
         }
@@ -134,6 +138,7 @@ export const Game = {
         Screen.write(66, 6, `Will    ${formatStat(Game.player.will)}`);
         Screen.write(66, 7, `Speed   ${formatStat(Game.player.speed)}`);
 
+        Screen.write(66, 18, '[H] Help', Screen.DIM);
 /*
         Screen.write(0, 19, '#'.repeat(60));
         Screen.write(0, 20, 'Here is something.');

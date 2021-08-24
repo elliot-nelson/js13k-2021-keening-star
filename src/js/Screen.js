@@ -33,11 +33,12 @@ export const Screen = {
         // Terminal color names to hex color mappings
         Screen.COLORS = {
             [Screen.DIM]:                   rgba(144, 144, 144, 1),
-            [Screen.WHITE]:                 rgba(214, 214, 214, 1),
-            [Screen.WHITE | Screen.BRIGHT]: rgba(255, 255, 255, 1),
             [Screen.RED]:                   rgba(214, 69,  46,  1),
+            [Screen.GREEN]:                 rgba(151, 216, 122, 1),
             [Screen.YELLOW]:                rgba(238, 212, 83,  1),
-            [Screen.BLUE]:                  rgba(70,  151, 226, 1)
+            [Screen.BLUE]:                  rgba(70,  151, 226, 1),
+            [Screen.WHITE]:                 rgba(214, 214, 214, 1),
+            [Screen.WHITE | Screen.BRIGHT]: rgba(255, 255, 255, 1)
         };
     },
 
@@ -64,14 +65,26 @@ export const Screen = {
 
             if (text[i] === '%') {
                 switch (text[++i]) {
-                    case 'R':
+                    case 'd':
+                        color = Screen.DIM;
+                        continue;
+                    case 'r':
                         color = Screen.RED;
                         continue;
-                    case 'Y':
+                    case 'g':
+                        color = Screen.GREEN;
+                        continue;
+                    case 'b':
+                        color = Screen.BLUE;
+                        continue;
+                    case 'y':
                         color = Screen.YELLOW;
                         continue;
-                    case 'D':
-                        color = Screen.DIM;
+                    case 'w':
+                        color = Screen.WHITE;
+                        continue;
+                    case 'W':
+                        color = Screen.WHITE | Screen.BRIGHT;
                         continue;
                     default:
                         i--;
@@ -97,6 +110,9 @@ export const Screen = {
     },
 
     writeBox(x, y, w, h, color) {
+        if (w > 2 && h > 2) {
+            Screen.clear(x + 1, y + 1, w - 2, h - 2);
+        }
         this.write(x, y, `\x95${'\x91'.repeat(w - 2)}\x96`, color);
         this.write(x, y + h - 1, `\x94${'\x91'.repeat(w - 2)}\x93`, color);
         for (let i = y + 1; i < y + h - 1; i++) {

@@ -313,7 +313,7 @@ export const WorldData =
   spawn: [ 12, 8, 0 ],
   strings:
    { RFOYER:
-      'You are in the foyer of the farmhouse. The peeling paint and threadbare rugs\nmake it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.',
+      'You are in the foyer of the farmhouse. The peeling paint and threadbare\nrugs make it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.',
      FFIRE1:
       'A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.',
      RDRAW:

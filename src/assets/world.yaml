@@ -3,8 +3,8 @@
 #   <---                                                                     --->
 strings:
   RFOYER: |
-    You are in the foyer of the farmhouse. The peeling paint and threadbare rugs
-    make it seem older than the outside of the house.
+    You are in the foyer of the farmhouse. The peeling paint and threadbare
+    rugs make it seem older than the outside of the house.
     A large dollhouse sits on a pedestal in the far corner of the room.
   FFIRE1: |
     A massive stone fireplace. Above it hangs a portrait of a woman with long,
