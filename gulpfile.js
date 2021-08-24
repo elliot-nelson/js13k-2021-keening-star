@@ -143,7 +143,7 @@ function minifyBuild() {
     const names = world.floors.reduce((list, floor) =>
         list.concat(floor.rooms.map(room => room.name)).concat(floor.objects.map(object => object.name)),
         []
-    );
+    ).concat(Object.keys(world.strings));
 
     const cache = {
         props: {
