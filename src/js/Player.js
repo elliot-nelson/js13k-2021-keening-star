@@ -72,11 +72,9 @@ export class Player {
                 Log.add(World.strings[object.name]);
                 console.log('finished' + World.strings[object.name]);
             } else {
-                if (object.name[0] === 'D') {
-                    console.log('adding door push');
-                    Log.add('You push the door open.', '%y');
-                    object.open = object.finished = true;
-                    object.char = `'`;
+                if (object.name === '$DDINING') {
+                    if (Game.player.inventory.$IRON_KNIFE)
+                        Log.add(World.strings.$DDINING_OPEN);
                 } else if (object.name === '$FFIRE3') {
                     Log.add(World.strings[object.name]);
                     object.name = '$FFIRE3_A';
@@ -84,6 +82,11 @@ export class Player {
                     Log.add(World.strings[object.name]);
                     object.name = '$FFIRE3_B';
                     Game.player.inventory.$IRON_KNIFE = true;
+                } else if (object.name[0] === 'D') {
+                    console.log('adding door push');
+                    Log.add('You push the door open.', '%y');
+                    object.open = object.finished = true;
+                    object.char = `'`;
                 } else {
                     let action = '';
                     if (object.action) {

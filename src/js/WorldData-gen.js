@@ -489,6 +489,10 @@ export const WorldData =
   strings:
    { '$RFOYER':
       'You are in the foyer of the farmhouse. The peeling paint and threadbare\nrugs make it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.',
+     '$DDINING':
+      "The lock is broken and the door won't budge. With the right tool, you should\nbe able to pry it open.",
+     '$DDINING_OPEN':
+      'You wedge the knife between the door and frame. With a little effort, you\nforce the broken lock away from the strike plate.\n%y%0 You push the door open.',
      '$FFIRE1':
       'A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.',
      '$FDOLLHOUSE':
