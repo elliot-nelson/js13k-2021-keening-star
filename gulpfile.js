@@ -134,7 +134,11 @@ async function compileBuild() {
     }
 }
 
+let nameCache;
+
 function minifyBuild() {
+    let index = 0;
+
     // Before we begin mangling, we can pre-populate the name cache with a
     // customized list of names that can't be mangled (because names like RSTUDY
     // will be both keys and name strings throughout the code, we need them
@@ -145,9 +149,9 @@ function minifyBuild() {
         []
     ).concat(Object.keys(world.strings));
 
-    const cache = {
+    nameCache = {
         props: {
-            props: Object.fromEntries(names.map(name => [`$${name}`, name]))
+            props: Object.fromEntries(names.map(name => [`$${name}`, `${name[1]}${index++}`]))
         }
     };
 
@@ -158,7 +162,7 @@ function minifyBuild() {
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(terser({
         toplevel: true,
-        nameCache: cache,
+        nameCache,
         mangle: {
             properties: {
                 reserved: [
@@ -188,9 +192,21 @@ function minifyBuild() {
     .pipe(gulp.dest('temp/minified'));
 }
 
+async function doSomething() {
+    let minified = fs.readFileSync('temp/minified/app.js', 'utf8');
+    for (let entry of Object.entries(nameCache.props.props)) {
+        if (entry[0].startsWith('$$')) {
+            let re = new RegExp(`\\${entry[0].slice(1)}`, 'g');
+            minified = minified.replace(re, entry[1]);
+        }
+    }
+    fs.writeFileSync('temp/minified/app.js', minified, 'utf8');
+}
+
 const buildJs = gulp.series(
     compileBuild,
-    minifyBuild
+    minifyBuild,
+    doSomething
 );
 
 // -----------------------------------------------------------------------------

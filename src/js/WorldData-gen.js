@@ -295,36 +295,34 @@ export const WorldData =
             32,
             32 ] ],
        rooms:
-        [ { name: 'RFOYER', x: 8, y: 1, width: 10, height: 9 },
-          { name: 'RDRAW', x: 18, y: 2, width: 6, height: 7 } ],
+        [ { name: '$RFOYER', x: 8, y: 1, width: 10, height: 9 },
+          { name: '$RDRAW', x: 18, y: 2, width: 6, height: 7 } ],
        objects:
-        [ { name: 'FPLANT', x: 9, y: 2 },
-          { name: 'DDRAW', x: 17, y: 6 },
-          { name: 'DKITCHEN', x: 3, y: 2 },
-          { name: 'FFIRE1', x: 15, y: 1 },
-          { name: 'FFIRE3', x: 24, y: 6 },
-          { name: 'DDINING', x: 8, y: 7 },
-          { name: 'FFIRE2', x: 1, y: 4 } ],
-       triggers:
-        [ { name: 'TRAT1',
-            objects: [ { name: 'RAT', x: 12, y: 3 }, { name: 'RATD', x: 16, y: 2 } ] } ],
+        [ { name: '$FPLANT', x: 9, y: 2 },
+          { name: '$DDRAW', x: 17, y: 6 },
+          { name: '$DKITCHEN', x: 3, y: 2 },
+          { name: '$FFIRE1', x: 15, y: 1 },
+          { name: '$FFIRE3', x: 24, y: 6 },
+          { name: '$DDINING', x: 8, y: 7 },
+          { name: '$FFIRE2', x: 1, y: 4 } ],
+       triggers: [],
        id: 0 } ],
   bounds: [ [ 0, 0 ], [ 26, 12 ] ],
   spawn: [ 12, 8, 0 ],
   strings:
-   { RFOYER:
+   { '$RFOYER':
       'You are in the foyer of the farmhouse. The peeling paint and threadbare\nrugs make it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.',
-     FFIRE1:
+     '$FFIRE1':
       'A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.',
-     RDRAW:
+     '$RDRAW':
       'You are in a dimly lit drawing room filled with faded furniture.\nThe room smells of musty upholstery.',
-     FFIRE2:
+     '$FFIRE2':
       'An impressive granite fireplace. Above the mantle hangs a brightly colored\npainting of a newborn, out of place in such a drab room.\nThe embers are cold.',
-     FFIRE3:
+     '$FFIRE3':
       'Above a brick-and-onyx fireplace hangs a dreadful painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.',
-     RSTUDY: 'A nice old room.\nWhat a nice place it is.\nFuck it.',
-     RFROG:
+     '$RSTUDY': 'A nice old room.\nWhat a nice place it is.\nFuck it.',
+     '$RFROG':
       "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\nOh god this is going to be such a long description, isn't it?",
-     FPLANT: 'A nice looking plant.' } }
+     '$FPLANT': 'A nice looking plant.' } }
 /* </generated> */
 ;
