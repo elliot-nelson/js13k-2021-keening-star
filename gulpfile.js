@@ -194,7 +194,14 @@ function minifyBuild() {
 
 async function doSomething() {
     let minified = fs.readFileSync('temp/minified/app.js', 'utf8');
-    for (let entry of Object.entries(nameCache.props.props)) {
+
+    // By reverse-sorting by locale, we ensure that the dumb regex approach to code editing
+    // below won't find "prefixes". For example, if we have two strings $FIRE and $FIRE2,
+    // we need to search for $FIRE2 first.
+    let entries = Object.entries(nameCache.props.props);
+    entries.sort((a, b) => b[0].localeCompare(a[0]));
+
+    for (let entry of entries) {
         if (entry[0].startsWith('$$')) {
             let re = new RegExp(`\\${entry[0].slice(1)}`, 'g');
             minified = minified.replace(re, entry[1]);

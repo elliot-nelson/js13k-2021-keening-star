@@ -71,15 +71,15 @@ export const Game = {
     update() {
         Input.update();
 
-        console.log([Input.pressed[Input.Action.LOG],Input.Action.LOG,Input.held[Input.Action.LOG]]);
+        //console.log([Input.pressed[Input.Action.LOG],Input.Action.LOG,Input.held[Input.Action.LOG]]);
         if (this.screens.length > 0) {
             this.screens[this.screens.length - 1].update();
             this.screens = this.screens.filter(screen => !screen.cull);
         } else if (Input.pressed[Input.Action.LOG]) {
-            console.log('MAKING A NEW SCREEN');
+            //console.log('MAKING A NEW SCREEN');
             this.screens.push(new LogScreen());
         } else if (Input.pressed[Input.Action.HELP]) {
-            console.log('help screen');
+            //console.log('help screen');
             this.screens.push(new HelpScreen());
         } else {
             TurnSystem.takeEntityTurns();

@@ -29,7 +29,7 @@ strings:
   $FFIRE3_A: |
     With a tug, the painting releases a long iron knife. Hundreds of tiny
     symbols have been etched up and down the blade, but you don't recognize them.
-    %y\xa5 You have obtained iron knife.
+    %y%0 You have obtained iron knife.
   $FFIRE3_B: |
     Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
     being devoured whole by a tall, dimly-lit creature. It is hard to look at.

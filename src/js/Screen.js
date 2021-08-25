@@ -57,6 +57,8 @@ export const Screen = {
         let ox = x, oy = y;
 
         for (let i = 0; i < text.length; i++) {
+            let c = text.charCodeAt(i);
+
             if (text[i] === '\n') {
                 x = ox;
                 y++;
@@ -86,12 +88,15 @@ export const Screen = {
                     case 'W':
                         color = Screen.WHITE | Screen.BRIGHT;
                         continue;
+                    case '0':
+                        c = 0xa5;
+                        break;
                     default:
                         i--;
                 }
             }
 
-            this.screen[y * SCREEN_WIDTH + x] = text.charCodeAt(i) | (color << 8);
+            this.screen[y * SCREEN_WIDTH + x] = c | (color << 8);
             x++;
             if (x >= x2) {
                 x = ox;

@@ -70,13 +70,14 @@ export class Player {
             } else if (object.finished) {
                 this.lookingAt = object;
                 Log.add(World.strings[object.name]);
-                console.log('what' + World.strings[object.name]);
+                console.log('finished' + World.strings[object.name]);
             } else {
                 if (object.name[0] === 'D') {
+                    console.log('adding door push');
                     Log.add('You push the door open.', '%y');
                     object.open = object.finished = true;
                     object.char = `'`;
-                } if (object.name === '$FFIRE3') {
+                } else if (object.name === '$FFIRE3') {
                     Log.add(World.strings[object.name]);
                     object.name = '$FFIRE3_A';
                 } else if (object.name === '$FFIRE3_A') {
@@ -94,7 +95,7 @@ export class Player {
                     console.log(object.name);
                     console.log(World.strings[object.name] + action);
                     Log.add(World.strings[object.name] + action);
-                    console.log('what' + World.strings[object.name]);
+                    console.log('else statement' + World.strings[object.name]);
                 }
             }
 

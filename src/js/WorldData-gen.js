@@ -501,7 +501,7 @@ export const WorldData =
      '$FFIRE3':
       'Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nA knife has been left jammed into the canvas. You can probably pull it out.',
      '$FFIRE3_A':
-      "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y\\xa5 You have obtained iron knife.",
+      "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y%0 You have obtained iron knife.",
      '$FFIRE3_B':
       'Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.',
      '$RSTUDY': 'A nice old room.\nWhat a nice place it is.\nFuck it.',
