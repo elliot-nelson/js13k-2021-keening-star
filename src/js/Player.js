@@ -16,7 +16,7 @@ export class Player {
 
         this.room = World.roomAt(this.pos);
         this.lookingAt = this.room;
-        this.inventory = [];
+        this.inventory = {};
 
         this.df = flood(this.pos);
 
@@ -65,8 +65,6 @@ export class Player {
         if (entity) {
             this.attack(entity);
         } else if (object) {
-            object.interacted = true;
-
             if (object.open) {
                 this.moveInto(pos, false);
             } else if (object.finished) {
@@ -79,13 +77,21 @@ export class Player {
                     object.open = object.finished = true;
                     object.char = `'`;
                 } else {
+                    let action = '';
+                    if (object.action) {
+                        action = `\n${object.action}`;
+                    } else if (object.interacted) {
+                        action = `\n%y\xa5 You need some kind of other item.`;
+                    }
                     this.lookingAt = object;
                     console.log(object.name);
-                    console.log(World.strings[object.name]);
-                    Log.add(World.strings[object.name]);
+                    console.log(World.strings[object.name] + action);
+                    Log.add(World.strings[object.name] + action);
                     console.log('what' + World.strings[object.name]);
                 }
             }
+
+            object.interacted = true;
         } else if (tile === World.FLOOR) {
             this.moveInto(pos, true);
         } else {

@@ -26,8 +26,12 @@ export const Log = {
     draw(lines = 3) {
         let boxHeight = lines + 2;
         let boxStart = 22 - lines;
+        let temporaryBlanks = 0;
 
+        if (this.entries[this.entries.length - 1].length < 3)
+            temporaryBlanks = 3 - this.entries[this.entries.length - 1].length;
         let display = this.entries.flat();
+        while (temporaryBlanks-- > 0) display.push('');
         if (display.length > lines) {
             display = display.slice(display.length - lines);
         }

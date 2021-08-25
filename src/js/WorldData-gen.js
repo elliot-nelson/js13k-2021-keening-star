@@ -304,7 +304,8 @@ export const WorldData =
           { name: '$FFIRE1', x: 15, y: 1 },
           { name: '$FFIRE3', x: 24, y: 6 },
           { name: '$DDINING', x: 8, y: 7 },
-          { name: '$FFIRE2', x: 1, y: 4 } ],
+          { name: '$FFIRE2', x: 1, y: 4 },
+          { name: '$FDOLLHOUSE', x: 16, y: 3 } ],
        triggers: [],
        id: 0 } ],
   bounds: [ [ 0, 0 ], [ 26, 12 ] ],
@@ -314,6 +315,9 @@ export const WorldData =
       'You are in the foyer of the farmhouse. The peeling paint and threadbare\nrugs make it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room.',
      '$FFIRE1':
       'A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.',
+     '$FDOLLHOUSE':
+      "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
+     '$FDOLLHOUSE_A': 'You need some kind of key to open this.',
      '$RDRAW':
       'You are in a dimly lit drawing room filled with faded furniture.\nThe room smells of musty upholstery.',
      '$FFIRE2':

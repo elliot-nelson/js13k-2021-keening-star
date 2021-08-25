@@ -10,6 +10,11 @@ strings:
     A massive stone fireplace. Above it hangs a portrait of a woman with long,
     straight black hair. She has one hand on her visibly pregnant belly.
     The embers are cold.
+  $FDOLLHOUSE: |
+    A vintage dollhouse. Normally you could open it up and take a look inside,
+    but it's been locked with a small silver padlock.
+  $FDOLLHOUSE_A: |
+    You need some kind of key to open this.
   $RDRAW: |
     You are in a dimly lit drawing room filled with faded furniture.
     The room smells of musty upholstery.
