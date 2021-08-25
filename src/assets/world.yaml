@@ -23,7 +23,15 @@ strings:
     painting of a newborn, out of place in such a drab room.
     The embers are cold.
   $FFIRE3: |
-    Above a brick-and-onyx fireplace hangs a dreadful painting of a small child
+    Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
+    being devoured whole by a tall, dimly-lit creature. It is hard to look at.
+    A knife has been left jammed into the canvas. You can probably pull it out.
+  $FFIRE3_A: |
+    With a tug, the painting releases a long iron knife. Hundreds of tiny
+    symbols have been etched up and down the blade, but you don't recognize them.
+    %y\xa5 You have obtained iron knife.
+  $FFIRE3_B: |
+    Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
     being devoured whole by a tall, dimly-lit creature. It is hard to look at.
     The embers are cold.
   $RSTUDY: |

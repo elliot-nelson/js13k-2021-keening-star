@@ -76,6 +76,13 @@ export class Player {
                     Log.add('You push the door open.', '%y');
                     object.open = object.finished = true;
                     object.char = `'`;
+                } if (object.name === '$FFIRE3') {
+                    Log.add(World.strings[object.name]);
+                    object.name = '$FFIRE3_A';
+                } else if (object.name === '$FFIRE3_A') {
+                    Log.add(World.strings[object.name]);
+                    object.name = '$FFIRE3_B';
+                    Game.player.inventory.$IRON_KNIFE = true;
                 } else {
                     let action = '';
                     if (object.action) {

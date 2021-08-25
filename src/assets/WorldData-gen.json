@@ -13,8 +13,85 @@
                     32,
                     32,
                     32,
+                    133,
+                    129,
+                    129,
+                    129,
+                    129,
+                    129,
+                    134,
+                    32,
+                    128,
                     32,
                     32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32
+                ],
+                [
+                    32,
+                    129,
+                    129,
+                    129,
+                    129,
+                    129,
+                    129,
+                    129,
+                    133,
+                    131,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    128,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32
+                ],
+                [
+                    32,
+                    128,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    124,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    128,
+                    46,
+                    128,
                     129,
                     129,
                     32,
@@ -33,10 +110,17 @@
                 ],
                 [
                     32,
+                    128,
                     46,
                     46,
                     46,
-                    32,
+                    46,
+                    46,
+                    46,
+                    128,
+                    46,
+                    46,
+                    46,
                     46,
                     46,
                     46,
@@ -61,6 +145,13 @@
                 ],
                 [
                     32,
+                    128,
+                    46,
+                    46,
+                    166,
+                    46,
+                    46,
+                    168,
                     133,
                     129,
                     45,
@@ -88,6 +179,13 @@
                     32
                 ],
                 [
+                    32,
+                    129,
+                    129,
+                    129,
+                    129,
+                    129,
+                    129,
                     133,
                     131,
                     46,
@@ -116,6 +214,13 @@
                     32
                 ],
                 [
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     128,
                     37,
                     46,
@@ -144,6 +249,13 @@
                     32
                 ],
                 [
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     132,
                     134,
                     46,
@@ -173,6 +285,13 @@
                 ],
                 [
                     32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     128,
                     46,
                     46,
@@ -201,6 +320,13 @@
                 ],
                 [
                     32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     128,
                     46,
                     46,
@@ -228,6 +354,13 @@
                     131
                 ],
                 [
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     32,
                     132,
                     129,
@@ -264,6 +397,13 @@
                     32,
                     32,
                     32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     132,
                     129,
                     129,
@@ -309,9 +449,23 @@
                     32,
                     32,
                     32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     32
                 ],
                 [
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
+                    32,
                     32,
                     32,
                     32,
@@ -343,15 +497,15 @@
             "rooms": [
                 {
                     "name": "$RFOYER",
-                    "x": 8,
-                    "y": 1,
+                    "x": 15,
+                    "y": 3,
                     "width": 10,
                     "height": 9
                 },
                 {
                     "name": "$RDRAW",
-                    "x": 18,
-                    "y": 2,
+                    "x": 25,
+                    "y": 4,
                     "width": 6,
                     "height": 7
                 }
@@ -359,43 +513,48 @@
             "objects": [
                 {
                     "name": "$FPLANT",
-                    "x": 9,
-                    "y": 2
-                },
-                {
-                    "name": "$DDRAW",
-                    "x": 17,
-                    "y": 6
-                },
-                {
-                    "name": "$DKITCHEN",
-                    "x": 3,
-                    "y": 2
-                },
-                {
-                    "name": "$FFIRE1",
-                    "x": 15,
-                    "y": 1
-                },
-                {
-                    "name": "$FFIRE3",
-                    "x": 24,
-                    "y": 6
-                },
-                {
-                    "name": "$DDINING",
-                    "x": 8,
-                    "y": 7
-                },
-                {
-                    "name": "$FFIRE2",
-                    "x": 1,
+                    "x": 16,
                     "y": 4
                 },
                 {
-                    "name": "$FDOLLHOUSE",
-                    "x": 16,
+                    "name": "$DDRAW",
+                    "x": 24,
+                    "y": 8
+                },
+                {
+                    "name": "$DKITCHEN",
+                    "x": 10,
+                    "y": 4
+                },
+                {
+                    "name": "$FFIRE1",
+                    "x": 22,
                     "y": 3
+                },
+                {
+                    "name": "$FFIRE3",
+                    "x": 31,
+                    "y": 8
+                },
+                {
+                    "name": "$DDINING",
+                    "x": 15,
+                    "y": 9
+                },
+                {
+                    "name": "$FFIRE2",
+                    "x": 8,
+                    "y": 6
+                },
+                {
+                    "name": "$FDOLLHOUSE",
+                    "x": 23,
+                    "y": 5
+                },
+                {
+                    "name": "$DGARAGE",
+                    "x": 8,
+                    "y": 2
                 }
             ],
             "triggers": [],
@@ -408,13 +567,13 @@
             0
         ],
         [
-            26,
-            12
+            33,
+            14
         ]
     ],
     "spawn": [
-        12,
-        8,
+        19,
+        10,
         0
     ],
     "strings": {
@@ -424,7 +583,9 @@
         "$FDOLLHOUSE_A": "You need some kind of key to open this.",
         "$RDRAW": "You are in a dimly lit drawing room filled with faded furniture.\nThe room smells of musty upholstery.",
         "$FFIRE2": "An impressive granite fireplace. Above the mantle hangs a brightly colored\npainting of a newborn, out of place in such a drab room.\nThe embers are cold.",
-        "$FFIRE3": "Above a brick-and-onyx fireplace hangs a dreadful painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
+        "$FFIRE3": "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nA knife has been left jammed into the canvas. You can probably pull it out.",
+        "$FFIRE3_A": "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y\\xa5 You have obtained iron knife.",
+        "$FFIRE3_B": "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "$RSTUDY": "A nice old room.\nWhat a nice place it is.\nFuck it.",
         "$RFROG": "You are in a dimly lit drawing room filled with faded furniture. The room smells of musty upholstery.\nOh god this is going to be such a long description, isn't it?",
         "$FPLANT": "A nice looking plant."
