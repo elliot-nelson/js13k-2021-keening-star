@@ -143,7 +143,7 @@ function minifyBuild() {
     // customized list of names that can't be mangled (because names like RSTUDY
     // will be both keys and name strings throughout the code, we need them
     // to match).
-    const world = JSON.parse(fs.readFileSync('src/assets/WorldData-gen.json'));
+    /*const world = JSON.parse(fs.readFileSync('src/assets/WorldData-gen.json'));
     const names = world.floors.reduce((list, floor) =>
         list.concat(floor.rooms.map(room => room.name)).concat(floor.objects.map(object => object.name)),
         []
@@ -153,7 +153,7 @@ function minifyBuild() {
         props: {
             props: Object.fromEntries(names.map(name => [`$${name}`, `${name[1]}${index++}`]))
         }
-    };
+    };*/
 
     // We use an extremely aggressive mangle -- all top-level names and all properties
     // of all objects -- basically every property we can find unless it's in the
@@ -194,6 +194,7 @@ function minifyBuild() {
 }
 
 async function doSomething() {
+    return;
     let minified = fs.readFileSync('temp/minified/app.js', 'utf8');
 
     // By reverse-sorting by locale, we ensure that the dumb regex approach to code editing

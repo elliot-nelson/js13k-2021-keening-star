@@ -29,7 +29,59 @@ const WorldBuilder = {
 
         let yamlData = yaml.load(fs.readFileSync(detailFile));
         recursiveTrim(yamlData);
-        Object.assign(data, yamlData);
+
+        let names = Object.keys(yamlData.strings);
+
+        for (let floor of data.floors) {
+            if (floor.objects) {
+                names = names.concat(floor.objects.map(object => object.name));
+            }
+            if (floor.rooms) {
+                names = names.concat(floor.rooms.map(object => object.name));
+            }
+        }
+
+        names.sort();
+
+        let ids = {};
+
+        for (let i = 0; i < names.length; i++) {
+            ids[names[i]] = i + 1;
+        }
+
+        for (let key of Object.keys(yamlData.items)) {
+            ids[key] = yamlData.items[key];
+        }
+
+        Object.assign(data, { ids });
+
+        let stringsArray = [];
+        for (let key of Object.keys(yamlData.strings)) {
+            stringsArray[ids[key]] = yamlData.strings[key];
+        }
+
+        for (let i = 0; i < stringsArray.length; i++) {
+            if (!stringsArray[i]) stringsArray[i] = 0;
+        }
+
+        data.strings = stringsArray;
+
+        for (let floor of data.floors) {
+            if (floor.objects) {
+                floor.objects = floor.objects.map(object => {
+                    let result = [ids[object.name], object.x, object.y];
+                    if (object.name.startsWith('$D')) {
+                        result.push(2); // door
+                    }
+                    return result;
+                });
+            }
+            if (floor.rooms) {
+                floor.rooms = floor.rooms.map(room => {
+                    return [ids[room.name], room.x, room.y, room.width, room.height];
+                });
+            }
+        }
 
         this._writeOutputFile(data, outputFile, outputJSON);
     },
@@ -240,7 +292,8 @@ const WorldBuilder = {
         let prefix = lines.findIndex(value => value.match(/<generated>/));
         let suffix = lines.findIndex(value => value.match(/<\/generated>/));
 
-        let generated = util.inspect(data, { compact: true, maxArrayLength: Infinity, depth: Infinity });
+        //let generated = util.inspect(data, { compact: true, maxArrayLength: Infinity, depth: Infinity });
+        let generated = JSON.stringify(data, undefined, 4);
         generated = lines.slice(0, prefix + 1).join('\n') + '\n' + generated + '\n' + lines.slice(suffix).join('\n');
 
         fs.writeFileSync(outputFile, generated, 'utf8');

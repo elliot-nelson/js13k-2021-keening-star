@@ -42,7 +42,7 @@ export const Triggers = {
     },
 
     spawn(object, z) {
-        switch (object.name) {
+        switch (object.id) {
             case 'RAT':
                 Game.entities.push(new Rat({ x: object.x, y: object.y, z }));
                 break;

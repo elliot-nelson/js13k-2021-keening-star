@@ -163,26 +163,13 @@ export const Game = {
             if (entity.z > 0) entity.draw();
         }
 
-        //this.player.draw();
-
-        /*
-        if (this.player.lastAction) {
-            Screen.write(2, 20, this.player.lastAction);
-        } else if (this.player.lookingAt) {
-            Screen.write(2, 20, World.strings[this.player.lookingAt.name] || 'WHAt');
-        }
-        */
-
         Log.draw(3);
 
         for (let screen of this.screens) {
             screen.draw();
         }
 
-
         Screen.draw(Viewport.ctx);
-
-        //Sprite.drawSprite(Viewport.ctx, Sprite.font, 0, 0);
     },
 
     entityAt(pos) {

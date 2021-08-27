@@ -6,6 +6,8 @@ import { WorldData } from './WorldData-gen';
 export const World = {
     FLOOR: 46, // '.'
 
+    TYPE_DOOR: 2,
+
     init() {
         this.reset();
     },
@@ -32,14 +34,16 @@ export const World = {
         this.floors = WorldData.floors.map(floor => {
             return {
                 tiles: floor.tiles.map(row => [...row]),
-                objects: floor.objects.map(object => ({ ...object })),
-                rooms: floor.rooms.map(room => ({ ...room })),
+                objects: floor.objects.map(object => ({ id: object[0], x: object[1], y: object[2], type: object[3] })),
+                rooms: floor.rooms.map(room => ({ id: room[0], x: room[1], y: room[2], width: room[3], height: room[4] })),
                 triggers: floor.triggers.map(trigger => ({ ...trigger }))
             };
         });
         this.bounds = WorldData.bounds;
         this.spawn = WorldData.spawn;
         this.strings = WorldData.strings;
+        //Object.assign(this, WorldData.ids);
+        this.ids = WorldData.ids;
 
         for (let floor of this.floors) {
             // "Lift" all objects off the floor, and get their default character
@@ -47,8 +51,6 @@ export const World = {
                 object.char = String.fromCharCode(floor.tiles[object.y][object.x]);
                 floor.tiles[object.y][object.x] = World.FLOOR;
             }
-            floor.objectsByName = floor.objects.reduce((hash, entry) => (hash[entry.name] = entry, hash), {});
-            floor.roomsByName = floor.rooms.reduce((hash, entry) => (hash[entry.name] = entry, hash), {});
         }
     },
 

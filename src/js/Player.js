@@ -31,7 +31,7 @@ export class Player {
 
         this.weapon = { ar: 0.5 };
 
-        Log.add(World.strings[this.room.name]);
+        Log.add(World.strings[this.room.id]);
     }
 
     draw() {
@@ -70,23 +70,23 @@ export class Player {
                 this.moveInto(pos, false);
             } else if (object.finished) {
                 this.lookingAt = object;
-                Log.add(World.strings[object.name]);
-                console.log('finished' + World.strings[object.name]);
+                Log.add(World.strings[object.id]);
+                console.log('finished' + World.strings[object.id]);
             } else {
-                if (object.name === '$DDINING') {
+                if (object.id === World.ids.$D_DINING) {
                     if (object.interacted) {
                         this.useItemOn(object);
                     } else {
-                        Log.add(World.strings[object.name]);
+                        Log.add(World.strings[object.id]);
                     }
-                } else if (object.name === '$FFIRE3') {
-                    Log.add(World.strings[object.name]);
-                    object.name = '$FFIRE3_A';
-                } else if (object.name === '$FFIRE3_A') {
-                    Log.add(World.strings[object.name]);
-                    object.name = '$FFIRE3_B';
+                } else if (object.id === World.ids.$F_FIRE3) {
+                    Log.add(World.strings[object.id]);
+                    object.id = World.ids.$F_FIRE3_A;
+                } else if (object.id === World.ids.$F_FIRE3_A) {
+                    Log.add(World.strings[object.id]);
+                    object.id = World.ids.$F_FIRE3_B;
                     Game.player.inventory.$IRON_KNIFE = true;
-                } else if (object.name[0] === 'D') {
+                } else if (object.type === World.TYPE_DOOR) {
                     console.log('adding door push');
                     Log.add('You push the door open.', '%y');
                     object.open = object.finished = true;
@@ -99,10 +99,10 @@ export class Player {
                         action = `\n%y\xa5 You need some kind of other item.`;
                     }
                     this.lookingAt = object;
-                    console.log(object.name);
-                    console.log(World.strings[object.name] + action);
-                    Log.add(World.strings[object.name] + action);
-                    console.log('else statement' + World.strings[object.name]);
+                    console.log(object.id);
+                    console.log(World.strings[object.id] + action);
+                    Log.add(World.strings[object.id] + action);
+                    console.log('else statement' + World.strings[object.id]);
                 }
             }
 
@@ -123,7 +123,7 @@ export class Player {
             // past the doorway.
             let room = World.roomAt(this.pos);
             if (this.room !== room) {
-                Log.add(World.strings[room.name]);
+                Log.add(World.strings[room.id]);
             }
             this.room = room;
             this.lookingAt = this.room;
@@ -131,8 +131,11 @@ export class Player {
         }
     }
 
-    useItemOn(object) {
+    openInventoryFor(object) {
         Game.screens.push(new InventoryScreen(object));
+    }
+
+    useItemOn(object, item) {
     }
 
     attack(entity) {

@@ -262,36 +262,36 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
-  <objectgroup id="3" name="ROOMS" visible="0">
-   <object id="1" name="$RFOYER" x="964" y="1944" width="72.5" height="127.5"/>
-   <object id="5" name="$RDRAW" x="1043.5" y="1960" width="40.5" height="98"/>
+  <objectgroup id="3" name="ROOMS">
+   <object id="1" name="$R_FOYER" x="964" y="1944" width="72.5" height="127.5"/>
+   <object id="5" name="$R_DRAW" x="1043.5" y="1960" width="40.5" height="98"/>
   </objectgroup>
   <objectgroup id="4" name="OBJECTS">
-   <object id="3" name="$FPLANT" x="971.5" y="1958.5">
+   <object id="3" name="$F_PLANT" x="971.5" y="1958.5">
     <point/>
    </object>
-   <object id="6" name="$DDRAW" x="1035" y="2024">
+   <object id="6" name="$D_DRAW" x="1035" y="2024">
     <point/>
    </object>
-   <object id="7" name="$DKITCHEN" x="923.5" y="1961.5">
+   <object id="7" name="$D_KITCHEN" x="923.5" y="1961.5">
     <point/>
    </object>
-   <object id="8" name="$FFIRE1" x="1020" y="1944.5">
+   <object id="8" name="$F_FIRE1" x="1020" y="1944.5">
     <point/>
    </object>
-   <object id="9" name="$FFIRE3" x="1090.5" y="2024.5">
+   <object id="9" name="$F_FIRE3" x="1090.5" y="2024.5">
     <point/>
    </object>
-   <object id="12" name="$DDINING" x="962" y="2040.5">
+   <object id="12" name="$D_DINING" x="962" y="2040.5">
     <point/>
    </object>
-   <object id="13" name="$FFIRE2" x="907.5" y="1991">
+   <object id="13" name="$F_FIRE2" x="907.5" y="1991">
     <point/>
    </object>
-   <object id="14" name="$FDOLLHOUSE" x="1027" y="1977">
+   <object id="14" name="$F_DOLLHOUSE" x="1027" y="1977">
     <point/>
    </object>
-   <object id="15" name="$DGARAGE" x="907" y="1929">
+   <object id="15" name="$D_GARAGE" x="907" y="1929">
     <point/>
    </object>
   </objectgroup>
