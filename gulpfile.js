@@ -174,6 +174,7 @@ function minifyBuild() {
                     'KeyC',
                     'KeyL',
                     'KeyH',
+                    'KeyI',
                     'Escape'
                 ]
             }

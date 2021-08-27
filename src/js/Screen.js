@@ -91,6 +91,9 @@ export const Screen = {
                     case '0':
                         c = 0xa5;
                         break;
+                    case '1':
+                        c = 0xa4;
+                        break;
                     default:
                         i--;
                 }
@@ -124,10 +127,6 @@ export const Screen = {
             this.write(x, i, '\x90', color);
             this.write(x + w - 1, i, '\x90', color);
         }
-    },
-
-    raw(x, y, text) {
-        Text.drawText(Viewport.ctx, Text.splitParagraph(text, Viewport.width), x * FONT_WIDTH, y * FONT_HEIGHT);
     },
 
     draw(ctx) {

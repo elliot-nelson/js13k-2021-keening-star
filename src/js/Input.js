@@ -4,14 +4,15 @@ import { Audio } from './Audio';
 
 export const Input = {
     Action: {
-        UP: 11,
-        DOWN: 12,
-        LEFT: 13,
-        RIGHT: 14,
-        CAST:  15,
-        LOG:   27,
-        HELP:  28,
-        BACK:  29
+        UP:        11,
+        DOWN:      12,
+        LEFT:      13,
+        RIGHT:     14,
+        CAST:      15,
+        INVENTORY: 26,
+        LOG:       27,
+        HELP:      28,
+        BACK:      29
     },
 
     init() {
@@ -40,6 +41,7 @@ export const Input = {
             KeyC: Input.Action.CAST,
             KeyL: Input.Action.LOG,
             KeyH: Input.Action.HELP,
+            KeyI: Input.Action.INVENTORY,
             Escape: Input.Action.BACK
         };
 

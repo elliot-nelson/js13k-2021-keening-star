@@ -10,6 +10,7 @@ import { Input } from './Input';
 import { Log } from './Log';
 import { LogScreen } from './LogScreen';
 import { HelpScreen } from './HelpScreen';
+import { InventoryScreen } from './InventoryScreen';
 import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
@@ -81,6 +82,9 @@ export const Game = {
         } else if (Input.pressed[Input.Action.HELP]) {
             //console.log('help screen');
             this.screens.push(new HelpScreen());
+        } else if (Input.pressed[Input.Action.INVENTORY]) {
+            this.screens.push(new InventoryScreen());
+            console.log('inv');
         } else {
             TurnSystem.takeEntityTurns();
         }
@@ -119,8 +123,6 @@ export const Game = {
         Screen.write(79, 23, '#');
 
         //Screen.write(10, 15, uni('║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬'));
-
-        Screen.raw(40, 10, 'xy\x07]A\x07]BRED');
 
         for (let i = 0; i < 20; i++) {
             Screen.write(64, i, '\x90', Screen.DIM);

@@ -4,6 +4,7 @@ import { CombatSystem } from './CombatSystem';
 import { TURN_FRAMES } from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
+import { InventoryScreen } from './InventoryScreen';
 import { Log } from './Log';
 import { Screen } from './Screen';
 import { World } from './World';
@@ -73,8 +74,11 @@ export class Player {
                 console.log('finished' + World.strings[object.name]);
             } else {
                 if (object.name === '$DDINING') {
-                    if (Game.player.inventory.$IRON_KNIFE)
-                        Log.add(World.strings.$DDINING_OPEN);
+                    if (object.interacted) {
+                        this.useItemOn(object);
+                    } else {
+                        Log.add(World.strings[object.name]);
+                    }
                 } else if (object.name === '$FFIRE3') {
                     Log.add(World.strings[object.name]);
                     object.name = '$FFIRE3_A';
@@ -125,6 +129,10 @@ export class Player {
             this.lookingAt = this.room;
             this.lastAction = undefined;
         }
+    }
+
+    useItemOn(object) {
+        Game.screens.push(new InventoryScreen(object));
     }
 
     attack(entity) {
