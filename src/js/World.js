@@ -6,8 +6,6 @@ import { WorldData } from './WorldData-gen';
 export const World = {
     FLOOR: 46, // '.'
 
-    TYPE_DOOR: 2,
-
     init() {
         this.reset();
     },
@@ -42,8 +40,6 @@ export const World = {
         this.bounds = WorldData.bounds;
         this.spawn = WorldData.spawn;
         this.strings = WorldData.strings;
-        //Object.assign(this, WorldData.ids);
-        this.ids = WorldData.ids;
 
         for (let floor of this.floors) {
             // "Lift" all objects off the floor, and get their default character

@@ -53,8 +53,6 @@ const WorldBuilder = {
             ids[key] = yamlData.items[key];
         }
 
-        Object.assign(data, { ids });
-
         let stringsArray = [];
         for (let key of Object.keys(yamlData.strings)) {
             stringsArray[ids[key]] = yamlData.strings[key];
@@ -83,7 +81,7 @@ const WorldBuilder = {
             }
         }
 
-        this._writeOutputFile(data, outputFile, outputJSON);
+        this._writeOutputFile(data, ids, outputFile, outputJSON);
     },
 
     /*
@@ -286,17 +284,24 @@ const WorldBuilder = {
     /*
      * Update the generated World source file with the new world data.
      */
-    _writeOutputFile(data, outputFile, outputJSON) {
+    _writeOutputFile(data, ids, outputFile, outputJSON) {
         let js = fs.readFileSync(outputFile, 'utf8');
+
         let lines = js.split('\n');
-        let prefix = lines.findIndex(value => value.match(/<generated>/));
-        let suffix = lines.findIndex(value => value.match(/<\/generated>/));
+        let prefix = lines.findIndex(value => value.match(/<generated-data>/));
+        let suffix = lines.findIndex(value => value.match(/<\/generated-data>/));
+        let generatedData = JSON.stringify(data, undefined, 4);
+        let result = lines.slice(0, prefix + 1).join('\n') + '\n' + generatedData + '\n' + lines.slice(suffix).join('\n');
 
-        //let generated = util.inspect(data, { compact: true, maxArrayLength: Infinity, depth: Infinity });
-        let generated = JSON.stringify(data, undefined, 4);
-        generated = lines.slice(0, prefix + 1).join('\n') + '\n' + generated + '\n' + lines.slice(suffix).join('\n');
+        lines = result.split('\n');
+        prefix = lines.findIndex(value => value.match(/<generated-constants>/));
+        suffix = lines.findIndex(value => value.match(/<\/generated-constants>/));
+        let generatedConstants = Object.entries(ids).map(entry => {
+            return `export const ${entry[0]} = ${entry[1]};`;
+        }).join('\n');
+        result = lines.slice(0, prefix + 1).join('\n') + '\n' + generatedConstants + '\n' + lines.slice(suffix).join('\n');
 
-        fs.writeFileSync(outputFile, generated, 'utf8');
+        fs.writeFileSync(outputFile, result, 'utf8');
         fs.writeFileSync(outputJSON, JSON.stringify(data, undefined, 4), 'utf8');
     }
 };

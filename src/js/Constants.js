@@ -50,3 +50,6 @@ export const COMBAT_WHIFF = 1;
 export const COMBAT_HIT = 2;
 export const COMBAT_CRIT = 3;
 export const COMBAT_CRIT_MULTIPLIER = 1.5;
+
+// Object types
+export const TYPE_DOOR = 2;

@@ -1,13 +1,14 @@
 // Player
 
 import { CombatSystem } from './CombatSystem';
-import { TURN_FRAMES } from './Constants';
+import { TURN_FRAMES, TYPE_DOOR } from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
 import { InventoryScreen } from './InventoryScreen';
 import { Log } from './Log';
 import { Screen } from './Screen';
 import { World } from './World';
+import { $D_DINING, $F_FIRE3, $F_FIRE3_A, $F_FIRE3_B, $I_IRON_KNIFE } from './WorldData-gen';
 import { WorldParticle } from './WorldParticle';
 import { flood } from './Util';
 
@@ -73,20 +74,20 @@ export class Player {
                 Log.add(World.strings[object.id]);
                 console.log('finished' + World.strings[object.id]);
             } else {
-                if (object.id === World.ids.$D_DINING) {
+                if (object.id === $D_DINING) {
                     if (object.interacted) {
                         this.useItemOn(object);
                     } else {
                         Log.add(World.strings[object.id]);
                     }
-                } else if (object.id === World.ids.$F_FIRE3) {
+                } else if (object.id === $F_FIRE3) {
                     Log.add(World.strings[object.id]);
-                    object.id = World.ids.$F_FIRE3_A;
-                } else if (object.id === World.ids.$F_FIRE3_A) {
+                    object.id = $F_FIRE3_A;
+                } else if (object.id === $F_FIRE3_A) {
                     Log.add(World.strings[object.id]);
-                    object.id = World.ids.$F_FIRE3_B;
-                    Game.player.inventory.$IRON_KNIFE = true;
-                } else if (object.type === World.TYPE_DOOR) {
+                    object.id = $F_FIRE3_B;
+                    Game.player.inventory[$I_IRON_KNIFE] = true;
+                } else if (object.type === TYPE_DOOR) {
                     console.log('adding door push');
                     Log.add('You push the door open.', '%y');
                     object.open = object.finished = true;
