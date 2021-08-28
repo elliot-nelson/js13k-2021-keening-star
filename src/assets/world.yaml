@@ -2,9 +2,9 @@
 #################################################################################
 #   <---                                                                     --->
 items:
-  $I_IRON_KNIFE: 101
-  $I_SILVER_KEY: 102
-  $I_UNCLE_LETTER: 103
+  $I_IRON_KNIFE: 51
+  $I_SILVER_KEY: 52
+  $I_UNCLE_LETTER: 53
 strings:
   $I_IRON_KNIFE:
     - iron knife

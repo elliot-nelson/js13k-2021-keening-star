@@ -17,9 +17,9 @@ export const $F_FIRE3 = 16;
 export const $F_FIRE3_A = 17;
 export const $F_FIRE3_B = 18;
 export const $F_SHELF1 = 20;
-export const $I_IRON_KNIFE = 101;
-export const $I_SILVER_KEY = 102;
-export const $I_UNCLE_LETTER = 103;
+export const $I_IRON_KNIFE = 51;
+export const $I_SILVER_KEY = 52;
+export const $I_UNCLE_LETTER = 53;
 export const $R_DINING = 25;
 export const $R_DRAW = 27;
 export const $R_FOYER = 29;
@@ -674,56 +674,6 @@ export const WorldData =
         "The garage is empty, save for a few rusty shelves and the usual cobwebs.\nThere must have been other furniture here recently, you can see lines\nin the dust where a workbench used to be.",
         0,
         "A nice old room.\nWhat a nice place it is.\nFuck it.",
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
