@@ -35,7 +35,7 @@ export const FPS = 60;
 // moves if they hold down an arrow key.
 //
 // 12 frames = 5 tiles per second.
-export const TURN_FRAMES = 12;
+export const TURN_FRAMES = 2;
 
 // The number of lines of recent history to show to the player, in the normal (closed)
 // case and the open (reviewing history) case.

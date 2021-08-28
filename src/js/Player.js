@@ -1,14 +1,27 @@
 // Player
 
 import { CombatSystem } from './CombatSystem';
-import { TURN_FRAMES, TYPE_DOOR } from './Constants';
+import {
+    TURN_FRAMES,
+    TYPE_DOOR
+} from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
 import { InventoryScreen } from './InventoryScreen';
 import { Log } from './Log';
 import { Screen } from './Screen';
 import { World } from './World';
-import { $D_DINING, $F_FIRE3, $F_FIRE3_A, $F_FIRE3_B, $I_IRON_KNIFE } from './WorldData-gen';
+import {
+    $D_DINING,
+    $D_DINING_OPEN,
+    $F_FIRE3,
+    $F_FIRE3_A,
+    $F_FIRE3_B,
+    $F_SHELF1,
+    $I_IRON_KNIFE,
+    $I_SILVER_KEY,
+    $I_UNCLE_LETTER
+} from './WorldData-gen';
 import { WorldParticle } from './WorldParticle';
 import { flood } from './Util';
 
@@ -18,7 +31,7 @@ export class Player {
 
         this.room = World.roomAt(this.pos);
         this.lookingAt = this.room;
-        this.inventory = {};
+        this.inventory = [];
 
         this.df = flood(this.pos);
 
@@ -31,6 +44,11 @@ export class Player {
         this.updateStats();
 
         this.weapon = { ar: 0.5 };
+
+        this.obtainItem($I_UNCLE_LETTER);
+
+        // Temporary hack stuff
+        this.obtainItem($I_IRON_KNIFE);
 
         Log.add(World.strings[this.room.id]);
     }
@@ -74,11 +92,11 @@ export class Player {
                 Log.add(World.strings[object.id]);
                 console.log('finished' + World.strings[object.id]);
             } else {
+                /**** SPECIAL OBJECTS ****/
                 if (object.id === $D_DINING) {
+                    Log.add(World.strings[object.id]);
                     if (object.interacted) {
-                        this.useItemOn(object);
-                    } else {
-                        Log.add(World.strings[object.id]);
+                        this.openInventoryFor(object);
                     }
                 } else if (object.id === $F_FIRE3) {
                     Log.add(World.strings[object.id]);
@@ -86,12 +104,14 @@ export class Player {
                 } else if (object.id === $F_FIRE3_A) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_FIRE3_B;
-                    Game.player.inventory[$I_IRON_KNIFE] = true;
+                    this.obtainItem($I_IRON_KNIFE);
+                } else if (object.id === $F_SHELF1) {
+                    Log.add(World.strings[object.id])
+                    object.finished = true;
+                    this.obtainItem($I_SILVER_KEY);
+                /**** END SPECIAL OBJECTS ****/
                 } else if (object.type === TYPE_DOOR) {
-                    console.log('adding door push');
-                    Log.add('You push the door open.', '%y');
-                    object.open = object.finished = true;
-                    object.char = `'`;
+                    this.openDoor(object);
                 } else {
                     let action = '';
                     if (object.action) {
@@ -137,6 +157,32 @@ export class Player {
     }
 
     useItemOn(object, item) {
+        if (object.id === $D_DINING) {
+            if (item === $I_IRON_KNIFE) {
+                this.openDoor(object, $D_DINING_OPEN);
+            } else {
+                Log.add(`That doesn't work here.`, '%y');
+            }
+        }
+        console.log('oh fuck, i am using ' + object + item);
+    }
+
+    hasItem(id) {
+        return this.inventory.includes(id);
+    }
+
+    obtainItem(id) {
+        this.inventory.push(id);
+    }
+
+    openDoor(object, stringId) {
+        if (stringId) {
+            Log.add(World.strings[stringId]);
+        } else {
+            Log.add('You push the door open.', '%y');
+        }
+        object.open = object.finished = true;
+        object.char = `'`;
     }
 
     attack(entity) {

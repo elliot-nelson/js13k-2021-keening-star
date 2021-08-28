@@ -79,7 +79,7 @@ async function generateWorld() {
 }
 
 async function generateAudio() {
-    const p8File = 'src/assets/audio.p8';
+    const p8File = 'src/assets/audio3.p8';
     const jsFile = 'src/js/AudioData-gen.js';
 
     await p8tojs.convertFile(p8File, jsFile, {
@@ -175,6 +175,7 @@ function minifyBuild() {
                     'KeyL',
                     'KeyH',
                     'KeyI',
+                    'Enter',
                     'Escape'
                 ]
             }

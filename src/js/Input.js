@@ -9,6 +9,7 @@ export const Input = {
         LEFT:      13,
         RIGHT:     14,
         CAST:      15,
+        SELECT:    25,
         INVENTORY: 26,
         LOG:       27,
         HELP:      28,
@@ -42,6 +43,7 @@ export const Input = {
             KeyL: Input.Action.LOG,
             KeyH: Input.Action.HELP,
             KeyI: Input.Action.INVENTORY,
+            Enter: Input.Action.SELECT,
             Escape: Input.Action.BACK
         };
 
