@@ -108,11 +108,20 @@ export const Screen = {
         }
     },
 
+    writeTypewriter(x, y, text, maxlen) {
+        if (maxlen > 0) {
+            text = text.slice(0, maxlen | 0);
+            this.write(x, y, text);
+        }
+    },
+
     writeOnMap(x, y, text, color, x2) {
         let offset = {
             x: 30 - Camera.pos.x,
             y : 8 - Camera.pos.y
         };
+
+        //if (Math.random() < 0.1) text = '.';
 
         this.write(x + offset.x, y + offset.y, text, color, x2);
     },

@@ -117,30 +117,33 @@ export const Game = {
         //Screen.write(0, 0, '/--------------------------------------\\');
         //Screen.write(2, 10, 'You are standing in a cramped drawing room.');
 
-        Screen.write(0, 0, '#');
-        Screen.write(79, 0, '#');
-        Screen.write(0, 23, '#');
-        Screen.write(79, 23, '#');
+        //Screen.write(0, 0, '#');
+        //Screen.write(79, 0, '#');
+        //Screen.write(0, 23, '#');
+        //Screen.write(79, 23, '#');
 
-        //Screen.write(10, 15, uni('║═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬'));
-
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < Math.min(20, this.frame / 3); i++) {
             Screen.write(64, i, '\x90', Screen.DIM);
         }
 
-        Screen.writeBox(0, 19, 80, 5, Screen.DIM);
-        Screen.write(64, 19, '\x98', Screen.DIM);
         //Screen.write(0, 19, '\x91'.repeat(80));
 
-        Screen.write(66, 1, `Health ${formatQuantity(Game.player.hp)}/${formatQuantity(Game.player.hpMax)}`);
-        Screen.write(66, 2, `Sanity ${formatQuantity(Game.player.sp)}/${formatQuantity(Game.player.spMax)}`);
+        Screen.writeTypewriter(
+            66, 1,
+            `Health ${formatQuantity(Game.player.hp)}/${formatQuantity(Game.player.hpMax)}`,
+            this.frame / 2
+        );
+        Screen.writeTypewriter(
+            66, 2,
+            `Sanity ${formatQuantity(Game.player.sp)}/${formatQuantity(Game.player.spMax)}`,
+            (this.frame / 2) - 10
+        );
 
-        Screen.write(66, 4, `Vigor   ${formatStat(Game.player.vigor)}`);
-        Screen.write(66, 5, `Insight ${formatStat(Game.player.insight)}`);
-        Screen.write(66, 6, `Will    ${formatStat(Game.player.will)}`);
-        Screen.write(66, 7, `Speed   ${formatStat(Game.player.speed)}`);
+        //Screen.write(66, 4, `Vigor   ${formatStat(Game.player.vigor)}`);
+        //Screen.write(66, 5, `Insight ${formatStat(Game.player.insight)}`);
+        //Screen.write(66, 6, `Will    ${formatStat(Game.player.will)}`);
+        //Screen.write(66, 7, `Speed   ${formatStat(Game.player.speed)}`);
 
-        Screen.write(66, 18, '[H] Help', Screen.DIM);
 /*
         Screen.write(0, 19, '#'.repeat(60));
         Screen.write(0, 20, 'Here is something.');
@@ -163,7 +166,10 @@ export const Game = {
             if (entity.z > 0) entity.draw();
         }
 
-        Log.draw(3);
+        if (this.frame > 60) {
+            Screen.write(66, 18, '[H] Help', Screen.DIM);
+            Log.draw(3);
+        }
 
         for (let screen of this.screens) {
             screen.draw();
