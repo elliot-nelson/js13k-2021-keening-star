@@ -38,7 +38,7 @@ export class Player {
         this.vigor = 8;
         this.insight = 12;
         this.will = 10;
-        this.speed = 12;
+        this.speed = 4;
         this.hp = this.hpMax = 100;
         this.sp = this.spMax = 100;
         this.updateStats();

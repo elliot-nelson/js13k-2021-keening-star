@@ -1,5 +1,6 @@
 // World
 
+import { Game } from './Game';
 import { Screen } from './Screen';
 import { WorldData } from './WorldData-gen';
 
@@ -8,6 +9,7 @@ export const World = {
 
     init() {
         this.reset();
+        this.visions = [];
     },
 
     draw() {
@@ -21,6 +23,22 @@ export const World = {
                     let c = String.fromCharCode(tiles[y][x]);
                     Screen.writeOnMap(x, y, c, this.colorForTile(c));
                 }
+            }
+        }
+
+        if (Game.frame % 133 === 0) {
+            console.log('generating visions');
+            this.visions = [];
+            for (let i = 0; i < 10; i++) {
+                this.visions.push([
+                    Math.floor(Math.random() * tiles[0].length),
+                    Math.floor(Math.random() * tiles.length),
+                    String.fromCharCode(97 + Math.floor(Math.random() * 26))
+                ]);
+            }
+        } else if (Game.frame % 133 >= 5 && Game.frame % 133 <= 25) {
+            for (let vision of this.visions) {
+                Screen.writeOnMap(vision[0], vision[1], vision[2], Screen.RED);
             }
         }
     },

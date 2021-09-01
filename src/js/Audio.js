@@ -12,15 +12,20 @@ export const Audio = {
         // user-triggered event (like a keypress), not the main game loop. This
         // avoids warnings in browsers about being unable to create an AudioContext.
         this.initialized = true;
-        this.audioCtx = new AudioContext();
 
-        this.globalGain = new GainNode(this.audioCtx, { gain: 0 });
-        this.globalGain.connect(this.audioCtx.destination);
+        const AC = window.AudioContext || window.webkitAudioContext;
+        this.audioCtx = new AC();
 
-        this.cart = new AudioCart(AudioData, { audioCtx: this.audioCtx });
+        setTimeout(() => {
+            this.globalGain = this.audioCtx.createGain(this.audioCtx, { gain: 0 });
+            this.globalGain.connect(this.audioCtx.destination);
+            this.globalGain.gain.linearRampToValueAtTime(1, this.audioCtx.currentTime + 2);
 
-        this.music = this.cart.music();
-        this.music.connect(this.globalGain);
-        this.music.start();
+            this.cart = new AudioCart(AudioData, { audioCtx: this.audioCtx });
+
+            this.music = this.cart.music();
+            this.music.connect(this.globalGain);
+            this.music.start();
+        }, 1);
     }
 };

@@ -7,6 +7,7 @@
 
 import { Camera } from './Camera';
 import { SCREEN_WIDTH, SCREEN_HEIGHT, FONT_WIDTH, FONT_HEIGHT } from './Constants';
+import { Game } from './Game';
 import { Viewport } from './Viewport';
 import { Text } from './Text';
 import { rgba } from './Util';
@@ -117,11 +118,11 @@ export const Screen = {
 
     writeOnMap(x, y, text, color, x2) {
         let offset = {
-            x: 30 - Camera.pos.x,
-            y : 8 - Camera.pos.y
+            x: 32 - Camera.pos.x,
+            y : 10 - Camera.pos.y
         };
 
-        //if (Math.random() < 0.1) text = '.';
+        let f = Math.floor(Game.frame / 10);
 
         this.write(x + offset.x, y + offset.y, text, color, x2);
     },
