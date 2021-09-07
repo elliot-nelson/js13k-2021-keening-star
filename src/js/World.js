@@ -1,5 +1,6 @@
 // World
 
+import { STATUS_COL } from './Constants';
 import { Game } from './Game';
 import { Screen } from './Screen';
 import { WorldData } from './WorldData-gen';
@@ -24,6 +25,15 @@ export const World = {
                     Screen.writeOnMap(x, y, c, this.colorForTile(c));
                 }
             }
+        }
+
+        Screen.write(0, 0, ' '.repeat(STATUS_COL));
+        Screen.write(0, 1, ' '.repeat(STATUS_COL));
+        Screen.write(0, 2, ' '.repeat(STATUS_COL));
+
+        if (Game.player.room) {
+            let name = World.strings[Game.player.room.id][0];
+            Screen.write(Math.floor((STATUS_COL - name.length) / 2), 1, name, Screen.GREEN);
         }
 
         if (Game.frame % 133 === 0) {

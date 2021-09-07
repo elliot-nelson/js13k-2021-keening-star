@@ -119,10 +119,8 @@ export const Screen = {
     writeOnMap(x, y, text, color, x2) {
         let offset = {
             x: 32 - Camera.pos.x,
-            y : 10 - Camera.pos.y
+            y : 12 - Camera.pos.y
         };
-
-        let f = Math.floor(Game.frame / 10);
 
         this.write(x + offset.x, y + offset.y, text, color, x2);
     },

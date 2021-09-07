@@ -1,27 +1,13 @@
-# YAML stuff
+# This is kind of an experiment, but this YAML file is used during the build to
+# fill out the World. Basically all the strings and other data go in this file,
+# where it's relatively easy to edit it.
 #################################################################################
 #   <---                                                                     --->
 items:
-  $I_IRON_KNIFE: 51
-  $I_SILVER_KEY: 52
-  $I_UNCLE_LETTER: 53
+  $I_IRON_KNIFE: 41
+  $I_SILVER_KEY: 42
+  $I_UNCLE_LETTER: 43
 strings:
-  $I_IRON_KNIFE:
-    - iron knife
-    - |
-      Big ass description of iron
-      knife and stuff
-  $I_SILVER_KEY:
-    - silver key
-    - |
-      A description of silver key
-  $I_UNCLE_LETTER:
-    - your uncle's letter
-    - Dear Tommy, blah!
-  $R_FOYER: |
-    You are in the foyer of the farmhouse. The peeling paint and threadbare
-    rugs make it seem older than the outside of the house.
-    A large dollhouse sits on a pedestal in the far corner of the room.
   $D_DINING: |
     The lock is broken and the door won't budge. With the right tool, you can
     probably pry it open.
@@ -40,21 +26,6 @@ strings:
     You need some kind of key to open this.
   $F_SHELF1: |
     A rusty garage shelf.
-  $R_DINING: |
-    The dining room is dominated by an oak table, which appears to have been
-    used recently as a butcher's block. Flies buzz above fresh animal entrails
-    littering the table. The table and the carpet below is soaked in blood.
-  $R_DRAW: |
-    You are in a dimly lit drawing room filled with faded furniture.
-    The room smells of musty upholstery.
-  $R_GARAGE: |
-    The garage is empty, save for a few rusty shelves and the usual cobwebs.
-    There must have been other furniture here recently, you can see lines
-    in the dust where a workbench used to be.
-  $R_STUDY: |
-    A nice old room.
-    What a nice place it is.
-    Fuck it.
   $F_FIRE2: |
     An impressive granite fireplace. Above the mantle hangs a brightly colored
     painting of a newborn, out of place in such a drab room.
@@ -71,3 +42,44 @@ strings:
     Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
     being devoured whole by a tall, dimly-lit creature. It is hard to look at.
     The embers are cold.
+  $I_IRON_KNIFE:
+    - iron knife
+    - |
+      Big ass description of iron
+      knife and stuff
+  $I_SILVER_KEY:
+    - silver key
+    - |
+      A description of silver key
+  $I_UNCLE_LETTER:
+    - your uncle's letter
+    - Dear Tommy, blah!
+  $R_FOYER:
+    - FOYER
+    - |
+      You are in the foyer of the farmhouse. The peeling paint and threadbare
+      rugs make it seem older than the outside of the house.
+      A large dollhouse sits on a pedestal in the far corner of the room.
+  $R_DINING:
+    - DINING ROOM
+    - |
+      The dining room is dominated by an oak table, which appears to have been
+      used recently as a butcher's block. Flies buzz above fresh animal entrails
+      littering the table. The table and the carpet below is soaked in blood.
+  $R_DRAW:
+    - DRAWING ROOM
+    - |
+      You are in a dimly lit drawing room filled with faded furniture.
+      The room smells of musty upholstery.
+  $R_GARAGE:
+    - GARAGE
+    - |
+      The garage is empty, save for a few rusty shelves and the usual cobwebs.
+      There must have been other furniture here recently, you can see lines
+      in the dust where a workbench used to be.
+  $R_STUDY:
+    - ???
+    - |
+      A nice old room.
+      What a nice place it is.
+      Fuck it.

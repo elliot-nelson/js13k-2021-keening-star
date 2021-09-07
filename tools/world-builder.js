@@ -44,9 +44,14 @@ const WorldBuilder = {
         names.sort();
 
         let ids = {};
+        let index = 1;
 
-        for (let i = 0; i < names.length; i++) {
-            ids[names[i]] = i + 1;
+        for (let name of names) {
+            // There can be duplicates in this list, and we don't need to increment
+            // in this case -- it's just two pointers to the same object.
+            if (!ids[name]) {
+                ids[name] = index++;
+            }
         }
 
         for (let key of Object.keys(yamlData.items)) {

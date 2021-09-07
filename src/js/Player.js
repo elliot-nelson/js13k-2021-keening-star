@@ -50,7 +50,7 @@ export class Player {
         // Temporary hack stuff
         this.obtainItem($I_IRON_KNIFE);
 
-        Log.add(World.strings[this.room.id]);
+        Log.add(World.strings[this.room.id][1]);
     }
 
     draw() {
@@ -144,11 +144,10 @@ export class Player {
             // past the doorway.
             let room = World.roomAt(this.pos);
             if (this.room !== room) {
-                Log.add(World.strings[room.id]);
+                Log.add(World.strings[room.id][1]);
             }
             this.room = room;
             this.lookingAt = this.room;
-            this.lastAction = undefined;
         }
     }
 
