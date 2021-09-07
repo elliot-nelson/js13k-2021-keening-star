@@ -45,15 +45,21 @@ strings:
   $I_IRON_KNIFE:
     - iron knife
     - |
-      Big ass description of iron
-      knife and stuff
+      A large iron knife. It feels heavy
+      in your hand.
   $I_SILVER_KEY:
     - silver key
     - |
-      A description of silver key
+      A small, delicate silver key.
   $I_UNCLE_LETTER:
     - your uncle's letter
-    - Dear Tommy, blah!
+    - |
+      Dearest Emily,
+
+      You may think me mad but I need
+      your help. We all do. Together
+      we can stop them or it's not
+      [the rest is crossed out...]
   $R_FOYER:
     - FOYER
     - |

@@ -1,4 +1,8 @@
 // InventoryScreen
+//
+// The inventory screen has two modes -- if it's passed an object during construction
+// then it's actually the "use inventory" screen, if it's not, it's the "examine
+// inventory" screen.
 
 import { LOG_CLOSED_LINES, LOG_OPEN_LINES, SCREEN_WIDTH, SCREEN_HEIGHT } from './Constants';
 import { Game } from './Game';
@@ -34,16 +38,26 @@ export class InventoryScreen {
     }
 
     draw() {
-        Screen.writeBox(10, 6, 40, 10, Screen.GREEN);
+        Screen.writeBox(5, 6, 71, 10, Screen.GREEN);
+        Screen.write(38, 6, '\x97', Screen.GREEN);
+        Screen.write(38, 15, '\x98', Screen.GREEN);
+        for (let y = 7; y < 15; y++) {
+            Screen.write(38, y, '\x90', Screen.GREEN);
+        }
 
         for (let idx = 0; idx < this.list.length; idx++) {
-            let description = World.strings[this.list[idx]][0];
+            let [name, description] = World.strings[this.list[idx]];
             if (idx === this.selected) {
-                Screen.write(12, 7 + idx, `%0${description.padEnd(34)}%1`, Screen.GREEN);
+                Screen.write(6, 7 + idx, `%0${name.padEnd(30)}%1`, Screen.GREEN);
+                Screen.write(40, 7, description);
             } else {
-                Screen.write(13, 7 + idx, description);
+                Screen.write(7, 7 + idx, name);
             }
         }
-        Screen.write(13, 14, '[\xa0\xa1\xa2\xa3ENTER] Use item    [ESC] Back', Screen.DIM);
+        if (this.object) {
+            Screen.write(6, 14, '[\xa0\xa1\xa2\xa3ENTER] Use item  [ESC] Back', Screen.DIM);
+        } else {
+            Screen.write(6, 14, '[\xa0\xa1\xa2\xa3] Examine item   [ESC] Back', Screen.DIM);
+        }
     }
 }
