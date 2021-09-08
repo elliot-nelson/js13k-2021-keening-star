@@ -6,26 +6,28 @@
 export const $D_DINING = 1;
 export const $D_DINING_OPEN = 2;
 export const $D_DRAW = 3;
-export const $D_GARAGE = 4;
-export const $D_HALLWAY = 5;
-export const $D_KITCHEN = 6;
-export const $F_DOLLHOUSE = 7;
-export const $F_DOLLHOUSE_A = 8;
-export const $F_FIRE1 = 9;
-export const $F_FIRE2 = 10;
-export const $F_FIRE3 = 11;
-export const $F_FIRE3_A = 12;
-export const $F_FIRE3_B = 13;
-export const $F_SHELF1 = 14;
+export const $D_FOYER = 4;
+export const $D_GARAGE = 5;
+export const $D_HALLWAY = 6;
+export const $D_KITCHEN = 7;
+export const $F_DOLLHOUSE = 8;
+export const $F_DOLLHOUSE_A = 9;
+export const $F_FIRE1 = 10;
+export const $F_FIRE2 = 11;
+export const $F_FIRE3 = 12;
+export const $F_FIRE3_A = 13;
+export const $F_FIRE3_B = 14;
+export const $F_SHELF1 = 15;
+export const $F_STAIR1 = 16;
 export const $I_IRON_KNIFE = 41;
 export const $I_SILVER_KEY = 42;
 export const $I_UNCLE_LETTER = 43;
-export const $R_DINING = 18;
-export const $R_DRAW = 19;
-export const $R_FOYER = 20;
-export const $R_GARAGE = 21;
-export const $R_HALLWAY = 22;
-export const $R_STUDY = 23;
+export const $R_DINING = 20;
+export const $R_DRAW = 21;
+export const $R_FOYER = 22;
+export const $R_GARAGE = 23;
+export const $R_HALLWAY = 24;
+export const $R_STUDY = 25;
 /* </generated-constants> */
 
 export const WorldData =
@@ -192,14 +194,14 @@ export const WorldData =
                     129,
                     45,
                     138,
-                    46,
-                    46,
-                    46,
+                    32,
+                    32,
+                    32,
                     133,
                     129,
                     134,
-                    46,
-                    46,
+                    32,
+                    32,
                     128,
                     46,
                     46,
@@ -235,7 +237,7 @@ export const WorldData =
                     132,
                     129,
                     129,
-                    138,
+                    130,
                     129,
                     129,
                     129,
@@ -440,7 +442,7 @@ export const WorldData =
                     129,
                     129,
                     129,
-                    46,
+                    45,
                     129,
                     129,
                     129,
@@ -528,35 +530,35 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    21,
+                    23,
                     4,
                     2,
                     7,
                     3
                 ],
                 [
-                    19,
+                    21,
                     25,
                     5,
-                    6,
-                    5
-                ],
-                [
-                    18,
-                    11,
-                    4,
-                    4,
+                    8,
                     6
                 ],
                 [
                     20,
-                    15,
+                    9,
+                    4,
                     6,
-                    10,
-                    5
+                    7
                 ],
                 [
                     22,
+                    15,
+                    4,
+                    10,
+                    8
+                ],
+                [
+                    24,
                     10,
                     2,
                     5,
@@ -571,18 +573,18 @@ export const WorldData =
                     2
                 ],
                 [
-                    5,
+                    6,
                     14,
                     4,
                     2
                 ],
                 [
-                    9,
+                    10,
                     20,
                     5
                 ],
                 [
-                    11,
+                    12,
                     31,
                     8
                 ],
@@ -593,31 +595,47 @@ export const WorldData =
                     2
                 ],
                 [
-                    10,
+                    11,
                     10,
                     7
                 ],
                 [
-                    7,
+                    8,
                     22,
                     6
                 ],
                 [
-                    4,
+                    5,
                     10,
                     3,
                     2
                 ],
                 [
-                    6,
+                    7,
                     14,
                     2,
                     2
                 ],
                 [
-                    14,
+                    15,
                     6,
                     4
+                ],
+                [
+                    4,
+                    19,
+                    11,
+                    2
+                ],
+                [
+                    16,
+                    16,
+                    7
+                ],
+                [
+                    16,
+                    16,
+                    6
                 ]
             ],
             "triggers": [],
@@ -647,6 +665,7 @@ export const WorldData =
         0,
         0,
         0,
+        0,
         "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
         "You need some kind of key to open this.",
         "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
@@ -655,6 +674,7 @@ export const WorldData =
         "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y%0 You have obtained iron knife.",
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "A rusty garage shelf.",
+        "The stairs to the second floor are a wreck - you can't go up this way.",
         0,
         0,
         0,
@@ -679,8 +699,6 @@ export const WorldData =
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
-        0,
-        0,
         0,
         0,
         0,

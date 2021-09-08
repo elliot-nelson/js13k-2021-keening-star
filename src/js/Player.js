@@ -14,13 +14,15 @@ import { World } from './World';
 import {
     $D_DINING,
     $D_DINING_OPEN,
+    $D_DRAW,
     $F_FIRE3,
     $F_FIRE3_A,
     $F_FIRE3_B,
     $F_SHELF1,
     $I_IRON_KNIFE,
     $I_SILVER_KEY,
-    $I_UNCLE_LETTER
+    $I_UNCLE_LETTER,
+    $R_DRAW
 } from './WorldData-gen';
 import { WorldParticle } from './WorldParticle';
 import { flood } from './Util';
@@ -51,6 +53,7 @@ export class Player {
         this.obtainItem($I_IRON_KNIFE);
 
         Log.add(World.strings[this.room.id][1]);
+        World.makeVisible(this.room.id);
     }
 
     draw() {
@@ -109,7 +112,9 @@ export class Player {
                     Log.add(World.strings[object.id])
                     object.finished = true;
                     this.obtainItem($I_SILVER_KEY);
-                /**** END SPECIAL OBJECTS ****/
+                } else if (object.id === $D_DRAW) {
+                    this.openDoor(object);
+                    World.makeVisible($R_DRAW);
                 } else if (object.type === TYPE_DOOR) {
                     this.openDoor(object);
                 } else {
@@ -181,7 +186,7 @@ export class Player {
             Log.add('You push the door open.', '%y');
         }
         object.open = object.finished = true;
-        object.char = `'`;
+        object.char = object.char === '|' ? `'` : '\x7f';
     }
 
     attack(entity) {

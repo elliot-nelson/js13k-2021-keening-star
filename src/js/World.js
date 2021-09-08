@@ -1,6 +1,6 @@
 // World
 
-import { STATUS_COL } from './Constants';
+import { FLICKER_FRAME_1, STATUS_COL } from './Constants';
 import { Game } from './Game';
 import { Screen } from './Screen';
 import { WorldData } from './WorldData-gen';
@@ -14,15 +14,19 @@ export const World = {
     },
 
     draw() {
-        let tiles = this.floors[0].tiles;
-        for (let y = 0; y < tiles.length; y++) {
-            for (let x = 0; x < tiles[y].length; x++) {
-                let object = this.objectAt({ x, y, z: 0 });
-                if (object) {
-                    Screen.writeOnMap(x, y, object.char, this.colorForObject(object));
-                } else {
-                    let c = String.fromCharCode(tiles[y][x]);
-                    Screen.writeOnMap(x, y, c, this.colorForTile(c));
+        if (Game.frame % FLICKER_FRAME_1 > 1) {
+            let tiles = this.floors[0].tiles;
+            for (let y = 0; y < tiles.length; y++) {
+                for (let x = 0; x < tiles[y].length; x++) {
+                    if (this.floors[0].visible[y][x]) {
+                        let object = this.objectAt({ x, y, z: 0 });
+                        if (object) {
+                            Screen.writeOnMap(x, y, object.char, this.colorForObject(object));
+                        } else {
+                            let c = String.fromCharCode(tiles[y][x]);
+                            Screen.writeOnMap(x, y, c, this.colorForTile(c));
+                        }
+                    }
                 }
             }
         }
@@ -36,6 +40,7 @@ export const World = {
             Screen.write(Math.floor((STATUS_COL - name.length) / 2), 1, name, Screen.GREEN);
         }
 
+        /*
         if (Game.frame % 133 === 0) {
             console.log('generating visions');
             this.visions = [];
@@ -51,6 +56,7 @@ export const World = {
                 Screen.writeOnMap(vision[0], vision[1], vision[2], Screen.RED);
             }
         }
+        */
     },
 
     reset() {
@@ -60,6 +66,7 @@ export const World = {
         this.floors = WorldData.floors.map(floor => {
             return {
                 tiles: floor.tiles.map(row => [...row]),
+                visible: floor.tiles.map(row => row.map(c => false)),
                 objects: floor.objects.map(object => ({ id: object[0], x: object[1], y: object[2], type: object[3] })),
                 rooms: floor.rooms.map(room => ({ id: room[0], x: room[1], y: room[2], width: room[3], height: room[4] })),
                 triggers: floor.triggers.map(trigger => ({ ...trigger }))
@@ -108,5 +115,19 @@ export const World = {
 
     colorForTile(tile) {
         return tile === '.' ? Screen.DIM : Screen.WHITE;
-    }
+    },
+
+    makeVisible(roomId) {
+        for (let floor of this.floors) {
+            for (let room of floor.rooms) {
+                if (room.id === roomId) {
+                    for (let y = room.y; y < room.y + room.height; y++) {
+                        for (let x = room.x; x < room.x + room.width; x++) {
+                            floor.visible[y][x] = true;
+                        }
+                    }
+                }
+            }
+        }
+    },
 };

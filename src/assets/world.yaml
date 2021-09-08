@@ -42,6 +42,8 @@ strings:
     Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
     being devoured whole by a tall, dimly-lit creature. It is hard to look at.
     The embers are cold.
+  $F_STAIR1: |
+    The stairs to the second floor are a wreck - you can't go up this way.
   $I_IRON_KNIFE:
     - iron knife
     - |

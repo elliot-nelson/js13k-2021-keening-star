@@ -6,9 +6,8 @@
  */
 
 import { Camera } from './Camera';
-import { SCREEN_WIDTH, SCREEN_HEIGHT, FONT_WIDTH, FONT_HEIGHT } from './Constants';
+import { SCREEN_WIDTH, SCREEN_HEIGHT, FONT_WIDTH, FONT_HEIGHT, FLICKER_FRAME_2 } from './Constants';
 import { Game } from './Game';
-import { Viewport } from './Viewport';
 import { Text } from './Text';
 import { rgba } from './Util';
 
@@ -138,10 +137,12 @@ export const Screen = {
     },
 
     draw(ctx) {
-        for (let y = 0; y < SCREEN_HEIGHT; y++) {
-            for (let x = 0; x < SCREEN_WIDTH; x++) {
-                let c = this.screen[y * SCREEN_WIDTH + x];
-                Text.drawText(ctx, c & 0xFF, x * FONT_WIDTH, y * FONT_HEIGHT, Screen.COLORS[c >> 8]);
+        if (Game.frame % FLICKER_FRAME_2 > 0) {
+            for (let y = 0; y < SCREEN_HEIGHT; y++) {
+                for (let x = 0; x < SCREEN_WIDTH; x++) {
+                    let c = this.screen[y * SCREEN_WIDTH + x];
+                    Text.drawText(ctx, c & 0xFF, x * FONT_WIDTH, y * FONT_HEIGHT, Screen.COLORS[c >> 8]);
+                }
             }
         }
     }
