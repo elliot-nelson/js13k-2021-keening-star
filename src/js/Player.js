@@ -40,7 +40,6 @@ import {
     $R_HALLWAY
 } from './WorldData-gen';
 import { WorldParticle } from './WorldParticle';
-import { flood } from './Util';
 
 export class Player {
     constructor(pos) {
@@ -49,17 +48,18 @@ export class Player {
         this.lookingAt = this.room;
         this.inventory = [];
 
-        this.df = flood(this.pos);
 
-        this.vigor = 8;
-        this.insight = 12;
-        this.will = 10;
         this.speed = 4;
         this.hp = this.hpMax = 100;
         this.sp = this.spMax = 100;
-        this.updateStats();
 
-        this.weapon = { ar: 0.5 };
+        // *COMBAT*
+        // this.vigor = 8;
+        // this.insight = 12;
+        // this.will = 10;
+        // this.updateStats();
+        // this.weapon = { ar: 0.5 };
+        // this.df = flood(this.pos);
 
         // The player starts with the uncle's letter.
         this.obtainItem($I_UNCLE_LETTER);
@@ -108,7 +108,8 @@ export class Player {
         let entity = Game.entityAt(pos);
 
         if (entity) {
-            this.attack(entity);
+            // *COMBAT*
+            // this.attack(entity);
         } else if (object) {
             if (object.open) {
                 this.moveInto(pos, false);
@@ -239,6 +240,8 @@ export class Player {
         object.char = object.char === '|' ? `'` : '\x7f';
     }
 
+    // *COMBAT*
+    /*
     attack(entity) {
         let roll = CombatSystem.rollAttack(this.vigor, this.weapon.ar);
         if (roll.result === CombatSystem.WHIFF) {
@@ -269,4 +272,5 @@ export class Player {
             this.sp += (spMax - this.spMax);
         }
     }
+    */
 }

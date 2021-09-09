@@ -12,6 +12,10 @@ export function xyz2pos(x, y, z) {
     return { x, y, z };
 }
 
+// To avoid having this mapping, for now I just point directly at the location of
+// chars in my font sheet -- i.e. `\x86` etc. But in a game with more room, I'd
+// definitely use this approach just to have fun in my source code.
+/*
 export function uni(chars) {
     // In our character sheet, chars 0x00-0x7F are standard ASCII, below that we put whatever
     // characters are convenient for us. Here we can choose to map unicode characters to positions
@@ -36,7 +40,10 @@ export function uni(chars) {
     }, {});
     return chars.split('').map(c => String.fromCharCode(UNICODE_CHAR_MAP[c]) || c).join('');
 }
+*/
 
+// *COMBAT*
+/*
 export function flood(pos, maxDistance = Infinity) {
     let result = World.floors.map(floor => array2d(World.bounds[1][0], World.bounds[1][1], () => Infinity));
     let stack = [{ ...pos, cost: 0 }];
@@ -58,6 +65,7 @@ export function flood(pos, maxDistance = Infinity) {
 
     return result;
 }
+*/
 
 export function array2d(width, height, fn) {
     return Array.from({ length: height }, () => Array.from({ length: width }, fn));

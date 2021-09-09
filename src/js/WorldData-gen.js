@@ -716,7 +716,7 @@ export const WorldData =
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
         [
             "a half-burnt notebook",
-            "Most of the pages are too burnt,\nbut one page is crystal clear:\n\n\"Our Goddess walks the hills\n in the shadow of the wailing star\n and we follow in her path\""
+            "Most of the pages are too burnt\nto read, but somehow one page\nis crystal clear:\n\n\"Our Goddess walks the hills\n in the shadow of the wailing star\n and we follow in her path\""
         ],
         0,
         0,
