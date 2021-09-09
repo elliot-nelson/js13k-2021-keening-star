@@ -10,24 +10,31 @@ export const $D_FOYER = 4;
 export const $D_GARAGE = 5;
 export const $D_HALLWAY = 6;
 export const $D_KITCHEN = 7;
-export const $F_DOLLHOUSE = 8;
-export const $F_DOLLHOUSE_A = 9;
-export const $F_FIRE1 = 10;
-export const $F_FIRE2 = 11;
-export const $F_FIRE3 = 12;
-export const $F_FIRE3_A = 13;
-export const $F_FIRE3_B = 14;
-export const $F_SHELF1 = 15;
-export const $F_STAIR1 = 16;
+export const $F_BURNT_CHAIR = 8;
+export const $F_BURNT_CHAIR_A = 9;
+export const $F_BURNT_CHAIR_B = 10;
+export const $F_DOLLHOUSE = 11;
+export const $F_DOLLHOUSE_A = 12;
+export const $F_FIRE1 = 13;
+export const $F_FIRE2 = 14;
+export const $F_FIRE3 = 15;
+export const $F_FIRE3_A = 16;
+export const $F_FIRE3_B = 17;
+export const $F_SHELF1 = 18;
+export const $F_STAIR1 = 19;
+export const $F_STATUE = 20;
+export const $F_STATUE_A = 21;
+export const $F_STATUE_B = 22;
+export const $I_BURNT_NOTEBOOK = 23;
 export const $I_IRON_KNIFE = 41;
 export const $I_SILVER_KEY = 42;
 export const $I_UNCLE_LETTER = 43;
-export const $R_DINING = 20;
-export const $R_DRAW = 21;
-export const $R_FOYER = 22;
-export const $R_GARAGE = 23;
-export const $R_HALLWAY = 24;
-export const $R_STUDY = 25;
+export const $R_DINING = 27;
+export const $R_DRAW = 28;
+export const $R_FOYER = 29;
+export const $R_GARAGE = 30;
+export const $R_HALLWAY = 31;
+export const $R_STUDY = 32;
 /* </generated-constants> */
 
 export const WorldData =
@@ -123,11 +130,11 @@ export const WorldData =
                     129,
                     129,
                     45,
-                    128,
-                    46,
-                    128,
                     129,
                     129,
+                    129,
+                    129,
+                    134,
                     32,
                     133,
                     129,
@@ -158,14 +165,14 @@ export const WorldData =
                     46,
                     46,
                     46,
-                    130,
-                    129,
-                    129,
                     46,
                     46,
+                    46,
+                    93,
+                    128,
                     129,
                     131,
-                    37,
+                    46,
                     132,
                     134,
                     32,
@@ -193,15 +200,15 @@ export const WorldData =
                     129,
                     129,
                     45,
-                    138,
-                    32,
-                    32,
-                    32,
-                    133,
+                    135,
                     129,
-                    134,
-                    32,
-                    32,
+                    129,
+                    129,
+                    131,
+                    46,
+                    46,
+                    46,
+                    46,
                     128,
                     46,
                     46,
@@ -228,15 +235,15 @@ export const WorldData =
                     46,
                     46,
                     46,
-                    137,
+                    128,
+                    46,
+                    46,
+                    46,
+                    133,
                     129,
-                    135,
-                    129,
-                    131,
-                    37,
-                    132,
-                    129,
-                    129,
+                    134,
+                    46,
+                    46,
                     130,
                     129,
                     129,
@@ -263,16 +270,16 @@ export const WorldData =
                     35,
                     35,
                     46,
-                    128,
-                    60,
-                    128,
-                    46,
-                    46,
-                    46,
-                    46,
-                    35,
-                    46,
-                    128,
+                    137,
+                    129,
+                    135,
+                    129,
+                    131,
+                    37,
+                    132,
+                    129,
+                    129,
+                    138,
                     61,
                     61,
                     46,
@@ -305,7 +312,7 @@ export const WorldData =
                     46,
                     46,
                     46,
-                    46,
+                    35,
                     46,
                     128,
                     46,
@@ -382,7 +389,7 @@ export const WorldData =
                     93,
                     46,
                     46,
-                    13,
+                    38,
                     46,
                     133,
                     131
@@ -415,7 +422,7 @@ export const WorldData =
                     137,
                     129,
                     129,
-                    129,
+                    145,
                     129,
                     129,
                     129,
@@ -530,38 +537,59 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    23,
-                    4,
-                    2,
-                    7,
-                    3
+                    30,
+                    3,
+                    1,
+                    8,
+                    5
                 ],
                 [
-                    21,
+                    28,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    20,
-                    9,
+                    27,
+                    10,
                     4,
-                    6,
+                    5,
                     7
                 ],
                 [
-                    22,
-                    15,
-                    4,
-                    10,
-                    8
+                    29,
+                    19,
+                    5,
+                    3,
+                    2
                 ],
                 [
-                    24,
+                    31,
                     10,
                     2,
+                    10,
+                    3
+                ],
+                [
+                    29,
+                    15,
+                    6,
+                    10,
+                    6
+                ],
+                [
+                    28,
+                    24,
                     5,
+                    4,
+                    2
+                ],
+                [
+                    27,
+                    9,
+                    6,
+                    2,
                     3
                 ]
             ],
@@ -579,12 +607,12 @@ export const WorldData =
                     2
                 ],
                 [
-                    10,
+                    13,
                     20,
-                    5
+                    6
                 ],
                 [
-                    12,
+                    15,
                     31,
                     8
                 ],
@@ -595,14 +623,14 @@ export const WorldData =
                     2
                 ],
                 [
-                    11,
+                    14,
                     10,
                     7
                 ],
                 [
-                    8,
+                    11,
                     22,
-                    6
+                    7
                 ],
                 [
                     5,
@@ -617,7 +645,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    15,
+                    18,
                     6,
                     4
                 ],
@@ -628,14 +656,19 @@ export const WorldData =
                     2
                 ],
                 [
-                    16,
+                    19,
                     16,
                     7
                 ],
                 [
-                    16,
-                    16,
-                    6
+                    20,
+                    29,
+                    9
+                ],
+                [
+                    8,
+                    18,
+                    3
                 ]
             ],
             "triggers": [],
@@ -654,7 +687,7 @@ export const WorldData =
     ],
     "spawn": [
         19,
-        10,
+        9,
         0
     ],
     "strings": [
@@ -662,10 +695,13 @@ export const WorldData =
         "The lock is broken and the door won't budge. With the right tool, you can\nprobably pry it open.",
         "You wedge the knife between the door and frame. With a little effort, you\nforce the broken lock away from the strike plate.\n%y%0 You push the door open.",
         0,
+        "The door has jammed behind you and won't budge.",
         0,
         0,
-        0,
-        0,
+        "It seems to be locked from the other side.",
+        "The charred remnants of a rocking chair.\nA half-burnt notebook is resting on the melted seat cushion.",
+        "%y%0 You have obtained half-burnt notebook.",
+        "The charred remnants of a rocking chair.",
         "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
         "You need some kind of key to open this.",
         "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
@@ -675,6 +711,13 @@ export const WorldData =
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "A rusty garage shelf.",
         "The stairs to the second floor are a wreck - you can't go up this way.",
+        "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly, and the other holds an iron knife.\nThe sculpture's grip looks loose - perhaps you could take the knife.",
+        "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
+        "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
+        [
+            "a half-burnt notebook",
+            "Most of the pages are too burnt,\nbut one page is crystal clear:\n\n\"Our Goddess walks the hills\n in the shadow of the wailing star\n and we follow in her path\""
+        ],
         0,
         0,
         0,
@@ -694,7 +737,10 @@ export const WorldData =
             "GARAGE",
             "The garage is empty, save for a few rusty shelves and the usual cobwebs.\nThere must have been other furniture here recently, you can see lines\nin the dust where a workbench used to be."
         ],
-        0,
+        [
+            "CHARRED HALLWAY",
+            "There must have been a fire at some point. Soot and grime coat the walls,\nand the air stinks of burnt fabric."
+        ],
         [
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
@@ -707,16 +753,9 @@ export const WorldData =
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         [
             "iron knife",
-            "A large iron knife. It feels heavy\nin your hand."
+            "A large iron knife etched with\nhundreds of tiny symbols. It feels\nheavy in your hand."
         ],
         [
             "silver key",

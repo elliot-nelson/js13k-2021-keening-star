@@ -95,6 +95,16 @@ export const World = {
         return this.floors[pos.z].objects.find(object => object.x === pos.x && object.y === pos.y);
     },
 
+    objectsById(id, map) {
+        let list = [];
+        for (let floor of this.floors) {
+            for (let object of floor.objects) {
+                if (object.id === id) list.push(object);
+            }
+        }
+        return map ? list.map(map) : list;
+    },
+
     tileAt(pos) {
         let tiles = this.floors[pos.z].tiles;
         if (pos.x < 0 || pos.y < 0 || pos.x >= tiles[0].length || pos.y >= tiles.length) return ' ';

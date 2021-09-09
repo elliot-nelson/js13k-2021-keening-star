@@ -15,6 +15,17 @@ strings:
     You wedge the knife between the door and frame. With a little effort, you
     force the broken lock away from the strike plate.
     %y%0 You push the door open.
+  $D_FOYER: |
+    The door has jammed behind you and won't budge.
+  $D_KITCHEN: |
+    It seems to be locked from the other side.
+  $F_BURNT_CHAIR: |
+    The charred remnants of a rocking chair.
+    A half-burnt notebook is resting on the melted seat cushion.
+  $F_BURNT_CHAIR_A: |
+    %y%0 You have obtained half-burnt notebook.
+  $F_BURNT_CHAIR_B: |
+    The charred remnants of a rocking chair.
   $F_FIRE1: |
     A massive stone fireplace. Above it hangs a portrait of a woman with long,
     straight black hair. She has one hand on her visibly pregnant belly.
@@ -44,11 +55,32 @@ strings:
     The embers are cold.
   $F_STAIR1: |
     The stairs to the second floor are a wreck - you can't go up this way.
+  $F_STATUE: |
+    A crude, life-sized sculpture of a pregnant woman. One hand rests on her
+    belly, and the other holds an iron knife.
+    The sculpture's grip looks loose - perhaps you could take the knife.
+  $F_STATUE_A: |
+    With a tug, the sculpture releases the knife.
+    %y%0 You have obtained iron knife.
+  $F_STATUE_B: |
+    A crude, life-sized sculpture of a pregnant woman. One hand rests on her
+    belly.
   $I_IRON_KNIFE:
     - iron knife
     - |
-      A large iron knife. It feels heavy
-      in your hand.
+      A large iron knife etched with
+      hundreds of tiny symbols. It feels
+      heavy in your hand.
+  $I_BURNT_NOTEBOOK:
+    - a half-burnt notebook
+    - |
+      Most of the pages are too burnt
+      to read, but somehow one page
+      is crystal clear:
+
+      "Our Goddess walks the hills
+       in the shadow of the wailing star
+       and we follow in her path"
   $I_SILVER_KEY:
     - silver key
     - |
@@ -85,6 +117,11 @@ strings:
       The garage is empty, save for a few rusty shelves and the usual cobwebs.
       There must have been other furniture here recently, you can see lines
       in the dust where a workbench used to be.
+  $R_HALLWAY:
+    - CHARRED HALLWAY
+    - |
+      There must have been a fire at some point. Soot and grime coat the walls,
+      and the air stinks of burnt fabric.
   $R_STUDY:
     - ???
     - |

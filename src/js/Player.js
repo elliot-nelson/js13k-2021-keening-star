@@ -15,14 +15,29 @@ import {
     $D_DINING,
     $D_DINING_OPEN,
     $D_DRAW,
+    $D_FOYER,
+    $D_GARAGE,
+    $D_KITCHEN,
+    $D_HALLWAY,
+    $F_BURNT_CHAIR,
+    $F_BURNT_CHAIR_A,
+    $F_BURNT_CHAIR_B,
     $F_FIRE3,
     $F_FIRE3_A,
     $F_FIRE3_B,
     $F_SHELF1,
+    $F_STAIR1,
+    $F_STATUE,
+    $F_STATUE_A,
+    $F_STATUE_B,
+    $I_BURNT_NOTEBOOK,
     $I_IRON_KNIFE,
     $I_SILVER_KEY,
     $I_UNCLE_LETTER,
-    $R_DRAW
+    $R_DRAW,
+    $R_DINING,
+    $R_GARAGE,
+    $R_HALLWAY
 } from './WorldData-gen';
 import { WorldParticle } from './WorldParticle';
 import { flood } from './Util';
@@ -31,7 +46,6 @@ export class Player {
     constructor(pos) {
         this.pos = { ...pos };
 
-        this.room = World.roomAt(this.pos);
         this.lookingAt = this.room;
         this.inventory = [];
 
@@ -47,13 +61,21 @@ export class Player {
 
         this.weapon = { ar: 0.5 };
 
+        // The player starts with the uncle's letter.
         this.obtainItem($I_UNCLE_LETTER);
+
+        // The foyer door is locked.
+        World.objectsById($D_FOYER, object => object.finished = true);
+
+        // The player is in the foyer (starting room).
+        this.room = World.roomAt(this.pos);
+        Log.add(World.strings[this.room.id][1]);
+        World.makeVisible(this.room.id);
 
         // Temporary hack stuff
         this.obtainItem($I_IRON_KNIFE);
+        this.obtainItem($I_BURNT_NOTEBOOK);
 
-        Log.add(World.strings[this.room.id][1]);
-        World.makeVisible(this.room.id);
     }
 
     draw() {
@@ -101,6 +123,25 @@ export class Player {
                     if (object.interacted) {
                         this.openInventoryFor(object);
                     }
+                } else if (object.id === $D_DRAW) {
+                    this.openDoor(object);
+                    World.makeVisible($R_DRAW);
+                } else if (object.id === $D_KITCHEN) {
+                    Log.add(World.strings[object.id]);
+                } else if (object.id === $D_GARAGE) {
+                    this.openDoor(object);
+                    World.makeVisible($R_GARAGE);
+                } else if (object.id === $D_HALLWAY) {
+                    this.openDoor(object);
+                    World.makeVisible($R_HALLWAY);
+                } else if (object.id === $F_BURNT_CHAIR) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_BURNT_CHAIR_A;
+                } else if (object.id === $F_BURNT_CHAIR_A) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_BURNT_CHAIR_B;
+                    object.finished = true;
+                    this.obtainItem($I_BURNT_NOTEBOOK);
                 } else if (object.id === $F_FIRE3) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_FIRE3_A;
@@ -112,9 +153,17 @@ export class Player {
                     Log.add(World.strings[object.id])
                     object.finished = true;
                     this.obtainItem($I_SILVER_KEY);
-                } else if (object.id === $D_DRAW) {
-                    this.openDoor(object);
-                    World.makeVisible($R_DRAW);
+                } else if (object.id === $F_STATUE) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_STATUE_A;
+                } else if (object.id === $F_STATUE_A) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_STATUE_B;
+                    object.finished = true;
+                    this.obtainItem($I_IRON_KNIFE);
+                } else if (object.id === $F_STAIR1) {
+                    Log.add(World.strings[object.id])
+                    object.finished = true;
                 } else if (object.type === TYPE_DOOR) {
                     this.openDoor(object);
                 } else {
@@ -164,6 +213,7 @@ export class Player {
         if (object.id === $D_DINING) {
             if (item === $I_IRON_KNIFE) {
                 this.openDoor(object, $D_DINING_OPEN);
+                World.makeVisible($R_DINING);
             } else {
                 Log.add(`That doesn't work here.`, '%y');
             }
