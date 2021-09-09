@@ -1,6 +1,6 @@
 // Player
 
-import { CombatSystem } from './CombatSystem';
+//import { CombatSystem } from './CombatSystem';
 import {
     TURN_FRAMES,
     TYPE_DOOR
@@ -21,16 +21,19 @@ import {
     $D_HALLWAY,
     $F_BURNT_CHAIR,
     $F_BURNT_CHAIR_A,
-    $F_BURNT_CHAIR_B,
     $F_FIRE3,
     $F_FIRE3_A,
     $F_FIRE3_B,
     $F_SHELF1,
+    $F_SHELF2,
+    $F_SHELF3,
+    $F_SHELF3_A,
     $F_STAIR1,
     $F_STATUE,
     $F_STATUE_A,
     $F_STATUE_B,
     $I_BURNT_NOTEBOOK,
+    $I_DOLL_WORKBENCH,
     $I_IRON_KNIFE,
     $I_SILVER_KEY,
     $I_UNCLE_LETTER,
@@ -139,9 +142,8 @@ export class Player {
                     Log.add(World.strings[object.id]);
                     object.id = $F_BURNT_CHAIR_A;
                 } else if (object.id === $F_BURNT_CHAIR_A) {
-                    Log.add(World.strings[object.id]);
-                    object.id = $F_BURNT_CHAIR_B;
                     object.finished = true;
+                    Log.obtainedItem($I_BURNT_NOTEBOOK);
                     this.obtainItem($I_BURNT_NOTEBOOK);
                 } else if (object.id === $F_FIRE3) {
                     Log.add(World.strings[object.id]);
@@ -151,9 +153,19 @@ export class Player {
                     object.id = $F_FIRE3_B;
                     this.obtainItem($I_IRON_KNIFE);
                 } else if (object.id === $F_SHELF1) {
-                    Log.add(World.strings[object.id])
+                    Log.add(World.strings[object.id]);
                     object.finished = true;
                     this.obtainItem($I_SILVER_KEY);
+                } else if (object.id === $F_SHELF2) {
+                    Log.add(World.strings[object.id]);
+                    object.finished = true;
+                } else if (object.id === $F_SHELF3) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_SHELF3_A;
+                } else if (object.id === $F_SHELF3_A) {
+                    object.finished = true;
+                    Log.obtainedItem($I_DOLL_WORKBENCH);
+                    this.obtainItem($I_DOLL_WORKBENCH);
                 } else if (object.id === $F_STATUE) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_STATUE_A;
@@ -192,7 +204,7 @@ export class Player {
 
     moveInto(pos, updateRoom) {
         this.pos = pos;
-        this.df = flood(this.pos);
+        //this.df = flood(this.pos);
         if (updateRoom) {
             // This is a cheap, easy way to make doors part of "both rooms" - when you step
             // between rooms, the current room description doesn't update until you walk

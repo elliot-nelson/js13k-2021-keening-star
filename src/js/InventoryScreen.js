@@ -23,11 +23,13 @@ export class InventoryScreen {
         console.log(['update', Input.pressed[Input.Action.DOWN]]);
         if (Input.pressed[Input.Action.BACK]) {
             this.closing = true;
+        } else if (Input.pressed[Input.Action.INVENTORY] && !this.object) {
+            this.closing = true;
         } else if (Input.pressed[Input.Action.DOWN]) {
             this.selected = (this.selected + 1) % this.list.length;
         } else if (Input.pressed[Input.Action.UP]) {
             this.selected = (this.selected + this.list.length - 1) % this.list.length;
-        } else if (Input.pressed[Input.Action.SELECT]) {
+        } else if (Input.pressed[Input.Action.SELECT] && this.object) {
             this.closing = true;
             Game.player.useItemOn(this.object, this.list[this.selected]);
         }

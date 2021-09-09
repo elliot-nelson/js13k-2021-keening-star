@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="256" height="256" tilewidth="8" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="29">
+<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="256" height="256" tilewidth="8" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="31">
  <tileset firstgid="1" source="world.tsx"/>
  <group id="2" name="1F" offsetx="-3" offsety="-32">
   <layer id="1" name="TILES" width="256" height="256">
@@ -272,7 +272,7 @@
    <object id="25" name="$R_DRAW" x="1035.75" y="1975" width="26.5" height="13.5"/>
    <object id="26" name="$R_DINING" x="913.75" y="1989.5" width="10" height="37"/>
   </objectgroup>
-  <objectgroup id="4" name="OBJECTS" visible="0">
+  <objectgroup id="4" name="OBJECTS">
    <object id="6" name="$D_DRAW" x="1035" y="2024">
     <point/>
    </object>
@@ -313,6 +313,12 @@
     <point/>
    </object>
    <object id="28" name="$F_BURNT_CHAIR" x="988.5" y="1943.5">
+    <point/>
+   </object>
+   <object id="29" name="$F_SHELF2" x="1043.5" y="1993">
+    <point/>
+   </object>
+   <object id="30" name="$F_SHELF3" x="1052" y="1991.5">
     <point/>
    </object>
   </objectgroup>

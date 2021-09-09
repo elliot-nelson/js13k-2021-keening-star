@@ -2,8 +2,7 @@
 
 import { STATUS_COL } from './Constants';
 import { Screen } from './Screen';
-
-const LOG_WIDTH = 78;
+import { World } from './World';
 
 export const Log = {
     init() {
@@ -11,8 +10,19 @@ export const Log = {
     },
 
     add(message, formatCode = '') {
-        message = formatCode + '\xa5 ' + message;
+        console.log(message);
+        if (message[0] !== '%') {
+            message = formatCode + '\xa5 ' + message;
+        }
+
         this.entries.push(message.split('\n'));
+
+        // In a real game, you'd definitely want some kind of normalized line-splitting
+        // going on here... but for JS13k, I just have carefully crafted every string in
+        // world.yaml to fit into the appropriate spaces (either the log/description
+        // area, or the inventory description area).
+
+        // For a while, I was trying to do the whole
         /*let array = [];
 
         while (message.length > LOG_WIDTH) {
@@ -21,6 +31,10 @@ export const Log = {
         }
         if (message.length > 0) array.push(message);
         this.entries.push(array);*/
+    },
+
+    obtainedItem(id) {
+        Log.add(`%y%0 You have obtained ${World.strings[id][0]}.`);
     },
 
     draw(lines = 3) {

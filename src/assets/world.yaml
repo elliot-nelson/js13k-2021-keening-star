@@ -1,12 +1,18 @@
 # This is kind of an experiment, but this YAML file is used during the build to
 # fill out the World. Basically all the strings and other data go in this file,
 # where it's relatively easy to edit it.
+#
+# There are two invisible "breakpoints" -- for strings to look good, they should
+# either fit into the inventory description area (col 40 in this file) or into
+# the log book area (col 81 in this file).
 #################################################################################
 #   <---                                                                     --->
 items:
   $I_IRON_KNIFE: 41
   $I_SILVER_KEY: 42
   $I_UNCLE_LETTER: 43
+  $I_BURNT_NOTEBOOK: 44
+  $I_DOLL_WORKBENCH: 45
 strings:
   $D_DINING: |
     The lock is broken and the door won't budge. With the right tool, you can
@@ -16,15 +22,13 @@ strings:
     force the broken lock away from the strike plate.
     %y%0 You push the door open.
   $D_FOYER: |
-    The door has jammed behind you and won't budge.
+    The front door has jammed behind you and won't budge.
   $D_KITCHEN: |
     It seems to be locked from the other side.
   $F_BURNT_CHAIR: |
     The charred remnants of a rocking chair.
     A half-burnt notebook is resting on the melted seat cushion.
   $F_BURNT_CHAIR_A: |
-    %y%0 You have obtained half-burnt notebook.
-  $F_BURNT_CHAIR_B: |
     The charred remnants of a rocking chair.
   $F_FIRE1: |
     A massive stone fireplace. Above it hangs a portrait of a woman with long,
@@ -37,6 +41,13 @@ strings:
     You need some kind of key to open this.
   $F_SHELF1: |
     A rusty garage shelf.
+  $F_SHELF2: |
+    The shelf is covered with dust, but not much else.
+  $F_SHELF3: |
+    The shelf seems to have been recently used, most of the dust is wiped off.
+    A realistic miniature workbench rests on the shelf.
+  $F_SHELF3_A: |
+    The shelf seems to have been recently used, most of the dust is wiped off.
   $F_FIRE2: |
     An impressive granite fireplace. Above the mantle hangs a brightly colored
     painting of a newborn, out of place in such a drab room.
@@ -81,6 +92,12 @@ strings:
       "Our Goddess walks the hills
        in the shadow of the wailing star
        and we follow in her path"
+  $I_DOLL_WORKBENCH:
+    - miniature workbench
+    - |
+      A curiously realistic miniature
+      workbench, made of wood and metal.
+      Maybe there's some use for it.
   $I_SILVER_KEY:
     - silver key
     - |
