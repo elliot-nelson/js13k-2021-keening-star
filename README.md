@@ -1,4 +1,4 @@
-# js13k-2021
+# js13k-2021-wailing-star
 
-Work in progress on js13k-2021, name: TBD.
+(Description and real readme pending.)
 
