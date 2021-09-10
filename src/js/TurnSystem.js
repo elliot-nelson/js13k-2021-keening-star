@@ -18,17 +18,17 @@ export const TurnSystem = {
 
             // Entities with no speed are frame-based instead of turn-based. (For
             // example, most spawned particles, which are also entities.)
-            for (let entity of entities) {
+            /*for (let entity of entities) {
                 if (!entity.speed) entity.update();
-            }
+            }*/
         } else {
             for (let entity of entities) {
                 entity.tp = (entity.tp || 0) + 1;
 
-                while (entity.tp >= entity.speed && entity !== Game.player) {
+                /*while (entity.tp >= entity.speed && entity !== Game.player) {
                     entity.update();
                     entity.tp -= entity.speed;
-                }
+                }*/
             }
         }
 
