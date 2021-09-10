@@ -55,6 +55,9 @@ strings:
     A small silver key is lying on top, attached to note.
   $F_DRAWER1_A: |
     A small dresser-drawer is sitting in the corner.
+  $F_GRAFFITI: |
+    The wall is strangely spongy here, more like moss than wallpaper.
+    The phrase "HER CHILDREN" has been spray-painted across the wall.
   $F_SHELF1: |
     A rusty garage shelf.
   $F_SHELF2: |

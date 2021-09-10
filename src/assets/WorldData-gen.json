@@ -315,7 +315,7 @@
                     46,
                     46,
                     46,
-                    37,
+                    38,
                     128
                 ],
                 [
@@ -348,7 +348,7 @@
                     93,
                     46,
                     46,
-                    38,
+                    46,
                     46,
                     133,
                     131
@@ -382,8 +382,8 @@
                     129,
                     129,
                     145,
-                    129,
-                    129,
+                    145,
+                    145,
                     129,
                     131,
                     32
@@ -496,56 +496,56 @@
             ],
             "rooms": [
                 [
-                    39,
+                    40,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    37,
+                    38,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    36,
+                    37,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    38,
+                    39,
                     19,
                     5,
                     3,
                     2
                 ],
                 [
-                    40,
+                    41,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    38,
+                    39,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    37,
+                    38,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    36,
+                    37,
                     9,
                     6,
                     2,
@@ -571,11 +571,6 @@
                     6
                 ],
                 [
-                    19,
-                    31,
-                    8
-                ],
-                [
                     1,
                     15,
                     9,
@@ -604,7 +599,7 @@
                     2
                 ],
                 [
-                    22,
+                    23,
                     6,
                     4
                 ],
@@ -615,14 +610,14 @@
                     2
                 ],
                 [
-                    26,
+                    27,
                     16,
                     7
                 ],
                 [
-                    27,
-                    29,
-                    9
+                    28,
+                    31,
+                    8
                 ],
                 [
                     9,
@@ -630,12 +625,12 @@
                     3
                 ],
                 [
-                    23,
+                    24,
                     25,
                     6
                 ],
                 [
-                    24,
+                    25,
                     26,
                     6
                 ],
@@ -663,16 +658,31 @@
                     4
                 ],
                 [
-                    30,
+                    31,
                     7,
                     4,
                     3
                 ],
                 [
-                    30,
+                    31,
                     8,
                     4,
                     3
+                ],
+                [
+                    22,
+                    27,
+                    10
+                ],
+                [
+                    22,
+                    28,
+                    10
+                ],
+                [
+                    22,
+                    29,
+                    10
                 ]
             ],
             "triggers": [],
@@ -717,6 +727,7 @@
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nA knife has been left jammed into the canvas. You can probably pull it out.",
         "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y%0 You have obtained iron knife.",
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
+        "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
@@ -755,7 +766,6 @@
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
-        0,
         0,
         0,
         0,

@@ -24,26 +24,27 @@ export const $F_FIRE2 = 18;
 export const $F_FIRE3 = 19;
 export const $F_FIRE3_A = 20;
 export const $F_FIRE3_B = 21;
-export const $F_SHELF1 = 22;
-export const $F_SHELF2 = 23;
-export const $F_SHELF3 = 24;
-export const $F_SHELF3_A = 25;
-export const $F_STAIR1 = 26;
-export const $F_STATUE = 27;
-export const $F_STATUE_A = 28;
-export const $F_STATUE_B = 29;
-export const $H_WORKBENCH = 30;
+export const $F_GRAFFITI = 22;
+export const $F_SHELF1 = 23;
+export const $F_SHELF2 = 24;
+export const $F_SHELF3 = 25;
+export const $F_SHELF3_A = 26;
+export const $F_STAIR1 = 27;
+export const $F_STATUE = 28;
+export const $F_STATUE_A = 29;
+export const $F_STATUE_B = 30;
+export const $H_WORKBENCH = 31;
 export const $I_BURNT_NOTEBOOK = 54;
 export const $I_DOLL_WORKBENCH = 55;
 export const $I_IRON_KNIFE = 51;
 export const $I_SILVER_KEY = 52;
 export const $I_UNCLE_LETTER = 53;
-export const $R_DINING = 36;
-export const $R_DRAW = 37;
-export const $R_FOYER = 38;
-export const $R_GARAGE = 39;
-export const $R_HALLWAY = 40;
-export const $R_STUDY = 41;
+export const $R_DINING = 37;
+export const $R_DRAW = 38;
+export const $R_FOYER = 39;
+export const $R_GARAGE = 40;
+export const $R_HALLWAY = 41;
+export const $R_STUDY = 42;
 /* </generated-constants> */
 
 export const WorldData =
@@ -365,7 +366,7 @@ export const WorldData =
                     46,
                     46,
                     46,
-                    37,
+                    38,
                     128
                 ],
                 [
@@ -398,7 +399,7 @@ export const WorldData =
                     93,
                     46,
                     46,
-                    38,
+                    46,
                     46,
                     133,
                     131
@@ -432,8 +433,8 @@ export const WorldData =
                     129,
                     129,
                     145,
-                    129,
-                    129,
+                    145,
+                    145,
                     129,
                     131,
                     32
@@ -546,56 +547,56 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    39,
+                    40,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    37,
+                    38,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    36,
+                    37,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    38,
+                    39,
                     19,
                     5,
                     3,
                     2
                 ],
                 [
-                    40,
+                    41,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    38,
+                    39,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    37,
+                    38,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    36,
+                    37,
                     9,
                     6,
                     2,
@@ -621,11 +622,6 @@ export const WorldData =
                     6
                 ],
                 [
-                    19,
-                    31,
-                    8
-                ],
-                [
                     1,
                     15,
                     9,
@@ -654,7 +650,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    22,
+                    23,
                     6,
                     4
                 ],
@@ -665,14 +661,14 @@ export const WorldData =
                     2
                 ],
                 [
-                    26,
+                    27,
                     16,
                     7
                 ],
                 [
-                    27,
-                    29,
-                    9
+                    28,
+                    31,
+                    8
                 ],
                 [
                     9,
@@ -680,12 +676,12 @@ export const WorldData =
                     3
                 ],
                 [
-                    23,
+                    24,
                     25,
                     6
                 ],
                 [
-                    24,
+                    25,
                     26,
                     6
                 ],
@@ -713,16 +709,31 @@ export const WorldData =
                     4
                 ],
                 [
-                    30,
+                    31,
                     7,
                     4,
                     3
                 ],
                 [
-                    30,
+                    31,
                     8,
                     4,
                     3
+                ],
+                [
+                    22,
+                    27,
+                    10
+                ],
+                [
+                    22,
+                    28,
+                    10
+                ],
+                [
+                    22,
+                    29,
+                    10
                 ]
             ],
             "triggers": [],
@@ -767,6 +778,7 @@ export const WorldData =
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nA knife has been left jammed into the canvas. You can probably pull it out.",
         "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y%0 You have obtained iron knife.",
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
+        "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
@@ -805,7 +817,6 @@ export const WorldData =
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
-        0,
         0,
         0,
         0,

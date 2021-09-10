@@ -33,6 +33,7 @@ import {
     $F_FIRE3,
     $F_FIRE3_A,
     $F_FIRE3_B,
+    $F_GRAFFITI,
     $F_SHELF1,
     $F_SHELF2,
     $F_SHELF3,
@@ -147,6 +148,7 @@ export class Player {
                 } else if (object.id === $D_GARAGED) {
                     Log.add(World.strings[object.id]);
                     this.sp -= 3;
+                    Screen.smudge = 4;
                     World.objectsById($D_GARAGED, object => object.finished = true);
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
@@ -181,6 +183,11 @@ export class Player {
                     Log.add(World.strings[object.id]);
                     object.id = $F_FIRE3_B;
                     this.obtainItem($I_IRON_KNIFE);
+                } else if (object.id === $F_GRAFFITI) {
+                    Log.add(World.strings[object.id]);
+                    this.sp--;
+                    Screen.smudge = 2;
+                    World.objectsById($F_GRAFFITI, object => object.finished = true);
                 } else if (object.id === $F_SHELF1) {
                     Log.add(World.strings[object.id]);
                     object.finished = true;
