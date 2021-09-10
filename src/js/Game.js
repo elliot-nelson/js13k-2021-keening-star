@@ -17,6 +17,7 @@ import { Text } from './Text';
 import { Triggers } from './Triggers';
 import { TurnSystem } from './TurnSystem';
 import { Viewport } from './Viewport';
+import { WelcomeScreen } from './WelcomeScreen';
 import { World } from './World';
 import { xyz2pos, formatStat, formatQuantity } from './Util';
 
@@ -39,6 +40,8 @@ export const Game = {
         this.entities.push(this.player);
 
         this.screens = [];
+
+        this.screens.push(new WelcomeScreen());
 
         Camera.init();
 
@@ -97,6 +100,8 @@ export const Game = {
         // be drawn this frame (so, setting "cull" should happen AFTER the last frame of a given
         // enemy or particle has been drawn).
         Game.entities = Game.entities.filter(entity => !entity.cull);
+
+        if (Screen.smudge > 0) Screen.smudge--;
     },
 
     draw() {

@@ -28,6 +28,7 @@ export const Screen = {
 
     init() {
         this.screen = [];
+        this.smudge = 5;
         this.clear();
 
         // Terminal color names to hex color mappings
@@ -141,7 +142,9 @@ export const Screen = {
             for (let y = 0; y < SCREEN_HEIGHT; y++) {
                 for (let x = 0; x < SCREEN_WIDTH; x++) {
                     let c = this.screen[y * SCREEN_WIDTH + x];
-                    Text.drawText(ctx, c & 0xFF, x * FONT_WIDTH, y * FONT_HEIGHT, Screen.COLORS[c >> 8]);
+                    let c2 = (c & 0xFF);
+                    if (c2 !== 32 && c2 < 128) c2 += this.smudge;
+                    Text.drawText(ctx, c2, x * FONT_WIDTH, y * FONT_HEIGHT, Screen.COLORS[c >> 8]);
                 }
             }
         }

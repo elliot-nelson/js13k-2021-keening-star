@@ -3,6 +3,7 @@
 //import { AudioCart } from 'pico8-audio-player';
 import { AudioCart } from '../../temp-pico8-music';
 import { AudioData } from './AudioData-gen';
+import { Input } from './Input';
 
 export const Audio = {
     init() {

@@ -664,7 +664,7 @@
         "The lock is broken and the door won't budge. With the right tool, you can\nprobably pry it open.",
         "You wedge the knife between the door and frame. With a little effort, you\nforce the broken lock away from the strike plate.\n%y%0 You push the door open.",
         0,
-        "The door has jammed behind you and won't budge.",
+        "The front door has jammed behind you and won't budge.",
         0,
         0,
         "It seems to be locked from the other side.",

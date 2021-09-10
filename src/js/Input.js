@@ -48,9 +48,7 @@ export const Input = {
         };
 
         window.addEventListener('keydown', event => {
-            console.log(event);
             let action = this.keyMapping[event.code];
-            console.log(action);
             if (action) {
                 this.keyboard[action] = true;
             }
