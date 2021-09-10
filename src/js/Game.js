@@ -127,22 +127,14 @@ export const Game = {
         //Screen.write(0, 23, '#');
         //Screen.write(79, 23, '#');
 
-        for (let i = 0; i < Math.min(20, this.frame / 3); i++) {
+        for (let i = 0; i < 20; i++) {
             Screen.write(64, i, '\x90', Screen.DIM);
         }
 
         //Screen.write(0, 19, '\x91'.repeat(80));
 
-        Screen.writeTypewriter(
-            66, 1,
-            `Health ${formatQuantity(Game.player.hp)}/${formatQuantity(Game.player.hpMax)}`,
-            this.frame / 2
-        );
-        Screen.writeTypewriter(
-            66, 2,
-            `Sanity ${formatQuantity(Game.player.sp, Game.player.spMax)}`,
-            (this.frame / 2) - 10
-        );
+        Screen.write(66, 1, `Health ${formatQuantity(Game.player.hp, Game.player.hpMax)}`);
+        Screen.write(66, 2, `Sanity ${formatQuantity(Game.player.sp, Game.player.spMax)}`);
 
         //Screen.write(66, 4, `Vigor   ${formatStat(Game.player.vigor)}`);
         //Screen.write(66, 5, `Insight ${formatStat(Game.player.insight)}`);

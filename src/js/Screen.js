@@ -109,13 +109,6 @@ export const Screen = {
         }
     },
 
-    writeTypewriter(x, y, text, maxlen) {
-        if (maxlen > 0) {
-            text = text.slice(0, maxlen | 0);
-            this.write(x, y, text);
-        }
-    },
-
     writeOnMap(x, y, text, color, x2) {
         let offset = {
             x: 32 - Camera.pos.x,
