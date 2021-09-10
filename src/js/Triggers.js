@@ -10,8 +10,8 @@
 
 import { Game } from './Game';
 import { World } from './World';
-import { Rat } from './enemy/Rat';
-
+//import { Rat } from './enemy/Rat';
+/*
 export const Triggers = {
     update() {
         for (let z = 0; z < World.floors.length; z++) {
@@ -51,3 +51,4 @@ export const Triggers = {
         }
     }
 };
+*/

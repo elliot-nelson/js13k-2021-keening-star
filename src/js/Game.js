@@ -14,7 +14,7 @@ import { InventoryScreen } from './InventoryScreen';
 import { Player } from './Player';
 import { Screen } from './Screen';
 import { Text } from './Text';
-import { Triggers } from './Triggers';
+//import { Triggers } from './Triggers';
 import { TurnSystem } from './TurnSystem';
 import { Viewport } from './Viewport';
 import { WelcomeScreen } from './WelcomeScreen';
@@ -94,7 +94,7 @@ export const Game = {
 
         Camera.update();
 
-        Triggers.update();
+        //Triggers.update();
 
         // Discard any entites marked for culling at the end of the update step. They will not
         // be drawn this frame (so, setting "cull" should happen AFTER the last frame of a given

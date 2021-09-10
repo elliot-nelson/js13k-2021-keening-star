@@ -6,6 +6,7 @@ import { Log } from '../Log';
 import { Screen } from '../Screen';
 import { World } from '../World';
 
+/*
 export class Rat {
     constructor(pos) {
         this.actorName = 'swamp rat';
@@ -59,3 +60,4 @@ export class Rat {
         if (this.pos.z === Camera.pos.z) Screen.writeOnMap(this.pos.x, this.pos.y, 'r', Screen.RED);
     }
 }
+*/
