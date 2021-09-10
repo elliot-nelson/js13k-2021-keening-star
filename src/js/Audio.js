@@ -1,9 +1,9 @@
 // Audio
 
 //import { AudioCart } from 'pico8-audio-player';
-import { AudioCart } from '../../temp-pico8-music';
+//import { AudioCart } from '../../temp-pico8-music';
+import { AudioCart } from './pico8-audio-player';
 import { AudioData } from './AudioData-gen';
-import { Input } from './Input';
 
 export const Audio = {
     init() {
@@ -28,5 +28,13 @@ export const Audio = {
             this.music.connect(this.globalGain);
             this.music.start();
         }, 1);
+        // 1
+    },
+
+    playShit() {
+        console.log(this.cart);
+        let sfx = this.cart.sfx(2);
+        sfx.connect(this.globalGain);
+        sfx.start();
     }
 };

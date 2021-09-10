@@ -51,6 +51,10 @@ export const Input = {
             let action = this.keyMapping[event.code];
             if (action) {
                 this.keyboard[action] = true;
+
+                if (action === Input.Action.SELECT) {
+                    Input.enterPressed = true;
+                }
             }
 
             Audio.init();

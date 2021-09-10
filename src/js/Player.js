@@ -1,5 +1,6 @@
 // Player
 
+import { Audio } from './Audio';
 //import { CombatSystem } from './CombatSystem';
 import {
     TURN_FRAMES,
@@ -236,6 +237,8 @@ export class Player {
             this.room = room;
             this.lookingAt = this.room;
         }
+
+        Audio.playShit();
     }
 
     openInventoryFor(object) {

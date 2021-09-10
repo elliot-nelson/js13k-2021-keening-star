@@ -1,3 +1,9 @@
+// Original: https://github.com/codyebberson/pico8-music
+//
+// This is a slightly modified version. Eventually we'll work on a more
+// integrated audio player but for now I've just hacked it up (with
+// Cody's blessing).
+
 const FX_NO_EFFECT = 0;
 const FX_SLIDE = 1;
 const FX_VIBRATO = 2;

@@ -795,7 +795,7 @@ export const WorldData =
             "A large iron knife etched with\nhundreds of tiny symbols. It feels\nheavy in your hand."
         ],
         [
-            "silver key",
+            "small silver key",
             "A small silver key. A note is\nattached with a piece of twine.\n\n\"N is still here, stay on this\n side.\""
         ],
         [

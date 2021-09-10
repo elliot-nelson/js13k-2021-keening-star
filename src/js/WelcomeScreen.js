@@ -16,7 +16,7 @@ export class WelcomeScreen {
         // Weird hack here because AudioContext constructor eats up a frame
         // about half the time... I should fix it properly but this hack
         // works for now.
-        if (Input.pressed[Input.Action.SELECT] || Audio.initialized) {
+        if (Input.pressed[Input.Action.SELECT] || Input.enterPressed) {
             this.closing = true;
         }
 
