@@ -22,7 +22,9 @@ export class WelcomeScreen {
 
         if (this.closing) {
             this.cull = true;
-            Screen.smudge = 8;
+            setTimeout(() => {
+                Screen.smudge = 5;
+            }, 500);
         }
     }
 

@@ -181,15 +181,17 @@ function minifyBuild() {
             }
         }
     }))
-    /*.pipe(terser({
-        nameCache: cache,
+    .pipe(terser({
+        nameCache,
         mangle: {
             properties: {
                 builtins: true,
-                regex: /^(behavior|direction|frame|reset|update|anchor|DEAD|canvas|entities|history|pressed|page|paused|resize|reload|pages|pattern|pause|unpause|sheet|state|init|play|text)$/
+                // Properties that are normally excluded from mangling due to built-in protection,
+                // but that we can mangle because we only use it for ourselves.
+                regex: /^(keyboard|pressed|frame|reset|update|SELECT|BACK)$/
             }
         }
-    }))*/
+    }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('temp/minified'));
 }
