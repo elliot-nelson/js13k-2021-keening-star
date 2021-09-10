@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="256" height="256" tilewidth="8" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="31">
+<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="256" height="256" tilewidth="8" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="35">
  <tileset firstgid="1" source="world.tsx"/>
  <group id="2" name="1F" offsetx="-3" offsety="-32">
   <layer id="1" name="TILES" width="256" height="256">
@@ -319,6 +319,18 @@
     <point/>
    </object>
    <object id="30" name="$F_SHELF3" x="1052" y="1991.5">
+    <point/>
+   </object>
+   <object id="31" name="$D_GARAGED" x="867.5" y="1961.5">
+    <point/>
+   </object>
+   <object id="32" name="$D_GARAGED" x="868" y="1945.5">
+    <point/>
+   </object>
+   <object id="33" name="$D_GARAGED" x="869.5" y="1922.5">
+    <point/>
+   </object>
+   <object id="34" name="$F_DRAWER1" x="916.5" y="1960.5">
     <point/>
    </object>
   </objectgroup>

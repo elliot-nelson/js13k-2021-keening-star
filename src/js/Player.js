@@ -17,10 +17,16 @@ import {
     $D_DRAW,
     $D_FOYER,
     $D_GARAGE,
+    $D_GARAGED,
     $D_KITCHEN,
     $D_HALLWAY,
     $F_BURNT_CHAIR,
     $F_BURNT_CHAIR_A,
+    $F_DRAWER1,
+    $F_DRAWER1_A,
+    $F_DOLLHOUSE,
+    $F_DOLLHOUSE_A,
+    $F_DOLLHOUSE_B,
     $F_FIRE3,
     $F_FIRE3_A,
     $F_FIRE3_B,
@@ -51,7 +57,6 @@ export class Player {
         this.lookingAt = this.room;
         this.inventory = [];
 
-
         this.speed = 4;
         this.hp = this.hpMax = 100;
         this.sp = this.spMax = 100;
@@ -78,7 +83,7 @@ export class Player {
         // Temporary hack stuff
         this.obtainItem($I_IRON_KNIFE);
         this.obtainItem($I_BURNT_NOTEBOOK);
-
+        this.obtainItem($I_SILVER_KEY);
     }
 
     draw() {
@@ -135,6 +140,10 @@ export class Player {
                 } else if (object.id === $D_GARAGE) {
                     this.openDoor(object);
                     World.makeVisible($R_GARAGE);
+                } else if (object.id === $D_GARAGED) {
+                    Log.add(World.strings[object.id]);
+                    this.sp -= 3;
+                    World.objectsById($D_GARAGED, object => object.finished = true);
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
                     World.makeVisible($R_HALLWAY);
@@ -145,6 +154,18 @@ export class Player {
                     object.finished = true;
                     Log.obtainedItem($I_BURNT_NOTEBOOK);
                     this.obtainItem($I_BURNT_NOTEBOOK);
+                } else if (object.id === $F_DRAWER1) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_DRAWER1_A;
+                } else if (object.id === $F_DRAWER1_A) {
+                    object.finished = true;
+                    Log.obtainedItem($I_SILVER_KEY);
+                    this.obtainItem($I_SILVER_KEY);
+                } else if (object.id === $F_DOLLHOUSE) {
+                    Log.add(World.strings[object.id]);
+                    if (object.interacted) {
+                        this.openInventoryFor(object);
+                    }
                 } else if (object.id === $F_FIRE3) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_FIRE3_A;
@@ -155,7 +176,6 @@ export class Player {
                 } else if (object.id === $F_SHELF1) {
                     Log.add(World.strings[object.id]);
                     object.finished = true;
-                    this.obtainItem($I_SILVER_KEY);
                 } else if (object.id === $F_SHELF2) {
                     Log.add(World.strings[object.id]);
                     object.finished = true;
@@ -230,7 +250,15 @@ export class Player {
             } else {
                 Log.add(`That doesn't work here.`, '%y');
             }
+        } else if (object.id === $F_DOLLHOUSE) {
+            if (item === $I_SILVER_KEY) {
+                Log.add(World.strings[$F_DOLLHOUSE_A]);
+                object.id = $F_DOLLHOUSE_B;
+            } else {
+                Log.add(`That doesn't work here.`, '%y');
+            }
         }
+
         console.log('oh fuck, i am using ' + object + item);
     }
 

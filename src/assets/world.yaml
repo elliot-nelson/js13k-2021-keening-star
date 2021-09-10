@@ -23,6 +23,10 @@ strings:
     %y%0 You push the door open.
   $D_FOYER: |
     The front door has jammed behind you and won't budge.
+  $D_GARAGED: |
+    The garage door is heavy and immobile. In the center of the door is
+    a spray-painted eye, surrounded by rings of tiny symbols. It's hard
+    to breathe in this room, it's too small somehow.
   $D_KITCHEN: |
     It seems to be locked from the other side.
   $F_BURNT_CHAIR: |
@@ -38,7 +42,15 @@ strings:
     A vintage dollhouse. Normally you could open it up and take a look inside,
     but it's been locked with a small silver padlock.
   $F_DOLLHOUSE_A: |
-    You need some kind of key to open this.
+    You carefully unlock the padlock and open up the dollhouse. Eerily, it
+    seems to be the exact same floorplan as the house you stand in.
+  $F_DOLLHOUSE_B: |
+    The open dollhouse watches you impatiently.
+  $F_DRAWER1: |
+    A small dresser-drawer is sitting in the corner.
+    A small silver key is lying on top, attached to note.
+  $F_DRAWER1_A: |
+    A small dresser-drawer is sitting in the corner.
   $F_SHELF1: |
     A rusty garage shelf.
   $F_SHELF2: |
@@ -83,7 +95,7 @@ strings:
       hundreds of tiny symbols. It feels
       heavy in your hand.
   $I_BURNT_NOTEBOOK:
-    - a half-burnt notebook
+    - half-burnt notebook
     - |
       Most of the pages are too burnt
       to read, but somehow one page
@@ -101,16 +113,22 @@ strings:
   $I_SILVER_KEY:
     - silver key
     - |
-      A small, delicate silver key.
+      A small silver key. A note is
+      attached with a piece of twine.
+
+      "N is still here, stay on this
+       side."
   $I_UNCLE_LETTER:
     - your uncle's letter
     - |
-      Dearest Emily,
+      "Dearest Emily,
 
-      You may think me mad but I need
-      your help. We all do. Together
-      we can stop them or it's not
-      [the rest is crossed out...]
+       We are all in grave danger and
+       I am running out of time. I
+       cannot explain here but I need
+       your help."
+      [Several more lines are furiously
+      crossed out and are illegible.]
   $R_FOYER:
     - FOYER
     - |

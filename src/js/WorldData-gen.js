@@ -8,36 +8,40 @@ export const $D_DINING_OPEN = 2;
 export const $D_DRAW = 3;
 export const $D_FOYER = 4;
 export const $D_GARAGE = 5;
-export const $D_HALLWAY = 6;
-export const $D_KITCHEN = 7;
-export const $F_BURNT_CHAIR = 8;
-export const $F_BURNT_CHAIR_A = 9;
-export const $F_DOLLHOUSE = 10;
-export const $F_DOLLHOUSE_A = 11;
-export const $F_FIRE1 = 12;
-export const $F_FIRE2 = 13;
-export const $F_FIRE3 = 14;
-export const $F_FIRE3_A = 15;
-export const $F_FIRE3_B = 16;
-export const $F_SHELF1 = 17;
-export const $F_SHELF2 = 18;
-export const $F_SHELF3 = 19;
-export const $F_SHELF3_A = 20;
-export const $F_STAIR1 = 21;
-export const $F_STATUE = 22;
-export const $F_STATUE_A = 23;
-export const $F_STATUE_B = 24;
+export const $D_GARAGED = 6;
+export const $D_HALLWAY = 7;
+export const $D_KITCHEN = 8;
+export const $F_BURNT_CHAIR = 9;
+export const $F_BURNT_CHAIR_A = 10;
+export const $F_DOLLHOUSE = 11;
+export const $F_DOLLHOUSE_A = 12;
+export const $F_DOLLHOUSE_B = 13;
+export const $F_DRAWER1 = 14;
+export const $F_DRAWER1_A = 15;
+export const $F_FIRE1 = 16;
+export const $F_FIRE2 = 17;
+export const $F_FIRE3 = 18;
+export const $F_FIRE3_A = 19;
+export const $F_FIRE3_B = 20;
+export const $F_SHELF1 = 21;
+export const $F_SHELF2 = 22;
+export const $F_SHELF3 = 23;
+export const $F_SHELF3_A = 24;
+export const $F_STAIR1 = 25;
+export const $F_STATUE = 26;
+export const $F_STATUE_A = 27;
+export const $F_STATUE_B = 28;
 export const $I_BURNT_NOTEBOOK = 44;
 export const $I_DOLL_WORKBENCH = 45;
 export const $I_IRON_KNIFE = 41;
 export const $I_SILVER_KEY = 42;
 export const $I_UNCLE_LETTER = 43;
-export const $R_DINING = 30;
-export const $R_DRAW = 31;
-export const $R_FOYER = 32;
-export const $R_GARAGE = 33;
-export const $R_HALLWAY = 34;
-export const $R_STUDY = 35;
+export const $R_DINING = 34;
+export const $R_DRAW = 35;
+export const $R_FOYER = 36;
+export const $R_GARAGE = 37;
+export const $R_HALLWAY = 38;
+export const $R_STUDY = 39;
 /* </generated-constants> */
 
 export const WorldData =
@@ -540,56 +544,56 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    33,
+                    37,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    31,
+                    35,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    30,
+                    34,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    32,
+                    36,
                     19,
                     5,
                     3,
                     2
                 ],
                 [
-                    34,
+                    38,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    32,
+                    36,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    31,
+                    35,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    30,
+                    34,
                     9,
                     6,
                     2,
@@ -604,18 +608,18 @@ export const WorldData =
                     2
                 ],
                 [
-                    6,
+                    7,
                     14,
                     4,
                     2
                 ],
                 [
-                    12,
+                    16,
                     20,
                     6
                 ],
                 [
-                    14,
+                    18,
                     31,
                     8
                 ],
@@ -626,12 +630,12 @@ export const WorldData =
                     2
                 ],
                 [
-                    13,
+                    17,
                     10,
                     7
                 ],
                 [
-                    10,
+                    11,
                     22,
                     7
                 ],
@@ -642,13 +646,13 @@ export const WorldData =
                     2
                 ],
                 [
-                    7,
+                    8,
                     14,
                     2,
                     2
                 ],
                 [
-                    17,
+                    21,
                     6,
                     4
                 ],
@@ -659,29 +663,52 @@ export const WorldData =
                     2
                 ],
                 [
-                    21,
+                    25,
                     16,
                     7
                 ],
                 [
-                    22,
+                    26,
                     29,
                     9
                 ],
                 [
-                    8,
+                    9,
                     18,
                     3
                 ],
                 [
-                    18,
+                    22,
                     25,
                     6
                 ],
                 [
-                    19,
+                    23,
                     26,
                     6
+                ],
+                [
+                    6,
+                    3,
+                    4,
+                    2
+                ],
+                [
+                    6,
+                    3,
+                    3,
+                    2
+                ],
+                [
+                    6,
+                    3,
+                    2,
+                    2
+                ],
+                [
+                    14,
+                    9,
+                    4
                 ]
             ],
             "triggers": [],
@@ -710,12 +737,16 @@ export const WorldData =
         0,
         "The front door has jammed behind you and won't budge.",
         0,
+        "The garage door is heavy and immobile. In the center of the door is\na spray-painted eye, surrounded by rings of tiny symbols. It's hard\nto breathe in this room, it's too small somehow.",
         0,
         "It seems to be locked from the other side.",
         "The charred remnants of a rocking chair.\nA half-burnt notebook is resting on the melted seat cushion.",
         "The charred remnants of a rocking chair.",
         "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
-        "You need some kind of key to open this.",
+        "You carefully unlock the padlock and open up the dollhouse. Eerily, it\nseems to be the exact same floorplan as the house you stand in.",
+        "The open dollhouse watches you impatiently.",
+        "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
+        "A small dresser-drawer is sitting in the corner.",
         "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
         "An impressive granite fireplace. Above the mantle hangs a brightly colored\npainting of a newborn, out of place in such a drab room.\nThe embers are cold.",
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nA knife has been left jammed into the canvas. You can probably pull it out.",
@@ -759,24 +790,20 @@ export const WorldData =
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
         0,
-        0,
-        0,
-        0,
-        0,
         [
             "iron knife",
             "A large iron knife etched with\nhundreds of tiny symbols. It feels\nheavy in your hand."
         ],
         [
             "silver key",
-            "A small, delicate silver key."
+            "A small silver key. A note is\nattached with a piece of twine.\n\n\"N is still here, stay on this\n side.\""
         ],
         [
             "your uncle's letter",
-            "Dearest Emily,\n\nYou may think me mad but I need\nyour help. We all do. Together\nwe can stop them or it's not\n[the rest is crossed out...]"
+            "\"Dearest Emily,\n\n We are all in grave danger and\n I am running out of time. I\n cannot explain here but I need\n your help.\"\n[Several more lines are furiously\ncrossed out and are illegible.]"
         ],
         [
-            "a half-burnt notebook",
+            "half-burnt notebook",
             "Most of the pages are too burnt\nto read, but somehow one page\nis crystal clear:\n\n\"Our Goddess walks the hills\n in the shadow of the wailing star\n and we follow in her path\""
         ],
         [
