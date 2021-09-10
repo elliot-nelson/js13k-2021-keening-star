@@ -8,11 +8,11 @@
 #################################################################################
 #   <---                                                                     --->
 items:
-  $I_IRON_KNIFE: 41
-  $I_SILVER_KEY: 42
-  $I_UNCLE_LETTER: 43
-  $I_BURNT_NOTEBOOK: 44
-  $I_DOLL_WORKBENCH: 45
+  $I_IRON_KNIFE: 51
+  $I_SILVER_KEY: 52
+  $I_UNCLE_LETTER: 53
+  $I_BURNT_NOTEBOOK: 54
+  $I_DOLL_WORKBENCH: 55
 strings:
   $D_DINING: |
     The lock is broken and the door won't budge. With the right tool, you can
@@ -42,10 +42,14 @@ strings:
     A vintage dollhouse. Normally you could open it up and take a look inside,
     but it's been locked with a small silver padlock.
   $F_DOLLHOUSE_A: |
-    You carefully unlock the padlock and open up the dollhouse. Eerily, it
-    seems to be the exact same floorplan as the house you stand in.
+    You carefully unlock the padlock and swing the dollhouse open. Eerily, it
+    seems to be a miniature version of the house you stand in. Even the
+    furniture is in the same locations.
   $F_DOLLHOUSE_B: |
     The open dollhouse watches you impatiently.
+  $F_DOLLHOUSE_C: |
+    The miniature workbench fits perfectly into a space in the garage. The
+    dollhouse accepts your gift eagerly.
   $F_DRAWER1: |
     A small dresser-drawer is sitting in the corner.
     A small silver key is lying on top, attached to note.
@@ -56,7 +60,7 @@ strings:
   $F_SHELF2: |
     The shelf is covered with dust, but not much else.
   $F_SHELF3: |
-    The shelf seems to have been recently used, most of the dust is wiped off.
+    Someone has touched this shelf recently, the dust is noticeably absent.
     A realistic miniature workbench rests on the shelf.
   $F_SHELF3_A: |
     The shelf seems to have been recently used, most of the dust is wiped off.

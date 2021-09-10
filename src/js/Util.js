@@ -79,10 +79,12 @@ export function createCanvas(width, height) {
     return { canvas, ctx };
 }
 
+/*
 export function formatStat(value) {
     return ('' + value).padStart(2);
 }
+*/
 
-export function formatQuantity(value) {
-    return ('' + value).padStart(3, '0');
+export function formatQuantity(value, valueMax) {
+    return ('' + value).padStart(3, ' ') + '/' + valueMax;
 }

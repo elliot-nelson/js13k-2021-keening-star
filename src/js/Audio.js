@@ -32,9 +32,9 @@ export const Audio = {
     },
 
     playShit() {
-        console.log(this.cart);
-        let sfx = this.cart.sfx(2);
-        sfx.connect(this.globalGain);
-        sfx.start();
+        //console.log(this.cart);
+        //let sfx = this.cart.sfx(2);
+        //sfx.connect(this.globalGain);
+        //sfx.start();
     }
 };

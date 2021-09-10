@@ -4,7 +4,8 @@ import { Audio } from './Audio';
 //import { CombatSystem } from './CombatSystem';
 import {
     TURN_FRAMES,
-    TYPE_DOOR
+    TYPE_DOOR,
+    TYPE_HIDDEN
 } from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
@@ -28,6 +29,7 @@ import {
     $F_DOLLHOUSE,
     $F_DOLLHOUSE_A,
     $F_DOLLHOUSE_B,
+    $F_DOLLHOUSE_C,
     $F_FIRE3,
     $F_FIRE3_A,
     $F_FIRE3_B,
@@ -39,6 +41,7 @@ import {
     $F_STATUE,
     $F_STATUE_A,
     $F_STATUE_B,
+    $H_WORKBENCH,
     $I_BURNT_NOTEBOOK,
     $I_DOLL_WORKBENCH,
     $I_IRON_KNIFE,
@@ -119,7 +122,7 @@ export class Player {
         if (entity) {
             // *COMBAT*
             // this.attack(entity);
-        } else if (object) {
+        } else if (object && object.type !== TYPE_HIDDEN) {
             if (object.open) {
                 this.moveInto(pos, false);
             } else if (object.finished) {
@@ -167,6 +170,10 @@ export class Player {
                     if (object.interacted) {
                         this.openInventoryFor(object);
                     }
+                } else if (object.id === $F_DOLLHOUSE_B) {
+                    Log.add(World.strings[object.id]);
+                    this.openInventoryFor(object);
+                    this.sp--;
                 } else if (object.id === $F_FIRE3) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_FIRE3_A;
@@ -246,23 +253,23 @@ export class Player {
     }
 
     useItemOn(object, item) {
-        if (object.id === $D_DINING) {
-            if (item === $I_IRON_KNIFE) {
-                this.openDoor(object, $D_DINING_OPEN);
-                World.makeVisible($R_DINING);
-            } else {
-                Log.add(`That doesn't work here.`, '%y');
-            }
-        } else if (object.id === $F_DOLLHOUSE) {
-            if (item === $I_SILVER_KEY) {
-                Log.add(World.strings[$F_DOLLHOUSE_A]);
-                object.id = $F_DOLLHOUSE_B;
-            } else {
-                Log.add(`That doesn't work here.`, '%y');
-            }
+        if (object.id === $D_DINING && item === $I_IRON_KNIFE) {
+            this.openDoor(object, $D_DINING_OPEN);
+            World.makeVisible($R_DINING);
+        } else if (object.id === $F_DOLLHOUSE && item === $I_SILVER_KEY) {
+            Log.add(World.strings[$F_DOLLHOUSE_A]);
+            object.id = $F_DOLLHOUSE_B;
+            this.removeItem($I_SILVER_KEY);
+        } else if (object.id === $F_DOLLHOUSE_B && item === $I_DOLL_WORKBENCH) {
+            Log.add(World.strings[$F_DOLLHOUSE_C]);
+            this.removeItem($I_DOLL_WORKBENCH);
+            World.objectsById($H_WORKBENCH, (object, floor) => {
+                object.type = 0;
+                object.char = '\xa7';
+            });
+        } else {
+            Log.add(`%y%0 That doesn't work here.`);
         }
-
-        console.log('oh fuck, i am using ' + object + item);
     }
 
     hasItem(id) {
@@ -271,6 +278,10 @@ export class Player {
 
     obtainItem(id) {
         this.inventory.push(id);
+    }
+
+    removeItem(id) {
+        this.inventory = this.inventory.filter(objectId => objectId !== id);
     }
 
     openDoor(object, stringId) {

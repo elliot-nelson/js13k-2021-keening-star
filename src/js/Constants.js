@@ -53,6 +53,7 @@ export const COMBAT_CRIT_MULTIPLIER = 1.5;
 
 // Object types
 export const TYPE_DOOR = 2;
+export const TYPE_HIDDEN = 3;
 
 // Screen flickers
 export const FLICKER_FRAME_1 = 169;

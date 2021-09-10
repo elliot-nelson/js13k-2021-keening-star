@@ -75,6 +75,8 @@ const WorldBuilder = {
                     let result = [ids[object.name], object.x, object.y];
                     if (object.name.startsWith('$D')) {
                         result.push(2); // door
+                    } else if (object.name.startsWith('$H')) {
+                        result.push(3); // hidden
                     }
                     return result;
                 });

@@ -496,56 +496,56 @@
             ],
             "rooms": [
                 [
-                    37,
+                    39,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    35,
+                    37,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    34,
+                    36,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    36,
+                    38,
                     19,
                     5,
                     3,
                     2
                 ],
                 [
-                    38,
+                    40,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    36,
+                    38,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    35,
+                    37,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    34,
+                    36,
                     9,
                     6,
                     2,
@@ -566,12 +566,12 @@
                     2
                 ],
                 [
-                    16,
+                    17,
                     20,
                     6
                 ],
                 [
-                    18,
+                    19,
                     31,
                     8
                 ],
@@ -582,7 +582,7 @@
                     2
                 ],
                 [
-                    17,
+                    18,
                     10,
                     7
                 ],
@@ -604,7 +604,7 @@
                     2
                 ],
                 [
-                    21,
+                    22,
                     6,
                     4
                 ],
@@ -615,12 +615,12 @@
                     2
                 ],
                 [
-                    25,
+                    26,
                     16,
                     7
                 ],
                 [
-                    26,
+                    27,
                     29,
                     9
                 ],
@@ -630,12 +630,12 @@
                     3
                 ],
                 [
-                    22,
+                    23,
                     25,
                     6
                 ],
                 [
-                    23,
+                    24,
                     26,
                     6
                 ],
@@ -658,9 +658,21 @@
                     2
                 ],
                 [
-                    14,
+                    15,
                     9,
                     4
+                ],
+                [
+                    30,
+                    7,
+                    4,
+                    3
+                ],
+                [
+                    30,
+                    8,
+                    4,
+                    3
                 ]
             ],
             "triggers": [],
@@ -695,8 +707,9 @@
         "The charred remnants of a rocking chair.\nA half-burnt notebook is resting on the melted seat cushion.",
         "The charred remnants of a rocking chair.",
         "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
-        "You carefully unlock the padlock and open up the dollhouse. Eerily, it\nseems to be the exact same floorplan as the house you stand in.",
+        "You carefully unlock the padlock and swing the dollhouse open. Eerily, it\nseems to be a miniature version of the house you stand in. Even the\nfurniture is in the same locations.",
         "The open dollhouse watches you impatiently.",
+        "The miniature workbench fits perfectly into a space in the garage. The\ndollhouse accepts your gift eagerly.",
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
         "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
@@ -706,12 +719,13 @@
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
-        "The shelf seems to have been recently used, most of the dust is wiped off.\nA realistic miniature workbench rests on the shelf.",
+        "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
         "The shelf seems to have been recently used, most of the dust is wiped off.",
         "The stairs to the second floor are a wreck - you can't go up this way.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly, and the other holds an iron knife.\nThe sculpture's grip looks loose - perhaps you could take the knife.",
         "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
+        0,
         0,
         0,
         0,
@@ -741,6 +755,14 @@
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         [
             "iron knife",

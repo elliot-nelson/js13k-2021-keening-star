@@ -1,6 +1,6 @@
 // World
 
-import { FLICKER_FRAME_1, STATUS_COL } from './Constants';
+import { FLICKER_FRAME_1, STATUS_COL, TYPE_HIDDEN } from './Constants';
 import { Game } from './Game';
 import { Screen } from './Screen';
 import { WorldData } from './WorldData-gen';
@@ -20,7 +20,7 @@ export const World = {
                 for (let x = 0; x < tiles[y].length; x++) {
                     if (this.floors[0].visible[y][x]) {
                         let object = this.objectAt({ x, y, z: 0 });
-                        if (object) {
+                        if (object && object.type !== TYPE_HIDDEN) {
                             Screen.writeOnMap(x, y, object.char, this.colorForObject(object));
                         } else {
                             let c = String.fromCharCode(tiles[y][x]);
@@ -99,10 +99,13 @@ export const World = {
         let list = [];
         for (let floor of this.floors) {
             for (let object of floor.objects) {
-                if (object.id === id) list.push(object);
+                if (object.id === id) {
+                    list.push(object);
+                    if (map) map(object, floor);
+                }
             }
         }
-        return map ? list.map(map) : list;
+        return list;
     },
 
     tileAt(pos) {

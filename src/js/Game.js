@@ -19,7 +19,7 @@ import { TurnSystem } from './TurnSystem';
 import { Viewport } from './Viewport';
 import { WelcomeScreen } from './WelcomeScreen';
 import { World } from './World';
-import { xyz2pos, formatStat, formatQuantity } from './Util';
+import { xyz2pos, formatQuantity } from './Util';
 
 export const Game = {
     async init() {
@@ -140,7 +140,7 @@ export const Game = {
         );
         Screen.writeTypewriter(
             66, 2,
-            `Sanity ${formatQuantity(Game.player.sp)}/${formatQuantity(Game.player.spMax)}`,
+            `Sanity ${formatQuantity(Game.player.sp, Game.player.spMax)}`,
             (this.frame / 2) - 10
         );
 

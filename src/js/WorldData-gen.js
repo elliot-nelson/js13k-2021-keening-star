@@ -16,32 +16,34 @@ export const $F_BURNT_CHAIR_A = 10;
 export const $F_DOLLHOUSE = 11;
 export const $F_DOLLHOUSE_A = 12;
 export const $F_DOLLHOUSE_B = 13;
-export const $F_DRAWER1 = 14;
-export const $F_DRAWER1_A = 15;
-export const $F_FIRE1 = 16;
-export const $F_FIRE2 = 17;
-export const $F_FIRE3 = 18;
-export const $F_FIRE3_A = 19;
-export const $F_FIRE3_B = 20;
-export const $F_SHELF1 = 21;
-export const $F_SHELF2 = 22;
-export const $F_SHELF3 = 23;
-export const $F_SHELF3_A = 24;
-export const $F_STAIR1 = 25;
-export const $F_STATUE = 26;
-export const $F_STATUE_A = 27;
-export const $F_STATUE_B = 28;
-export const $I_BURNT_NOTEBOOK = 44;
-export const $I_DOLL_WORKBENCH = 45;
-export const $I_IRON_KNIFE = 41;
-export const $I_SILVER_KEY = 42;
-export const $I_UNCLE_LETTER = 43;
-export const $R_DINING = 34;
-export const $R_DRAW = 35;
-export const $R_FOYER = 36;
-export const $R_GARAGE = 37;
-export const $R_HALLWAY = 38;
-export const $R_STUDY = 39;
+export const $F_DOLLHOUSE_C = 14;
+export const $F_DRAWER1 = 15;
+export const $F_DRAWER1_A = 16;
+export const $F_FIRE1 = 17;
+export const $F_FIRE2 = 18;
+export const $F_FIRE3 = 19;
+export const $F_FIRE3_A = 20;
+export const $F_FIRE3_B = 21;
+export const $F_SHELF1 = 22;
+export const $F_SHELF2 = 23;
+export const $F_SHELF3 = 24;
+export const $F_SHELF3_A = 25;
+export const $F_STAIR1 = 26;
+export const $F_STATUE = 27;
+export const $F_STATUE_A = 28;
+export const $F_STATUE_B = 29;
+export const $H_WORKBENCH = 30;
+export const $I_BURNT_NOTEBOOK = 54;
+export const $I_DOLL_WORKBENCH = 55;
+export const $I_IRON_KNIFE = 51;
+export const $I_SILVER_KEY = 52;
+export const $I_UNCLE_LETTER = 53;
+export const $R_DINING = 36;
+export const $R_DRAW = 37;
+export const $R_FOYER = 38;
+export const $R_GARAGE = 39;
+export const $R_HALLWAY = 40;
+export const $R_STUDY = 41;
 /* </generated-constants> */
 
 export const WorldData =
@@ -544,56 +546,56 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    37,
+                    39,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    35,
+                    37,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    34,
+                    36,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    36,
+                    38,
                     19,
                     5,
                     3,
                     2
                 ],
                 [
-                    38,
+                    40,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    36,
+                    38,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    35,
+                    37,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    34,
+                    36,
                     9,
                     6,
                     2,
@@ -614,12 +616,12 @@ export const WorldData =
                     2
                 ],
                 [
-                    16,
+                    17,
                     20,
                     6
                 ],
                 [
-                    18,
+                    19,
                     31,
                     8
                 ],
@@ -630,7 +632,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    17,
+                    18,
                     10,
                     7
                 ],
@@ -652,7 +654,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    21,
+                    22,
                     6,
                     4
                 ],
@@ -663,12 +665,12 @@ export const WorldData =
                     2
                 ],
                 [
-                    25,
+                    26,
                     16,
                     7
                 ],
                 [
-                    26,
+                    27,
                     29,
                     9
                 ],
@@ -678,12 +680,12 @@ export const WorldData =
                     3
                 ],
                 [
-                    22,
+                    23,
                     25,
                     6
                 ],
                 [
-                    23,
+                    24,
                     26,
                     6
                 ],
@@ -706,9 +708,21 @@ export const WorldData =
                     2
                 ],
                 [
-                    14,
+                    15,
                     9,
                     4
+                ],
+                [
+                    30,
+                    7,
+                    4,
+                    3
+                ],
+                [
+                    30,
+                    8,
+                    4,
+                    3
                 ]
             ],
             "triggers": [],
@@ -743,8 +757,9 @@ export const WorldData =
         "The charred remnants of a rocking chair.\nA half-burnt notebook is resting on the melted seat cushion.",
         "The charred remnants of a rocking chair.",
         "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
-        "You carefully unlock the padlock and open up the dollhouse. Eerily, it\nseems to be the exact same floorplan as the house you stand in.",
+        "You carefully unlock the padlock and swing the dollhouse open. Eerily, it\nseems to be a miniature version of the house you stand in. Even the\nfurniture is in the same locations.",
         "The open dollhouse watches you impatiently.",
+        "The miniature workbench fits perfectly into a space in the garage. The\ndollhouse accepts your gift eagerly.",
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
         "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
@@ -754,12 +769,13 @@ export const WorldData =
         "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
-        "The shelf seems to have been recently used, most of the dust is wiped off.\nA realistic miniature workbench rests on the shelf.",
+        "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
         "The shelf seems to have been recently used, most of the dust is wiped off.",
         "The stairs to the second floor are a wreck - you can't go up this way.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly, and the other holds an iron knife.\nThe sculpture's grip looks loose - perhaps you could take the knife.",
         "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
+        0,
         0,
         0,
         0,
@@ -789,6 +805,14 @@ export const WorldData =
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         [
             "iron knife",
