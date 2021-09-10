@@ -6,7 +6,7 @@
 
 import { Camera } from './Camera';
 import { Screen } from './Screen';
-
+/*
 export class WorldParticle {
     constructor(pos, frames) {
         this.pos = { ...pos };
@@ -25,3 +25,4 @@ export class WorldParticle {
         if (this.pos.z === Camera.pos.z && !this.cull) Screen.writeOnMap(this.pos.x, this.pos.y, ...this.text);
     }
 }
+*/

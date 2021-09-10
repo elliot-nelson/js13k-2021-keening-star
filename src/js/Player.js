@@ -48,7 +48,7 @@ import {
     $R_GARAGE,
     $R_HALLWAY
 } from './WorldData-gen';
-import { WorldParticle } from './WorldParticle';
+//import { WorldParticle } from './WorldParticle';
 
 export class Player {
     constructor(pos) {

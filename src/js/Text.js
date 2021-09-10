@@ -65,10 +65,13 @@ export const Text = {
         }
     },
 
+    /*
     measureWidth(text, scale = 1) {
         return text.split('').reduce((sum, c) => sum + FONT_WIDTH, 0) * scale;
     },
+    */
 
+    /*
     splitParagraph(text, w, h) {
         let cu = 0, cv = 0;
         let next = () => ({ text: '', u: cu, v: cv });
@@ -110,6 +113,7 @@ export const Text = {
             h: FONT_HEIGHT
         }));
     }
+    */
 };
 
 // Text utility functions, for manipulating the font sheet images
