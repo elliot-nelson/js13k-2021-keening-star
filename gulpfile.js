@@ -259,7 +259,7 @@ function buildZip() {
 
     return gulp.src(['dist/index.html'])
         .pipe(size())
-        .pipe(zip('js13k-2020-wizard-with-a-shotgun.zip'))
+        .pipe(zip('js13k-2021-shadow-of-the-keening-star.zip'))
         .pipe(advzip({ optimizationLevel: 4 /*, iterations: 200 */ }))
         .pipe(sizeResult = size({ title: 'zip' }))
         .pipe(gulp.dest('dist/final'))
