@@ -47,7 +47,7 @@ export const Triggers = {
                 Game.entities.push(new Rat({ x: object.x, y: object.y, z }));
                 break;
             default:
-                console.log('no');
+                //console.log('no');
         }
     }
 };

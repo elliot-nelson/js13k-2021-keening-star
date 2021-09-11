@@ -10,7 +10,7 @@ export const Log = {
     },
 
     add(message, formatCode = '') {
-        console.log(message);
+        //console.log(message);
         if (message[0] !== '%') {
             message = formatCode + '\xa5 ' + message;
         }

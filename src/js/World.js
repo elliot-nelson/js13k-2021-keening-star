@@ -42,7 +42,7 @@ export const World = {
 
         /*
         if (Game.frame % 133 === 0) {
-            console.log('generating visions');
+            //console.log('generating visions');
             this.visions = [];
             for (let i = 0; i < 10; i++) {
                 this.visions.push([

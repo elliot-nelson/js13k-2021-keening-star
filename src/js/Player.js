@@ -98,7 +98,6 @@ export class Player {
     update() {
         let move;
 
-        console.log(Input.held[Input.Action.LEFT], Input.framesHeld[Input.Action.LEFT]);
         if (Input.held[Input.Action.LEFT] && Input.framesHeld[Input.Action.LEFT] % TURN_FRAMES === 1) {
             move = { ...this.pos, x: this.pos.x - 1 };
         } else if (Input.held[Input.Action.RIGHT] && Input.framesHeld[Input.Action.RIGHT] % TURN_FRAMES === 1) {
@@ -129,7 +128,6 @@ export class Player {
             } else if (object.finished) {
                 this.lookingAt = object;
                 Log.add(World.strings[object.id]);
-                console.log('finished' + World.strings[object.id]);
             } else {
                 /**** SPECIAL OBJECTS ****/
                 if (object.id === $D_DINING) {
@@ -222,10 +220,7 @@ export class Player {
                         action = `\n%y\xa5 You need some kind of other item.`;
                     }
                     this.lookingAt = object;
-                    console.log(object.id);
-                    console.log(World.strings[object.id] + action);
                     Log.add(World.strings[object.id] + action);
-                    console.log('else statement' + World.strings[object.id]);
                 }
             }
 
@@ -233,7 +228,7 @@ export class Player {
         } else if (tile === World.FLOOR) {
             this.moveInto(pos, true);
         } else {
-            console.log('No.');
+            // UNUSED
         }
     }
 

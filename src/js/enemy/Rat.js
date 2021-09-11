@@ -39,8 +39,8 @@ export class Rat {
         let tile = World.tileAt(pos);
         let object = World.objectAt(pos);
         let entity = Game.entityAt(pos);
-        console.log('Rat is taking a turn');
-        console.log({
+        //console.log('Rat is taking a turn');
+        //console.log({
             'from': this.pos,
             'to': pos,
             'player': Game.player.pos,
@@ -48,11 +48,11 @@ export class Rat {
         });
 
         if (entity === Game.player) {
-            console.log('ATTACK!');
+            //console.log('ATTACK!');
         } else if (tile === World.FLOOR) {
             this.pos = pos;
         } else {
-            console.log('Rat says no.');
+            //console.log('Rat says no.');
         }
     }
 

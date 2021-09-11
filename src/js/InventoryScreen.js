@@ -20,7 +20,6 @@ export class InventoryScreen {
     }
 
     update() {
-        console.log(['update', Input.pressed[Input.Action.DOWN]]);
         if (Input.pressed[Input.Action.BACK]) {
             this.closing = true;
         } else if (Input.pressed[Input.Action.INVENTORY] && !this.object) {
