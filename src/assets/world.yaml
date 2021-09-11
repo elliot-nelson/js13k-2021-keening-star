@@ -37,6 +37,8 @@ strings:
     to breathe in this room, it's too small somehow.
   $D_KITCHEN: |
     It seems to be locked from the other side.
+  $D_STUDY: |
+    It seems to be locked from the other side.
   $F_ALTAR: |
     A makeshift altar rests against the back wall. Tiny animal bones and black
     feathers hang from every corner and crevice.
@@ -101,6 +103,9 @@ strings:
   $F_STATUE_B: |
     A crude, life-sized sculpture of a pregnant woman. One hand rests on her
     belly.
+  $F_TABLE: |
+    The dining room table is smashed to splinters. A black, sticky substance
+    that smells like burning hair covers most of the table.
   $H_STATUE2: |
     A life-sized sculpture of a woman. She holds in her arms a creature, all
     legs, heads, and arms, reaching upwards in celebration.
@@ -125,7 +130,7 @@ strings:
       is crystal clear:
 
       "Our Goddess walks the hills
-       in the shadow of the wailing star
+       in the shadow of the keening star
        and we follow in her path"
   $I_DOLL_SCULPTURE:
     - miniature sculpture
@@ -182,9 +187,8 @@ strings:
   $R_DINING:
     - DINING ROOM
     - |
-      The dining room is dominated by an oak table, which appears to have been
-      used recently as a butcher's block. Flies buzz above fresh animal entrails
-      littering the table. The table and the carpet below is soaked in blood.
+      The dining room is somber and quiet. The walls are covered with
+      faded squares where paintings used to hang.
   $R_DRAW:
     - DRAWING ROOM
     - |

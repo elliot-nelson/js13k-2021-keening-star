@@ -25,6 +25,7 @@ import {
     $D_GARAGED,
     $D_KITCHEN,
     $D_HALLWAY,
+    $D_STUDY,
     $F_ALTAR,
     $F_ALTAR_A,
     $F_BURNT_CHAIR,
@@ -42,6 +43,7 @@ import {
     $F_STATUE,
     $F_STATUE_A,
     $F_STATUE_B,
+    $F_TABLE,
     $H_WORKBENCH,
     $H_STATUE2,
     $H_STATUE2_A,
@@ -93,11 +95,11 @@ export class Player {
         World.makeVisible(this.room.id);
 
         // Temporary hack stuff
-        this.obtainItem($I_IRON_KNIFE);
+        /*this.obtainItem($I_IRON_KNIFE);
         this.obtainItem($I_BURNT_NOTEBOOK);
         this.obtainItem($I_SILVER_KEY);
         this.obtainItem($I_SCREWDRIVER);
-        this.obtainItem($I_DOLL_SCULPTURE);
+        this.obtainItem($I_DOLL_SCULPTURE);*/
     }
 
     draw() {
@@ -165,6 +167,8 @@ export class Player {
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
                     World.makeVisible($R_HALLWAY);
+                } else if (object.id === $D_STUDY) {
+                    Log.add(World.strings[object.id]);
                 } else if (object.id === $F_ALTAR) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_ALTAR_A;
@@ -215,6 +219,9 @@ export class Player {
                     object.finished = true;
                     this.sp--;
                     this.obtainItem($I_IRON_KNIFE);
+                } else if (object.id === $F_TABLE) {
+                    Log.add(World.strings[object.id]);
+                    World.objectsById($F_TABLE, object => object.finished = true);
                 } else if (object.id === $H_STATUE2) {
                     Log.add(World.strings[object.id]);
                     object.id = $H_STATUE2_A;

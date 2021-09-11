@@ -188,7 +188,7 @@ function minifyBuild() {
                 builtins: true,
                 // Properties that are normally excluded from mangling due to built-in protection,
                 // but that we can mangle because we only use it for ourselves.
-                regex: /^(keyboard|pressed|frame|reset|update|SELECT|BACK)$/
+                regex: /^(keyboard|pressed|frame|reset|update|SELECT|BACK|entities|init|finished)$/
             }
         }
     }))
