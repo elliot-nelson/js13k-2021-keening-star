@@ -1,8 +1,7 @@
 {
-  "name": "goddess",
-  "version": "0.0.1",
-  "description": "WIP!",
-  "main": "index.js",
+  "name": "js13k-2021-keening-star",
+  "version": "0.0.7",
+  "description": "My 2021 entry for the js13kgames compo, 'Shadow of the Keening Star'.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
