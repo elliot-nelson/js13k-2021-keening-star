@@ -14,6 +14,8 @@ import { Log } from './Log';
 import { Screen } from './Screen';
 import { World } from './World';
 import {
+    $D_CLOSET,
+    $D_CLOSET_OPEN,
     $D_DINING,
     $D_DINING_OPEN,
     $D_DRAW,
@@ -24,20 +26,19 @@ import {
     $D_HALLWAY,
     $F_BURNT_CHAIR,
     $F_BURNT_CHAIR_A,
+    $F_CHAIR1,
     $F_DRAWER1,
     $F_DRAWER1_A,
     $F_DOLLHOUSE,
     $F_DOLLHOUSE_A,
     $F_DOLLHOUSE_B,
     $F_DOLLHOUSE_C,
-    $F_FIRE3,
-    $F_FIRE3_A,
-    $F_FIRE3_B,
     $F_GRAFFITI,
     $F_SHELF1,
     $F_SHELF2,
     $F_SHELF3,
     $F_SHELF3_A,
+    $F_SHRINE,
     $F_STAIR1,
     $F_STATUE,
     $F_STATUE_A,
@@ -46,8 +47,10 @@ import {
     $I_BURNT_NOTEBOOK,
     $I_DOLL_WORKBENCH,
     $I_IRON_KNIFE,
+    $I_SCREWDRIVER,
     $I_SILVER_KEY,
     $I_UNCLE_LETTER,
+    $R_CLOSET,
     $R_DRAW,
     $R_DINING,
     $R_GARAGE,
@@ -89,6 +92,7 @@ export class Player {
         this.obtainItem($I_IRON_KNIFE);
         this.obtainItem($I_BURNT_NOTEBOOK);
         this.obtainItem($I_SILVER_KEY);
+        this.obtainItem($I_SCREWDRIVER);
     }
 
     draw() {
@@ -130,7 +134,12 @@ export class Player {
                 Log.add(World.strings[object.id]);
             } else {
                 /**** SPECIAL OBJECTS ****/
-                if (object.id === $D_DINING) {
+                if (object.id === $D_CLOSET) {
+                    Log.add(World.strings[object.id]);
+                    if (object.interacted) {
+                        this.openInventoryFor(object);
+                    }
+                } else if (object.id === $D_DINING) {
                     Log.add(World.strings[object.id]);
                     if (object.interacted) {
                         this.openInventoryFor(object);
@@ -151,6 +160,9 @@ export class Player {
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
                     World.makeVisible($R_HALLWAY);
+                } else if (object.id === $F_CHAIR1) {
+                    Log.add(World.strings[object.id]);
+                    object.finished = true;
                 } else if (object.id === $F_BURNT_CHAIR) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_BURNT_CHAIR_A;
@@ -174,13 +186,6 @@ export class Player {
                     Log.add(World.strings[object.id]);
                     this.openInventoryFor(object);
                     this.sp--;
-                } else if (object.id === $F_FIRE3) {
-                    Log.add(World.strings[object.id]);
-                    object.id = $F_FIRE3_A;
-                } else if (object.id === $F_FIRE3_A) {
-                    Log.add(World.strings[object.id]);
-                    object.id = $F_FIRE3_B;
-                    this.obtainItem($I_IRON_KNIFE);
                 } else if (object.id === $F_GRAFFITI) {
                     Log.add(World.strings[object.id]);
                     this.sp--;
@@ -255,7 +260,11 @@ export class Player {
     }
 
     useItemOn(object, item) {
-        if (object.id === $D_DINING && item === $I_IRON_KNIFE) {
+        if (object.id === $D_CLOSET && item === $I_SCREWDRIVER) {
+            this.openDoor(object, $D_CLOSET_OPEN);
+            this.sp -= 3;
+            World.makeVisible($R_CLOSET);
+        } else if (object.id === $D_DINING && item === $I_IRON_KNIFE) {
             this.openDoor(object, $D_DINING_OPEN);
             World.makeVisible($R_DINING);
         } else if (object.id === $F_DOLLHOUSE && item === $I_SILVER_KEY) {
@@ -265,7 +274,7 @@ export class Player {
         } else if (object.id === $F_DOLLHOUSE_B && item === $I_DOLL_WORKBENCH) {
             Log.add(World.strings[$F_DOLLHOUSE_C]);
             this.removeItem($I_DOLL_WORKBENCH);
-            World.objectsById($H_WORKBENCH, (object, floor) => {
+            World.objectsById($H_WORKBENCH, object => {
                 object.type = 0;
                 object.char = '\xa7';
             });

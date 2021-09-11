@@ -13,7 +13,14 @@ items:
   $I_UNCLE_LETTER: 53
   $I_BURNT_NOTEBOOK: 54
   $I_DOLL_WORKBENCH: 55
+  $I_SCREWDRIVER: 56
 strings:
+  $D_CLOSET: |
+    The door is barred by a metal plate, held in place by a series of screws.
+    You could open it with the right tool.
+  $D_CLOSET_OPEN: |
+    You unscrew several screws and the metal plate clatters to the floor.
+    %y%0 You push the door open.
   $D_DINING: |
     The lock is broken and the door won't budge. With the right tool, you can
     probably pry it open.
@@ -34,10 +41,8 @@ strings:
     A half-burnt notebook is resting on the melted seat cushion.
   $F_BURNT_CHAIR_A: |
     The charred remnants of a rocking chair.
-  $F_FIRE1: |
-    A massive stone fireplace. Above it hangs a portrait of a woman with long,
-    straight black hair. She has one hand on her visibly pregnant belly.
-    The embers are cold.
+  $F_CHAIR1: |
+    This chair is covered in mildew, but otherwise uninteresting.
   $F_DOLLHOUSE: |
     A vintage dollhouse. Normally you could open it up and take a look inside,
     but it's been locked with a small silver padlock.
@@ -67,22 +72,15 @@ strings:
     A realistic miniature workbench rests on the shelf.
   $F_SHELF3_A: |
     The shelf seems to have been recently used, most of the dust is wiped off.
-  $F_FIRE2: |
-    An impressive granite fireplace. Above the mantle hangs a brightly colored
-    painting of a newborn, out of place in such a drab room.
-    The embers are cold.
-  $F_FIRE3: |
-    Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
-    being devoured whole by a tall, dimly-lit creature. It is hard to look at.
-    A knife has been left jammed into the canvas. You can probably pull it out.
-  $F_FIRE3_A: |
-    With a tug, the painting releases a long iron knife. Hundreds of tiny
-    symbols have been etched up and down the blade, but you don't recognize them.
-    %y%0 You have obtained iron knife.
-  $F_FIRE3_B: |
-    Above a brick-and-onyx hearth hangs an unpleasant painting of a small child
-    being devoured whole by a tall, dimly-lit creature. It is hard to look at.
-    The embers are cold.
+  $F_SHELF4: |
+    The shelf is covered with dust, but not much else.
+  $F_SHRINE: |
+    A makeshift altar rests against the back wall. Tiny animal bones and black
+    feathers hang from every corner and crevice.
+    A miniature sculpture sits in the middle of the altar.
+  $F_SHRINE_A: |
+    A makeshift altar rests against the back wall. Tiny animal bones and black
+    feathers hang from every corner and crevice.
   $F_STAIR1: |
     The stairs to the second floor are a wreck - you can't go up this way.
   $F_STATUE: |
@@ -117,6 +115,11 @@ strings:
       A curiously realistic miniature
       workbench, made of wood and metal.
       Maybe there's some use for it.
+  $I_SCREWDRIVER:
+    - screwdriver
+    - |
+      A rusty, but still functional,
+      crosshead screwdriver.
   $I_SILVER_KEY:
     - small silver key
     - |
@@ -136,12 +139,12 @@ strings:
        your help."
       [Several more lines are furiously
       crossed out and are illegible.]
-  $R_FOYER:
-    - FOYER
+  $R_CLOSET:
+    - STORAGE CLOSET
     - |
-      You are in the foyer of the farmhouse. The peeling paint and threadbare
-      rugs make it seem older than the outside of the house.
-      A large dollhouse sits on a pedestal in the far corner of the room.
+      This storage closet has been converted into some kind of shrine. The
+      unpainted wooden walls are carved with words, but none of them make
+      any sense to you.
   $R_DINING:
     - DINING ROOM
     - |
@@ -153,6 +156,12 @@ strings:
     - |
       You are in a dimly lit drawing room filled with faded furniture.
       The room smells of musty upholstery.
+  $R_FOYER:
+    - FOYER
+    - |
+      You are in the foyer of the farmhouse. The peeling paint and threadbare
+      rugs make it seem older than the outside of the house.
+      A large dollhouse sits on a pedestal in the far corner of the room.
   $R_GARAGE:
     - GARAGE
     - |

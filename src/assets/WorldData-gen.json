@@ -87,8 +87,8 @@
                     137,
                     129,
                     129,
-                    129,
                     45,
+                    129,
                     129,
                     129,
                     129,
@@ -128,9 +128,9 @@
                     46,
                     46,
                     93,
-                    128,
-                    32,
-                    32,
+                    137,
+                    129,
+                    134,
                     32,
                     32,
                     32,
@@ -160,15 +160,15 @@
                     129,
                     45,
                     135,
-                    129,
+                    45,
                     129,
                     129,
                     131,
-                    32,
-                    32,
-                    32,
-                    32,
-                    32,
+                    46,
+                    132,
+                    129,
+                    129,
+                    134,
                     32,
                     32,
                     32,
@@ -195,15 +195,15 @@
                     46,
                     46,
                     128,
-                    32,
-                    32,
-                    32,
-                    133,
-                    129,
-                    134,
-                    32,
-                    32,
-                    130,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    46,
+                    167,
+                    137,
                     129,
                     129,
                     129,
@@ -223,8 +223,8 @@
                     32,
                     32,
                     32,
-                    133,
-                    131,
+                    32,
+                    128,
                     46,
                     35,
                     35,
@@ -233,9 +233,9 @@
                     129,
                     135,
                     129,
-                    131,
-                    37,
-                    132,
+                    129,
+                    129,
+                    129,
                     129,
                     129,
                     138,
@@ -258,8 +258,8 @@
                     32,
                     32,
                     32,
-                    128,
-                    37,
+                    133,
+                    131,
                     46,
                     35,
                     35,
@@ -293,8 +293,8 @@
                     32,
                     32,
                     32,
-                    132,
-                    134,
+                    128,
+                    46,
                     46,
                     35,
                     35,
@@ -328,8 +328,8 @@
                     32,
                     32,
                     32,
-                    32,
-                    128,
+                    132,
+                    134,
                     46,
                     46,
                     46,
@@ -345,7 +345,7 @@
                     46,
                     128,
                     91,
-                    93,
+                    46,
                     46,
                     46,
                     46,
@@ -496,193 +496,217 @@
             ],
             "rooms": [
                 [
-                    40,
+                    44,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    38,
+                    42,
                     25,
                     5,
                     8,
                     6
-                ],
-                [
-                    37,
-                    10,
-                    4,
-                    6,
-                    7
-                ],
-                [
-                    39,
-                    19,
-                    5,
-                    3,
-                    2
                 ],
                 [
                     41,
                     10,
+                    4,
+                    6,
+                    7
+                ],
+                [
+                    45,
+                    10,
                     2,
                     10,
                     3
                 ],
                 [
-                    39,
+                    43,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    38,
+                    42,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    37,
+                    41,
                     9,
-                    6,
+                    7,
                     2,
                     3
+                ],
+                [
+                    40,
+                    15,
+                    4,
+                    10,
+                    2
+                ],
+                [
+                    40,
+                    19,
+                    3,
+                    3,
+                    2
                 ]
             ],
             "objects": [
                 [
-                    3,
+                    5,
                     24,
                     8,
                     2
                 ],
                 [
-                    7,
+                    9,
                     14,
                     4,
                     2
                 ],
                 [
-                    17,
-                    20,
-                    6
-                ],
-                [
-                    1,
+                    3,
                     15,
                     9,
                     2
                 ],
                 [
-                    18,
-                    10,
-                    7
-                ],
-                [
-                    11,
+                    14,
                     22,
                     7
                 ],
                 [
-                    5,
+                    7,
                     10,
                     3,
                     2
                 ],
                 [
-                    8,
-                    14,
+                    10,
+                    13,
                     2,
                     2
                 ],
                 [
-                    23,
+                    21,
                     6,
                     4
                 ],
                 [
-                    4,
+                    6,
                     19,
                     11,
                     2
                 ],
                 [
-                    27,
+                    28,
                     16,
                     7
                 ],
                 [
-                    28,
+                    29,
                     31,
                     8
                 ],
                 [
-                    9,
+                    11,
                     18,
                     3
                 ],
                 [
-                    24,
+                    22,
                     25,
                     6
                 ],
                 [
-                    25,
+                    23,
                     26,
                     6
                 ],
                 [
-                    6,
+                    8,
                     3,
                     4,
                     2
                 ],
                 [
-                    6,
+                    8,
                     3,
                     3,
                     2
                 ],
                 [
-                    6,
+                    8,
                     3,
                     2,
                     2
                 ],
                 [
-                    15,
+                    18,
                     9,
                     4
                 ],
                 [
-                    31,
+                    33,
                     7,
                     4,
                     3
                 ],
                 [
-                    31,
+                    33,
                     8,
                     4,
                     3
                 ],
                 [
-                    22,
+                    20,
                     27,
                     10
                 ],
                 [
-                    22,
+                    20,
                     28,
                     10
                 ],
                 [
-                    22,
+                    20,
                     29,
                     10
+                ],
+                [
+                    13,
+                    25,
+                    9
+                ],
+                [
+                    25,
+                    30,
+                    6
+                ],
+                [
+                    32,
+                    10,
+                    8,
+                    3
+                ],
+                [
+                    1,
+                    16,
+                    4,
+                    2
+                ],
+                [
+                    26,
+                    23,
+                    5
                 ]
             ],
             "triggers": [],
@@ -706,6 +730,8 @@
     ],
     "strings": [
         0,
+        "The door is barred by a metal plate, held in place by a series of screws.\nYou could open it with the right tool.",
+        "You unscrew several screws and the metal plate clatters to the floor.\n%y%0 You push the door open.",
         "The lock is broken and the door won't budge. With the right tool, you can\nprobably pry it open.",
         "You wedge the knife between the door and frame. With a little effort, you\nforce the broken lock away from the strike plate.\n%y%0 You push the door open.",
         0,
@@ -716,22 +742,21 @@
         "It seems to be locked from the other side.",
         "The charred remnants of a rocking chair.\nA half-burnt notebook is resting on the melted seat cushion.",
         "The charred remnants of a rocking chair.",
+        "This chair is covered in mildew, but otherwise uninteresting.",
         "A vintage dollhouse. Normally you could open it up and take a look inside,\nbut it's been locked with a small silver padlock.",
         "You carefully unlock the padlock and swing the dollhouse open. Eerily, it\nseems to be a miniature version of the house you stand in. Even the\nfurniture is in the same locations.",
         "The open dollhouse watches you impatiently.",
         "The miniature workbench fits perfectly into a space in the garage. The\ndollhouse accepts your gift eagerly.",
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
-        "A massive stone fireplace. Above it hangs a portrait of a woman with long,\nstraight black hair. She has one hand on her visibly pregnant belly.\nThe embers are cold.",
-        "An impressive granite fireplace. Above the mantle hangs a brightly colored\npainting of a newborn, out of place in such a drab room.\nThe embers are cold.",
-        "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nA knife has been left jammed into the canvas. You can probably pull it out.",
-        "With a tug, the painting releases a long iron knife. Hundreds of tiny\nsymbols have been etched up and down the blade, but you don't recognize them.\n%y%0 You have obtained iron knife.",
-        "Above a brick-and-onyx hearth hangs an unpleasant painting of a small child\nbeing devoured whole by a tall, dimly-lit creature. It is hard to look at.\nThe embers are cold.",
         "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
         "The shelf seems to have been recently used, most of the dust is wiped off.",
+        "The shelf is covered with dust, but not much else.",
+        "A makeshift altar rests against the back wall. Tiny animal bones and black\nfeathers hang from every corner and crevice.\nA miniature sculpture sits in the middle of the altar.",
+        "A makeshift altar rests against the back wall. Tiny animal bones and black\nfeathers hang from every corner and crevice.",
         "The stairs to the second floor are a wreck - you can't go up this way.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly, and the other holds an iron knife.\nThe sculpture's grip looks loose - perhaps you could take the knife.",
         "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
@@ -742,6 +767,12 @@
         0,
         0,
         0,
+        0,
+        0,
+        [
+            "STORAGE CLOSET",
+            "This storage closet has been converted into some kind of shrine. The\nunpainted wooden walls are carved with words, but none of them make\nany sense to you."
+        ],
         [
             "DINING ROOM",
             "The dining room is dominated by an oak table, which appears to have been\nused recently as a butcher's block. Flies buzz above fresh animal entrails\nlittering the table. The table and the carpet below is soaked in blood."
@@ -770,10 +801,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
         [
             "iron knife",
             "A large iron knife etched with\nhundreds of tiny symbols. It feels\nheavy in your hand."
@@ -793,6 +820,10 @@
         [
             "miniature workbench",
             "A curiously realistic miniature\nworkbench, made of wood and metal.\nMaybe there's some use for it."
+        ],
+        [
+            "screwdriver",
+            "A rusty, but still functional,\ncrosshead screwdriver."
         ]
     ]
 }

@@ -11,6 +11,15 @@ import { Game } from './Game';
 import { Text } from './Text';
 import { rgba } from './Util';
 
+/*
+const SMUDGE_OFFSETS = [3,1,2,0,4,5,1,0,2,0];
+let smudgeIndex = 0;
+const smudgeOffset = () => {
+    smudgeIndex = (smudgeIndex + 1) % SMUDGE_OFFSETS.length;
+    return SMUDGE_OFFSETS[smudgeIndex];
+};
+*/
+
 export const Screen = {
     // Terminal color codes
     DIM:     0x00,
@@ -136,7 +145,7 @@ export const Screen = {
                 for (let x = 0; x < SCREEN_WIDTH; x++) {
                     let c = this.screen[y * SCREEN_WIDTH + x];
                     let c2 = (c & 0xFF);
-                    if (c2 !== 32 && c2 < 128) c2 += this.smudge;
+                    if (c2 !== 32 && c2 < 128 && this.smudge > 0) c2 += this.smudge;
                     Text.drawText(ctx, c2, x * FONT_WIDTH, y * FONT_HEIGHT, Screen.COLORS[c >> 8]);
                 }
             }
