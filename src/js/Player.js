@@ -183,7 +183,6 @@ export class Player {
                 } else if (object.id === $F_DOLLHOUSE_B) {
                     Log.add(World.strings[object.id]);
                     this.openInventoryFor(object);
-                    this.sp--;
                 } else if (object.id === $F_GRAFFITI) {
                     Log.add(World.strings[object.id]);
                     this.sp--;
@@ -205,14 +204,12 @@ export class Player {
                     object.finished = true;
                     this.sp--;
                     this.obtainItem($I_IRON_KNIFE);
-                } else if (object.id === $F_STAIR1) {
-                    Log.add(World.strings[object.id])
-                    object.finished = true;
                 } else if (object.type === TYPE_DOOR) {
                     this.openDoor(object);
                 } else if (object.type === TYPE_EXAMINE_ONLY) {
                     Log.add(World.strings[object.id]);
                     object.finished = true;
+                    this.sp--;
                 } else {
                     let action = '';
                     if (object.action) {

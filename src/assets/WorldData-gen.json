@@ -376,7 +376,7 @@
                     46,
                     46,
                     46,
-                    38,
+                    46,
                     46,
                     137,
                     129,
@@ -411,7 +411,7 @@
                     45,
                     129,
                     129,
-                    129,
+                    145,
                     129,
                     131,
                     32,
@@ -496,63 +496,63 @@
             ],
             "rooms": [
                 [
-                    44,
+                    45,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    42,
+                    43,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    41,
+                    42,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    45,
+                    46,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    43,
+                    44,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    42,
+                    43,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    41,
+                    42,
                     9,
                     7,
                     2,
                     3
                 ],
                 [
-                    40,
+                    41,
                     15,
                     4,
                     10,
                     2
                 ],
                 [
-                    40,
+                    41,
                     19,
                     3,
                     3,
@@ -595,8 +595,9 @@
                     2
                 ],
                 [
-                    21,
+                    22,
                     6,
+                    4,
                     4
                 ],
                 [
@@ -606,13 +607,13 @@
                     2
                 ],
                 [
-                    28,
+                    29,
                     16,
                     7,
                     4
                 ],
                 [
-                    29,
+                    30,
                     31,
                     8
                 ],
@@ -622,13 +623,13 @@
                     3
                 ],
                 [
-                    22,
+                    23,
                     25,
                     6,
                     4
                 ],
                 [
-                    23,
+                    24,
                     26,
                     6
                 ],
@@ -653,13 +654,13 @@
                     4
                 ],
                 [
-                    33,
+                    34,
                     7,
                     4,
                     3
                 ],
                 [
-                    33,
+                    34,
                     8,
                     4,
                     3
@@ -686,13 +687,13 @@
                     4
                 ],
                 [
-                    25,
+                    26,
                     30,
                     6,
                     4
                 ],
                 [
-                    32,
+                    33,
                     10,
                     8,
                     3
@@ -704,9 +705,15 @@
                     2
                 ],
                 [
-                    26,
+                    27,
                     23,
                     5
+                ],
+                [
+                    21,
+                    22,
+                    11,
+                    4
                 ]
             ],
             "triggers": [],
@@ -750,6 +757,7 @@
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
         "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
+        "An oil painting hangs on the wall, out of place in this shabby room. It\nseems to depict a planet being devoured by... something.\nYou feel that the less you look at it, the better.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
@@ -783,7 +791,7 @@
         ],
         [
             "FOYER",
-            "You are in the foyer of the farmhouse. The peeling paint and threadbare\nrugs make it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room."
+            "You are in the foyer. The peeling paint and threadbare rugs seem even\nolder than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room."
         ],
         [
             "GARAGE",
@@ -797,7 +805,6 @@
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
-        0,
         0,
         0,
         0,

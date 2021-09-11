@@ -23,32 +23,33 @@ export const $F_DOLLHOUSE_C = 17;
 export const $F_DRAWER1 = 18;
 export const $F_DRAWER1_A = 19;
 export const $F_GRAFFITI = 20;
-export const $F_SHELF1 = 21;
-export const $F_SHELF2 = 22;
-export const $F_SHELF3 = 23;
-export const $F_SHELF3_A = 24;
-export const $F_SHELF4 = 25;
-export const $F_SHRINE = 26;
-export const $F_SHRINE_A = 27;
-export const $F_STAIR1 = 28;
-export const $F_STATUE = 29;
-export const $F_STATUE_A = 30;
-export const $F_STATUE_B = 31;
-export const $H_STATUE2 = 32;
-export const $H_WORKBENCH = 33;
+export const $F_PAINTING1 = 21;
+export const $F_SHELF1 = 22;
+export const $F_SHELF2 = 23;
+export const $F_SHELF3 = 24;
+export const $F_SHELF3_A = 25;
+export const $F_SHELF4 = 26;
+export const $F_SHRINE = 27;
+export const $F_SHRINE_A = 28;
+export const $F_STAIR1 = 29;
+export const $F_STATUE = 30;
+export const $F_STATUE_A = 31;
+export const $F_STATUE_B = 32;
+export const $H_STATUE2 = 33;
+export const $H_WORKBENCH = 34;
 export const $I_BURNT_NOTEBOOK = 54;
 export const $I_DOLL_WORKBENCH = 55;
 export const $I_IRON_KNIFE = 51;
 export const $I_SCREWDRIVER = 56;
 export const $I_SILVER_KEY = 52;
 export const $I_UNCLE_LETTER = 53;
-export const $R_CLOSET = 40;
-export const $R_DINING = 41;
-export const $R_DRAW = 42;
-export const $R_FOYER = 43;
-export const $R_GARAGE = 44;
-export const $R_HALLWAY = 45;
-export const $R_STUDY = 46;
+export const $R_CLOSET = 41;
+export const $R_DINING = 42;
+export const $R_DRAW = 43;
+export const $R_FOYER = 44;
+export const $R_GARAGE = 45;
+export const $R_HALLWAY = 46;
+export const $R_STUDY = 47;
 /* </generated-constants> */
 
 export const WorldData =
@@ -431,7 +432,7 @@ export const WorldData =
                     46,
                     46,
                     46,
-                    38,
+                    46,
                     46,
                     137,
                     129,
@@ -466,7 +467,7 @@ export const WorldData =
                     45,
                     129,
                     129,
-                    129,
+                    145,
                     129,
                     131,
                     32,
@@ -551,63 +552,63 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    44,
+                    45,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    42,
+                    43,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    41,
+                    42,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    45,
+                    46,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    43,
+                    44,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    42,
+                    43,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    41,
+                    42,
                     9,
                     7,
                     2,
                     3
                 ],
                 [
-                    40,
+                    41,
                     15,
                     4,
                     10,
                     2
                 ],
                 [
-                    40,
+                    41,
                     19,
                     3,
                     3,
@@ -650,8 +651,9 @@ export const WorldData =
                     2
                 ],
                 [
-                    21,
+                    22,
                     6,
+                    4,
                     4
                 ],
                 [
@@ -661,13 +663,13 @@ export const WorldData =
                     2
                 ],
                 [
-                    28,
+                    29,
                     16,
                     7,
                     4
                 ],
                 [
-                    29,
+                    30,
                     31,
                     8
                 ],
@@ -677,13 +679,13 @@ export const WorldData =
                     3
                 ],
                 [
-                    22,
+                    23,
                     25,
                     6,
                     4
                 ],
                 [
-                    23,
+                    24,
                     26,
                     6
                 ],
@@ -708,13 +710,13 @@ export const WorldData =
                     4
                 ],
                 [
-                    33,
+                    34,
                     7,
                     4,
                     3
                 ],
                 [
-                    33,
+                    34,
                     8,
                     4,
                     3
@@ -741,13 +743,13 @@ export const WorldData =
                     4
                 ],
                 [
-                    25,
+                    26,
                     30,
                     6,
                     4
                 ],
                 [
-                    32,
+                    33,
                     10,
                     8,
                     3
@@ -759,9 +761,15 @@ export const WorldData =
                     2
                 ],
                 [
-                    26,
+                    27,
                     23,
                     5
+                ],
+                [
+                    21,
+                    22,
+                    11,
+                    4
                 ]
             ],
             "triggers": [],
@@ -805,6 +813,7 @@ export const WorldData =
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
         "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
+        "An oil painting hangs on the wall, out of place in this shabby room. It\nseems to depict a planet being devoured by... something.\nYou feel that the less you look at it, the better.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
@@ -838,7 +847,7 @@ export const WorldData =
         ],
         [
             "FOYER",
-            "You are in the foyer of the farmhouse. The peeling paint and threadbare\nrugs make it seem older than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room."
+            "You are in the foyer. The peeling paint and threadbare rugs seem even\nolder than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room."
         ],
         [
             "GARAGE",
@@ -852,7 +861,6 @@ export const WorldData =
             "???",
             "A nice old room.\nWhat a nice place it is.\nFuck it."
         ],
-        0,
         0,
         0,
         0,

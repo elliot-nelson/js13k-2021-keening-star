@@ -63,6 +63,10 @@ strings:
   $F_GRAFFITI: |
     The wall is strangely spongy here, more like moss than wallpaper.
     The phrase "HER CHILDREN" has been spray-painted across the wall.
+  $F_PAINTING1: |
+    An oil painting hangs on the wall, out of place in this shabby room. It
+    seems to depict a planet being devoured by... something.
+    You feel that the less you look at it, the better.
   $F_SHELF1: |
     A rusty garage shelf.
   $F_SHELF2: |
@@ -159,8 +163,8 @@ strings:
   $R_FOYER:
     - FOYER
     - |
-      You are in the foyer of the farmhouse. The peeling paint and threadbare
-      rugs make it seem older than the outside of the house.
+      You are in the foyer. The peeling paint and threadbare rugs seem even
+      older than the outside of the house.
       A large dollhouse sits on a pedestal in the far corner of the room.
   $R_GARAGE:
     - GARAGE
