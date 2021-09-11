@@ -25,28 +25,31 @@ import {
     $D_GARAGED,
     $D_KITCHEN,
     $D_HALLWAY,
+    $F_ALTAR,
+    $F_ALTAR_A,
     $F_BURNT_CHAIR,
     $F_BURNT_CHAIR_A,
-    $F_CHAIR1,
     $F_DRAWER1,
     $F_DRAWER1_A,
     $F_DOLLHOUSE,
     $F_DOLLHOUSE_A,
     $F_DOLLHOUSE_B,
     $F_DOLLHOUSE_C,
+    $F_DOLLHOUSE_D,
     $F_GRAFFITI,
-    $F_SHELF1,
-    $F_SHELF2,
     $F_SHELF3,
     $F_SHELF3_A,
-    $F_SHRINE,
-    $F_STAIR1,
     $F_STATUE,
     $F_STATUE_A,
     $F_STATUE_B,
     $H_WORKBENCH,
+    $H_STATUE2,
+    $H_STATUE2_A,
+    $H_STATUE2_B,
     $I_BURNT_NOTEBOOK,
     $I_DOLL_WORKBENCH,
+    $I_DOLL_SCULPTURE,
+    $I_ENGRAVED_COIN,
     $I_IRON_KNIFE,
     $I_SCREWDRIVER,
     $I_SILVER_KEY,
@@ -94,6 +97,7 @@ export class Player {
         this.obtainItem($I_BURNT_NOTEBOOK);
         this.obtainItem($I_SILVER_KEY);
         this.obtainItem($I_SCREWDRIVER);
+        this.obtainItem($I_DOLL_SCULPTURE);
     }
 
     draw() {
@@ -161,6 +165,13 @@ export class Player {
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
                     World.makeVisible($R_HALLWAY);
+                } else if (object.id === $F_ALTAR) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $F_ALTAR_A;
+                } else if (object.id === $F_ALTAR_A) {
+                    object.finished = true;
+                    Log.obtainedItem($I_DOLL_SCULPTURE);
+                    this.obtainItem($I_DOLL_SCULPTURE);
                 } else if (object.id === $F_BURNT_CHAIR) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_BURNT_CHAIR_A;
@@ -204,6 +215,15 @@ export class Player {
                     object.finished = true;
                     this.sp--;
                     this.obtainItem($I_IRON_KNIFE);
+                } else if (object.id === $H_STATUE2) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $H_STATUE2_A;
+                } else if (object.id === $H_STATUE2_A) {
+                    Log.add(World.strings[object.id]);
+                    object.id = $H_STATUE2_B;
+                    object.finished = true;
+                    this.sp--;
+                    this.obtainItem($I_ENGRAVED_COIN);
                 } else if (object.type === TYPE_DOOR) {
                     this.openDoor(object);
                 } else if (object.type === TYPE_EXAMINE_ONLY) {
@@ -270,6 +290,13 @@ export class Player {
             World.objectsById($H_WORKBENCH, object => {
                 object.type = 0;
                 object.char = '\xa7';
+            });
+        } else if (object.id === $F_DOLLHOUSE_B && item === $I_DOLL_SCULPTURE) {
+            Log.add(World.strings[$F_DOLLHOUSE_D]);
+            this.removeItem($I_DOLL_SCULPTURE);
+            World.objectsById($H_STATUE2, object => {
+                object.type = 0;
+                object.char = '&';
             });
         } else {
             Log.add(`%y%0 That doesn't work here.`);

@@ -8,12 +8,13 @@
 #################################################################################
 #   <---                                                                     --->
 items:
-  $I_IRON_KNIFE: 51
-  $I_SILVER_KEY: 52
-  $I_UNCLE_LETTER: 53
-  $I_BURNT_NOTEBOOK: 54
-  $I_DOLL_WORKBENCH: 55
-  $I_SCREWDRIVER: 56
+  $I_IRON_KNIFE: 61
+  $I_SILVER_KEY: 62
+  $I_UNCLE_LETTER: 63
+  $I_BURNT_NOTEBOOK: 64
+  $I_DOLL_WORKBENCH: 65
+  $I_DOLL_SCULPTURE: 66
+  $I_SCREWDRIVER: 67
 strings:
   $D_CLOSET: |
     The door is barred by a metal plate, held in place by a series of screws.
@@ -36,6 +37,13 @@ strings:
     to breathe in this room, it's too small somehow.
   $D_KITCHEN: |
     It seems to be locked from the other side.
+  $F_ALTAR: |
+    A makeshift altar rests against the back wall. Tiny animal bones and black
+    feathers hang from every corner and crevice.
+    A miniature sculpture sits in the middle of the altar.
+  $F_ALTAR_A: |
+    A makeshift altar rests against the back wall. Tiny animal bones and black
+    feathers hang from every corner and crevice.
   $F_BURNT_CHAIR: |
     The charred remnants of a rocking chair.
     A half-burnt notebook is resting on the melted seat cushion.
@@ -55,6 +63,9 @@ strings:
   $F_DOLLHOUSE_C: |
     The miniature workbench fits perfectly into a space in the garage. The
     dollhouse accepts your gift eagerly.
+  $F_DOLLHOUSE_D: |
+    The miniature sculpture fits perfectly into an alcove in the dining
+    room. You feel your bond with the dollhouse deepen.
   $F_DRAWER1: |
     A small dresser-drawer is sitting in the corner.
     A small silver key is lying on top, attached to note.
@@ -78,13 +89,6 @@ strings:
     The shelf seems to have been recently used, most of the dust is wiped off.
   $F_SHELF4: |
     The shelf is covered with dust, but not much else.
-  $F_SHRINE: |
-    A makeshift altar rests against the back wall. Tiny animal bones and black
-    feathers hang from every corner and crevice.
-    A miniature sculpture sits in the middle of the altar.
-  $F_SHRINE_A: |
-    A makeshift altar rests against the back wall. Tiny animal bones and black
-    feathers hang from every corner and crevice.
   $F_STAIR1: |
     The stairs to the second floor are a wreck - you can't go up this way.
   $F_STATUE: |
@@ -97,12 +101,22 @@ strings:
   $F_STATUE_B: |
     A crude, life-sized sculpture of a pregnant woman. One hand rests on her
     belly.
+  $H_STATUE2: |
+    A life-sized sculpture of a woman. She holds in her arms a creature, all
+    legs, heads, and arms, reaching upwards in celebration.
+    One baby fist is clutching something round and shiny.
+  $H_STATUE2_A: |
+    You reach carefully through the tangled limbs.
+    %y%0 You have obtained engraved coin.
+  $H_STATUE2_B: |
+    A life-sized sculpture of a woman. She holds in her arms a creature, all
+    legs, heads, and arms, reaching upwards in celebration.
   $I_IRON_KNIFE:
     - iron knife
     - |
       A large iron knife etched with
-      hundreds of tiny symbols. It feels
-      heavy in your hand.
+      tiny symbols. It feels heavy
+      in your hand.
   $I_BURNT_NOTEBOOK:
     - half-burnt notebook
     - |
@@ -113,12 +127,28 @@ strings:
       "Our Goddess walks the hills
        in the shadow of the wailing star
        and we follow in her path"
+  $I_DOLL_SCULPTURE:
+    - miniature sculpture
+    - |
+      A miniature sculpture of a woman,
+      very like the one you saw in
+      the drawing room.
+      Maybe there's some use for it.
   $I_DOLL_WORKBENCH:
     - miniature workbench
     - |
       A curiously realistic miniature
       workbench, made of wood and metal.
       Maybe there's some use for it.
+  $I_ENGRAVED_COIN:
+    - engraved coin
+    - |
+      An ancient coin engraved on both
+      sides with a short verse:
+
+      "Yidhra, Dream Witch,
+       I am your child.
+       Walk with me."
   $I_SCREWDRIVER:
     - screwdriver
     - |
@@ -141,10 +171,10 @@ strings:
        I am running out of time. I
        cannot explain here but I need
        your help."
-      [Several more lines are furiously
-      crossed out and are illegible.]
+      [The rest of the letter has been
+      crossed out and is illegible.]
   $R_CLOSET:
-    - STORAGE CLOSET
+    - SHRINE
     - |
       This storage closet has been converted into some kind of shrine. The
       unpainted wooden walls are carved with words, but none of them make
@@ -177,9 +207,3 @@ strings:
     - |
       There must have been a fire at some point. Soot and grime coat the walls,
       and the air stinks of burnt fabric.
-  $R_STUDY:
-    - ???
-    - |
-      A nice old room.
-      What a nice place it is.
-      Fuck it.

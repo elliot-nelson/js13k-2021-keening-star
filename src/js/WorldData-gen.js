@@ -13,43 +13,47 @@ export const $D_GARAGE = 7;
 export const $D_GARAGED = 8;
 export const $D_HALLWAY = 9;
 export const $D_KITCHEN = 10;
-export const $F_BURNT_CHAIR = 11;
-export const $F_BURNT_CHAIR_A = 12;
-export const $F_CHAIR1 = 13;
-export const $F_DOLLHOUSE = 14;
-export const $F_DOLLHOUSE_A = 15;
-export const $F_DOLLHOUSE_B = 16;
-export const $F_DOLLHOUSE_C = 17;
-export const $F_DRAWER1 = 18;
-export const $F_DRAWER1_A = 19;
-export const $F_GRAFFITI = 20;
-export const $F_PAINTING1 = 21;
-export const $F_SHELF1 = 22;
-export const $F_SHELF2 = 23;
-export const $F_SHELF3 = 24;
-export const $F_SHELF3_A = 25;
-export const $F_SHELF4 = 26;
-export const $F_SHRINE = 27;
-export const $F_SHRINE_A = 28;
-export const $F_STAIR1 = 29;
-export const $F_STATUE = 30;
-export const $F_STATUE_A = 31;
-export const $F_STATUE_B = 32;
-export const $H_STATUE2 = 33;
-export const $H_WORKBENCH = 34;
-export const $I_BURNT_NOTEBOOK = 54;
-export const $I_DOLL_WORKBENCH = 55;
-export const $I_IRON_KNIFE = 51;
-export const $I_SCREWDRIVER = 56;
-export const $I_SILVER_KEY = 52;
-export const $I_UNCLE_LETTER = 53;
-export const $R_CLOSET = 41;
-export const $R_DINING = 42;
-export const $R_DRAW = 43;
-export const $R_FOYER = 44;
-export const $R_GARAGE = 45;
-export const $R_HALLWAY = 46;
-export const $R_STUDY = 47;
+export const $F_ALTAR = 11;
+export const $F_ALTAR_A = 12;
+export const $F_BURNT_CHAIR = 13;
+export const $F_BURNT_CHAIR_A = 14;
+export const $F_CHAIR1 = 15;
+export const $F_DOLLHOUSE = 16;
+export const $F_DOLLHOUSE_A = 17;
+export const $F_DOLLHOUSE_B = 18;
+export const $F_DOLLHOUSE_C = 19;
+export const $F_DOLLHOUSE_D = 20;
+export const $F_DRAWER1 = 21;
+export const $F_DRAWER1_A = 22;
+export const $F_GRAFFITI = 23;
+export const $F_PAINTING1 = 24;
+export const $F_SHELF1 = 25;
+export const $F_SHELF2 = 26;
+export const $F_SHELF3 = 27;
+export const $F_SHELF3_A = 28;
+export const $F_SHELF4 = 29;
+export const $F_STAIR1 = 30;
+export const $F_STATUE = 31;
+export const $F_STATUE_A = 32;
+export const $F_STATUE_B = 33;
+export const $H_STATUE2 = 34;
+export const $H_STATUE2_A = 35;
+export const $H_STATUE2_B = 36;
+export const $H_WORKBENCH = 37;
+export const $I_BURNT_NOTEBOOK = 64;
+export const $I_DOLL_SCULPTURE = 66;
+export const $I_DOLL_WORKBENCH = 65;
+export const $I_ENGRAVED_COIN = 41;
+export const $I_IRON_KNIFE = 61;
+export const $I_SCREWDRIVER = 67;
+export const $I_SILVER_KEY = 62;
+export const $I_UNCLE_LETTER = 63;
+export const $R_CLOSET = 46;
+export const $R_DINING = 47;
+export const $R_DRAW = 48;
+export const $R_FOYER = 49;
+export const $R_GARAGE = 50;
+export const $R_HALLWAY = 51;
 /* </generated-constants> */
 
 export const WorldData =
@@ -329,7 +333,7 @@ export const WorldData =
                     46,
                     35,
                     46,
-                    128,
+                    46,
                     46,
                     46,
                     46,
@@ -552,63 +556,63 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    45,
+                    50,
                     3,
                     1,
                     8,
                     5
                 ],
                 [
-                    43,
+                    48,
                     25,
                     5,
                     8,
                     6
                 ],
                 [
-                    42,
+                    47,
                     10,
                     4,
                     6,
                     7
                 ],
                 [
-                    46,
+                    51,
                     10,
                     2,
                     10,
                     3
                 ],
                 [
-                    44,
+                    49,
                     15,
                     6,
                     10,
                     6
                 ],
                 [
-                    43,
+                    48,
                     24,
                     5,
                     4,
                     2
                 ],
                 [
-                    42,
+                    47,
                     9,
                     7,
                     2,
                     3
                 ],
                 [
-                    41,
+                    46,
                     15,
                     4,
                     10,
                     2
                 ],
                 [
-                    41,
+                    46,
                     19,
                     3,
                     3,
@@ -634,7 +638,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    14,
+                    16,
                     22,
                     7
                 ],
@@ -651,7 +655,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    22,
+                    25,
                     6,
                     4,
                     4
@@ -663,29 +667,29 @@ export const WorldData =
                     2
                 ],
                 [
-                    29,
+                    30,
                     16,
                     7,
                     4
                 ],
                 [
-                    30,
+                    31,
                     31,
                     8
                 ],
                 [
-                    11,
+                    13,
                     18,
                     3
                 ],
                 [
-                    23,
+                    26,
                     25,
                     6,
                     4
                 ],
                 [
-                    24,
+                    27,
                     26,
                     6
                 ],
@@ -705,51 +709,51 @@ export const WorldData =
                     2
                 ],
                 [
-                    18,
+                    21,
                     9,
                     4
                 ],
                 [
-                    34,
+                    37,
                     7,
                     4,
                     3
                 ],
                 [
-                    34,
+                    37,
                     8,
                     4,
                     3
                 ],
                 [
-                    20,
+                    23,
                     27,
                     10
                 ],
                 [
-                    20,
+                    23,
                     28,
                     10
                 ],
                 [
-                    20,
+                    23,
                     29,
                     10
                 ],
                 [
-                    13,
+                    15,
                     25,
                     9,
                     4
                 ],
                 [
-                    26,
+                    29,
                     30,
                     6,
                     4
                 ],
                 [
-                    33,
+                    34,
                     10,
                     8,
                     3
@@ -761,12 +765,12 @@ export const WorldData =
                     2
                 ],
                 [
-                    27,
+                    11,
                     23,
                     5
                 ],
                 [
-                    21,
+                    24,
                     22,
                     11,
                     4
@@ -803,6 +807,8 @@ export const WorldData =
         "The garage door is heavy and immobile. In the center of the door is\na spray-painted eye, surrounded by rings of tiny symbols. It's hard\nto breathe in this room, it's too small somehow.",
         0,
         "It seems to be locked from the other side.",
+        "A makeshift altar rests against the back wall. Tiny animal bones and black\nfeathers hang from every corner and crevice.\nA miniature sculpture sits in the middle of the altar.",
+        "A makeshift altar rests against the back wall. Tiny animal bones and black\nfeathers hang from every corner and crevice.",
         "The charred remnants of a rocking chair.\nA half-burnt notebook is resting on the melted seat cushion.",
         "The charred remnants of a rocking chair.",
         "This chair is covered in mildew, but otherwise uninteresting.",
@@ -810,6 +816,7 @@ export const WorldData =
         "You carefully unlock the padlock and swing the dollhouse open. Eerily, it\nseems to be a miniature version of the house you stand in. Even the\nfurniture is in the same locations.",
         "The open dollhouse watches you impatiently.",
         "The miniature workbench fits perfectly into a space in the garage. The\ndollhouse accepts your gift eagerly.",
+        "The miniature sculpture fits perfectly into an alcove in the dining\nroom. You feel your bond with the dollhouse deepen.",
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
         "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
@@ -819,22 +826,27 @@ export const WorldData =
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
         "The shelf seems to have been recently used, most of the dust is wiped off.",
         "The shelf is covered with dust, but not much else.",
-        "A makeshift altar rests against the back wall. Tiny animal bones and black\nfeathers hang from every corner and crevice.\nA miniature sculpture sits in the middle of the altar.",
-        "A makeshift altar rests against the back wall. Tiny animal bones and black\nfeathers hang from every corner and crevice.",
         "The stairs to the second floor are a wreck - you can't go up this way.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly, and the other holds an iron knife.\nThe sculpture's grip looks loose - perhaps you could take the knife.",
         "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
-        0,
-        0,
-        0,
-        0,
+        "A life-sized sculpture of a woman. She holds in her arms a creature, all\nlegs, heads, and arms, reaching upwards in celebration.\nOne baby fist is clutching something round and shiny.",
+        "You reach carefully through the tangled limbs.\n%y%0 You have obtained engraved coin.",
+        "A life-sized sculpture of a woman. She holds in her arms a creature, all\nlegs, heads, and arms, reaching upwards in celebration.",
         0,
         0,
         0,
         0,
         [
-            "STORAGE CLOSET",
+            "engraved coin",
+            "An ancient coin engraved on both\nsides with a short verse:\n\n\"Yidhra, Dream Witch,\n I am your child.\n Walk with me.\""
+        ],
+        0,
+        0,
+        0,
+        0,
+        [
+            "SHRINE",
             "This storage closet has been converted into some kind of shrine. The\nunpainted wooden walls are carved with words, but none of them make\nany sense to you."
         ],
         [
@@ -857,16 +869,18 @@ export const WorldData =
             "CHARRED HALLWAY",
             "There must have been a fire at some point. Soot and grime coat the walls,\nand the air stinks of burnt fabric."
         ],
-        [
-            "???",
-            "A nice old room.\nWhat a nice place it is.\nFuck it."
-        ],
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
         [
             "iron knife",
-            "A large iron knife etched with\nhundreds of tiny symbols. It feels\nheavy in your hand."
+            "A large iron knife etched with\ntiny symbols. It feels heavy\nin your hand."
         ],
         [
             "small silver key",
@@ -874,7 +888,7 @@ export const WorldData =
         ],
         [
             "your uncle's letter",
-            "\"Dearest Emily,\n\n We are all in grave danger and\n I am running out of time. I\n cannot explain here but I need\n your help.\"\n[Several more lines are furiously\ncrossed out and are illegible.]"
+            "\"Dearest Emily,\n\n We are all in grave danger and\n I am running out of time. I\n cannot explain here but I need\n your help.\"\n[The rest of the letter has been\ncrossed out and is illegible.]"
         ],
         [
             "half-burnt notebook",
@@ -883,6 +897,10 @@ export const WorldData =
         [
             "miniature workbench",
             "A curiously realistic miniature\nworkbench, made of wood and metal.\nMaybe there's some use for it."
+        ],
+        [
+            "miniature sculpture",
+            "A miniature sculpture of a woman,\nvery like the one you saw in\nthe drawing room.\nMaybe there's some use for it."
         ],
         [
             "screwdriver",
