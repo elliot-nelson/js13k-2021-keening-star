@@ -159,10 +159,8 @@ export const Game = {
             if (entity.z > 0) entity.draw();
         }
 
-        if (this.frame > 60) {
-            Screen.write(66, 18, '[H] Help', Screen.DIM);
-            Log.draw(3);
-        }
+        Screen.write(66, 18, '[H] Help', Screen.DIM);
+        Log.draw(3);
 
         for (let screen of this.screens) {
             screen.draw();

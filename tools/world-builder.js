@@ -73,10 +73,12 @@ const WorldBuilder = {
             if (floor.objects) {
                 floor.objects = floor.objects.map(object => {
                     let result = [ids[object.name], object.x, object.y];
-                    if (object.name.startsWith('$D')) {
-                        result.push(2); // door
-                    } else if (object.name.startsWith('$H')) {
-                        result.push(3); // hidden
+                    if (object.type === 'DOOR') {
+                        result.push(2);
+                    } else if (object.type === 'HIDDEN') {
+                        result.push(3);
+                    } else if (object.type === 'EXAMINE_ONLY') {
+                        result.push(4);
                     }
                     return result;
                 });

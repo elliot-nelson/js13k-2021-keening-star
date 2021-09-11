@@ -5,7 +5,8 @@ import { Audio } from './Audio';
 import {
     TURN_FRAMES,
     TYPE_DOOR,
-    TYPE_HIDDEN
+    TYPE_HIDDEN,
+    TYPE_EXAMINE_ONLY
 } from './Constants';
 import { Game } from './Game';
 import { Input } from './Input';
@@ -160,9 +161,6 @@ export class Player {
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
                     World.makeVisible($R_HALLWAY);
-                } else if (object.id === $F_CHAIR1) {
-                    Log.add(World.strings[object.id]);
-                    object.finished = true;
                 } else if (object.id === $F_BURNT_CHAIR) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_BURNT_CHAIR_A;
@@ -191,12 +189,6 @@ export class Player {
                     this.sp--;
                     Screen.smudge = 2;
                     World.objectsById($F_GRAFFITI, object => object.finished = true);
-                } else if (object.id === $F_SHELF1) {
-                    Log.add(World.strings[object.id]);
-                    object.finished = true;
-                } else if (object.id === $F_SHELF2) {
-                    Log.add(World.strings[object.id]);
-                    object.finished = true;
                 } else if (object.id === $F_SHELF3) {
                     Log.add(World.strings[object.id]);
                     object.id = $F_SHELF3_A;
@@ -211,12 +203,16 @@ export class Player {
                     Log.add(World.strings[object.id]);
                     object.id = $F_STATUE_B;
                     object.finished = true;
+                    this.sp--;
                     this.obtainItem($I_IRON_KNIFE);
                 } else if (object.id === $F_STAIR1) {
                     Log.add(World.strings[object.id])
                     object.finished = true;
                 } else if (object.type === TYPE_DOOR) {
                     this.openDoor(object);
+                } else if (object.type === TYPE_EXAMINE_ONLY) {
+                    Log.add(World.strings[object.id]);
+                    object.finished = true;
                 } else {
                     let action = '';
                     if (object.action) {

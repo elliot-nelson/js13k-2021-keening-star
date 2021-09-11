@@ -618,8 +618,7 @@ export const WorldData =
                 [
                     5,
                     24,
-                    8,
-                    2
+                    8
                 ],
                 [
                     9,
@@ -664,7 +663,8 @@ export const WorldData =
                 [
                     28,
                     16,
-                    7
+                    7,
+                    4
                 ],
                 [
                     29,
@@ -679,7 +679,8 @@ export const WorldData =
                 [
                     22,
                     25,
-                    6
+                    6,
+                    4
                 ],
                 [
                     23,
@@ -689,19 +690,16 @@ export const WorldData =
                 [
                     8,
                     3,
-                    4,
-                    2
+                    4
                 ],
                 [
                     8,
                     3,
-                    3,
-                    2
+                    3
                 ],
                 [
                     8,
                     3,
-                    2,
                     2
                 ],
                 [
@@ -739,12 +737,14 @@ export const WorldData =
                 [
                     13,
                     25,
-                    9
+                    9,
+                    4
                 ],
                 [
                     25,
                     30,
-                    6
+                    6,
+                    4
                 ],
                 [
                     32,

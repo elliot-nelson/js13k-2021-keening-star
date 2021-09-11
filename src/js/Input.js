@@ -53,11 +53,10 @@ export const Input = {
                 this.keyboard[action] = true;
 
                 if (action === Input.Action.SELECT) {
+                    Audio.init();
                     Input.enterPressed = true;
                 }
             }
-
-            Audio.init();
         });
 
         window.addEventListener('keyup', event => {

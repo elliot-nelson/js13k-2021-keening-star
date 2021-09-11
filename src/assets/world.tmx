@@ -277,28 +277,28 @@
    <object id="6" name="$D_DRAW" x="1035" y="2024">
     <point/>
    </object>
-   <object id="7" name="$D_HALLWAY" x="956" y="1961">
+   <object id="7" name="$D_HALLWAY" type="DOOR" x="956" y="1961">
     <point/>
    </object>
-   <object id="12" name="$D_DINING" x="962" y="2040.5">
+   <object id="12" name="$D_DINING" type="DOOR" x="962" y="2040.5">
     <point/>
    </object>
    <object id="14" name="$F_DOLLHOUSE" x="1019.5" y="2007.5">
     <point/>
    </object>
-   <object id="15" name="$D_GARAGE" x="923.5" y="1945.5">
+   <object id="15" name="$D_GARAGE" type="DOOR" x="923.5" y="1945.5">
     <point/>
    </object>
-   <object id="17" name="$D_KITCHEN" x="947.5" y="1929.5">
+   <object id="17" name="$D_KITCHEN" type="DOOR" x="947.5" y="1929.5">
     <point/>
    </object>
    <object id="18" name="$F_SHELF1" x="891" y="1962">
     <point/>
    </object>
-   <object id="21" name="$D_FOYER" x="995.5" y="2073">
+   <object id="21" name="$D_FOYER" type="DOOR" x="995.5" y="2073">
     <point/>
    </object>
-   <object id="22" name="$F_STAIR1" x="970.5" y="2009">
+   <object id="22" name="$F_STAIR1" type="EXAMINE_ONLY" x="970.5" y="2009">
     <point/>
    </object>
    <object id="27" name="$F_STATUE" x="1090.5" y="2025.5">
@@ -307,7 +307,7 @@
    <object id="28" name="$F_BURNT_CHAIR" x="988.5" y="1943.5">
     <point/>
    </object>
-   <object id="29" name="$F_SHELF2" x="1043.5" y="1993">
+   <object id="29" name="$F_SHELF2" type="EXAMINE_ONLY" x="1043.5" y="1993">
     <point/>
    </object>
    <object id="30" name="$F_SHELF3" x="1052" y="1991.5">
@@ -325,10 +325,10 @@
    <object id="34" name="$F_DRAWER1" x="916.5" y="1960.5">
     <point/>
    </object>
-   <object id="35" name="$H_WORKBENCH" x="899.5" y="1964.5">
+   <object id="35" name="$H_WORKBENCH" type="HIDDEN" x="899.5" y="1964.5">
     <point/>
    </object>
-   <object id="36" name="$H_WORKBENCH" x="907" y="1964.5">
+   <object id="36" name="$H_WORKBENCH" type="HIDDEN" x="907" y="1964.5">
     <point/>
    </object>
    <object id="37" name="$F_GRAFFITI" x="1060" y="2056">
@@ -340,16 +340,16 @@
    <object id="39" name="$F_GRAFFITI" x="1075.5" y="2056">
     <point/>
    </object>
-   <object id="40" name="$F_CHAIR1" x="1044.5" y="2041.5">
+   <object id="40" name="$F_CHAIR1" type="EXAMINE_ONLY" x="1044.5" y="2041.5">
     <point/>
    </object>
-   <object id="41" name="$F_SHELF4" x="1083.5" y="1992.5">
+   <object id="41" name="$F_SHELF4" type="EXAMINE_ONLY" x="1083.5" y="1992.5">
     <point/>
    </object>
-   <object id="42" name="$H_STATUE2" x="924" y="2026">
+   <object id="42" name="$H_STATUE2" type="HIDDEN" x="924" y="2026">
     <point/>
    </object>
-   <object id="43" name="$D_CLOSET" x="973" y="1962.5">
+   <object id="43" name="$D_CLOSET" type="DOOR" x="973" y="1962.5">
     <point/>
    </object>
    <object id="45" name="$F_SHRINE" x="1027" y="1977.5">
