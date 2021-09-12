@@ -9,6 +9,7 @@ import {
     TYPE_EXAMINE_ONLY
 } from './Constants';
 import { Game } from './Game';
+import { GoodbyeScreen } from './GoodbyeScreen';
 import { Input } from './Input';
 import { InventoryScreen } from './InventoryScreen';
 import { Log } from './Log';
@@ -47,6 +48,8 @@ import {
     $F_VOTIVE,
     $F_VOTIVE_A,
     $F_VOTIVE_B,
+    $H_DIG,
+    $H_DIG_A,
     $H_WORKBENCH,
     $H_WORKBENCH_A,
     $H_STATUE2,
@@ -102,11 +105,11 @@ export class Player {
         World.makeVisible(this.room.id);
 
         // Temporary hack stuff
-        this.obtainItem($I_IRON_KNIFE);
+        /*this.obtainItem($I_IRON_KNIFE);
         this.obtainItem($I_SILVER_KEY);
         this.obtainItem($I_SCREWDRIVER);
         this.obtainItem($I_DOLL_SCULPTURE);
-        this.obtainItem($I_ENGRAVED_COIN);
+        this.obtainItem($I_ENGRAVED_COIN);*/
     }
 
     draw() {
@@ -243,8 +246,16 @@ export class Player {
                     if (object.interacted) {
                         this.openInventoryFor(object);
                     }
-                } else if (object.id === $F_VOTIVE_A) {
-                    this.openInventory
+                } else if (object.id === $H_DIG_A) {
+                    // End the game!
+                    Game.screens.push(new GoodbyeScreen());
+                } else if (object.id === $H_WORDS) {
+                    Log.add(World.strings[object.id]);
+                    object.finished = true;
+                    World.objectsById($H_DIG, object => {
+                        object.type = 0;
+                        object.char = 'X';
+                    });
                 } else if (object.id === $H_WORKBENCH) {
                     Log.add(World.strings[object.id]);
                     World.objectsById($H_WORKBENCH, object => {
@@ -332,6 +343,14 @@ export class Player {
             World.objectsById($H_STATUE2, object => {
                 object.type = 0;
                 object.char = '&';
+            });
+        } else if (object.id === $F_DOLLHOUSE_B && item === $I_IRON_KNIFE) {
+            Log.add(World.strings[$F_DOLLHOUSE_E]);
+            this.removeItem($I_IRON_KNIFE);
+            object.finished = true;
+            World.objectsById($H_DIG, object => {
+                object.id = $H_DIG_A;
+                object.char = '>';
             });
         } else if (object.id === $F_VOTIVE && item === $I_ENGRAVED_COIN) {
             Log.add(World.strings[$F_VOTIVE_A]);

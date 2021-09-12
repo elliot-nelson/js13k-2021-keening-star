@@ -39,9 +39,7 @@ export const Game = {
         this.player = new Player(xyz2pos(...World.spawn));
         this.entities.push(this.player);
 
-        this.screens = [];
-
-        this.screens.push(new WelcomeScreen());
+        this.screens = [new WelcomeScreen()];
 
         Camera.init();
 
@@ -149,7 +147,7 @@ export const Game = {
 
         // A simplistic 3-layer z-order system. We can always be more advanced
         // and actually sort by z later!
-        for (let entity of this.entities) {
+        /*for (let entity of this.entities) {
             if (entity.z < 0) entity.draw();
         }
         for (let entity of this.entities) {
@@ -157,7 +155,9 @@ export const Game = {
         }
         for (let entity of this.entities) {
             if (entity.z > 0) entity.draw();
-        }
+        }*/
+        //for (let entity of this.entities) entity.draw();
+        Game.player.draw();
 
         Screen.write(66, 18, '[H] Help', Screen.DIM);
         Log.draw(3);

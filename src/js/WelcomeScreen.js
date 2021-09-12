@@ -8,7 +8,6 @@ import { Screen } from './Screen';
 
 export class WelcomeScreen {
     constructor() {
-        this.expand = 2;
         Screen.smudge = 26;
     }
 

@@ -68,6 +68,10 @@ strings:
   $F_DOLLHOUSE_D: |
     The miniature sculpture fits perfectly into an alcove in the dining
     room. You feel your bond with the dollhouse deepen.
+  $F_DOLLHOUSE_E: |
+    Gauging carefully, you line up your knife and plunge it into the floor
+    of the dollhouse. Wood and concrete scream with glee behind you as
+    the floor opens up.
   $F_DRAWER1: |
     A small dresser-drawer is sitting in the corner.
     A small silver key is lying on top, attached to note.
@@ -116,6 +120,11 @@ strings:
     as day. Your mind is reeling, grasping for something it can't quite hold.
   $F_VOTIVE_B: |
     An old armoire holding dozens of burning votive candles. Her candles.
+  $H_DIG: |
+    This is the spot, you can feel it under your feet. But your knife barely
+    makes a dent in the old hardwood - there must be a better way.
+  $H_DIG_A: |
+    This is the spot.
   $H_STATUE2: |
     A life-sized sculpture of a woman. She holds in her arms a creature, all
     legs, heads, and arms, reaching upwards in celebration.
