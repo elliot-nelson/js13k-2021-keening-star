@@ -45,6 +45,7 @@ import {
     $F_STATUE_B,
     $F_TABLE,
     $H_WORKBENCH,
+    $H_WORKBENCH_A,
     $H_STATUE2,
     $H_STATUE2_A,
     $H_STATUE2_B,
@@ -60,6 +61,7 @@ import {
     $R_DRAW,
     $R_DINING,
     $R_GARAGE,
+    $R_GARAGE_A,
     $R_HALLWAY
 } from './WorldData-gen';
 //import { WorldParticle } from './WorldParticle';
@@ -231,6 +233,19 @@ export class Player {
                     object.finished = true;
                     this.sp--;
                     this.obtainItem($I_ENGRAVED_COIN);
+                } else if (object.id === $H_WORKBENCH) {
+                    Log.add(World.strings[object.id]);
+                    World.objectsById($H_WORKBENCH, object => {
+                        object.id = $H_WORKBENCH_A;
+                        object.interacted = true;
+                    });
+                } else if (object.id === $H_WORKBENCH_A) {
+                    World.objectsById($H_WORKBENCH_A, object => {
+                        object.finished = true;
+                    });
+                    this.sp--;
+                    Log.obtainedItem($I_SCREWDRIVER);
+                    this.obtainItem($I_SCREWDRIVER);
                 } else if (object.type === TYPE_DOOR) {
                     this.openDoor(object);
                 } else if (object.type === TYPE_EXAMINE_ONLY) {
@@ -298,6 +313,7 @@ export class Player {
                 object.type = 0;
                 object.char = '\xa7';
             });
+            World.strings[$R_GARAGE][1] = World.strings[$R_GARAGE_A][1];
         } else if (object.id === $F_DOLLHOUSE_B && item === $I_DOLL_SCULPTURE) {
             Log.add(World.strings[$F_DOLLHOUSE_D]);
             this.removeItem($I_DOLL_SCULPTURE);

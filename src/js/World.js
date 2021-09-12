@@ -101,7 +101,20 @@ export const World = {
             for (let object of floor.objects) {
                 if (object.id === id) {
                     list.push(object);
-                    if (map) map(object, floor);
+                    if (map) map(object);
+                }
+            }
+        }
+        return list;
+    },
+
+    roomsById(id, map) {
+        let list = [];
+        for (let floor of this.floors) {
+            for (let room of floor.rooms) {
+                if (room.id === id) {
+                    list.push(room);
+                    if (map) map(room);
                 }
             }
         }

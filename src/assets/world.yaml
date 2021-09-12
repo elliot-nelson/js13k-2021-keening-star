@@ -116,6 +116,11 @@ strings:
   $H_STATUE2_B: |
     A life-sized sculpture of a woman. She holds in her arms a creature, all
     legs, heads, and arms, reaching upwards in celebration.
+  $H_WORKBENCH: |
+    A sturdy wood and metal workbench, littered with debris.
+    Lying amidst the junk and broken tools, you spot a screwdriver.
+  $H_WORKBENCH_A: |
+    A sturdy wood and metal workbench, littered with debris.
   $I_IRON_KNIFE:
     - iron knife
     - |
@@ -206,6 +211,11 @@ strings:
       The garage is empty, save for a few rusty shelves and the usual cobwebs.
       There must have been other furniture here recently, you can see lines
       in the dust where a workbench used to be.
+  $R_GARAGE_A:
+    - GARAGE
+    - |
+      The garage is empty, save for a few rusty shelves and the usual cobwebs.
+      There is a sturdy workbench near the door.
   $R_HALLWAY:
     - CHARRED HALLWAY
     - |

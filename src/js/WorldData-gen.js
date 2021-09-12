@@ -42,20 +42,22 @@ export const $H_STATUE2 = 36;
 export const $H_STATUE2_A = 37;
 export const $H_STATUE2_B = 38;
 export const $H_WORKBENCH = 39;
+export const $H_WORKBENCH_A = 40;
 export const $I_BURNT_NOTEBOOK = 64;
 export const $I_DOLL_SCULPTURE = 66;
 export const $I_DOLL_WORKBENCH = 65;
-export const $I_ENGRAVED_COIN = 43;
+export const $I_ENGRAVED_COIN = 44;
 export const $I_IRON_KNIFE = 61;
 export const $I_SCREWDRIVER = 67;
 export const $I_SILVER_KEY = 62;
 export const $I_UNCLE_LETTER = 63;
-export const $R_CLOSET = 48;
-export const $R_DINING = 49;
-export const $R_DRAW = 50;
-export const $R_FOYER = 51;
-export const $R_GARAGE = 52;
-export const $R_HALLWAY = 53;
+export const $R_CLOSET = 49;
+export const $R_DINING = 50;
+export const $R_DRAW = 51;
+export const $R_FOYER = 52;
+export const $R_GARAGE = 53;
+export const $R_GARAGE_A = 54;
+export const $R_HALLWAY = 55;
 /* </generated-constants> */
 
 export const WorldData =
@@ -453,63 +455,63 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    52,
+                    53,
                     3,
                     0,
                     8,
                     5
                 ],
                 [
-                    50,
+                    51,
                     25,
                     4,
                     8,
                     6
                 ],
                 [
-                    49,
+                    50,
                     10,
                     3,
                     6,
                     7
                 ],
                 [
-                    53,
+                    55,
                     10,
                     1,
                     10,
                     3
                 ],
                 [
-                    51,
+                    52,
                     15,
                     5,
                     10,
                     6
                 ],
                 [
-                    50,
+                    51,
                     24,
                     4,
                     4,
                     2
                 ],
                 [
-                    49,
+                    50,
                     9,
                     6,
                     2,
                     3
                 ],
                 [
-                    48,
+                    49,
                     15,
                     3,
                     10,
                     2
                 ],
                 [
-                    48,
+                    49,
                     19,
                     2,
                     3,
@@ -768,7 +770,8 @@ export const WorldData =
         "A life-sized sculpture of a woman. She holds in her arms a creature, all\nlegs, heads, and arms, reaching upwards in celebration.\nOne baby fist is clutching something round and shiny.",
         "You reach carefully through the tangled limbs.\n%y%0 You have obtained engraved coin.",
         "A life-sized sculpture of a woman. She holds in her arms a creature, all\nlegs, heads, and arms, reaching upwards in celebration.",
-        0,
+        "A sturdy wood and metal workbench, littered with debris.\nLying amidst the junk and broken tools, you spot a screwdriver.",
+        "A sturdy wood and metal workbench, littered with debris.",
         0,
         0,
         0,
@@ -801,11 +804,13 @@ export const WorldData =
             "The garage is empty, save for a few rusty shelves and the usual cobwebs.\nThere must have been other furniture here recently, you can see lines\nin the dust where a workbench used to be."
         ],
         [
+            "GARAGE",
+            "The garage is empty, save for a few rusty shelves and the usual cobwebs.\nThere is a sturdy workbench near the door."
+        ],
+        [
             "CHARRED HALLWAY",
             "There must have been a fire at some point. Soot and grime coat the walls,\nand the air stinks of burnt fabric."
         ],
-        0,
-        0,
         0,
         0,
         0,
