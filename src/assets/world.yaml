@@ -69,6 +69,8 @@ strings:
     The miniature sculpture fits perfectly into an alcove in the dining
     room. You feel your bond with the dollhouse deepen.
   $F_DOLLHOUSE_E: |
+    The open dollhouse welcomes you, waiting patiently.
+  $F_DOLLHOUSE_F: |
     Gauging carefully, you line up your knife and plunge it into the floor
     of the dollhouse. Wood and concrete scream with glee behind you as
     the floor opens up.

@@ -25,47 +25,48 @@ export const $F_DOLLHOUSE_B = 19;
 export const $F_DOLLHOUSE_C = 20;
 export const $F_DOLLHOUSE_D = 21;
 export const $F_DOLLHOUSE_E = 22;
-export const $F_DRAWER1 = 23;
-export const $F_DRAWER1_A = 24;
-export const $F_GRAFFITI = 25;
-export const $F_PAINTING1 = 26;
-export const $F_SHELF1 = 27;
-export const $F_SHELF2 = 28;
-export const $F_SHELF3 = 29;
-export const $F_SHELF3_A = 30;
-export const $F_SHELF4 = 31;
-export const $F_STAIR1 = 32;
-export const $F_STATUE = 33;
-export const $F_STATUE_A = 34;
-export const $F_STATUE_B = 35;
-export const $F_TABLE = 36;
-export const $F_VOTIVE = 37;
-export const $F_VOTIVE_A = 38;
-export const $F_VOTIVE_B = 39;
-export const $H_DIG = 40;
-export const $H_DIG_A = 41;
-export const $H_STATUE2 = 42;
-export const $H_STATUE2_A = 43;
-export const $H_STATUE2_B = 44;
-export const $H_WORDS = 45;
-export const $H_WORKBENCH = 46;
-export const $H_WORKBENCH_A = 47;
+export const $F_DOLLHOUSE_F = 23;
+export const $F_DRAWER1 = 24;
+export const $F_DRAWER1_A = 25;
+export const $F_GRAFFITI = 26;
+export const $F_PAINTING1 = 27;
+export const $F_SHELF1 = 28;
+export const $F_SHELF2 = 29;
+export const $F_SHELF3 = 30;
+export const $F_SHELF3_A = 31;
+export const $F_SHELF4 = 32;
+export const $F_STAIR1 = 33;
+export const $F_STATUE = 34;
+export const $F_STATUE_A = 35;
+export const $F_STATUE_B = 36;
+export const $F_TABLE = 37;
+export const $F_VOTIVE = 38;
+export const $F_VOTIVE_A = 39;
+export const $F_VOTIVE_B = 40;
+export const $H_DIG = 41;
+export const $H_DIG_A = 42;
+export const $H_STATUE2 = 43;
+export const $H_STATUE2_A = 44;
+export const $H_STATUE2_B = 45;
+export const $H_WORDS = 46;
+export const $H_WORKBENCH = 47;
+export const $H_WORKBENCH_A = 48;
 export const $I_BURNT_NOTEBOOK = 74;
 export const $I_DOLL_SCULPTURE = 76;
 export const $I_DOLL_WORKBENCH = 75;
-export const $I_ENGRAVED_COIN = 51;
+export const $I_ENGRAVED_COIN = 52;
 export const $I_IRON_KNIFE = 71;
 export const $I_SCREWDRIVER = 77;
 export const $I_SILVER_KEY = 72;
 export const $I_UNCLE_LETTER = 73;
-export const $R_CLOSET = 56;
-export const $R_CLOSET_A = 57;
-export const $R_DINING = 58;
-export const $R_DRAW = 59;
-export const $R_FOYER = 60;
-export const $R_GARAGE = 61;
-export const $R_GARAGE_A = 62;
-export const $R_HALLWAY = 63;
+export const $R_CLOSET = 57;
+export const $R_CLOSET_A = 58;
+export const $R_DINING = 59;
+export const $R_DRAW = 60;
+export const $R_FOYER = 61;
+export const $R_GARAGE = 62;
+export const $R_GARAGE_A = 63;
+export const $R_HALLWAY = 64;
 /* </generated-constants> */
 
 export const WorldData =
@@ -463,63 +464,63 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    61,
+                    62,
                     3,
                     0,
                     8,
                     5
                 ],
                 [
-                    59,
+                    60,
                     25,
                     4,
                     8,
                     6
                 ],
                 [
-                    58,
+                    59,
                     10,
                     3,
                     6,
                     7
                 ],
                 [
-                    63,
+                    64,
                     10,
                     1,
                     10,
                     3
                 ],
                 [
-                    60,
+                    61,
                     15,
                     5,
                     10,
                     6
                 ],
                 [
-                    59,
+                    60,
                     24,
                     4,
                     4,
                     2
                 ],
                 [
-                    58,
+                    59,
                     9,
                     6,
                     2,
                     3
                 ],
                 [
-                    56,
+                    57,
                     15,
                     3,
                     10,
                     2
                 ],
                 [
-                    56,
+                    57,
                     19,
                     1,
                     3,
@@ -562,7 +563,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    27,
+                    28,
                     6,
                     3,
                     4
@@ -574,13 +575,13 @@ export const WorldData =
                     2
                 ],
                 [
-                    32,
+                    33,
                     16,
                     6,
                     4
                 ],
                 [
-                    33,
+                    34,
                     31,
                     7
                 ],
@@ -590,13 +591,13 @@ export const WorldData =
                     2
                 ],
                 [
-                    28,
+                    29,
                     25,
                     5,
                     4
                 ],
                 [
-                    29,
+                    30,
                     26,
                     5
                 ],
@@ -616,34 +617,34 @@ export const WorldData =
                     1
                 ],
                 [
-                    23,
+                    24,
                     9,
                     3
                 ],
                 [
-                    46,
+                    47,
                     7,
                     3,
                     3
                 ],
                 [
-                    46,
+                    47,
                     8,
                     3,
                     3
                 ],
                 [
-                    25,
+                    26,
                     27,
                     9
                 ],
                 [
-                    25,
+                    26,
                     28,
                     9
                 ],
                 [
-                    25,
+                    26,
                     29,
                     9
                 ],
@@ -654,13 +655,13 @@ export const WorldData =
                     4
                 ],
                 [
-                    31,
+                    32,
                     30,
                     5,
                     4
                 ],
                 [
-                    42,
+                    43,
                     10,
                     7,
                     3
@@ -677,7 +678,7 @@ export const WorldData =
                     4
                 ],
                 [
-                    26,
+                    27,
                     22,
                     10,
                     4
@@ -689,48 +690,48 @@ export const WorldData =
                     2
                 ],
                 [
-                    36,
+                    37,
                     13,
                     7
                 ],
                 [
-                    36,
+                    37,
                     12,
-                    5
-                ],
-                [
-                    36,
-                    13,
-                    6
-                ],
-                [
-                    36,
-                    12,
-                    7
-                ],
-                [
-                    36,
-                    12,
-                    6
-                ],
-                [
-                    36,
-                    13,
                     5
                 ],
                 [
                     37,
+                    13,
+                    6
+                ],
+                [
+                    37,
+                    12,
+                    7
+                ],
+                [
+                    37,
+                    12,
+                    6
+                ],
+                [
+                    37,
+                    13,
+                    5
+                ],
+                [
+                    38,
                     20,
                     2
                 ],
                 [
-                    45,
+                    46,
                     18,
                     3,
                     3
                 ],
                 [
-                    40,
+                    41,
                     20,
                     8,
                     3
@@ -778,6 +779,7 @@ export const WorldData =
         "The open dollhouse watches you impatiently.",
         "The miniature workbench fits perfectly into a space in the garage. The\ndollhouse accepts your gift eagerly.",
         "The miniature sculpture fits perfectly into an alcove in the dining\nroom. You feel your bond with the dollhouse deepen.",
+        "The open dollhouse welcomes you, waiting patiently.",
         "Gauging carefully, you line up your knife and plunge it into the floor\nof the dollhouse. Wood and concrete scream with glee behind you as\nthe floor opens up.",
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
@@ -847,7 +849,6 @@ export const WorldData =
             "CHARRED HALLWAY",
             "There must have been a fire at some point. Soot and grime coat the walls,\nand the air stinks of burnt fabric."
         ],
-        0,
         0,
         0,
         0,

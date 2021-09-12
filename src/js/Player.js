@@ -39,6 +39,7 @@ import {
     $F_DOLLHOUSE_C,
     $F_DOLLHOUSE_D,
     $F_DOLLHOUSE_E,
+    $F_DOLLHOUSE_F,
     $F_GRAFFITI,
     $F_SHELF3,
     $F_SHELF3_A,
@@ -206,7 +207,7 @@ export class Player {
                     if (object.interacted) {
                         this.openInventoryFor(object);
                     }
-                } else if (object.id === $F_DOLLHOUSE_B) {
+                } else if (object.id === $F_DOLLHOUSE_B || object.id === $F_DOLLHOUSE_E) {
                     Log.add(World.strings[object.id]);
                     this.openInventoryFor(object);
                 } else if (object.id === $F_GRAFFITI) {
@@ -247,6 +248,8 @@ export class Player {
                     if (object.interacted) {
                         this.openInventoryFor(object);
                     }
+                } else if (object.id === $H_DIG) {
+                    Log.add(World.strings[object.id]);
                 } else if (object.id === $H_DIG_A) {
                     // End the game!
                     Game.screens.push(new GoodbyeScreen());
@@ -257,6 +260,7 @@ export class Player {
                         object.type = 0;
                         object.char = 'X';
                     });
+                    World.objectsById($F_DOLLHOUSE_B, object => object.id = $F_DOLLHOUSE_E);
                 } else if (object.id === $H_WORKBENCH) {
                     Log.add(World.strings[object.id]);
                     World.objectsById($H_WORKBENCH, object => {
@@ -343,8 +347,8 @@ export class Player {
                 object.type = 0;
                 object.char = '&';
             });
-        } else if (object.id === $F_DOLLHOUSE_B && item === $I_IRON_KNIFE) {
-            Log.add(World.strings[$F_DOLLHOUSE_E]);
+        } else if (object.id === $F_DOLLHOUSE_E && item === $I_IRON_KNIFE) {
+            Log.add(World.strings[$F_DOLLHOUSE_F]);
             this.removeItem($I_IRON_KNIFE);
             object.finished = true;
             World.objectsById($H_DIG, object => {
