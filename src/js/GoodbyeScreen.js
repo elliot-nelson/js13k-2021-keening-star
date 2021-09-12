@@ -1,14 +1,12 @@
-// WelcomeScreen
+// GoodbyeScreen
 
 import { Audio } from './Audio';
-import { LOG_CLOSED_LINES, LOG_OPEN_LINES, SCREEN_WIDTH, SCREEN_HEIGHT } from './Constants';
-import { Input } from './Input';
-import { Log } from './Log';
 import { Screen } from './Screen';
 
 export class GoodbyeScreen {
     constructor() {
         Screen.smudge = 7;
+        Audio.mute(12);
     }
 
     update() {

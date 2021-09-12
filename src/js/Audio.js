@@ -20,7 +20,7 @@ export const Audio = {
         setTimeout(() => {
             this.globalGain = this.audioCtx.createGain(this.audioCtx, { gain: 0 });
             this.globalGain.connect(this.audioCtx.destination);
-            this.globalGain.gain.linearRampToValueAtTime(1, this.audioCtx.currentTime + 2);
+            this.unmute(3);
 
             this.cart = new AudioCart(AudioData, { audioCtx: this.audioCtx });
 
@@ -28,13 +28,23 @@ export const Audio = {
             this.music.connect(this.globalGain);
             this.music.start();
         }, 1);
-        // 1
     },
 
-    playShit() {
-        //console.log(this.cart);
-        //let sfx = this.cart.sfx(2);
-        //sfx.connect(this.globalGain);
-        //sfx.start();
+    mute(seconds = 1) {
+        this.globalGain.gain.linearRampToValueAtTime(0, this.audioCtx.currentTime + seconds);
+    },
+
+    unmute(seconds = 1) {
+        this.globalGain.gain.linearRampToValueAtTime(1, this.audioCtx.currentTime + seconds);
     }
+
+    // If I supported sound effects, I'd list them here.
+    // Due to lack of space, not yet implemented :)
+    //
+    /*playStuff() {
+        let sfx = this.cart.sfx(2);
+        sfx.connect(this.globalGain);
+        sfx.start();
+    }
+    */
 };

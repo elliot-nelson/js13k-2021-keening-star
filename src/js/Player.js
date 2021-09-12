@@ -38,6 +38,7 @@ import {
     $F_DOLLHOUSE_B,
     $F_DOLLHOUSE_C,
     $F_DOLLHOUSE_D,
+    $F_DOLLHOUSE_E,
     $F_GRAFFITI,
     $F_SHELF3,
     $F_SHELF3_A,
@@ -105,11 +106,11 @@ export class Player {
         World.makeVisible(this.room.id);
 
         // Temporary hack stuff
-        /*this.obtainItem($I_IRON_KNIFE);
+        this.obtainItem($I_IRON_KNIFE);
         this.obtainItem($I_SILVER_KEY);
         this.obtainItem($I_SCREWDRIVER);
         this.obtainItem($I_DOLL_SCULPTURE);
-        this.obtainItem($I_ENGRAVED_COIN);*/
+        this.obtainItem($I_ENGRAVED_COIN);
     }
 
     draw() {
@@ -210,7 +211,7 @@ export class Player {
                     this.openInventoryFor(object);
                 } else if (object.id === $F_GRAFFITI) {
                     Log.add(World.strings[object.id]);
-                    this.sp--;
+                    this.sp -= 3;
                     Screen.smudge = 2;
                     World.objectsById($F_GRAFFITI, object => object.finished = true);
                 } else if (object.id === $F_SHELF3) {
@@ -227,7 +228,7 @@ export class Player {
                     Log.add(World.strings[object.id]);
                     object.id = $F_STATUE_B;
                     object.finished = true;
-                    this.sp--;
+                    this.sp -= 2;
                     this.obtainItem($I_IRON_KNIFE);
                 } else if (object.id === $F_TABLE) {
                     Log.add(World.strings[object.id]);
@@ -239,7 +240,7 @@ export class Player {
                     Log.add(World.strings[object.id]);
                     object.id = $H_STATUE2_B;
                     object.finished = true;
-                    this.sp--;
+                    this.sp -= 3;
                     this.obtainItem($I_ENGRAVED_COIN);
                 } else if (object.id === $F_VOTIVE) {
                     Log.add(World.strings[object.id]);
@@ -309,8 +310,6 @@ export class Player {
             this.room = room;
             this.lookingAt = this.room;
         }
-
-        Audio.playShit();
     }
 
     openInventoryFor(object) {
