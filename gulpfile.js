@@ -7,6 +7,7 @@ const { execSync }      = require('child_process');
 const fs                = require('fs');
 const gulp              = require('gulp');
 const log               = require('fancy-log');
+const { Packer }        = require('roadroller');
 const p8tojs            = require('p8-to-js');
 const rollup            = require('rollup');
 const rollupNodeResolve = require('@rollup/plugin-node-resolve');
@@ -31,6 +32,7 @@ const zip               = require('gulp-zip');
 // Flags
 // -----------------------------------------------------------------------------
 let watching = false;
+let dist = process.argv.includes('--dist');
 
 // -----------------------------------------------------------------------------
 // Assets Build
@@ -196,9 +198,31 @@ function minifyBuild() {
     .pipe(gulp.dest('temp/minified'));
 }
 
+async function packBuild() {
+    if (!dist) {
+        log.info('Skipping packBuild (not --dist).');
+        return;
+    }
+
+    const jsContent = fs.readFileSync('temp/minified/app.js', 'utf8');
+
+    const packer = new Packer([{
+        data: jsContent,
+        type: 'js',
+        action: 'eval'
+    }]);
+    await packer.optimize();
+    const { firstLine, secondLine } = packer.makeDecoder();
+    const packedJsContent = [firstLine, secondLine].join('\n');
+
+    fs.mkdirSync('temp/packed', { recursive: true });
+    fs.writeFileSync('temp/packed/app.js', packedJsContent, 'utf8');
+}
+
 const buildJs = gulp.series(
     compileBuild,
     minifyBuild,
+    packBuild
 );
 
 // -----------------------------------------------------------------------------
@@ -214,9 +238,10 @@ function buildCss() {
 // -----------------------------------------------------------------------------
 // HTML Build
 // -----------------------------------------------------------------------------
-function buildHtml() {
-    const cssContent = fs.readFileSync('temp/app.css');
-    const jsContent = fs.readFileSync('temp/minified/app.js');
+async function buildHtml() {
+    let filename = dist ? 'temp/packed/app.js' : 'temp/minified/app.js';
+    const cssContent = fs.readFileSync('temp/app.css', 'utf8');
+    const jsContent = fs.readFileSync(filename, 'utf8');
 
     // Rather than having separate `app.css` and `app.js` files, we embed them both
     // inside the HTML file (and any sprites we want have already been embedded
@@ -263,6 +288,7 @@ const build = gulp.series(
     buildCss,
     buildJs,
     buildHtml,
+    ...(dist ? [buildZip] : [async () => log.info('Skipping buildZip (not --dist).')]),
     ready
 );
 
