@@ -81,7 +81,7 @@ async function generateWorld() {
 }
 
 async function generateAudio() {
-    const p8File = 'src/assets/audio5.p8';
+    const p8File = 'src/assets/audio.p8';
     const jsFile = 'src/js/AudioData-gen.js';
 
     await p8tojs.convertFile(p8File, jsFile, {
@@ -267,7 +267,7 @@ function buildZip() {
     return gulp.src(['dist/index.html'])
         .pipe(size())
         .pipe(zip('js13k-2021-shadow-of-the-keening-star.zip'))
-        .pipe(advzip({ optimizationLevel: 4 /*, iterations: 200 */ }))
+        .pipe(advzip({ optimizationLevel: 4, iterations: 200 }))
         .pipe(sizeResult = size({ title: 'zip' }))
         .pipe(gulp.dest('dist/final'))
         .on('end', () => {
