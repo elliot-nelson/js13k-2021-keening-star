@@ -716,9 +716,9 @@
         "Gauging carefully, you line up your knife and plunge it into the floor\nof the dollhouse. Wood and concrete scream with glee behind you as\nthe floor opens up.",
         "A small dresser-drawer is sitting in the corner.\nA small silver key is lying on top, attached to note.",
         "A small dresser-drawer is sitting in the corner.",
-        "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
-        "An oil painting hangs on the wall, out of place in this shabby room. It\nseems to depict a planet being devoured by... something.\nYou feel that the less you look at it, the better.",
-        "A painting used to hang here. %r\"AZATHOTH squirms, we will burst from\n%rthis dimension like locusts on the old ones\" %whas been written\nhere in thick red marker.",
+        "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase %rHER CHILDREN %whas been spray-painted across the wall.",
+        "An oil painting hangs on the wall, out of place in this shabby room. It\nseems to depict a planet being devoured by... something.\nThe less you look at it, the better.",
+        "A painting used to hang here. %rAZATHOTH squirms, we will burst from\n%rthis dimension like locusts on the old ones %whas been written\nhere in thick red marker.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
@@ -729,7 +729,7 @@
         "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
         "The dining room table is smashed to splinters. A black, sticky substance\nthat smells like burning hair covers most of the table.",
-        "An armoire has been repurposed to hold dozens of votive candles. A message\nis written on the back panel: \"Say her words.\"\nYour spine tingles. You feel like you could recite something here.",
+        "An armoire has been repurposed to hold dozens of votive candles. A message\nis written on the back panel: %rSay her words%w.\nYour spine tingles. You feel like you could recite something here.",
         "Your voice echoes as you recite the words engraved on the coin.\nYou shield your eyes as the candles burst into flame, the room lit bright\nas day. Your mind is reeling, grasping for something it can't quite hold.",
         "An old armoire holding dozens of burning votive candles. Her candles.",
         "This is the spot, you can feel it under your feet. But your knife barely\nmakes a dent in the old hardwood - there must be a better way.",
@@ -766,7 +766,7 @@
         ],
         [
             "FOYER",
-            "You are in the foyer. The peeling paint and threadbare rugs seem even\nolder than the outside of the house.\nA large dollhouse sits on a pedestal in the far corner of the room."
+            "You are in the foyer. The peeling paint and threadbare rugs seem even\nolder than the outside of the house.\nA dollhouse sits on a pedestal in the far corner of the room."
         ],
         [
             "GARAGE",
@@ -791,15 +791,15 @@
         ],
         [
             "small silver key",
-            "A small silver key. A note is\nattached with a piece of twine.\n\n\"N is still here, stay on this\n side.\""
+            "A small silver key. A note is\nattached with a piece of twine.\n\n%r\"N is still here, stay on this\n%r side.\""
         ],
         [
             "your uncle's letter",
-            "\"Dearest Emily,\n\n We are all in grave danger and\n I am running out of time. I\n cannot explain here but I need\n your help.\"\n[The rest of the letter has been\ncrossed out and is illegible.]"
+            "%r\"Dearest Emily,\n\n%r We are all in grave danger and\n%r I am running out of time. I\n%r cannot explain here but I need\nyour help.\"\n%w[The rest of the letter has been\ncrossed out and is illegible.]"
         ],
         [
             "half-burnt notebook",
-            "Most of the pages are too burnt\nto read, but somehow one page\nis crystal clear:\n\n\"Our Goddess walks the hills\n in the shadow of the keening star\n and we follow in her path\""
+            "Most of the pages are too burnt\nto read, but somehow one page\nis crystal clear:\n\n%r\"Our Goddess walks the hills\n%r in the shadow of the keening star\n%r and we follow in her path\""
         ],
         [
             "miniature workbench",
@@ -815,7 +815,7 @@
         ],
         [
             "engraved coin",
-            "An ancient coin engraved on both\nsides with a short verse:\n\n\"Yidhra, Dream Witch,\n I am your child.\n Walk with me.\""
+            "An ancient coin engraved on both\nsides with a short verse:\n\n%r\"Yidhra, Dream Witch,\n%r I am your child.\n%r Walk with me.\""
         ]
     ]
 }

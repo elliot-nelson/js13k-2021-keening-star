@@ -82,14 +82,14 @@ strings:
     A small dresser-drawer is sitting in the corner.
   $F_GRAFFITI: |
     The wall is strangely spongy here, more like moss than wallpaper.
-    The phrase "HER CHILDREN" has been spray-painted across the wall.
+    The phrase %rHER CHILDREN %whas been spray-painted across the wall.
   $F_PAINTING1: |
     An oil painting hangs on the wall, out of place in this shabby room. It
     seems to depict a planet being devoured by... something.
-    You feel that the less you look at it, the better.
+    The less you look at it, the better.
   $F_PAINTING2: |
-    A painting used to hang here. %r"AZATHOTH squirms, we will burst from
-    %rthis dimension like locusts on the old ones" %whas been written
+    A painting used to hang here. %rAZATHOTH squirms, we will burst from
+    %rthis dimension like locusts on the old ones %whas been written
     here in thick red marker.
   $F_SHELF1: |
     A rusty garage shelf.
@@ -119,7 +119,7 @@ strings:
     that smells like burning hair covers most of the table.
   $F_VOTIVE: |
     An armoire has been repurposed to hold dozens of votive candles. A message
-    is written on the back panel: "Say her words."
+    is written on the back panel: %rSay her words%w.
     Your spine tingles. You feel like you could recite something here.
   $F_VOTIVE_A: |
     Your voice echoes as you recite the words engraved on the coin.
@@ -163,9 +163,9 @@ strings:
       to read, but somehow one page
       is crystal clear:
 
-      "Our Goddess walks the hills
-       in the shadow of the keening star
-       and we follow in her path"
+      %r"Our Goddess walks the hills
+      %r in the shadow of the keening star
+      %r and we follow in her path"
   $I_DOLL_SCULPTURE:
     - miniature sculpture
     - |
@@ -185,9 +185,9 @@ strings:
       An ancient coin engraved on both
       sides with a short verse:
 
-      "Yidhra, Dream Witch,
-       I am your child.
-       Walk with me."
+      %r"Yidhra, Dream Witch,
+      %r I am your child.
+      %r Walk with me."
   $I_SCREWDRIVER:
     - screwdriver
     - |
@@ -199,18 +199,18 @@ strings:
       A small silver key. A note is
       attached with a piece of twine.
 
-      "N is still here, stay on this
-       side."
+      %r"N is still here, stay on this
+      %r side."
   $I_UNCLE_LETTER:
     - your uncle's letter
     - |
-      "Dearest Emily,
+      %r"Dearest Emily,
 
-       We are all in grave danger and
-       I am running out of time. I
-       cannot explain here but I need
-       your help."
-      [The rest of the letter has been
+      %r We are all in grave danger and
+      %r I am running out of time. I
+      %r cannot explain here but I need
+      your help."
+      %w[The rest of the letter has been
       crossed out and is illegible.]
   $R_CLOSET:
     - SHRINE
@@ -237,7 +237,7 @@ strings:
     - |
       You are in the foyer. The peeling paint and threadbare rugs seem even
       older than the outside of the house.
-      A large dollhouse sits on a pedestal in the far corner of the room.
+      A dollhouse sits on a pedestal in the far corner of the room.
   $R_GARAGE:
     - GARAGE
     - |
