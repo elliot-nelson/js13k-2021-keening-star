@@ -206,6 +206,7 @@ async function packBuild() {
 
     const jsContent = fs.readFileSync('temp/minified/app.js', 'utf8');
 
+    log.info(chalk.green('minified ') + jsContent.length + ' bytes');
     const packer = new Packer([{
         data: jsContent,
         type: 'js',
@@ -214,6 +215,7 @@ async function packBuild() {
     await packer.optimize();
     const { firstLine, secondLine } = packer.makeDecoder();
     const packedJsContent = [firstLine, secondLine].join('\n');
+    log.info(chalk.green('packed   ') + packedJsContent.length + ' bytes');
 
     fs.mkdirSync('temp/packed', { recursive: true });
     fs.writeFileSync('temp/packed/app.js', packedJsContent, 'utf8');
@@ -238,7 +240,7 @@ function buildCss() {
 // -----------------------------------------------------------------------------
 // HTML Build
 // -----------------------------------------------------------------------------
-async function buildHtml() {
+function buildHtml() {
     let filename = dist ? 'temp/packed/app.js' : 'temp/minified/app.js';
     const cssContent = fs.readFileSync('temp/app.css', 'utf8');
     const jsContent = fs.readFileSync(filename, 'utf8');
