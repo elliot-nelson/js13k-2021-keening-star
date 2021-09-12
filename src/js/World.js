@@ -69,7 +69,8 @@ export const World = {
                 visible: floor.tiles.map(row => row.map(c => false)),
                 objects: floor.objects.map(object => ({ id: object[0], x: object[1], y: object[2], type: object[3] })),
                 rooms: floor.rooms.map(room => ({ id: room[0], x: room[1], y: room[2], width: room[3], height: room[4] })),
-                triggers: floor.triggers.map(trigger => ({ ...trigger }))
+                // *COMBAT*
+                //triggers: floor.triggers.map(trigger => ({ ...trigger }))
             };
         });
         this.bounds = WorldData.bounds;
@@ -79,8 +80,10 @@ export const World = {
         for (let floor of this.floors) {
             // "Lift" all objects off the floor, and get their default character
             for (let object of floor.objects) {
-                object.char = String.fromCharCode(floor.tiles[object.y][object.x]);
-                floor.tiles[object.y][object.x] = World.FLOOR;
+                if (object.type !== TYPE_HIDDEN) {
+                    object.char = String.fromCharCode(floor.tiles[object.y][object.x]);
+                    floor.tiles[object.y][object.x] = World.FLOOR;
+                }
             }
         }
     },

@@ -44,11 +44,15 @@ import {
     $F_STATUE_A,
     $F_STATUE_B,
     $F_TABLE,
+    $F_VOTIVE,
+    $F_VOTIVE_A,
+    $F_VOTIVE_B,
     $H_WORKBENCH,
     $H_WORKBENCH_A,
     $H_STATUE2,
     $H_STATUE2_A,
     $H_STATUE2_B,
+    $H_WORDS,
     $I_BURNT_NOTEBOOK,
     $I_DOLL_WORKBENCH,
     $I_DOLL_SCULPTURE,
@@ -58,6 +62,7 @@ import {
     $I_SILVER_KEY,
     $I_UNCLE_LETTER,
     $R_CLOSET,
+    $R_CLOSET_A,
     $R_DRAW,
     $R_DINING,
     $R_GARAGE,
@@ -97,11 +102,11 @@ export class Player {
         World.makeVisible(this.room.id);
 
         // Temporary hack stuff
-        /*this.obtainItem($I_IRON_KNIFE);
-        this.obtainItem($I_BURNT_NOTEBOOK);
+        this.obtainItem($I_IRON_KNIFE);
         this.obtainItem($I_SILVER_KEY);
         this.obtainItem($I_SCREWDRIVER);
-        this.obtainItem($I_DOLL_SCULPTURE);*/
+        this.obtainItem($I_DOLL_SCULPTURE);
+        this.obtainItem($I_ENGRAVED_COIN);
     }
 
     draw() {
@@ -233,6 +238,13 @@ export class Player {
                     object.finished = true;
                     this.sp--;
                     this.obtainItem($I_ENGRAVED_COIN);
+                } else if (object.id === $F_VOTIVE) {
+                    Log.add(World.strings[object.id]);
+                    if (object.interacted) {
+                        this.openInventoryFor(object);
+                    }
+                } else if (object.id === $F_VOTIVE_A) {
+                    this.openInventory
                 } else if (object.id === $H_WORKBENCH) {
                     Log.add(World.strings[object.id]);
                     World.objectsById($H_WORKBENCH, object => {
@@ -320,6 +332,18 @@ export class Player {
             World.objectsById($H_STATUE2, object => {
                 object.type = 0;
                 object.char = '&';
+            });
+        } else if (object.id === $F_VOTIVE && item === $I_ENGRAVED_COIN) {
+            Log.add(World.strings[$F_VOTIVE_A]);
+            this.removeItem($I_ENGRAVED_COIN);
+            object.id = $F_VOTIVE_B;
+            object.finished = true;
+            this.sp -= 4;
+            Screen.smudge = 14;
+            World.strings[$R_CLOSET][1] = World.strings[$R_CLOSET_A][1];
+            World.objectsById($H_WORDS, object => {
+                object.type = TYPE_EXAMINE_ONLY;
+                object.char = '\x91';
             });
         } else {
             Log.add(`%y%0 That doesn't work here.`);

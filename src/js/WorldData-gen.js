@@ -38,26 +38,32 @@ export const $F_STATUE = 32;
 export const $F_STATUE_A = 33;
 export const $F_STATUE_B = 34;
 export const $F_TABLE = 35;
-export const $H_STATUE2 = 36;
-export const $H_STATUE2_A = 37;
-export const $H_STATUE2_B = 38;
-export const $H_WORKBENCH = 39;
-export const $H_WORKBENCH_A = 40;
-export const $I_BURNT_NOTEBOOK = 64;
-export const $I_DOLL_SCULPTURE = 66;
-export const $I_DOLL_WORKBENCH = 65;
-export const $I_ENGRAVED_COIN = 44;
-export const $I_IRON_KNIFE = 61;
-export const $I_SCREWDRIVER = 67;
-export const $I_SILVER_KEY = 62;
-export const $I_UNCLE_LETTER = 63;
-export const $R_CLOSET = 49;
-export const $R_DINING = 50;
-export const $R_DRAW = 51;
-export const $R_FOYER = 52;
-export const $R_GARAGE = 53;
-export const $R_GARAGE_A = 54;
-export const $R_HALLWAY = 55;
+export const $F_VOTIVE = 36;
+export const $F_VOTIVE_A = 37;
+export const $F_VOTIVE_B = 38;
+export const $H_DIG = 39;
+export const $H_STATUE2 = 40;
+export const $H_STATUE2_A = 41;
+export const $H_STATUE2_B = 42;
+export const $H_WORDS = 43;
+export const $H_WORKBENCH = 44;
+export const $H_WORKBENCH_A = 45;
+export const $I_BURNT_NOTEBOOK = 74;
+export const $I_DOLL_SCULPTURE = 76;
+export const $I_DOLL_WORKBENCH = 75;
+export const $I_ENGRAVED_COIN = 49;
+export const $I_IRON_KNIFE = 71;
+export const $I_SCREWDRIVER = 77;
+export const $I_SILVER_KEY = 72;
+export const $I_UNCLE_LETTER = 73;
+export const $R_CLOSET = 54;
+export const $R_CLOSET_A = 55;
+export const $R_DINING = 56;
+export const $R_DRAW = 57;
+export const $R_FOYER = 58;
+export const $R_GARAGE = 59;
+export const $R_GARAGE_A = 60;
+export const $R_HALLWAY = 61;
 /* </generated-constants> */
 
 export const WorldData =
@@ -122,9 +128,9 @@ export const WorldData =
                     129,
                     129,
                     129,
+                    135,
+                    129,
                     134,
-                    32,
-                    32,
                     32,
                     32,
                     32,
@@ -157,9 +163,9 @@ export const WorldData =
                     46,
                     46,
                     93,
-                    137,
-                    129,
-                    134,
+                    128,
+                    168,
+                    128,
                     32,
                     32,
                     32,
@@ -455,67 +461,67 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    53,
+                    59,
                     3,
                     0,
                     8,
                     5
                 ],
                 [
-                    51,
+                    57,
                     25,
                     4,
                     8,
                     6
                 ],
                 [
-                    50,
+                    56,
                     10,
                     3,
                     6,
                     7
                 ],
                 [
-                    55,
+                    61,
                     10,
                     1,
                     10,
                     3
                 ],
                 [
-                    52,
+                    58,
                     15,
                     5,
                     10,
                     6
                 ],
                 [
-                    51,
+                    57,
                     24,
                     4,
                     4,
                     2
                 ],
                 [
-                    50,
+                    56,
                     9,
                     6,
                     2,
                     3
                 ],
                 [
-                    49,
+                    54,
                     15,
                     3,
                     10,
                     2
                 ],
                 [
-                    49,
+                    54,
                     19,
-                    2,
+                    1,
                     3,
-                    2
+                    3
                 ]
             ],
             "objects": [
@@ -613,13 +619,13 @@ export const WorldData =
                     3
                 ],
                 [
-                    39,
+                    44,
                     7,
                     3,
                     3
                 ],
                 [
-                    39,
+                    44,
                     8,
                     3,
                     3
@@ -652,7 +658,7 @@ export const WorldData =
                     4
                 ],
                 [
-                    36,
+                    40,
                     10,
                     7,
                     3
@@ -709,6 +715,23 @@ export const WorldData =
                     35,
                     13,
                     5
+                ],
+                [
+                    36,
+                    20,
+                    2
+                ],
+                [
+                    43,
+                    18,
+                    3,
+                    3
+                ],
+                [
+                    39,
+                    20,
+                    8,
+                    3
                 ]
             ],
             "triggers": [],
@@ -767,9 +790,14 @@ export const WorldData =
         "With a tug, the sculpture releases the knife.\n%y%0 You have obtained iron knife.",
         "A crude, life-sized sculpture of a pregnant woman. One hand rests on her\nbelly.",
         "The dining room table is smashed to splinters. A black, sticky substance\nthat smells like burning hair covers most of the table.",
+        "An armoire has been repurposed to hold dozens of votive candles. A message\nis written on the back panel: \"Say her words.\"\nYour spine tingles. You feel like you could recite something here.",
+        "Your voice echoes as you recite the words engraved on the coin.\nYou shield your eyes as the candles burst into flame, the room lit bright\nas day. Your mind is reeling, grasping for something it can't quite hold.",
+        "An old armoire holding dozens of burning votive candles. Her candles.",
+        0,
         "A life-sized sculpture of a woman. She holds in her arms a creature, all\nlegs, heads, and arms, reaching upwards in celebration.\nOne baby fist is clutching something round and shiny.",
         "You reach carefully through the tangled limbs.\n%y%0 You have obtained engraved coin.",
         "A life-sized sculpture of a woman. She holds in her arms a creature, all\nlegs, heads, and arms, reaching upwards in celebration.",
+        "Your goddess has left instructions on the wall for you. The old passages\nare still alive under the entrance hallway. Your knife will do.",
         "A sturdy wood and metal workbench, littered with debris.\nLying amidst the junk and broken tools, you spot a screwdriver.",
         "A sturdy wood and metal workbench, littered with debris.",
         0,
@@ -786,6 +814,10 @@ export const WorldData =
         [
             "SHRINE",
             "This storage closet has been converted into some kind of shrine. The\nunpainted wooden walls are carved with words, but none of them make\nany sense to you."
+        ],
+        [
+            "SHRINE",
+            "Her shrine. The walls are carved with instructions for her children."
         ],
         [
             "DINING ROOM",
@@ -811,6 +843,10 @@ export const WorldData =
             "CHARRED HALLWAY",
             "There must have been a fire at some point. Soot and grime coat the walls,\nand the air stinks of burnt fabric."
         ],
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,

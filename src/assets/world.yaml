@@ -8,13 +8,13 @@
 #################################################################################
 #   <---                                                                     --->
 items:
-  $I_IRON_KNIFE: 61
-  $I_SILVER_KEY: 62
-  $I_UNCLE_LETTER: 63
-  $I_BURNT_NOTEBOOK: 64
-  $I_DOLL_WORKBENCH: 65
-  $I_DOLL_SCULPTURE: 66
-  $I_SCREWDRIVER: 67
+  $I_IRON_KNIFE: 71
+  $I_SILVER_KEY: 72
+  $I_UNCLE_LETTER: 73
+  $I_BURNT_NOTEBOOK: 74
+  $I_DOLL_WORKBENCH: 75
+  $I_DOLL_SCULPTURE: 76
+  $I_SCREWDRIVER: 77
 strings:
   $D_CLOSET: |
     The door is barred by a metal plate, held in place by a series of screws.
@@ -106,6 +106,16 @@ strings:
   $F_TABLE: |
     The dining room table is smashed to splinters. A black, sticky substance
     that smells like burning hair covers most of the table.
+  $F_VOTIVE: |
+    An armoire has been repurposed to hold dozens of votive candles. A message
+    is written on the back panel: "Say her words."
+    Your spine tingles. You feel like you could recite something here.
+  $F_VOTIVE_A: |
+    Your voice echoes as you recite the words engraved on the coin.
+    You shield your eyes as the candles burst into flame, the room lit bright
+    as day. Your mind is reeling, grasping for something it can't quite hold.
+  $F_VOTIVE_B: |
+    An old armoire holding dozens of burning votive candles. Her candles.
   $H_STATUE2: |
     A life-sized sculpture of a woman. She holds in her arms a creature, all
     legs, heads, and arms, reaching upwards in celebration.
@@ -116,6 +126,9 @@ strings:
   $H_STATUE2_B: |
     A life-sized sculpture of a woman. She holds in her arms a creature, all
     legs, heads, and arms, reaching upwards in celebration.
+  $H_WORDS: |
+    Your goddess has left instructions on the wall for you. The old passages
+    are still alive under the entrance hallway. Your knife will do.
   $H_WORKBENCH: |
     A sturdy wood and metal workbench, littered with debris.
     Lying amidst the junk and broken tools, you spot a screwdriver.
@@ -189,6 +202,10 @@ strings:
       This storage closet has been converted into some kind of shrine. The
       unpainted wooden walls are carved with words, but none of them make
       any sense to you.
+  $R_CLOSET_A:
+    - SHRINE
+    - |
+      Her shrine. The walls are carved with instructions for her children.
   $R_DINING:
     - DINING ROOM
     - |
