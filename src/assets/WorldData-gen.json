@@ -795,7 +795,7 @@
         ],
         [
             "your uncle's letter",
-            "%r\"Dearest Emily,\n\n%r We are all in grave danger and\n%r I am running out of time. I\n%r cannot explain here but I need\nyour help.\"\n%w[The rest of the letter has been\ncrossed out and is illegible.]"
+            "%r\"Dearest Emily,\n\n%r We are all in grave danger and\n%r I am running out of time. I\n%r cannot explain here but I need\n your help.\"\n%w[The rest of the letter has been\ncrossed out and is illegible.]"
         ],
         [
             "half-burnt notebook",

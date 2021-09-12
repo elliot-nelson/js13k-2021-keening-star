@@ -209,7 +209,7 @@ strings:
       %r We are all in grave danger and
       %r I am running out of time. I
       %r cannot explain here but I need
-      your help."
+       your help."
       %w[The rest of the letter has been
       crossed out and is illegible.]
   $R_CLOSET:

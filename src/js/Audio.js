@@ -31,7 +31,7 @@ export const Audio = {
     },
 
     mute(seconds = 1) {
-        this.globalGain.gain.linearRampToValueAtTime(0, this.audioCtx.currentTime + seconds);
+        this.globalGain.gain.linearRampToValueAtTime(0.2, this.audioCtx.currentTime + seconds);
     },
 
     unmute(seconds = 1) {
