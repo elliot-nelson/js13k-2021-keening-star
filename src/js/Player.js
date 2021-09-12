@@ -105,13 +105,6 @@ export class Player {
         this.room = World.roomAt(this.pos);
         Log.add(World.strings[this.room.id][1]);
         World.makeVisible(this.room.id);
-
-        // Temporary hack stuff
-        this.obtainItem($I_IRON_KNIFE);
-        this.obtainItem($I_SILVER_KEY);
-        this.obtainItem($I_SCREWDRIVER);
-        this.obtainItem($I_DOLL_SCULPTURE);
-        this.obtainItem($I_ENGRAVED_COIN);
     }
 
     draw() {

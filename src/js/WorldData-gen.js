@@ -30,43 +30,44 @@ export const $F_DRAWER1 = 24;
 export const $F_DRAWER1_A = 25;
 export const $F_GRAFFITI = 26;
 export const $F_PAINTING1 = 27;
-export const $F_SHELF1 = 28;
-export const $F_SHELF2 = 29;
-export const $F_SHELF3 = 30;
-export const $F_SHELF3_A = 31;
-export const $F_SHELF4 = 32;
-export const $F_STAIR1 = 33;
-export const $F_STATUE = 34;
-export const $F_STATUE_A = 35;
-export const $F_STATUE_B = 36;
-export const $F_TABLE = 37;
-export const $F_VOTIVE = 38;
-export const $F_VOTIVE_A = 39;
-export const $F_VOTIVE_B = 40;
-export const $H_DIG = 41;
-export const $H_DIG_A = 42;
-export const $H_STATUE2 = 43;
-export const $H_STATUE2_A = 44;
-export const $H_STATUE2_B = 45;
-export const $H_WORDS = 46;
-export const $H_WORKBENCH = 47;
-export const $H_WORKBENCH_A = 48;
+export const $F_PAINTING2 = 28;
+export const $F_SHELF1 = 29;
+export const $F_SHELF2 = 30;
+export const $F_SHELF3 = 31;
+export const $F_SHELF3_A = 32;
+export const $F_SHELF4 = 33;
+export const $F_STAIR1 = 34;
+export const $F_STATUE = 35;
+export const $F_STATUE_A = 36;
+export const $F_STATUE_B = 37;
+export const $F_TABLE = 38;
+export const $F_VOTIVE = 39;
+export const $F_VOTIVE_A = 40;
+export const $F_VOTIVE_B = 41;
+export const $H_DIG = 42;
+export const $H_DIG_A = 43;
+export const $H_STATUE2 = 44;
+export const $H_STATUE2_A = 45;
+export const $H_STATUE2_B = 46;
+export const $H_WORDS = 47;
+export const $H_WORKBENCH = 48;
+export const $H_WORKBENCH_A = 49;
 export const $I_BURNT_NOTEBOOK = 74;
 export const $I_DOLL_SCULPTURE = 76;
 export const $I_DOLL_WORKBENCH = 75;
-export const $I_ENGRAVED_COIN = 52;
+export const $I_ENGRAVED_COIN = 78;
 export const $I_IRON_KNIFE = 71;
 export const $I_SCREWDRIVER = 77;
 export const $I_SILVER_KEY = 72;
 export const $I_UNCLE_LETTER = 73;
-export const $R_CLOSET = 57;
-export const $R_CLOSET_A = 58;
-export const $R_DINING = 59;
-export const $R_DRAW = 60;
-export const $R_FOYER = 61;
-export const $R_GARAGE = 62;
-export const $R_GARAGE_A = 63;
-export const $R_HALLWAY = 64;
+export const $R_CLOSET = 58;
+export const $R_CLOSET_A = 59;
+export const $R_DINING = 60;
+export const $R_DRAW = 61;
+export const $R_FOYER = 62;
+export const $R_GARAGE = 63;
+export const $R_GARAGE_A = 64;
+export const $R_HALLWAY = 65;
 /* </generated-constants> */
 
 export const WorldData =
@@ -262,7 +263,7 @@ export const WorldData =
                     32,
                     32,
                     32,
-                    128,
+                    144,
                     46,
                     35,
                     37,
@@ -464,63 +465,63 @@ export const WorldData =
             ],
             "rooms": [
                 [
-                    62,
+                    63,
                     3,
                     0,
                     8,
                     5
                 ],
                 [
-                    60,
+                    61,
                     25,
                     4,
                     8,
                     6
                 ],
                 [
-                    59,
+                    60,
                     10,
                     3,
                     6,
                     7
                 ],
                 [
-                    64,
+                    65,
                     10,
                     1,
                     10,
                     3
                 ],
                 [
-                    61,
+                    62,
                     15,
                     5,
                     10,
                     6
                 ],
                 [
-                    60,
+                    61,
                     24,
                     4,
                     4,
                     2
                 ],
                 [
-                    59,
+                    60,
                     9,
                     6,
                     2,
                     3
                 ],
                 [
-                    57,
+                    58,
                     15,
                     3,
                     10,
                     2
                 ],
                 [
-                    57,
+                    58,
                     19,
                     1,
                     3,
@@ -563,7 +564,7 @@ export const WorldData =
                     2
                 ],
                 [
-                    28,
+                    29,
                     6,
                     3,
                     4
@@ -575,13 +576,13 @@ export const WorldData =
                     2
                 ],
                 [
-                    33,
+                    34,
                     16,
                     6,
                     4
                 ],
                 [
-                    34,
+                    35,
                     31,
                     7
                 ],
@@ -591,13 +592,13 @@ export const WorldData =
                     2
                 ],
                 [
-                    29,
+                    30,
                     25,
                     5,
                     4
                 ],
                 [
-                    30,
+                    31,
                     26,
                     5
                 ],
@@ -622,13 +623,13 @@ export const WorldData =
                     3
                 ],
                 [
-                    47,
+                    48,
                     7,
                     3,
                     3
                 ],
                 [
-                    47,
+                    48,
                     8,
                     3,
                     3
@@ -655,13 +656,13 @@ export const WorldData =
                     4
                 ],
                 [
-                    32,
+                    33,
                     30,
                     5,
                     4
                 ],
                 [
-                    43,
+                    44,
                     10,
                     7,
                     3
@@ -690,51 +691,57 @@ export const WorldData =
                     2
                 ],
                 [
-                    37,
+                    38,
                     13,
                     7
                 ],
                 [
-                    37,
+                    38,
                     12,
-                    5
-                ],
-                [
-                    37,
-                    13,
-                    6
-                ],
-                [
-                    37,
-                    12,
-                    7
-                ],
-                [
-                    37,
-                    12,
-                    6
-                ],
-                [
-                    37,
-                    13,
                     5
                 ],
                 [
                     38,
+                    13,
+                    6
+                ],
+                [
+                    38,
+                    12,
+                    7
+                ],
+                [
+                    38,
+                    12,
+                    6
+                ],
+                [
+                    38,
+                    13,
+                    5
+                ],
+                [
+                    39,
                     20,
                     2
                 ],
                 [
-                    46,
+                    47,
                     18,
                     3,
                     3
                 ],
                 [
-                    41,
+                    42,
                     20,
                     8,
                     3
+                ],
+                [
+                    28,
+                    10,
+                    5,
+                    4
                 ]
             ],
             "triggers": [],
@@ -785,6 +792,7 @@ export const WorldData =
         "A small dresser-drawer is sitting in the corner.",
         "The wall is strangely spongy here, more like moss than wallpaper.\nThe phrase \"HER CHILDREN\" has been spray-painted across the wall.",
         "An oil painting hangs on the wall, out of place in this shabby room. It\nseems to depict a planet being devoured by... something.\nYou feel that the less you look at it, the better.",
+        "A painting used to hang here. %r\"AZATHOTH squirms, we will burst from\n%rthis dimension like locusts on the old ones\" %whas been written\nhere in thick red marker.",
         "A rusty garage shelf.",
         "The shelf is covered with dust, but not much else.",
         "Someone has touched this shelf recently, the dust is noticeably absent.\nA realistic miniature workbench rests on the shelf.",
@@ -809,10 +817,7 @@ export const WorldData =
         0,
         0,
         0,
-        [
-            "engraved coin",
-            "An ancient coin engraved on both\nsides with a short verse:\n\n\"Yidhra, Dream Witch,\n I am your child.\n Walk with me.\""
-        ],
+        0,
         0,
         0,
         0,
@@ -854,7 +859,6 @@ export const WorldData =
         0,
         0,
         0,
-        0,
         [
             "iron knife",
             "A large iron knife etched with\ntiny symbols. It feels heavy\nin your hand."
@@ -882,6 +886,10 @@ export const WorldData =
         [
             "screwdriver",
             "A rusty, but still functional,\ncrosshead screwdriver."
+        ],
+        [
+            "engraved coin",
+            "An ancient coin engraved on both\nsides with a short verse:\n\n\"Yidhra, Dream Witch,\n I am your child.\n Walk with me.\""
         ]
     ]
 }

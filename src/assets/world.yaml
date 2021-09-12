@@ -15,6 +15,7 @@ items:
   $I_DOLL_WORKBENCH: 75
   $I_DOLL_SCULPTURE: 76
   $I_SCREWDRIVER: 77
+  $I_ENGRAVED_COIN: 78
 strings:
   $D_CLOSET: |
     The door is barred by a metal plate, held in place by a series of screws.
@@ -86,6 +87,10 @@ strings:
     An oil painting hangs on the wall, out of place in this shabby room. It
     seems to depict a planet being devoured by... something.
     You feel that the less you look at it, the better.
+  $F_PAINTING2: |
+    A painting used to hang here. %r"AZATHOTH squirms, we will burst from
+    %rthis dimension like locusts on the old ones" %whas been written
+    here in thick red marker.
   $F_SHELF1: |
     A rusty garage shelf.
   $F_SHELF2: |
