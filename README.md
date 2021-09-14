@@ -143,7 +143,9 @@ I ended up adding [roadroller](https://lifthrasiir.github.io/roadroller/) into m
 I tried several different ways of manually compressing / streamlining some of my patterned data, like the audio
 music tracks and the map tile data, but typically my efforts would net me _maybe_ 50-100 bytes back, whereas
 roadroller could squeeze out another 1000 bytes. It turned out better to just let roadroller take care of the final
-squeeze -- it's an impressive tool!
+"packing" -- it's an impressive tool!
+
+![Gulp build](docs/build.jpg)
 
 ### Final thoughts
 
