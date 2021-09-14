@@ -57,6 +57,12 @@ to use the iron knife on a door, and even if it's the only and obvious choice, i
 (This is a trick Resident Evil uses well I find -- even though almost all doors and mechanisms have exactly one obvious way
 to use them, you still feel an "aha!" moment when you find the matching key or matching lever and backtrack to use it.)
 
+Another thing I picked up from RE8 in particular was the idea of color-coding interactable objects. By coloring objects
+you haven't investigated yet as blue, items you've investigated but aren't finished with as yellow, and objects that
+are no longer interesting as gray, it takes a lot of the guesswork out for the player -- they don't have to remember which
+shelf they looked at or which doors haven't been unlocked yet. Without the color coding the game would be "harder" --
+but only in a way that annoys the player, not in a way that adds any kind of gameplay.
+
 With about a week left in the competition, I realized I had to make some deep cuts, and I chose to implement an actual
 story-based introduction (welcome screen) and outro (goodbye screen), and to connect the puzzles together a little more, making
 a very short but consistent adventure game. I had to drop the "hit and miss" D&D combat I had planned, as well as plans for other
