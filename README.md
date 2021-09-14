@@ -57,6 +57,8 @@ to use the iron knife on a door, and even if it's the only and obvious choice, i
 (This is a trick Resident Evil uses well I find -- even though almost all doors and mechanisms have exactly one obvious way
 to use them, you still feel an "aha!" moment when you find the matching key or matching lever and backtrack to use it.)
 
+![You need some kind of other item](docs/re8-some-kind-of-item.jpg)
+
 Another thing I picked up from RE8 in particular was the idea of color-coding interactable objects. By coloring objects
 you haven't investigated yet as blue, items you've investigated but aren't finished with as yellow, and objects that
 are no longer interesting as gray, it takes a lot of the guesswork out for the player -- they don't have to remember which
