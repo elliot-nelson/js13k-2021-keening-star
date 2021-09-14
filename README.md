@@ -82,7 +82,7 @@ For fun I named my variant "Bizcat Knife", due to its more jagged appearance, al
 (Typically your font is vying with your other art assets for space, and 8x16 for every character is a lot of art, 4x5-5x6
 is more typical for a pixelated font in js13k.)
 
-![Bizcat Knife in action](docs/knife.jpg)
+![Bizcat Knife in action](docs/font.jpg)
 
 ### World building
 
