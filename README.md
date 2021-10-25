@@ -36,7 +36,7 @@ gulp build --dist
 
 ## CHANGELOG
 
-#### v1.0.0 (2021-09-13)
+#### [v1.0.0](https://github.com/elliot-nelson/js13k-2021-keening-star/releases/tag/v1.0.0) (2021-09-13)
 
  - Final version for game jam.
 
