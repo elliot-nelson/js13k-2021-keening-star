@@ -34,6 +34,12 @@ gulp build --dist
 
 (Distribution build takes another ~15 seconds.)
 
+## CHANGELOG
+
+#### v1.0.0 (2021-09-13)
+
+ - Final version for game jam.
+
 ## POST MORTEM
 
 ### Inspiration
