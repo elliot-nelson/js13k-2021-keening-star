@@ -1,11 +1,16 @@
 // World
 
 import { FLICKER_FRAME_1, STATUS_COL, TYPE_HIDDEN } from './Constants';
+import { FieldOfView } from './FieldOfView';
 import { Game } from './Game';
 import { Screen } from './Screen';
 import { WorldData } from './WorldData-gen';
 
 export const World = {
+    SEE_THROUGH: [
+        46 // '.'
+    ],
+
     FLOOR: 46, // '.'
 
     init() {
@@ -67,6 +72,7 @@ export const World = {
             return {
                 tiles: floor.tiles.map(row => [...row]),
                 visible: floor.tiles.map(row => row.map(c => false)),
+                seen: floor.tiles.map(row => row.map(c => false)),
                 objects: floor.objects.map(object => ({ id: object[0], x: object[1], y: object[2], type: object[3] })),
                 rooms: floor.rooms.map(room => ({ id: room[0], x: room[1], y: room[2], width: room[3], height: room[4] })),
                 // *COMBAT*
@@ -146,17 +152,13 @@ export const World = {
         return tile === '.' ? Screen.DIM : Screen.WHITE;
     },
 
-    makeVisible(roomId) {
-        for (let floor of this.floors) {
-            for (let room of floor.rooms) {
-                if (room.id === roomId) {
-                    for (let y = room.y; y < room.y + room.height; y++) {
-                        for (let x = room.x; x < room.x + room.width; x++) {
-                            floor.visible[y][x] = true;
-                        }
-                    }
-                }
-            }
-        }
+    isSeeThrough(pos) {
+        return this.SEE_THROUGH.includes(this.floors[pos.z].tiles[pos.y][pos.x]);
     },
+
+    refreshVisible(pos) {
+        const floor = this.floors[pos.z];
+        FieldOfView.resetVisible(floor.visible);
+        FieldOfView.refreshVisible(pos, floor.visible, floor.seen);
+    }
 };

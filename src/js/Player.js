@@ -97,6 +97,7 @@ export class Player {
 
         // The player starts with the uncle's letter.
         this.obtainItem($I_UNCLE_LETTER);
+        this.obtainItem($I_IRON_KNIFE);
 
         // The foyer door is locked.
         World.objectsById($D_FOYER, object => object.finished = true);
@@ -104,7 +105,9 @@ export class Player {
         // The player is in the foyer (starting room).
         this.room = World.roomAt(this.pos);
         Log.add(World.strings[this.room.id][1]);
-        World.makeVisible(this.room.id);
+
+        // Initial visibility
+        World.refreshVisible(this.pos);
     }
 
     draw() {
@@ -158,12 +161,10 @@ export class Player {
                     }
                 } else if (object.id === $D_DRAW) {
                     this.openDoor(object);
-                    World.makeVisible($R_DRAW);
                 } else if (object.id === $D_KITCHEN) {
                     Log.add(World.strings[object.id]);
                 } else if (object.id === $D_GARAGE) {
                     this.openDoor(object);
-                    World.makeVisible($R_GARAGE);
                 } else if (object.id === $D_GARAGED) {
                     Log.add(World.strings[object.id]);
                     this.sp -= 3;
@@ -171,7 +172,6 @@ export class Player {
                     World.objectsById($D_GARAGED, object => object.finished = true);
                 } else if (object.id === $D_HALLWAY) {
                     this.openDoor(object);
-                    World.makeVisible($R_HALLWAY);
                 } else if (object.id === $D_STUDY) {
                     Log.add(World.strings[object.id]);
                 } else if (object.id === $F_ALTAR) {
@@ -295,6 +295,8 @@ export class Player {
 
     moveInto(pos, updateRoom) {
         this.pos = pos;
+        World.refreshVisible(this.pos);
+
         //this.df = flood(this.pos);
         if (updateRoom) {
             // This is a cheap, easy way to make doors part of "both rooms" - when you step
@@ -317,10 +319,8 @@ export class Player {
         if (object.id === $D_CLOSET && item === $I_SCREWDRIVER) {
             this.openDoor(object, $D_CLOSET_OPEN);
             this.sp -= 3;
-            World.makeVisible($R_CLOSET);
         } else if (object.id === $D_DINING && item === $I_IRON_KNIFE) {
             this.openDoor(object, $D_DINING_OPEN);
-            World.makeVisible($R_DINING);
         } else if (object.id === $F_DOLLHOUSE && item === $I_SILVER_KEY) {
             Log.add(World.strings[$F_DOLLHOUSE_A]);
             object.id = $F_DOLLHOUSE_B;

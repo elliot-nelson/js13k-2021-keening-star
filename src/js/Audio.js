@@ -26,7 +26,7 @@ export const Audio = {
 
             this.music = this.cart.music();
             this.music.connect(this.globalGain);
-            this.music.start();
+            //this.music.start();
         }, 1);
     },
 
