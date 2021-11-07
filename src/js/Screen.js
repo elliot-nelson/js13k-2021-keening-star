@@ -21,16 +21,39 @@ const smudgeOffset = () => {
 */
 
 export const Screen = {
-    // Terminal color codes
-    DIM:     0x00,
-    RED:     0x01,
-    GREEN:   0x02,
-    YELLOW:  0x03,
-    BLUE:    0x04,
-    MAGENTA: 0x05,
-    CYAN:    0x06,
-    WHITE:   0x07,
-    BRIGHT:  0x08,
+    // Terminal color "codes". In general, colors come in groups of 3,
+    // a primary color and then some darker shades to be used when drawing
+    // what the player can see.
+    BRIGHT:        1,
+    BRIGHT2:       2, // N/A
+    BRIGHT3:       3, // N/A
+    WHITE:         4,
+    WHITE2:        5,
+    WHITE3:        6,
+    DIM:           7,
+    DIM2:          8, // N/A
+    DIM3:          9, // N/A
+    SHADOW:       10,
+    SHADOW2:      11, // N/A
+    SHADOW3:      12, // N/A
+    RED:          13,
+    RED2:         14,
+    RED3:         15,
+    GREEN:        16,
+    GREEN2:       17,
+    GREEN3:       18,
+    BLUE:         19,
+    BLUE2:        20,
+    BLUE3:        21,
+    YELLOW:       22,
+    YELLOW2:      23,
+    YELLOW3:      24,
+    PURPLE:       25,
+    PURPLE2:      26,
+    PURPLE3:      27,
+    DARK_PURPLE:  28,
+    DARK_PURPLE2: 29,
+    DARK_PURPLE3: 30,
 
     // Useful character codes
     SPACE:   0x20,
@@ -41,14 +64,64 @@ export const Screen = {
         this.clear();
 
         // Terminal color names to hex color mappings
+        //
+        // Primary colors are from the palette ENDESGA 32:
+        //   https://lospec.com/palette-list/endesga-32
+        //
+        // The DIM and DIMMER varieties are obtained using the chroma-js library,
+        // with a 5-stop scale from the color to black, e.g.:
+        //
+        //   chroma.scale(['#733e39', '#000000']).mode('lab').colors(5)
+        //
+        // After generating the 5 colors, the first 3 entries are the primary,
+        // dim, and dimmer color varieties.
+        //
+        // For white, it is 8 stops and take the first 5 entries.
+        //
         Screen.COLORS = {
-            [Screen.DIM]:                   rgba(144, 144, 144, 1),
-            [Screen.RED]:                   rgba(214, 69,  46,  1),
-            [Screen.GREEN]:                 rgba(151, 216, 122, 1),
-            [Screen.YELLOW]:                rgba(238, 212, 83,  1),
-            [Screen.BLUE]:                  rgba(70,  151, 226, 1),
-            [Screen.WHITE]:                 rgba(214, 214, 214, 1),
-            [Screen.WHITE | Screen.BRIGHT]: rgba(255, 255, 255, 1)
+            [Screen.BRIGHT]:       '#ffffff',
+            [Screen.BRIGHT2]:      '#ffffff',
+            [Screen.BRIGHT3]:      '#ffffff',
+
+            [Screen.WHITE]:        '#d6d6d6',
+            [Screen.WHITE2]:       '#afafaf',
+            [Screen.WHITE3]:       '#898989',
+
+            [Screen.DIM]:          '#656565',
+            [Screen.DIM2]:         '#656565',
+            [Screen.DIM3]:         '#656565',
+
+            [Screen.SHADOW]:       '#262b44',
+            [Screen.SHADOW2]:      '#262b44',
+            [Screen.SHADOW3]:      '#262b44',
+
+            [Screen.RED]:          '#e43b44',
+            [Screen.RED2]:         '#a73134',
+            [Screen.RED3]:         '#6d2525',
+
+            [Screen.GREEN]:        '#63c74d',
+            [Screen.GREEN2]:       '#4c913b',
+            [Screen.GREEN3]:       '#355f2a',
+
+            [Screen.BLUE]:         '#0099db',
+            [Screen.BLUE2]:        '#1c709f',
+            [Screen.BLUE3]:        '#1d4a67',
+
+            [Screen.YELLOW]:       '#fee761',
+            [Screen.YELLOW2]:      '#b8a84a',
+            [Screen.YELLOW3]:      '#776c33',
+
+            [Screen.PURPLE]:       '#b55088',
+            [Screen.PURPLE2]:      '#853d64',
+            [Screen.PURPLE3]:      '#572b43',
+
+            [Screen.DARK_PURPLE]:  '#68386c',
+            [Screen.DARK_PURPLE2]: '#4e2c51',
+            [Screen.DARK_PURPLE3]: '#352037',
+
+            [Screen.BROWN]:        '#733e39',
+            [Screen.BROWN2]:       '#56302c',
+            [Screen.BROWN3]:       '#3a221f',
         };
     },
 
